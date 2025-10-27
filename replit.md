@@ -13,6 +13,17 @@ Create a professional, responsive website for Shall's Construction that showcase
 
 ## Recent Changes
 
+### October 27, 2025 - SEO Enhancement Phase
+- Installed and configured react-helmet-async for dynamic meta tags
+- Created comprehensive JSON-LD schema system (LocalBusiness, FAQPage, BreadcrumbList)
+- Added SEO metadata to all existing pages with unique titles and descriptions
+- Created 6 location-specific landing pages (Bethesda, Rockville, Silver Spring, Baltimore, Gaithersburg, DC Metro)
+- Generated sitemap.xml with all 11 pages
+- Created robots.txt with sitemap reference
+- Added property manager-focused FAQs to all pages
+- Implemented strategic internal linking structure
+- Updated all content to align with commercial property management focus
+
 ### October 27, 2025 - Initial Build
 - Implemented complete 5-page website with professional design
 - Created all frontend components with responsive layouts
@@ -105,14 +116,26 @@ client/
     components/
       Navigation.tsx - Header with desktop/mobile nav
       Footer.tsx - Multi-column footer with contact info
+      SEO.tsx - React Helmet wrapper for meta tags and schema
     pages/
       Home.tsx - Landing page with hero and service cards
       WhatWeDo.tsx - Service detail sections
       WhoWeServe.tsx - Client showcase
       Articles.tsx - Blog listing
       Contact.tsx - Contact form
-    App.tsx - Router configuration
+      ServiceAreas/
+        BethesdaMD.tsx - Bethesda location landing page
+        RockvilleMD.tsx - Rockville location landing page
+        SilverSpringMD.tsx - Silver Spring location landing page
+        BaltimoreMD.tsx - Baltimore location landing page
+        GaithersburgMD.tsx - Gaithersburg location landing page
+        DCMetro.tsx - DC Metro region landing page
+    lib/
+      schema.ts - JSON-LD generation utilities
+      queryClient.ts - React Query configuration
+    App.tsx - Router configuration with all routes
     index.css - Global styles and CSS variables
+    main.tsx - App entry with HelmetProvider
 server/
   routes.ts - API endpoints
   storage.ts - In-memory data storage
@@ -120,6 +143,9 @@ shared/
   schema.ts - TypeScript types and Zod schemas
 attached_assets/
   generated_images/ - AI-generated service photos
+public/
+  sitemap.xml - XML sitemap for search engines
+  robots.txt - Search engine crawler directives
 ```
 
 ## User Preferences
@@ -157,12 +183,40 @@ Baltimore, Bethesda, Bowie, Chevy Chase, Clarksburg, Columbia, Frederick, Gaithe
 - Form validation working
 - No console errors or warnings
 
+## SEO Features Implemented
+
+### JSON-LD Schema Markup
+- **LocalBusiness Schema**: On all pages with complete NAP data (Name, Address, Phone)
+- **FAQPage Schema**: Property manager-focused Q&As on Home, What We Do, Who We Serve, and all location pages
+- **BreadcrumbList Schema**: Navigation hierarchy on all pages for better SERP display
+- **Service Areas**: Defined in schema covering all MD/VA/DC locations
+
+### Location Landing Pages (6)
+Each location page includes:
+- Location-specific H1 and content
+- Service list with local context
+- 2 location-specific FAQs
+- Links to main service pages
+- LocalBusiness schema with single area served
+- Unique meta titles and descriptions
+
+### Technical SEO
+- Dynamic meta tags via react-helmet-async
+- Unique titles (50-60 chars) and descriptions (150-160 chars) per page
+- Open Graph and Twitter Card tags
+- Canonical URLs
+- XML sitemap with all 11 pages
+- Robots.txt with sitemap reference
+- Proper heading hierarchy (one H1 per page)
+
 ## Next Phase Features (Future)
 
-- Backend email notifications for contact submissions
+- Image optimization (webp conversion, lazy loading)
+- Backend email notifications for contact submissions (Resend integration)
 - Full blog/article management system
 - Individual article detail pages
 - Image gallery for completed projects
 - Service request/quote form
 - Testimonials section with client reviews
-- Integration with email service (SendGrid/Resend)
+- Service Areas dropdown in navigation
+- Lighthouse performance audit and optimization

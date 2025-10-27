@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 import { Calendar, ArrowRight } from "lucide-react";
 import { type Article } from "@shared/schema";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -10,8 +12,20 @@ export default function Articles() {
     queryKey: ["/api/articles"],
   });
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Articles", url: "/articles" },
+  ];
+
+  const schemas = [generateBreadcrumbSchema(breadcrumbs)];
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Property Management Articles & Tips"
+        description="Helpful articles for property managers covering maintenance, regulations, tips, and trends. Stay informed about best practices for managing your commercial properties."
+        schemas={schemas}
+      />
       <Navigation />
 
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">

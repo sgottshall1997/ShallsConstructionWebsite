@@ -4,6 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,6 +25,13 @@ import { apiRequest, queryClient } from "@/lib/queryClient";
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Contact Us", url: "/contact" },
+  ];
+
+  const schemas = [generateBreadcrumbSchema(breadcrumbs)];
 
   const form = useForm<InsertContactSubmission>({
     resolver: zodResolver(insertContactSubmissionSchema),
@@ -83,6 +92,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Contact Us | Get a Quote"
+        description="Contact Shall's Construction for commercial construction and maintenance services in MD, VA, and DC. Call (301) 933-6277 or fill out our form. 24/7 emergency response available."
+        schemas={schemas}
+      />
       <Navigation />
 
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">

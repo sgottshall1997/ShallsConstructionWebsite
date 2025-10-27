@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { CheckCircle2 } from "lucide-react";
 import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.png";
 import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.png";
@@ -32,8 +34,34 @@ export default function WhatWeDo() {
     "Over 25 Years Experience",
   ];
 
+  const faqs = [
+    {
+      question: "What commercial construction services do you provide?",
+      answer: "We provide comprehensive commercial services including construction & remodeling, handyman services, painting, exterior building services, parking lot maintenance, and snow removal. All work is performed by our in-house team.",
+    },
+    {
+      question: "Do you work around occupied tenants?",
+      answer: "Yes, we specialize in working around in-place tenants with minimal disruptions. We plan our work efficiently so tenants may not even know we're on-site. This is essential for property managers who can't afford downtime.",
+    },
+  ];
+
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "What We Do", url: "/what-we-do" },
+  ];
+
+  const schemas = [
+    generateFAQSchema(faqs),
+    generateBreadcrumbSchema(breadcrumbs),
+  ];
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Commercial Construction Services | What We Do"
+        description="Comprehensive commercial construction and maintenance services for property managers. Construction, handyman, painting, exterior services, parking lots, and snow removal across MD, VA, and DC."
+        schemas={schemas}
+      />
       <Navigation />
 
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">

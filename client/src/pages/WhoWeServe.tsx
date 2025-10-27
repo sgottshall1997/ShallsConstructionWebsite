@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { Building2, CheckCircle2 } from "lucide-react";
 
 export default function WhoWeServe() {
@@ -19,8 +21,34 @@ export default function WhoWeServe() {
     "Quality craftsmanship guaranteed",
   ];
 
+  const faqs = [
+    {
+      question: "Why do property managers choose Shall's Construction?",
+      answer: "Property managers choose us because we were built specifically for their needs. We understand the challenges of managing multiple projects, budgets, and schedules. With 100% in-house staff and 25+ years of experience, we provide reliable, consistent service.",
+    },
+    {
+      question: "What types of properties do you work on?",
+      answer: "We serve commercial retail & office, schools & universities, apartments & HOAs, hospitals & medical suites, corporate & government facilities, and multi-family housing throughout the MD/VA/DC region.",
+    },
+  ];
+
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Who We Serve", url: "/who-we-serve" },
+  ];
+
+  const schemas = [
+    generateFAQSchema(faqs),
+    generateBreadcrumbSchema(breadcrumbs),
+  ];
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Property Management Services | Who We Serve"
+        description="Trusted by leading property management companies including Associa, Comsource, and American Community Management. Serving commercial properties across MD, VA, and DC for over 25 years."
+        schemas={schemas}
+      />
       <Navigation />
 
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">
