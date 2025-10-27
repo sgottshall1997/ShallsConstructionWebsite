@@ -15,7 +15,7 @@ export default function WhoWeServe() {
   const benefits = [
     "24/7 emergency response",
     "100% of work performed by in-house staff",
-    "Over 25 years of industry experience",
+    "Over 30+ years of industry experience",
     "Comprehensive commercial services",
     "Minimal disruption to tenants",
     "Quality craftsmanship guaranteed",
@@ -24,11 +24,11 @@ export default function WhoWeServe() {
   const faqs = [
     {
       question: "Why do property managers choose Shall's Construction?",
-      answer: "Property managers choose us because we were built specifically for their needs. We understand the challenges of managing multiple projects, budgets, and schedules. With 100% in-house staff and 25+ years of experience, we provide reliable, consistent service.",
+      answer: "Property managers choose us because we were built specifically for their needs. We understand the challenges of managing multiple projects, budgets, and schedules. With 100% in-house staff and 30+ years of experience, we provide reliable, consistent service.",
     },
     {
       question: "What types of properties do you work on?",
-      answer: "We serve commercial retail & office, schools & universities, apartments & HOAs, hospitals & medical suites, corporate & government facilities, and multi-family housing throughout the MD/VA/DC region.",
+      answer: "We serve commercial retail & office, schools & universities, apartments & HOAs, hospitals & medical suites, corporate & government facilities, and multi-family housing throughout the MD/VA/DC/DE region.",
     },
   ];
 
@@ -46,7 +46,7 @@ export default function WhoWeServe() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Property Management Services | Who We Serve"
-        description="Trusted by leading property management companies including Associa, Comsource, and American Community Management. Serving commercial properties across MD, VA, and DC for over 25 years."
+        description="Trusted by leading property management companies including Associa, Comsource, and American Community Management. Serving commercial properties across MD, VA, DC, and DE for over 30+ years. Licensed in Maryland, Virginia, DC, and Delaware."
         schemas={schemas}
       />
       <Navigation />
@@ -58,7 +58,7 @@ export default function WhoWeServe() {
           </h1>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            For over two decades, Shall's Construction has earned a reputation for helping property managers
+            For over 30+ years, Shall's Construction has earned a reputation for helping property managers
             with their commercial renovation, repair, and maintenance needs — both large and small.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function WhoWeServe() {
               <p className="text-gray-600 leading-relaxed">
                 That's why Shall's Construction was built specifically to serve your needs. We're not just
                 another contractor—we're your dedicated resource for all commercial construction, repair, and
-                maintenance needs across the MD/VA/DC region.
+                maintenance needs across the MD/VA/DC/DE region.
               </p>
             </div>
             <div className="bg-primary/5 rounded-lg p-8">

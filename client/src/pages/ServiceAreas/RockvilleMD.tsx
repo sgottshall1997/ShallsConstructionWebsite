@@ -19,7 +19,7 @@ export default function RockvilleMD() {
   const faqs = [
     {
       question: "Are you familiar with Rockville's building codes and permit requirements?",
-      answer: "Absolutely. We've been serving Rockville property managers for over 25 years and have extensive experience with City of Rockville and Montgomery County permit processes, building codes, and inspection requirements.",
+      answer: "Absolutely. We've been serving Rockville property managers for over 30+ years and have extensive experience with City of Rockville and Montgomery County permit processes, building codes, and inspection requirements.",
     },
     {
       question: "Can you handle projects in Rockville Town Center and King Farm?",
@@ -45,7 +45,7 @@ export default function RockvilleMD() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction in Rockville, MD | Property Management Services"
-        description="Professional commercial construction and maintenance for property managers in Rockville, MD. Serving Rockville Town Center, King Farm, and all of Montgomery County. Call (301) 933-6277."
+        description="Professional commercial construction and maintenance for property managers in Rockville, MD. Over 30+ years of experience. Licensed in MD/VA/DC/DE. Serving Rockville Town Center, King Farm, and all of Montgomery County. Call (301) 933-6277."
         schemas={schemas}
       />
       <Navigation />
@@ -61,7 +61,7 @@ export default function RockvilleMD() {
           </h1>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
-            Shall's Construction has served Rockville property managers for over 25 years, from Rockville Town Center to
+            Shall's Construction has served Rockville property managers for over 30+ years, from Rockville Town Center to
             King Farm and beyond. We're your local partner for all commercial construction and maintenance needs.
           </p>
         </div>

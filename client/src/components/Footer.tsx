@@ -19,6 +19,7 @@ export default function Footer() {
     { name: "Arlington", url: null },
     { name: "Fairfax", url: null },
     { name: "Annapolis", url: null },
+    { name: "Delaware", url: null },
     { name: "DC Metro", url: "/service-areas/dc-metro" },
   ];
 
@@ -46,7 +47,7 @@ export default function Footer() {
               <h3 className="text-xl font-heading font-bold">Shall's Construction</h3>
               <img
                 src={anniversaryBadge}
-                alt="25 Years"
+                alt="30+ Years"
                 className="h-12 w-12"
                 data-testid="img-footer-badge"
               />
@@ -55,7 +56,7 @@ export default function Footer() {
               We make your life easier while enhancing your tenants' experience.
             </p>
             <p className="text-gray-400 text-sm mt-4">
-              Celebrating 25 Years in Business
+              Celebrating 30+ Years in Business
             </p>
           </div>
 

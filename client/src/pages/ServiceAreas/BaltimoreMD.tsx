@@ -45,7 +45,7 @@ export default function BaltimoreMD() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction in Baltimore, MD | Property Management Services"
-        description="Professional commercial construction and maintenance for Baltimore property managers. Over 25 years of experience serving Baltimore City and County. Call (301) 933-6277."
+        description="Professional commercial construction and maintenance for Baltimore property managers. Over 30+ years of experience serving Baltimore City and County. Licensed in MD/VA/DC/DE. Call (301) 933-6277."
         schemas={schemas}
       />
       <Navigation />
@@ -61,7 +61,7 @@ export default function BaltimoreMD() {
           </h1>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
-            Shall's Construction brings over 25 years of commercial construction expertise to Baltimore area property
+            Shall's Construction brings over 30+ years of commercial construction expertise to Baltimore area property
             managers. From the Inner Harbor to suburban office parks, we're your trusted construction partner.
           </p>
         </div>

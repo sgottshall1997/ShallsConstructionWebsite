@@ -16,7 +16,7 @@ export default function WhatWeDo() {
     "Self-Performed, Quality Work",
     "Exceptional Customer Service",
     "Minimal Disruptions",
-    "Over 25 Years Experience",
+    "Over 30+ Years Experience",
   ];
 
   const faqs = [
@@ -44,7 +44,7 @@ export default function WhatWeDo() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction Services | What We Do"
-        description="Comprehensive commercial construction and maintenance services for property managers. Construction, handyman, painting, exterior services, parking lots, and snow removal across MD, VA, and DC."
+        description="Comprehensive commercial construction and maintenance services for property managers. Over 30+ years of experience. Licensed in MD, VA, DC, and DE. Construction, handyman, painting, exterior services, parking lots, and snow removal."
         schemas={schemas}
       />
       <Navigation />
@@ -95,7 +95,7 @@ export default function WhatWeDo() {
               Whether to make an urgent repair or take on a capital project, Shall's will respond.
             </p>
             <p className="leading-relaxed">
-              For more than 25 years, we've earned a reputation for helping property managers with their commercial renovation,
+              For more than 30+ years, we've earned a reputation for helping property managers with their commercial renovation,
               repair, and maintenance needs both large and small — with professional, high quality work. Because 100% of our work
               is done by our full-time staff using our own equipment, you always get consistent, high-quality results. The bottom
               line: we make your life easier, while enhancing your tenants' experience.
@@ -130,7 +130,7 @@ export default function WhatWeDo() {
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 We provide dedicated, on-call 24/7 response to emergencies to ensure your project is efficiently managed and
-                executed, no matter what. With over 25 years of experience managing every facet of commercial construction,
+                executed, no matter what. With over 30+ years of experience managing every facet of commercial construction,
                 we use deep research and practical, hands-on expertise to turn your vision into reality.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
@@ -218,8 +218,8 @@ export default function WhatWeDo() {
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Offering full-service, integrated commercial painting services including surface prep and painting, wall coverings, 
-                wood treatments, drywall, textured coating systems, specialty finishes and flooring. With over two decades of experience 
-                working on commercial painting projects across Maryland, Virginia and DC, we provide expert guidance on the latest 
+                wood treatments, drywall, textured coating systems, specialty finishes and flooring. With over 30+ years of experience 
+                working on commercial painting projects across Maryland, Virginia, DC, and Delaware, we provide expert guidance on the latest 
                 painting techniques, materials and finishes, design options, and color choices.
               </p>
               <ul className="space-y-2 text-gray-600">
@@ -254,8 +254,8 @@ export default function WhatWeDo() {
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Maintaining the exterior of your commercial building requires practical expertise as well as a cost-effective,
-                long-term approach. With over two decades of experience working on building exteriors, Shall's offers property 
-                managers in the MD/VA/DC region high-quality solutions for all their building exterior needs. Our team of experienced 
+                long-term approach. With over 30+ years of experience working on building exteriors, Shall's offers property 
+                managers in the MD/VA/DC/DE region high-quality solutions for all their building exterior needs. Our team of experienced 
                 professionals understand the intricacies of preserving and repairing building exteriors, as well as preventative maintenance.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">

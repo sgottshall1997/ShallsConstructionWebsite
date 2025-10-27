@@ -19,7 +19,7 @@ export default function GaithersburgMD() {
   const faqs = [
     {
       question: "Are you familiar with Gaithersburg's commercial zones and building requirements?",
-      answer: "Yes, we've served Gaithersburg property managers for over 25 years and are well-versed in City of Gaithersburg and Montgomery County building codes, zoning requirements, and permit processes for commercial properties.",
+      answer: "Yes, we've served Gaithersburg property managers for over 30+ years and are well-versed in City of Gaithersburg and Montgomery County building codes, zoning requirements, and permit processes for commercial properties.",
     },
     {
       question: "Do you service properties in Rio and Kentlands?",
@@ -45,7 +45,7 @@ export default function GaithersburgMD() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction in Gaithersburg, MD | Property Services"
-        description="Commercial construction and maintenance for Gaithersburg property managers. Serving Rio, Kentlands, and all of Montgomery County. 100% in-house staff. Call (301) 933-6277."
+        description="Commercial construction and maintenance for Gaithersburg property managers. Over 30+ years of experience. Licensed in MD/VA/DC/DE. Serving Rio, Kentlands, and all of Montgomery County. 100% in-house staff. Call (301) 933-6277."
         schemas={schemas}
       />
       <Navigation />
@@ -61,7 +61,7 @@ export default function GaithersburgMD() {
           </h1>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
-            For over 25 years, Shall's Construction has served Gaithersburg's growing commercial market. From Rio's
+            For over 30+ years, Shall's Construction has served Gaithersburg's growing commercial market. From Rio's
             modern office parks to Kentlands' mixed-use developments, we're your local construction partner.
           </p>
         </div>

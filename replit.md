@@ -2,16 +2,39 @@
 
 ## Project Overview
 
-Professional commercial construction company website serving property managers in Maryland, Virginia, and DC. This is a modern remake of the original shallsconstruction.com website, built with React, Express, and Tailwind CSS.
+Professional commercial construction company website serving property managers in Maryland, Virginia, DC, and Delaware. This is a modern remake of the original shallsconstruction.com website, built with React, Express, and Tailwind CSS.
 
 **Status**: ✅ MVP Complete  
 **Last Updated**: October 27, 2025
 
 ## Purpose
 
-Create a professional, responsive website for Shall's Construction that showcases their 25+ years of experience in commercial property maintenance and construction services. The site targets property managers who need reliable construction, maintenance, and emergency services.
+Create a professional, responsive website for Shall's Construction that showcases their 30+ years of experience in commercial property maintenance and construction services. The site targets property managers who need reliable construction, maintenance, and emergency services. The company is licensed in Maryland, Virginia, DC, and Delaware.
 
 ## Recent Changes
+
+### October 27, 2025 - Content Updates (30+ Years & Delaware Licensing)
+- Updated all "25 years" references to "30+ years" across the entire site
+- Added Delaware (DE) licensing information throughout site
+- Updated service coverage from MD/VA/DC to MD/VA/DC/DE
+- Updated all location-specific pages with 30+ year messaging
+- Added Delaware to Footer service areas list
+- Updated all SEO meta descriptions to include DE licensing
+- Updated homepage stats badge from "25+ Years" to "30+ Years"
+- Updated FAQ content to reflect 30+ years of experience
+
+### October 27, 2025 - What We Do Page Content Enhancement
+- Added comprehensive details from original shallsconstruction.com site
+- Enhanced Construction & Remodeling: client types, white box terminology, hands-on expertise language
+- Expanded Painting Services: wall coverings, wood treatments, drywall, specialty coatings, expert guidance
+- Detailed Exterior Building Services: 8 comprehensive services, preventative maintenance, 24/7 response
+- Split Parking Lot Services: separate asphalt and concrete categories with detailed examples
+- Added missing intro paragraph about wide range of services
+
+### October 27, 2025 - Hero Section Optimization
+- Reduced hero height: Mobile 600px→450px (25% smaller), Desktop 700px→500px (28% smaller)
+- Widened text container by 50% (max-width 4xl→6xl) for better viewport usage
+- Stats section now visible with minimal scrolling
 
 ### October 27, 2025 - SEO Enhancement & UX Improvements
 - Installed and configured react-helmet-async for dynamic meta tags
@@ -94,10 +117,11 @@ Create a professional, responsive website for Shall's Construction that showcase
    - 2-column responsive grid
 
 5. **Professional Touches**
-   - 25 Years Anniversary badge throughout
+   - 30+ Years Anniversary badge throughout
    - Phone number always visible: (301) 933-6277
    - Fax: (301) 933-3386
    - Email: shallsconstructionllc@aol.com
+   - Licensed in MD/VA/DC/DE
    - Service areas listed in footer
    - SEO optimized with meta tags
 
@@ -168,7 +192,9 @@ npm run dev  # Start development server (port 5000)
 
 ## Service Areas
 
-Baltimore, Bethesda, Bowie, Chevy Chase, Clarksburg, Columbia, Frederick, Gaithersburg, Germantown, Laurel, Rockville, Silver Spring, Arlington, Fairfax, Annapolis, Washington D.C., DC Metro
+Baltimore, Bethesda, Bowie, Chevy Chase, Clarksburg, Columbia, Frederick, Gaithersburg, Germantown, Laurel, Rockville, Silver Spring, Arlington, Fairfax, Annapolis, Delaware, Washington D.C., DC Metro
+
+**Licensed in**: Maryland, Virginia, Washington DC, and Delaware
 
 ## Contact Information
 
@@ -197,7 +223,7 @@ Baltimore, Bethesda, Bowie, Chevy Chase, Clarksburg, Columbia, Frederick, Gaithe
 - **LocalBusiness Schema**: On all pages with complete NAP data (Name, Address, Phone)
 - **FAQPage Schema**: Property manager-focused Q&As on Home, What We Do, Who We Serve, and all location pages
 - **BreadcrumbList Schema**: Navigation hierarchy on all pages for better SERP display
-- **Service Areas**: Defined in schema covering all MD/VA/DC locations
+- **Service Areas**: Defined in schema covering all MD/VA/DC/DE locations
 
 ### Location Landing Pages (6)
 Each location page includes:

@@ -45,7 +45,7 @@ export default function SilverSpringMD() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction in Silver Spring, MD | Property Services"
-        description="Commercial construction and maintenance services for Silver Spring property managers. 25+ years serving Montgomery County. 100% in-house team. Call (301) 933-6277."
+        description="Commercial construction and maintenance services for Silver Spring property managers. 30+ years serving Montgomery County. Licensed in MD/VA/DC/DE. 100% in-house team. Call (301) 933-6277."
         schemas={schemas}
       />
       <Navigation />
@@ -61,7 +61,7 @@ export default function SilverSpringMD() {
           </h1>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
-            For over 25 years, Shall's Construction has been the go-to commercial contractor for Silver Spring property
+            For over 30+ years, Shall's Construction has been the go-to commercial contractor for Silver Spring property
             managers. From downtown high-rises to neighborhood retail centers, we deliver reliable, quality service.
           </p>
         </div>

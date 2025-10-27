@@ -45,7 +45,7 @@ export default function DCMetro() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction in DC Metro | Washington DC, MD & VA Services"
-        description="Professional commercial construction for DC Metro property managers. Serving Washington DC, Northern Virginia, and Maryland. 25+ years experience. Call (301) 933-6277."
+        description="Professional commercial construction for DC Metro property managers. Serving Washington DC, Northern Virginia, Maryland, and Delaware. 30+ years experience. Licensed in MD/VA/DC/DE. Call (301) 933-6277."
         schemas={schemas}
       />
       <Navigation />
@@ -61,7 +61,7 @@ export default function DCMetro() {
           </h1>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
-            For over 25 years, Shall's Construction has served property managers throughout the DC Metro region.
+            For over 30+ years, Shall's Construction has served property managers throughout the DC Metro region.
             From Washington DC to Northern Virginia and Maryland suburbs, we're your regional construction partner.
           </p>
         </div>

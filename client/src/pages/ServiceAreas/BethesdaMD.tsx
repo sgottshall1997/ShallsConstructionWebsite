@@ -45,7 +45,7 @@ export default function BethesdaMD() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction in Bethesda, MD | Property Management Services"
-        description="Professional commercial construction and maintenance services for property managers in Bethesda, MD. Over 25 years serving Montgomery County. Call (301) 933-6277 for reliable service."
+        description="Professional commercial construction and maintenance services for property managers in Bethesda, MD. Over 30+ years serving Montgomery County. Licensed in MD/VA/DC/DE. Call (301) 933-6277 for reliable service."
         schemas={schemas}
       />
       <Navigation />
@@ -61,7 +61,7 @@ export default function BethesdaMD() {
           </h1>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed text-center max-w-3xl mx-auto">
-            For over 25 years, Shall's Construction has been the trusted partner for property managers in Bethesda and
+            For over 30+ years, Shall's Construction has been the trusted partner for property managers in Bethesda and
             Montgomery County. From Bethesda Row to Medical Center properties, we understand the unique needs of this
             vibrant commercial district.
           </p>

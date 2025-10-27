@@ -54,16 +54,16 @@ export default function Home() {
   ];
 
   const stats = [
-    { icon: Award, label: "25+ Years", sublabel: "In Business" },
+    { icon: Award, label: "30+ Years", sublabel: "In Business" },
     { icon: Clock, label: "24/7", sublabel: "Emergency Response" },
     { icon: Users, label: "100% In-House", sublabel: "Staff" },
-    { icon: MapPin, label: "MD/VA/DC", sublabel: "Coverage" },
+    { icon: MapPin, label: "MD/VA/DC/DE", sublabel: "Coverage" },
   ];
 
   const faqs = [
     {
-      question: "What areas do you serve in Maryland, Virginia, and DC?",
-      answer: "We serve property managers throughout the MD/VA/DC region, including Baltimore, Bethesda, Rockville, Silver Spring, Gaithersburg, Arlington, Fairfax, and Washington DC. With over 25 years of experience, we understand the unique requirements of each jurisdiction.",
+      question: "What areas do you serve in Maryland, Virginia, DC, and Delaware?",
+      answer: "We serve property managers throughout the MD/VA/DC/DE region, including Baltimore, Bethesda, Rockville, Silver Spring, Gaithersburg, Arlington, Fairfax, and Washington DC. With over 30+ years of experience, we understand the unique requirements of each jurisdiction.",
     },
     {
       question: "Do you provide 24/7 emergency services for property managers?",
@@ -75,7 +75,7 @@ export default function Home() {
     },
     {
       question: "What makes Shall's Construction different from other contractors?",
-      answer: "We were built specifically to serve property managers' needs. We understand the challenges of managing multiple projects, budgets, and schedules. Our comprehensive services, in-house team, and 25+ years of experience make us your single point of contact for all commercial property needs.",
+      answer: "We were built specifically to serve property managers' needs. We understand the challenges of managing multiple projects, budgets, and schedules. Our comprehensive services, in-house team, and 30+ years of experience make us your single point of contact for all commercial property needs.",
     },
   ];
 
@@ -92,7 +92,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction & Property Maintenance | Shall's Construction"
-        description="Professional commercial construction and maintenance services for property managers in MD, VA, and DC. Over 25 years serving Baltimore, Bethesda, Rockville, Silver Spring, and DC Metro. 24/7 emergency response."
+        description="Professional commercial construction and maintenance services for property managers in MD, VA, DC, and DE. Over 30+ years serving Baltimore, Bethesda, Rockville, Silver Spring, and DC Metro. 24/7 emergency response. Licensed in Maryland, Virginia, DC, and Delaware."
         schemas={schemas}
       />
       <Navigation />
