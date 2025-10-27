@@ -55,7 +55,7 @@ export default function Home() {
 
   const stats = [
     { icon: Award, label: "30+ Years", sublabel: "In Business" },
-    { icon: Clock, label: "24/7", sublabel: "Emergency Response" },
+    { icon: Clock, label: "24/7/365", sublabel: "Emergency Response" },
     { icon: Users, label: "100% In-House", sublabel: "Staff" },
     { icon: MapPin, label: "MD/VA/DC/DE", sublabel: "Coverage" },
   ];
@@ -66,7 +66,7 @@ export default function Home() {
       answer: "We serve property managers throughout the MD/VA/DC/DE region, including Baltimore, Bethesda, Rockville, Silver Spring, Gaithersburg, Arlington, Fairfax, and Washington DC. With over 30+ years of experience, we understand the unique requirements of each jurisdiction.",
     },
     {
-      question: "Do you provide 24/7 emergency services for property managers?",
+      question: "Do you provide 24/7/365 emergency services for property managers?",
       answer: "Yes, we provide dedicated 24/7 emergency response for construction and maintenance emergencies. Our in-house team is always ready to handle urgent repairs, ensuring minimal disruption to your tenants.",
     },
     {
