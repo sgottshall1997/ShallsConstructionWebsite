@@ -13,6 +13,14 @@ Create a professional, responsive website for Shall's Construction that showcase
 
 ## Recent Changes
 
+### October 27, 2025 - Logo Update & Service Areas Simplification
+- Replaced 25 Years gold anniversary badge with official Shall's Construction logo in header and footer
+- Logo file: `attached_assets/shalls-construction-logo.png`
+- Removed "Shall's Construction" text from header (logo replaces both badge and text)
+- Simplified footer service areas from 17 cities to 4 states: Maryland, DC, Virginia, Delaware
+- Kept DC link to service area landing page
+- Maintained "Celebrating 30+ Years in Business" tagline in footer
+
 ### October 27, 2025 - Content Updates (30+ Years & Delaware Licensing)
 - Updated all "25 years" references to "30+ years" across the entire site
 - Added Delaware (DE) licensing information throughout site
@@ -69,7 +77,9 @@ Create a professional, responsive website for Shall's Construction that showcase
 - **Who We Serve**: Client showcase and benefits
 - **Articles**: Blog listing with seeded content
 - **Contact**: Form with validation and toast notifications
-- **Components**: Navigation (desktop/mobile), Footer
+- **Components**: 
+  - Navigation (desktop/mobile) with logo
+  - Footer with simplified service areas (4 states)
 
 ### Backend (Express)
 - In-memory storage (MemStorage class)
@@ -117,12 +127,13 @@ Create a professional, responsive website for Shall's Construction that showcase
    - 2-column responsive grid
 
 5. **Professional Touches**
-   - 30+ Years Anniversary badge throughout
+   - Official Shall's Construction logo in header and footer
+   - "Celebrating 30+ Years in Business" tagline
    - Phone number always visible: (301) 933-6277
    - Fax: (301) 933-3386
    - Email: shallsconstructionllc@aol.com
    - Licensed in MD/VA/DC/DE
-   - Service areas listed in footer
+   - Service areas: Maryland, DC, Virginia, Delaware
    - SEO optimized with meta tags
 
 ## Technical Stack
