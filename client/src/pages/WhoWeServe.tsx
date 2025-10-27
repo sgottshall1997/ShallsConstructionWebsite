@@ -11,8 +11,8 @@ export default function WhoWeServe() {
   ];
 
   const benefits = [
-    "24/7/365 emergency response",
-    "95% of work performed by in-house staff",
+    "24/7 emergency response",
+    "100% of work performed by in-house staff",
     "Over 25 years of industry experience",
     "Comprehensive commercial services",
     "Minimal disruption to tenants",

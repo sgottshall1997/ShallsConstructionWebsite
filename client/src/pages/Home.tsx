@@ -22,7 +22,7 @@ export default function Home() {
     {
       title: "Handyman Services",
       image: handymanImg,
-      description: "Repair and maintenance needs both large and small with 24/7/365 responsiveness. Carpentry, drywall, doors, and more.",
+      description: "Repair and maintenance needs both large and small with high quality work. Carpentry, drywall, doors, and more.",
       link: "/what-we-do#handyman",
     },
     {
@@ -53,8 +53,8 @@ export default function Home() {
 
   const stats = [
     { icon: Award, label: "25+ Years", sublabel: "In Business" },
-    { icon: Clock, label: "24/7/365", sublabel: "Responsiveness" },
-    { icon: Users, label: "95% In-House", sublabel: "Staff" },
+    { icon: Clock, label: "24/7", sublabel: "Emergency Response" },
+    { icon: Users, label: "100% In-House", sublabel: "Staff" },
     { icon: MapPin, label: "MD/VA/DC", sublabel: "Coverage" },
   ];
 

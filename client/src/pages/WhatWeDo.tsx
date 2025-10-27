@@ -26,10 +26,10 @@ export default function WhatWeDo() {
   }, [location]);
 
   const keyBenefits = [
-    "24/7/365 Responsiveness",
     "Self-Performed, Quality Work",
     "Exceptional Customer Service",
     "Minimal Disruptions",
+    "Over 25 Years Experience",
   ];
 
   return (
@@ -78,9 +78,9 @@ export default function WhatWeDo() {
             </p>
             <p className="leading-relaxed">
               For more than 25 years, we've earned a reputation for helping property managers with their commercial renovation,
-              repair, and maintenance needs both large and small — with professional, high quality work and seamless, 24/7/365
-              responsiveness to emergency situations. Because 95% of our work is done by our full-time staff using our own
-              equipment, you always get consistent, high-quality results.
+              repair, and maintenance needs both large and small — with professional, high quality work. Because 100% of our work
+              is done by our full-time staff using our own equipment, you always get consistent, high-quality results. The bottom
+              line: we make your life easier, while enhancing your tenants' experience.
             </p>
           </div>
         </div>
@@ -127,8 +127,8 @@ export default function WhatWeDo() {
                 Handyman Services
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Offering repair and maintenance needs both large and small — with high quality work and seamless, 24/7/365
-                responsiveness to emergency situations. Our comprehensive handyman services include:
+                Offering repair and maintenance needs both large and small — with high quality work. Our comprehensive handyman
+                services include carpentry, ceiling repair, ceramic tile repair, drywall repair, door and lock repair, and more.
               </p>
               <ul className="space-y-2 text-gray-600 mb-6">
                 <li className="flex items-start gap-2">
