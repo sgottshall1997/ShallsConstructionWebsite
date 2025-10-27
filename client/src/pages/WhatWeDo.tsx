@@ -94,13 +94,10 @@ export default function WhatWeDo() {
               and commercial construction services, providing both short and long-term solutions for your property's needs. 
               Whether to make an urgent repair or take on a capital project, Shall's will respond.
             </p>
-            <p className="leading-relaxed mb-6">
+            <p className="leading-relaxed">
               For more than 30+ years, we've earned a reputation for helping property managers with their commercial renovation, repair, and maintenance needs both large and small — with professional, high quality work and seamless, 24/7/365 responsiveness to emergency situations.  Because 100% of our work
               is done by our full-time staff using our own equipment, you always get consistent, high-quality results. The bottom
               line: we make your life easier, while enhancing your tenants' experience.
-            </p>
-            <p className="leading-relaxed font-semibold text-gray-900">
-              When you need a commercial construction services firm that not only understands your challenges, but also solves them quickly and efficiently … Shall's Construction is your best choice.
             </p>
           </div>
         </div>
