@@ -2,7 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import anniversaryBadge from "@assets/generated_images/25_Year_Anniversary_badge_15fdd4ba.png";
+import shallsLogo from "@assets/shalls-construction-logo.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -23,17 +23,12 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" data-testid="link-logo">
-            <div className="flex items-center gap-3 cursor-pointer">
-              <div className="flex items-center gap-2">
-                <h1 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">
-                  Shall's Construction
-                </h1>
-              </div>
+            <div className="flex items-center cursor-pointer">
               <img
-                src={anniversaryBadge}
-                alt="25 Years Anniversary"
-                className="h-12 w-12 md:h-14 md:w-14"
-                data-testid="img-25-anniversary"
+                src={shallsLogo}
+                alt="Shall's Construction"
+                className="h-12 md:h-16"
+                data-testid="img-shalls-logo"
               />
             </div>
           </Link>

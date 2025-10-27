@@ -1,26 +1,13 @@
 import { Link } from "wouter";
 import { Mail, Phone, Printer } from "lucide-react";
-import anniversaryBadge from "@assets/generated_images/25_Year_Anniversary_badge_15fdd4ba.png";
+import shallsLogo from "@assets/shalls-construction-logo.png";
 
 export default function Footer() {
   const serviceAreasWithLinks = [
-    { name: "Baltimore", url: "/service-areas/baltimore-md" },
-    { name: "Bethesda", url: "/service-areas/bethesda-md" },
-    { name: "Bowie", url: null },
-    { name: "Chevy Chase", url: null },
-    { name: "Clarksburg", url: null },
-    { name: "Columbia", url: null },
-    { name: "Frederick", url: null },
-    { name: "Gaithersburg", url: "/service-areas/gaithersburg-md" },
-    { name: "Germantown", url: null },
-    { name: "Laurel", url: null },
-    { name: "Rockville", url: "/service-areas/rockville-md" },
-    { name: "Silver Spring", url: "/service-areas/silver-spring-md" },
-    { name: "Arlington", url: null },
-    { name: "Fairfax", url: null },
-    { name: "Annapolis", url: null },
+    { name: "Maryland", url: null },
+    { name: "DC", url: "/service-areas/dc-metro" },
+    { name: "Virginia", url: null },
     { name: "Delaware", url: null },
-    { name: "DC Metro", url: "/service-areas/dc-metro" },
   ];
 
   const recentPosts = [
@@ -43,13 +30,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <h3 className="text-xl font-heading font-bold">Shall's Construction</h3>
+            <div className="mb-6">
               <img
-                src={anniversaryBadge}
-                alt="30+ Years"
-                className="h-12 w-12"
-                data-testid="img-footer-badge"
+                src={shallsLogo}
+                alt="Shall's Construction"
+                className="h-12"
+                data-testid="img-footer-logo"
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
