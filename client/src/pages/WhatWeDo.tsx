@@ -122,6 +122,9 @@ export default function WhatWeDo() {
                 src={constructionImg}
                 alt="Construction and Remodeling"
                 className="rounded-lg shadow-lg w-full"
+                loading="lazy"
+                width="1200"
+                height="800"
                 data-testid="img-construction"
               />
             </div>
@@ -185,6 +188,9 @@ export default function WhatWeDo() {
                 src={handymanImg}
                 alt="Handyman Services"
                 className="rounded-lg shadow-lg w-full"
+                loading="lazy"
+                width="1200"
+                height="800"
                 data-testid="img-handyman"
               />
             </div>
@@ -200,6 +206,9 @@ export default function WhatWeDo() {
                 src={paintingImg}
                 alt="Painting Services"
                 className="rounded-lg shadow-lg w-full"
+                loading="lazy"
+                width="1200"
+                height="800"
                 data-testid="img-painting"
               />
             </div>
@@ -282,6 +291,9 @@ export default function WhatWeDo() {
                 src={exteriorImg}
                 alt="Exterior Building Services"
                 className="rounded-lg shadow-lg w-full"
+                loading="lazy"
+                width="1200"
+                height="800"
                 data-testid="img-exterior"
               />
             </div>
@@ -297,6 +309,9 @@ export default function WhatWeDo() {
                 src={parkingImg}
                 alt="Parking Lot Services"
                 className="rounded-lg shadow-lg w-full"
+                loading="lazy"
+                width="1200"
+                height="800"
                 data-testid="img-parking"
               />
             </div>
@@ -360,6 +375,9 @@ export default function WhatWeDo() {
                 src={snowImg}
                 alt="Snow Removal"
                 className="rounded-lg shadow-lg w-full"
+                loading="lazy"
+                width="1200"
+                height="800"
                 data-testid="img-snow"
               />
             </div>

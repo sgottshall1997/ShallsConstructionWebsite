@@ -175,6 +175,9 @@ export default function Home() {
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    width="800"
+                    height="450"
                     data-testid={`img-service-${index}`}
                   />
                 </div>

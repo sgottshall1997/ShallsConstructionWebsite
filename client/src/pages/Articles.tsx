@@ -70,6 +70,9 @@ export default function Articles() {
                       src={article.imageUrl}
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      width="800"
+                      height="450"
                       data-testid={`img-article-${index}`}
                     />
                   </div>
