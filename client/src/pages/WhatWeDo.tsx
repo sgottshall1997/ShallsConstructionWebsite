@@ -89,6 +89,11 @@ export default function WhatWeDo() {
               in managing multiple projects, schedules, and budgets. Today, we provide an even greater depth and breadth of
               expertise to make your life easier. <span className="font-bold text-gray-900">One Call Does It All!</span>
             </p>
+            <p className="leading-relaxed mb-6">
+              At Shall's Construction, our in-house team provides a wide range of commercial renovation, repair & maintenance, 
+              and commercial construction services, providing both short and long-term solutions for your property's needs. 
+              Whether to make an urgent repair or take on a capital project, Shall's will respond.
+            </p>
             <p className="leading-relaxed">
               For more than 25 years, we've earned a reputation for helping property managers with their commercial renovation,
               repair, and maintenance needs both large and small — with professional, high quality work. Because 100% of our work
@@ -119,13 +124,18 @@ export default function WhatWeDo() {
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 When it comes to the complex, fast-paced world of commercial construction, we are a property manager's greatest
-                resource and biggest ally. Our construction expertise includes commercial interiors, office remodeling, retail
-                construction, tenant build out, common area upgrades, and emergency construction services.
+                resource and biggest ally. Whether your property needs to white box a space for lease, or improve common areas, 
+                our construction expertise includes commercial interiors, office remodeling, retail construction, tenant build out, 
+                common area upgrades, and emergency construction services.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 We provide dedicated, on-call 24/7 response to emergencies to ensure your project is efficiently managed and
                 executed, no matter what. With over 25 years of experience managing every facet of commercial construction,
-                Shall's Construction can provide valuable guidance on how to maximize the use of existing spaces.
+                we use deep research and practical, hands-on expertise to turn your vision into reality.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                <strong>Our clients include:</strong> Commercial retail and office, schools, universities, apartments and HOAs, 
+                hospitals and medical suites, and corporate and government facilities.
               </p>
               <div className="bg-primary/10 border-l-4 border-primary p-4 rounded">
                 <p className="text-primary font-semibold">24/7 Emergency Response Available</p>
@@ -206,9 +216,11 @@ export default function WhatWeDo() {
                 it can add long-term value to your property. Shall's Construction are specialists at interior and exterior
                 painting services and commercial painting.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Our comprehensive experience and on-site, professional team ensures your project is worry-free and executed
-                with the highest quality precision and craftsmanship. We offer:
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Offering full-service, integrated commercial painting services including surface prep and painting, wall coverings, 
+                wood treatments, drywall, textured coating systems, specialty finishes and flooring. With over two decades of experience 
+                working on commercial painting projects across Maryland, Virginia and DC, we provide expert guidance on the latest 
+                painting techniques, materials and finishes, design options, and color choices.
               </p>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
@@ -222,6 +234,10 @@ export default function WhatWeDo() {
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                   <span>Garage painting and sealing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Surface prep and wall coverings</span>
                 </li>
               </ul>
             </div>
@@ -238,38 +254,50 @@ export default function WhatWeDo() {
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Maintaining the exterior of your commercial building requires practical expertise as well as a cost-effective,
-                long-term approach. With over two decades of experience, Shall's offers high-quality solutions for all building
-                exterior needs.
+                long-term approach. With over two decades of experience working on building exteriors, Shall's offers property 
+                managers in the MD/VA/DC region high-quality solutions for all their building exterior needs. Our team of experienced 
+                professionals understand the intricacies of preserving and repairing building exteriors, as well as preventative maintenance.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Our building exterior services include:
+              <p className="text-gray-600 leading-relaxed mb-4">
+                <strong>Full spectrum of building exterior services:</strong>
               </p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-600 text-sm">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-600 text-sm mb-4">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Waterproofing & Caulking</span>
+                  <span>Full waterproofing restoration</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Masonry Repair</span>
+                  <span>Façade & garage power washing</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Power Washing</span>
+                  <span>Masonry repair & repointing</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Leak Investigation</span>
+                  <span>Window caulking & wet glazing</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Concrete Repair</span>
+                  <span>Leak investigation & repair</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Garage Repair</span>
+                  <span>Concrete & sidewalk repair</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Expansion joint replacement</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Water repellents & sealers</span>
                 </li>
               </ul>
+              <p className="text-gray-600 text-sm italic">
+                We provide 24/7 on-call response for any unexpected or emergency needs.
+              </p>
             </div>
             <div className="order-1 lg:order-2">
               <img
@@ -305,29 +333,76 @@ export default function WhatWeDo() {
                 Parking Lot Asphalt & Concrete
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Experts in all aspects of parking lot maintenance and preservation. From any asphalt project, parking lot
-                striping, stenciling, sealcoating, and even ADA upgrades, our team takes the time to understand your job and
-                craft an efficient, professional plan that meets your needs and budget.
+                When it comes to maintenance and preservation of your parking lot, even the smallest details matter. Commercial 
+                property managers in the DC/MD/VA region have turned to Shall's for start-to-finish guidance and execution of 
+                their parking lot projects for over twenty years. We are experts in all aspects of parking lot maintenance and 
+                preservation, and because we perform the majority of work ourselves, we maintain the highest standards of quality 
+                craftsmanship, consistency, and reliability from start to finish.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Our parking lot services include:
+              <p className="text-gray-600 leading-relaxed mb-4">
+                <strong>Parking lot asphalt services:</strong>
               </p>
-              <ul className="space-y-2 text-gray-600">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-600 text-sm mb-6">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Asphalt patching and paving</span>
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Mill and overlay</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Concrete repair and installation</span>
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Asphalt patching & paving</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Sealcoating and striping</span>
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Sealcoating & striping</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Speed bumps & profile</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                   <span>ADA compliance upgrades</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Stenciling</span>
+                </li>
+              </ul>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                <strong>Concrete structures we repair, replace, and install:</strong>
+              </p>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-600 text-sm">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Sidewalks & exposed aggregate</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Curb and gutter</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Steps, landings & railings</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Loading docks</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Walls & retaining walls</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Storm drains & trench drains</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Pool decks and patios</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Stamped concrete</span>
                 </li>
               </ul>
             </div>
