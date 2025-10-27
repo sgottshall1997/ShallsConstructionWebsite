@@ -3,24 +3,23 @@ import { Mail, Phone, Printer } from "lucide-react";
 import anniversaryBadge from "@assets/generated_images/25_Year_Anniversary_badge_15fdd4ba.png";
 
 export default function Footer() {
-  const serviceAreas = [
-    "Baltimore",
-    "Bethesda",
-    "Bowie",
-    "Chevy Chase",
-    "Clarksburg",
-    "Columbia",
-    "Frederick",
-    "Gaithersburg",
-    "Germantown",
-    "Laurel",
-    "Rockville",
-    "Silver Spring",
-    "Arlington",
-    "Fairfax",
-    "Annapolis",
-    "Washington D.C.",
-    "DC Metro",
+  const serviceAreasWithLinks = [
+    { name: "Baltimore", url: "/service-areas/baltimore-md" },
+    { name: "Bethesda", url: "/service-areas/bethesda-md" },
+    { name: "Bowie", url: null },
+    { name: "Chevy Chase", url: null },
+    { name: "Clarksburg", url: null },
+    { name: "Columbia", url: null },
+    { name: "Frederick", url: null },
+    { name: "Gaithersburg", url: "/service-areas/gaithersburg-md" },
+    { name: "Germantown", url: null },
+    { name: "Laurel", url: null },
+    { name: "Rockville", url: "/service-areas/rockville-md" },
+    { name: "Silver Spring", url: "/service-areas/silver-spring-md" },
+    { name: "Arlington", url: null },
+    { name: "Fairfax", url: null },
+    { name: "Annapolis", url: null },
+    { name: "DC Metro", url: "/service-areas/dc-metro" },
   ];
 
   const recentPosts = [
@@ -97,9 +96,19 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-heading font-semibold mb-6">Service Areas</h4>
             <div className="text-gray-400 text-sm space-y-1">
-              {serviceAreas.map((area) => (
-                <div key={area} data-testid={`text-service-area-${area.toLowerCase().replace(/\s+/g, "-")}`}>{area}</div>
-              ))}
+              {serviceAreasWithLinks.map((area) =>
+                area.url ? (
+                  <Link key={area.name} href={area.url}>
+                    <span className="hover:text-white transition-colors cursor-pointer" data-testid={`link-service-area-${area.name.toLowerCase().replace(/\s+/g, "-")}`}>
+                      {area.name}
+                    </span>
+                  </Link>
+                ) : (
+                  <div key={area.name} data-testid={`text-service-area-${area.name.toLowerCase().replace(/\s+/g, "-")}`}>
+                    {area.name}
+                  </div>
+                )
+              )}
             </div>
           </div>
 
