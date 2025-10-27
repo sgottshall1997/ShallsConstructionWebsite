@@ -13,7 +13,7 @@ Create a professional, responsive website for Shall's Construction that showcase
 
 ## Recent Changes
 
-### October 27, 2025 - SEO Enhancement Phase
+### October 27, 2025 - SEO Enhancement & UX Improvements
 - Installed and configured react-helmet-async for dynamic meta tags
 - Created comprehensive JSON-LD schema system (LocalBusiness, FAQPage, BreadcrumbList)
 - Added SEO metadata to all existing pages with unique titles and descriptions
@@ -23,6 +23,9 @@ Create a professional, responsive website for Shall's Construction that showcase
 - Added property manager-focused FAQs to all pages
 - Implemented strategic internal linking structure
 - Updated all content to align with commercial property management focus
+- Implemented ScrollToTop component for smooth navigation UX
+- Fixed scroll-to-section behavior for service cards linking to What We Do page
+- Fixed duplicate data-testid issue in Navigation component
 
 ### October 27, 2025 - Initial Build
 - Implemented complete 5-page website with professional design

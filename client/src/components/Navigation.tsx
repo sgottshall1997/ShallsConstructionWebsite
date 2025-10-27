@@ -22,7 +22,7 @@ export default function Navigation() {
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" data-testid="link-home">
+          <Link href="/" data-testid="link-logo">
             <div className="flex items-center gap-3 cursor-pointer">
               <div className="flex items-center gap-2">
                 <h1 className="text-2xl md:text-3xl font-heading font-bold text-gray-900">

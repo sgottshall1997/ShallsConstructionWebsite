@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useLocation } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -13,19 +11,6 @@ import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461
 import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.png";
 
 export default function WhatWeDo() {
-  const [location] = useLocation();
-
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    }
-  }, [location]);
 
   const keyBenefits = [
     "Self-Performed, Quality Work",
