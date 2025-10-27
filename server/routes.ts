@@ -3,6 +3,8 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+import path from "path";
+import fs from "fs";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/articles", async (_req, res) => {
@@ -29,6 +31,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error creating contact submission:", error);
       res.status(500).json({ error: "Failed to submit contact form" });
+    }
+  });
+
+  app.get("/sitemap.xml", (_req, res) => {
+    const sitemapPath = path.resolve(import.meta.dirname, "..", "public", "sitemap.xml");
+    if (fs.existsSync(sitemapPath)) {
+      res.type("application/xml");
+      res.sendFile(sitemapPath);
+    } else {
+      res.status(404).send("Sitemap not found");
+    }
+  });
+
+  app.get("/robots.txt", (_req, res) => {
+    const robotsPath = path.resolve(import.meta.dirname, "..", "public", "robots.txt");
+    if (fs.existsSync(robotsPath)) {
+      res.type("text/plain");
+      res.sendFile(robotsPath);
+    } else {
+      res.status(404).send("Robots.txt not found");
     }
   });
 
