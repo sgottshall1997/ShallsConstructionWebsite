@@ -1,0 +1,181 @@
+You are my Senior Front-End + Local SEO Engineer. Take full control. Do not ask clarifying questions—make high-quality defaults and show diffs.
+
+CONTEXT
+- Business: PARENTS_COMPANY_NAME (General Contractor)
+- URL to scan: https://shallsconstruction.replit.app/
+- Goal: Convert this into a clean, fast Vite + React + TypeScript + Tailwind + shadcn/ui site with rock-solid local SEO for Montgomery County, MD and key towns (Kensington, Bethesda, Chevy Chase, Rockville). Deliver production-ready code, content, schema, and checklists. Produce a concise audit report at the end.
+
+STACK & BASELINE (assume Vite+React+TS already created)
+1) Install/verify:
+   - tailwindcss postcss autoprefixer
+   - class-variance-authority clsx tailwind-merge lucide-react next-themes sonner
+   - react-helmet-async
+2) Tailwind wiring:
+   - tailwind.config.js → content: ["./index.html","./src/**/*.{ts,tsx}"], darkMode:"class", container center + padding, one brand color in `theme.extend.colors.brand`.
+   - src/index.css → @tailwind base/components/utilities; :root { --radius: .75rem; }
+3) shadcn/ui: init + add button, card, input, textarea, navigation-menu, accordion, badge, avatar.
+
+ARCHITECTURE
+Create this structure and fill it:
+src/
+  components/
+    Header.tsx
+    Footer.tsx
+    Hero.tsx
+    ServiceAreas.tsx
+    Services.tsx
+    ProjectsGrid.tsx
+    Testimonials.tsx
+    ContactForm.tsx
+    FAQ.tsx
+    SEO.tsx  // wraps react-helmet-async for per-page title/meta
+  layouts/
+    SiteLayout.tsx
+  pages/
+    Home.tsx
+    Services/
+      KitchenRemodeling.tsx
+      BathroomRemodeling.tsx
+      BasementFinishing.tsx
+      HomeAdditions.tsx
+    ServiceAreas/
+      KensingtonMD.tsx
+      BethesdaMD.tsx
+      ChevyChaseMD.tsx
+      RockvilleMD.tsx
+  lib/
+    data.ts  // services, areas, testimonials, projects
+    schema.ts // JSON-LD builders for LocalBusiness, FAQ, Breadcrumbs
+  assets/
+    images/  // webp only
+App.tsx
+main.tsx
+
+BRANDING / NAP (use placeholders; do not invent real PII)
+- Company: PARENTS_COMPANY_NAME
+- Phone: +1-301-555-1234
+- Address: 123 Main St, Kensington, MD 20895
+- License: MHIC #123456
+- Hours: Mon–Fri 8–5
+- Service Areas: Kensington, Bethesda, Chevy Chase, Rockville, Montgomery County MD
+
+HEAD + SEO (GLOBAL)
+- In index.html: canonical to root, viewport, og:type website.
+- Create <SEO /> component using react-helmet-async.
+- Default Home <title>: “General Contractor in Montgomery County, MD | Kitchens, Baths, Additions”
+- Default meta description: 150–160 chars covering county + towns + services.
+- Open Graph + Twitter tags for title/desc/url/image.
+- Add robots.txt and sitemap.xml in /public (generate from routes).
+
+SCHEMA (JSON-LD)
+Implement functions in lib/schema.ts to inject via <script type="application/ld+json">:
+1) LocalBusiness/GeneralContractor on every page:
+   - name, url, telephone, PostalAddress, openingHours, license, areaServed (the 4 towns + county), priceRange "$$$".
+2) FAQPage on Home and each service + location page (2–4 Q&As per page; local, specific).
+3) BreadcrumbList on all subpages.
+Ensure only one of each type per page and no contradictory data.
+
+HOME PAGE (CONVERSION + LOCAL SIGNALS)
+- H1: “General Contractor in Montgomery County, MD”
+- Subhead: mention “Kitchens, bathrooms, basements, additions across Bethesda, Kensington, Chevy Chase, Rockville.”
+- Sections (in order): Hero (primary CTA=Get a Quote /contact), Services (max 6 tiles), ProjectsGrid (6–12 cards with geo tags), Testimonials (3–5), ServiceAreas grid (the 4 towns), FAQ (2–4 local Q&As), Credentials (license, insurance), Contact strip.
+- Footer: NAP exact, click-to-call phone, license, hours, small Service Areas list with internal links.
+- All images webp, descriptive filenames, alt text includes town + service where relevant.
+
+SERVICE PAGES (4)
+Routes:
+- /kitchen-remodeling-montgomery-county-md
+- /bathroom-remodeling-montgomery-county-md
+- /basement-finishing-montgomery-county-md
+- /home-additions-montgomery-county-md
+Each page:
+- H1 “SERVICE in Montgomery County, MD”
+- 200–300 words specific to local codes/timelines/materials; mention 2–3 towns naturally.
+- 3 project cards (type + town); 2 FAQs; internal links to 2–3 location pages.
+- Insert LocalBusiness, FAQPage, BreadcrumbList schema.
+
+LOCATION PAGES (4)
+Routes:
+- /service-areas/kensington-md
+- /service-areas/bethesda-md
+- /service-areas/chevy-chase-md
+- /service-areas/rockville-md
+Each page:
+- H1 “General Contractor in TOWN, MD”
+- 120–160-word intro referencing neighborhoods/permit realities (generic but useful).
+- Services bullets scoped to town.
+- 2–4 local project cards with short captions.
+- 1–2 testimonials tagged to town.
+- 2 FAQs (permits, timelines).
+- Internal links to 2–3 relevant service pages.
+- Schema: LocalBusiness (override areaServed with the single town), FAQPage, BreadcrumbList.
+
+INTERNAL LINKING (MANDATORY)
+- Home → each service + each location page.
+- Every service page → 2–3 location pages.
+- Every location page → 2–3 service pages.
+- Project cards link to service + location page.
+- Use keyword-rich but human anchor text (no spam).
+
+ACCESSIBILITY + UX GUARDRAILS
+- One sans-serif font (system or Inter). No font soup.
+- Headings structured (one H1 per page).
+- Body line-height ≥ 1.6; base 16–18px; large buttons; focus styles visible.
+- Color contrast meets WCAG AA.
+- aria-labels as needed; images have meaningful alt; no empty anchors.
+
+PERFORMANCE REQUIREMENTS
+- Convert images to webp under 300KB; lazy-load project images; use width/height attributes or CSS aspect-ratio.
+- Lighthouse targets: Performance ≥ 90, SEO ≥ 90, Best Practices ≥ 90, Accessibility ≥ 90.
+- Prevent layout shift (CLS < 0.1). LCP < 2.5s on Home over 4G.
+- Preconnect where helpful; avoid render-blocking CSS/JS.
+
+CONTENT SOURCING
+- Crawl/scan https://shallsconstruction.replit.app/ and extract: text, services, towns, testimonials, any project images.
+- If content is thin, synthesize concise, professional copy aligned to above structure. Do not invent false claims; write generic but high-quality, local-relevant text.
+- Preserve tone: straightforward, no fluff.
+
+ROUTER + SITEMAP
+- Use file-based routes or react-router. Ensure all slugs are lowercase, hyphenated, descriptive.
+- Generate sitemap.xml listing: Home, 4 service pages, 4 location pages, Contact.
+- robots.txt: allow all, disallow /admin or any dev paths; point to sitemap.
+
+CONTACT FORM
+- Build a simple form with name/email/phone/project type/timeline/message; onSubmit mailto fallback to PARENTS_EMAIL. Keep the component; wire a real endpoint later.
+- Mark up Phone with tel: for tracking.
+
+ANALYTICS (PLACEHOLDER)
+- Add Google tag snippet placeholder in index.html with TODO comment. Do not block rendering.
+
+DELIVERABLES
+1) Implement all pages/components, content, schema, routes, internal links.
+2) Replace Home hero, add ServiceAreas, FAQ, Projects.
+3) Add LocalBusiness + FAQPage + BreadcrumbList JSON-LD everywhere required.
+4) Add sitemap.xml and robots.txt in /public.
+5) Compress or replace images to webp; update filenames + alt text.
+6) Produce a final “README_SEO.md” explaining:
+   - Page list, target keyword per page, and internal link map.
+   - Where schema is injected and examples.
+   - How to add a new town or service (step-by-step).
+   - How to run Lighthouse in Replit and what to monitor.
+
+QUALITY BAR / ACCEPTANCE TESTS
+- Titles and descriptions are unique and under limits.
+- H1 present and matches intent; only one per page.
+- HTML validates; no missing img alt; no empty links.
+- All internal links resolve (no 404).
+- sitemap.xml lists all pages; robots.txt references the sitemap.
+- JSON-LD passes Rich Result Test (structure/logic review).
+- Lighthouse results included in the report (paste scores).
+- File tree, key code snippets, and a short commit-style changelog shown in the output.
+
+NOW DO THE WORK
+1) Scan the live site content and assets; summarize weaknesses (structure, copy, performance, SEO) in ≤10 bullets.
+2) Generate/replace code to meet all requirements above; create pages and components; migrate or write copy; add schema; wire internal links; optimize images.
+3) Output: 
+   - A diff or file list of all created/changed files with reasoning.
+   - The rendered HTML for head tags (Home + one service + one location page) to verify.
+   - JSON-LD blobs for Home, one service, one location page.
+   - Lighthouse scores and the bullet audit.
+   - README_SEO.md content.
+Use strong defaults. If a detail is unspecified, pick the option that improves local rankings and UX without gimmicks.
