@@ -1,0 +1,90 @@
+1. "Who We Are" / "About Us" Page
+Should include:
+* Company story/history - Brief narrative about founding, growth over 30+ years
+* Leadership profiles - Photos and bios of your parents (owners/key leadership)
+    * Keep it personal but professional (education, experience, industry involvement)
+* Company values/mission statement
+* Stats to showcase credibility:
+    * "30+ years in business"
+    * "100% in-house staff"
+    * Number of projects completed
+    * Square footage managed/maintained
+2. "Community Involvement" Section (on Who We Are page)
+Like Rock Spring's impressive community section:
+* Charitable organizations supported (logos + descriptions)
+* Industry associations/memberships with logos:
+    * AGC (Associated General Contractors)
+    * BOMA (Building Owners & Managers Association)
+    * Local Chamber of Commerce
+    * Any construction/property management trade associations
+* Statistics:
+    * "20+ local charities supported" (if applicable)
+    * "1,000+ community service hours" (if applicable)
+* Photos of community involvement/volunteer work
+
+3. "Projects/Portfolio" Page
+Currently missing - essential for construction sites:
+* Before/After photo galleries
+* Case studies of major projects
+* Project types: Organize by category (Office Buildings, Retail Centers, Apartment Complexes, etc.)
+* Client testimonials attached to specific projects
+4. "Testimonials/Reviews" Page or Section
+* Client testimonials prominently featured
+* Star ratings if available
+* Property manager quotes (your target audience)
+* Video testimonials (if possible)
+5. "Service Areas" Map
+Clearly show:
+* MD/VA/DC/Delaware coverage
+* Interactive map or simple graphic
+* Specific counties/cities served
+ 6. Better "Contact Us" Features:
+* Multiple contact methods:
+    * Emergency 24/7 hotline (separate from main number)
+    * General inquiries
+    * Request a quote form
+* Response time promise ("We respond within 2 hours")
+* Office location/address
+* Operating hours
+ 8. "Safety/Certifications" Section
+* Safety record/stats
+* Certifications (OSHA, insurance, bonding)
+* Licenses
+* Industry awards/recognition
+ 9. Blog/Resources Section
+(You mentioned "Articles" in your nav - great!)
+* Property maintenance tips
+* Seasonal checklists
+* Industry news
+* Positions you as experts
+ 10. Trust Indicators Throughout Site:
+* Insurance & Bonding information
+* Licenses displayed
+* Industry association logos (in footer or dedicated section)
+* Years in business badge ("Serving Property Managers Since 1992")
+* BBB Rating (if applicable)
+
+NAVIGATION STRUCTURE SUGGESTION:
+
+
+Home | About Us | Services | Projects | Contact Us | Careers
+"About Us" dropdown could include:
+* Our Story
+* Leadership Team
+* Community Involvement
+* Industry Associations
+* Careers
+
+HOMEPAGE ENHANCEMENTS:
+Add these elements if not already there:
+* Statistics bar: "30+ Years | 100% In-House Staff | 24/7 Response | 1000+ Projects"
+* Client logo strip (property management companies you work with)
+* Latest projects showcase (3-4 featured projects)
+* Call-to-action buttons: "Request Quote" "Emergency Service" "View Projects"
+
+FOOTER ADDITIONS:
+* Industry association logos
+* Quick links to all pages
+* Service area map/list
+* Social media links
+* "Emergency? Call 24/7: (301) 933-6277"
