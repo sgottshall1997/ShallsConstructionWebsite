@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import shallsLogo from "@assets/shalls-construction-logo.png";
@@ -7,16 +7,27 @@ import shallsLogo from "@assets/shalls-construction-logo.png";
 export default function Navigation() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
 
   const navLinks = [
     { href: "/", label: "Home" },
+    {
+      label: "About",
+      dropdown: [
+        { href: "/about", label: "Our Story" },
+        { href: "/safety", label: "Safety & Certifications" },
+      ],
+    },
     { href: "/what-we-do", label: "What We Do" },
     { href: "/who-we-serve", label: "Who We Serve" },
-    { href: "/articles", label: "Articles" },
+    { href: "/projects", label: "Projects" },
+    { href: "/service-areas", label: "Service Areas" },
+    { href: "/testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact Us" },
   ];
 
   const isActive = (href: string) => location === href;
+  const isAboutActive = () => location === "/about" || location === "/safety";
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
@@ -33,21 +44,63 @@ export default function Navigation() {
             </div>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <span
-                  className={`text-sm font-medium transition-colors cursor-pointer ${
-                    isActive(link.href)
-                      ? "text-primary font-semibold"
-                      : "text-gray-700 hover:text-primary"
-                  }`}
-                  data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  {link.label}
-                </span>
-              </Link>
-            ))}
+          <div className="hidden lg:flex items-center gap-6">
+            {navLinks.map((link, index) => {
+              if ('dropdown' in link) {
+                return (
+                  <div
+                    key={index}
+                    className="relative"
+                    onMouseEnter={() => setAboutDropdownOpen(true)}
+                    onMouseLeave={() => setAboutDropdownOpen(false)}
+                  >
+                    <button
+                      className={`flex items-center gap-1 text-sm font-medium transition-colors ${
+                        isAboutActive()
+                          ? "text-primary font-semibold"
+                          : "text-gray-700 hover:text-primary"
+                      }`}
+                      data-testid="button-about-dropdown"
+                    >
+                      {link.label}
+                      <ChevronDown className="h-4 w-4" />
+                    </button>
+                    {aboutDropdownOpen && (
+                      <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg border border-gray-200 py-2 w-56 z-50">
+                        {link.dropdown?.map((item) => (
+                          <Link key={item.href} href={item.href}>
+                            <span
+                              className={`block px-4 py-2 text-sm cursor-pointer ${
+                                isActive(item.href)
+                                  ? "text-primary font-semibold bg-gray-50"
+                                  : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                              }`}
+                              data-testid={`link-dropdown-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+                            >
+                              {item.label}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              return (
+                <Link key={link.href} href={link.href}>
+                  <span
+                    className={`text-sm font-medium transition-colors cursor-pointer ${
+                      isActive(link.href)
+                        ? "text-primary font-semibold"
+                        : "text-gray-700 hover:text-primary"
+                    }`}
+                    data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  >
+                    {link.label}
+                  </span>
+                </Link>
+              );
+            })}
             <a
               href="tel:3019336277"
               className="flex items-center gap-2 text-primary font-semibold"
@@ -76,21 +129,49 @@ export default function Navigation() {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200" data-testid="menu-mobile">
           <div className="px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <span
-                  className={`block py-3 text-base font-medium cursor-pointer ${
-                    isActive(link.href)
-                      ? "text-primary font-semibold"
-                      : "text-gray-700"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  {link.label}
-                </span>
-              </Link>
-            ))}
+            {navLinks.map((link, index) => {
+              if ('dropdown' in link) {
+                return (
+                  <div key={index}>
+                    <div className="font-semibold text-gray-900 py-2 text-sm">
+                      {link.label}
+                    </div>
+                    <div className="pl-4 space-y-2">
+                      {link.dropdown?.map((item) => (
+                        <Link key={item.href} href={item.href}>
+                          <span
+                            className={`block py-2 text-base font-medium cursor-pointer ${
+                              isActive(item.href)
+                                ? "text-primary font-semibold"
+                                : "text-gray-700"
+                            }`}
+                            onClick={() => setMobileMenuOpen(false)}
+                            data-testid={`link-mobile-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+                          >
+                            {item.label}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link key={link.href} href={link.href}>
+                  <span
+                    className={`block py-3 text-base font-medium cursor-pointer ${
+                      isActive(link.href)
+                        ? "text-primary font-semibold"
+                        : "text-gray-700"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  >
+                    {link.label}
+                  </span>
+                </Link>
+              );
+            })}
             <a
               href="tel:3019336277"
               className="flex items-center gap-2 py-3 text-primary font-semibold"
