@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lock } from "lucide-react";
+import { queryClient } from "@/lib/queryClient";
 
 export default function Login() {
   const [, setLocation] = useLocation();
@@ -26,6 +27,8 @@ export default function Login() {
       });
 
       if (response.ok) {
+        // Invalidate auth check to refresh authentication status
+        await queryClient.invalidateQueries({ queryKey: ["/api/auth/check"] });
         setLocation("/");
       } else {
         setError("Incorrect password. Please try again.");
