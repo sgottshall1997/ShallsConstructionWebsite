@@ -14,7 +14,7 @@ export default function Navigation() {
     {
       label: "About",
       dropdown: [
-        { href: "/about", label: "Our Story" },
+        { href: "/about", label: "About Us" },
         { href: "/safety", label: "Safety & Certifications" },
       ],
     },
