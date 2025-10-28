@@ -1,10 +1,11 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Users, Award, MapPin } from "lucide-react";
+import { ArrowRight, Clock, Users, Award, MapPin, Building2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import ProjectCard from "@/components/ui/project-card";
 import heroImage from "@assets/generated_images/Homepage_hero_construction_scene_4f48bae9.png";
 import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.png";
 import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.png";
@@ -58,6 +59,33 @@ export default function Home() {
     { icon: Clock, label: "24/7/365", sublabel: "Emergency Response" },
     { icon: Users, label: "100% In-House", sublabel: "Staff" },
     { icon: MapPin, label: "MD/VA/DC/DE", sublabel: "Coverage" },
+  ];
+
+  const featuredProjects = [
+    {
+      id: "project-1",
+      title: "[Featured Project 1]",
+      category: "Office Buildings",
+      location: "[City, State]",
+      description: "[Add project description - scope of work and results achieved]",
+      featured: true,
+    },
+    {
+      id: "project-2",
+      title: "[Featured Project 2]",
+      category: "Retail Centers",
+      location: "[City, State]",
+      description: "[Add project description]",
+      featured: false,
+    },
+    {
+      id: "project-3",
+      title: "[Featured Project 3]",
+      category: "Apartment Complexes",
+      location: "[City, State]",
+      description: "[Add project description]",
+      featured: false,
+    },
   ];
 
   const faqs = [
@@ -198,6 +226,62 @@ export default function Home() {
                     </span>
                   </Link>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-projects-heading">
+              Featured Projects
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              See examples of our recent commercial construction and property maintenance work across MD/VA/DC/DE.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                id={project.id}
+                title={project.title}
+                category={project.category}
+                location={project.location}
+                description={project.description}
+                featured={project.featured}
+              />
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link href="/projects">
+              <Button size="lg" className="px-8" data-testid="button-view-all-projects">
+                View All Projects
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4">
+              Trusted by Leading Property Management Companies
+            </h3>
+            <p className="text-gray-600">
+              [Add client company names or logos here]
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="bg-gray-100 rounded-lg h-24 flex items-center justify-center border border-gray-200">
+                <p className="text-gray-400 text-sm">[Client Logo {i}]</p>
               </div>
             ))}
           </div>

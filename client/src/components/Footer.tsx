@@ -47,8 +47,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-heading font-semibold mb-6">Quick Links</h4>
+            <h4 className="text-lg font-heading font-semibold mb-6">Company</h4>
             <ul className="space-y-3">
+              <li>
+                <Link href="/about">
+                  <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="link-footer-about">
+                    About Us
+                  </span>
+                </Link>
+              </li>
               <li>
                 <Link href="/what-we-do">
                   <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="link-footer-what-we-do">
@@ -57,9 +64,43 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/projects">
+                  <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="link-footer-projects">
+                    Projects
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/safety">
+                  <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="link-footer-safety">
+                    Safety & Certifications
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/testimonials">
+                  <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="link-footer-testimonials">
+                    Testimonials
+                  </span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-heading font-semibold mb-6">Resources</h4>
+            <ul className="space-y-3">
+              <li>
                 <Link href="/who-we-serve">
                   <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="link-footer-who-we-serve">
                     Who We Serve
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/service-areas">
+                  <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="link-footer-service-areas">
+                    Service Areas
                   </span>
                 </Link>
               </li>
@@ -78,10 +119,8 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
 
-          <div>
-            <h4 className="text-lg font-heading font-semibold mb-6">Service Areas</h4>
+            <h4 className="text-lg font-heading font-semibold mt-8 mb-4">Licensed In</h4>
             <div className="text-gray-400 text-sm space-y-1">
               {serviceAreasWithLinks.map((area) =>
                 area.url ? (
@@ -102,11 +141,14 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-heading font-semibold mb-6">Contact Info</h4>
             <div className="space-y-4 text-sm">
-              <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary" />
-                <a href="tel:3019336277" className="text-gray-400 hover:text-white transition-colors" data-testid="link-footer-phone">
-                  (301) 933-6277
-                </a>
+              <div>
+                <p className="text-xs text-gray-500 mb-1">24/7 Emergency Hotline</p>
+                <div className="flex items-center gap-3">
+                  <Phone className="h-5 w-5 text-red-500" />
+                  <a href="tel:3019336277" className="text-white font-semibold text-lg hover:text-primary transition-colors" data-testid="link-footer-phone">
+                    (301) 933-6277
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Printer className="h-5 w-5 text-primary" />
@@ -124,25 +166,35 @@ export default function Footer() {
               </div>
             </div>
 
-            <h4 className="text-lg font-heading font-semibold mt-8 mb-4">Recent Posts</h4>
-            <ul className="space-y-3">
-              {recentPosts.map((post) => (
-                <li key={post.slug}>
-                  <Link href={`/articles`}>
-                    <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid={`link-recent-post-${post.slug}`}>
-                      {post.title}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-8 p-4 bg-gray-800 rounded-lg">
+              <p className="text-xs text-gray-400 mb-2">Fully Licensed & Insured</p>
+              <p className="text-sm text-white font-semibold">MD · VA · DC · DE</p>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
-          <p data-testid="text-copyright">
-            Copyright © 2025 Shall's Construction LLC · Privacy Policy
-          </p>
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="text-center mb-8">
+            <h4 className="text-lg font-heading font-semibold mb-6 text-white">Industry Partnerships</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {[
+                "[AGC]",
+                "[BOMA]",
+                "[Chamber]",
+                "[ABC]",
+              ].map((org, i) => (
+                <div key={i} className="bg-gray-800 rounded-lg h-20 flex items-center justify-center border border-gray-700">
+                  <p className="text-gray-500 text-sm">{org} Logo</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center text-gray-400 text-sm">
+            <p data-testid="text-copyright">
+              Copyright © 2025 Shall's Construction LLC · Privacy Policy
+            </p>
+          </div>
         </div>
       </div>
     </footer>
