@@ -28,7 +28,13 @@ The backend uses Express.js and Node.js 20, primarily serving API routes for art
 ### Feature Specifications
 - **Multi-Page Navigation**: Sticky header with mobile menu, "About" dropdown, smooth scrolling to sections, 24/7 phone number prominently displayed.
 - **Service Showcase**: Detailed sections for 6 construction services with professional images and emergency service emphasis.
-- **Contact Form**: Validated with React Hook Form and Zod, includes toast notifications and auto-clears on submission.
+- **Enhanced Contact Page**: 
+  - Three inquiry types: Emergency Service (24/7), Request a Quote, General Inquiry
+  - "We respond within 2 hours" promise banner
+  - Conditional form fields based on inquiry type
+  - Quote requests include: company, project type, budget range, preferred start date
+  - Emergency type shows red alert with direct call-to-action
+  - Form validated with React Hook Form and Zod, auto-clears on submission
 - **Articles System**: Uses TanStack Query for data fetching with loading skeletons.
 - **Comprehensive About Us**: Includes company story, leadership, mission, values, community involvement, and industry associations.
 - **Projects Portfolio**: Features category filtering, project detail pages with before/after galleries, and project stats.
