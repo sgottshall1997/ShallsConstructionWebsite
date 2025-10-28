@@ -28,6 +28,12 @@ The backend uses Express.js and Node.js 20, primarily serving API routes for art
 ### Feature Specifications
 - **Multi-Page Navigation**: Sticky header with mobile menu, "About" dropdown, smooth scrolling to sections, 24/7 phone number prominently displayed.
 - **Service Showcase**: Detailed sections for 6 construction services with professional images and emergency service emphasis.
+- **Password Protection**:
+  - Simple password gate protects entire site when deployed
+  - Uses express-session for secure session management
+  - Password stored as SITE_PASSWORD environment variable
+  - 24-hour session persistence across page refreshes
+  - Clean login page with Shall's Construction branding
 - **Enhanced Contact Page**: 
   - Three inquiry types: Emergency Service (24/7), Request a Quote, General Inquiry
   - "We respond within 2 hours" promise banner
