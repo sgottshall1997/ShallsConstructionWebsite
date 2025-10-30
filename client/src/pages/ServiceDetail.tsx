@@ -140,7 +140,7 @@ export default function ServiceDetail() {
         aria-label={`${service.title} commercial property services Maryland Virginia DC`}
       >
         <div className="absolute inset-0 bg-gray-900/70"></div>
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight" data-testid="text-service-title">
             {service.title}
           </h1>
