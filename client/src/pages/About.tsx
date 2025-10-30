@@ -30,19 +30,19 @@ export default function About() {
   const values = [
     {
       title: "Quality Craftsmanship",
-      description: "100% in-house staff ensures consistent, high-quality results on every project",
+      description: "100% in-house team ensures consistent, high-quality results on every job",
     },
     {
-      title: "24/7 Responsiveness",
-      description: "Always available when you need us, with rapid response to emergencies",
+      title: "Family Commitment",
+      description: "As a family owned and operated business, we bring personal accountability and pride to every project",
     },
     {
       title: "Integrity & Trust",
-      description: "Building lasting relationships through honest communication and reliable service",
+      description: " Building lasting relationships through honest communication and dependable service",
     },
     {
-      title: "Property Manager Focus",
-      description: "We understand your unique challenges and work to make your life easier",
+      title: "Partnership Focus",
+      description: "We understand property managers’ unique needs and act as an extension of your team",
     },
   ];
 
@@ -125,10 +125,10 @@ export default function About() {
               For over 30 years, Shall’s Construction has been a family owned and operated commercial construction company proudly serving property managers across Maryland, Virginia, Washington, D.C., and Delaware. From day one, Shall’s was built to simplify the complex world of property maintenance, renovation, and construction. Our family foundation drives the way we work — with accountability, pride, and personal investment in every client relationship.
             </p>
             <p className="leading-relaxed mb-6">
-              We understand the challenges property managers face in balancing multiple projects, budgets, and tenants. That’s why we built a model based on responsiveness, communication, and quality control. With a 100% in-house team and our own equipment, we deliver consistent results without relying on subcontractor variability. Whether executing a capital improvement project or responding to an emergency repair, Shall’s Construction is always ready.
+              We understand the challenges property managers face in balancing multiple projects, budgets, and tenants. That’s why we built a model based on responsiveness, communication, and quality control. With an 100% in-house team, we deliver consistent results without relying on subcontractor variability. Whether executing a capital improvement project or responding to an emergency repair, Shall’s is always ready.
             </p>
             <p className="leading-relaxed">
-              For more than three decades, our family-run team has earned the trust of hundreds of property managers by providing high-quality work and seamless 24/7/365 service. Because our name is on every project, we hold ourselves to the highest standards — making your life easier while enhancing your tenants’ experience.
+              For more than three decades, our family-run team has earned the trust of property managers throughout the region by providing high-quality work and seamless 24/7/365 service. Because our name is on every project, we hold ourselves to the highest standards — making your life easier while enhancing your tenants’ experience.
             </p>
           </div>
         </div>
