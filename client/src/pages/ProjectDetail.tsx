@@ -7,7 +7,7 @@ import SEO from "@/components/SEO";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ArrowLeft, Calendar, MapPin, Briefcase, CheckCircle, X } from "lucide-react";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateProjectSchema } from "@/lib/schema";
 import type { Project } from "@shared/schema";
 
 export default function ProjectDetail() {
@@ -98,7 +98,7 @@ export default function ProjectDetail() {
         <Navigation />
         <section className="py-16 md:py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl font-heading font-bold text-gray-900 mb-6">Project Not Found</h1>
+            <h2 className="text-4xl font-heading font-bold text-gray-900 mb-6">Project Not Found</h2>
             <p className="text-lg text-gray-600 mb-8">
               The project you're looking for doesn't exist or has been removed.
             </p>
@@ -129,15 +129,18 @@ export default function ProjectDetail() {
     { name: project.title, url: `/projects/${project.slug}` },
   ];
 
-  const schemas = [generateBreadcrumbSchema(breadcrumbs)];
+  const schemas = [
+    generateProjectSchema(project),
+    generateBreadcrumbSchema(breadcrumbs),
+  ];
 
-  const metaDescription = `${project.category} project in ${project.location}. ${project.client ? `Client: ${project.client}. ` : ''}${project.description.substring(0, 100)}...`;
+  const metaDescription = `${project.category} project in ${project.location}. ${project.description.substring(0, 110 - project.category.length - project.location.length)}`;
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title={`${project.title} - ${project.category} | Shall's Construction Projects`}
-        description={metaDescription}
+        title={`${project.title} - ${project.category} | Shall's`}
+        description={metaDescription.length > 160 ? metaDescription.substring(0, 157) + '...' : metaDescription}
         schemas={schemas}
       />
       <Navigation />
@@ -147,7 +150,7 @@ export default function ProjectDetail() {
         {project.imageUrls[0] ? (
           <img
             src={project.imageUrls[0]}
-            alt={project.title}
+            alt={`${project.title} ${project.category} commercial construction project ${project.location}`}
             className="w-full h-full object-cover"
           />
         ) : (
@@ -240,8 +243,9 @@ export default function ProjectDetail() {
                           >
                             <img
                               src={imageUrl}
-                              alt={`${project.title} - Image ${index + 1}`}
+                              alt={`${project.title} ${project.category} project ${project.location} view ${index + 1}`}
                               className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                              loading="lazy"
                             />
                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors"></div>
                           </button>
@@ -250,8 +254,9 @@ export default function ProjectDetail() {
                           <div className="relative">
                             <img
                               src={imageUrl}
-                              alt={`${project.title} - Image ${index + 1}`}
+                              alt={`${project.title} ${project.category} project ${project.location} view ${index + 1}`}
                               className="w-full h-auto"
+                              loading="lazy"
                             />
                           </div>
                         </DialogContent>

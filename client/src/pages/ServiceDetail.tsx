@@ -3,11 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { ArrowLeft, CheckCircle, Phone, FileText } from "lucide-react";
+import { ArrowLeft, CheckCircle, Phone, FileText, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { Service } from "@shared/schema";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import type { Service, Project } from "@shared/schema";
+import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/schema";
 import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.png";
 import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.png";
 import exteriorImg from "@assets/generated_images/Exterior_Building_Services_work_4ebd45e5.png";
@@ -24,6 +24,24 @@ const SERVICE_IMAGES: Record<string, string> = {
   "snow-removal": snowImg,
 };
 
+const serviceToProjectCategoryMap: Record<string, string> = {
+  "construction-remodeling": "construction",
+  "painting-services": "painting",
+  "parking-lot-services": "asphalt",
+  "exterior-building-services": "exterior",
+  "handyman-services": "handyman",
+  "snow-removal": "snow",
+};
+
+const locationLinks = [
+  { name: "Bethesda, MD", slug: "bethesda-md" },
+  { name: "Rockville, MD", slug: "rockville-md" },
+  { name: "Silver Spring, MD", slug: "silver-spring-md" },
+  { name: "Baltimore, MD", slug: "baltimore-md" },
+  { name: "Gaithersburg, MD", slug: "gaithersburg-md" },
+  { name: "DC Metro (Arlington, Fairfax, DC)", slug: "dc-metro" },
+];
+
 export default function ServiceDetail() {
   const [, params] = useRoute("/services/:slug");
   const slug = params?.slug || "";
@@ -35,6 +53,10 @@ export default function ServiceDetail() {
 
   const { data: allServices } = useQuery<Service[]>({
     queryKey: ["/api/services"],
+  });
+
+  const { data: allProjects } = useQuery<Project[]>({
+    queryKey: ["/api/projects"],
   });
 
   if (isLoading) {
@@ -64,9 +86,9 @@ export default function ServiceDetail() {
         />
         <Navigation />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h1 className="text-4xl font-heading font-bold text-gray-900 mb-4" data-testid="text-not-found">
+          <h2 className="text-4xl font-heading font-bold text-gray-900 mb-4" data-testid="text-not-found">
             Service Not Found
-          </h1>
+          </h2>
           <p className="text-lg text-gray-600 mb-8">
             The service you're looking for doesn't exist or has been moved.
           </p>
@@ -91,6 +113,11 @@ export default function ServiceDetail() {
 
   const servicesToShow = relatedServices.length > 0 ? relatedServices : otherServices;
 
+  const projectCategory = serviceToProjectCategoryMap[service.slug];
+  const relatedProjects = allProjects?.filter(
+    (p) => p.category === projectCategory
+  ).slice(0, 3) || [];
+
   const serviceImage = SERVICE_IMAGES[service.slug] || constructionImg;
 
   const breadcrumbs = [
@@ -99,13 +126,16 @@ export default function ServiceDetail() {
     { name: service.title, url: `/services/${service.slug}` },
   ];
 
-  const schemas = [generateBreadcrumbSchema(breadcrumbs)];
+  const schemas = [
+    generateServiceSchema(service),
+    generateBreadcrumbSchema(breadcrumbs),
+  ];
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title={`${service.title} | Commercial Property Services`}
-        description={`${service.shortDescription} Professional ${service.title.toLowerCase()} services in Maryland, Virginia, DC, and Delaware. Over 30 years of experience serving property managers.`}
+        title={`${service.title} | Commercial Property Services | Shall's`}
+        description={`${service.shortDescription.substring(0, 95)} Professional services in MD, VA, DC, and DE. 30+ years serving property managers.`}
         schemas={schemas}
       />
       <Navigation />
@@ -117,6 +147,8 @@ export default function ServiceDetail() {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
+        role="img"
+        aria-label={`${service.title} commercial property services Maryland Virginia DC`}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/85 to-gray-900/70"></div>
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
@@ -226,6 +258,58 @@ export default function ServiceDetail() {
                 </div>
               </div>
 
+              {relatedProjects.length > 0 && (
+                <div className="mb-12">
+                  <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
+                    Featured {service.title} Projects
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    See examples of our {service.title.toLowerCase()} work for commercial properties across Maryland, Virginia, and DC.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {relatedProjects.map((project) => (
+                      <Link key={project.id} href={`/projects/${project.slug}`}>
+                        <div
+                          className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                          data-testid={`featured-project-${project.slug}`}
+                        >
+                          {project.imageUrls && project.imageUrls.length > 0 && (
+                            <div className="h-48 overflow-hidden">
+                              <img
+                                src={project.imageUrls[0]}
+                                alt={project.title}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          )}
+                          <div className="p-6">
+                            <h3 className="text-lg font-heading font-semibold text-gray-900 mb-2">
+                              {project.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm mb-2">
+                              {project.client}
+                            </p>
+                            <p className="text-gray-500 text-xs mb-3">
+                              {project.location}
+                            </p>
+                            <span className="text-primary font-semibold text-sm">
+                              View Project →
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="mt-6 text-center">
+                    <Link href="/projects">
+                      <Button variant="outline" data-testid="button-view-all-projects">
+                        View All Projects
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              )}
+
               {servicesToShow.length > 0 && (
                 <div>
                   <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
@@ -283,10 +367,22 @@ export default function ServiceDetail() {
                     </a>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600 mb-2">Service Areas</p>
-                    <p className="text-sm text-gray-900">
-                      Maryland • Virginia • DC • Delaware
-                    </p>
+                    <p className="text-sm text-gray-600 mb-3">Service Areas</p>
+                    <div className="space-y-2">
+                      {locationLinks.map((location) => (
+                        <Link key={location.slug} href={`/service-areas/${location.slug}`}>
+                          <div className="flex items-center gap-2 text-sm text-primary hover:underline cursor-pointer" data-testid={`link-location-${location.slug}`}>
+                            <MapPin className="h-3 w-3" />
+                            <span>{location.name}</span>
+                          </div>
+                        </Link>
+                      ))}
+                      <Link href="/service-areas">
+                        <div className="flex items-center gap-2 text-sm text-gray-900 hover:text-primary transition-colors mt-2 pt-2 border-t border-gray-200" data-testid="link-all-service-areas">
+                          <span className="font-semibold">View All Service Areas →</span>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 </div>
 

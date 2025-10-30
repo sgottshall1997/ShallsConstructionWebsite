@@ -223,13 +223,85 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/sitemap.xml", (_req, res) => {
-    const sitemapPath = path.resolve(import.meta.dirname, "..", "public", "sitemap.xml");
-    if (fs.existsSync(sitemapPath)) {
-      res.type("application/xml");
-      res.sendFile(sitemapPath);
-    } else {
-      res.status(404).send("Sitemap not found");
+  app.get("/sitemap.xml", async (_req, res) => {
+    try {
+      const [services, projects, blogPosts] = await Promise.all([
+        storage.getAllServices(),
+        storage.getAllProjects(),
+        storage.getAllBlogPosts()
+      ]);
+
+      const baseUrl = process.env.NODE_ENV === 'production' 
+        ? 'https://shallsconstruction.com'
+        : `http://localhost:5000`;
+
+      const today = new Date().toISOString().split('T')[0];
+
+      const staticRoutes = [
+        { loc: '/', priority: '1.0', changefreq: 'weekly' },
+        { loc: '/about', priority: '0.8', changefreq: 'monthly' },
+        { loc: '/what-we-do', priority: '0.8', changefreq: 'monthly' },
+        { loc: '/who-we-serve', priority: '0.8', changefreq: 'monthly' },
+        { loc: '/projects', priority: '0.8', changefreq: 'monthly' },
+        { loc: '/blog', priority: '0.8', changefreq: 'weekly' },
+        { loc: '/service-areas', priority: '0.8', changefreq: 'monthly' },
+        { loc: '/service-areas/bethesda-md', priority: '0.7', changefreq: 'yearly' },
+        { loc: '/service-areas/rockville-md', priority: '0.7', changefreq: 'yearly' },
+        { loc: '/service-areas/silver-spring-md', priority: '0.7', changefreq: 'yearly' },
+        { loc: '/service-areas/baltimore-md', priority: '0.7', changefreq: 'yearly' },
+        { loc: '/service-areas/gaithersburg-md', priority: '0.7', changefreq: 'yearly' },
+        { loc: '/service-areas/dc-metro', priority: '0.7', changefreq: 'yearly' },
+        { loc: '/safety', priority: '0.8', changefreq: 'monthly' },
+        { loc: '/testimonials', priority: '0.8', changefreq: 'monthly' },
+        { loc: '/contact', priority: '0.8', changefreq: 'monthly' }
+      ];
+
+      let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+      staticRoutes.forEach(route => {
+        xml += '  <url>\n';
+        xml += `    <loc>${baseUrl}${route.loc}</loc>\n`;
+        xml += `    <lastmod>${today}</lastmod>\n`;
+        xml += `    <changefreq>${route.changefreq}</changefreq>\n`;
+        xml += `    <priority>${route.priority}</priority>\n`;
+        xml += '  </url>\n';
+      });
+
+      services.forEach(service => {
+        xml += '  <url>\n';
+        xml += `    <loc>${baseUrl}/services/${service.slug}</loc>\n`;
+        xml += `    <lastmod>${today}</lastmod>\n`;
+        xml += `    <changefreq>monthly</changefreq>\n`;
+        xml += `    <priority>0.7</priority>\n`;
+        xml += '  </url>\n';
+      });
+
+      projects.forEach(project => {
+        xml += '  <url>\n';
+        xml += `    <loc>${baseUrl}/projects/${project.slug}</loc>\n`;
+        xml += `    <lastmod>${today}</lastmod>\n`;
+        xml += `    <changefreq>monthly</changefreq>\n`;
+        xml += `    <priority>0.6</priority>\n`;
+        xml += '  </url>\n';
+      });
+
+      blogPosts.forEach(post => {
+        xml += '  <url>\n';
+        xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
+        xml += `    <lastmod>${today}</lastmod>\n`;
+        xml += `    <changefreq>weekly</changefreq>\n`;
+        xml += `    <priority>0.6</priority>\n`;
+        xml += '  </url>\n';
+      });
+
+      xml += '</urlset>';
+
+      res.set('Content-Type', 'application/xml');
+      res.send(xml);
+    } catch (error) {
+      console.error("Error generating sitemap:", error);
+      res.status(500).send("Error generating sitemap");
     }
   });
 

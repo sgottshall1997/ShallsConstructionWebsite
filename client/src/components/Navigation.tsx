@@ -51,7 +51,7 @@ export default function Navigation() {
             <div className="flex items-center cursor-pointer">
               <img
                 src={shallsLogo}
-                alt="Shall's Construction"
+                alt="Shall's Construction commercial property services logo"
                 className="h-12 md:h-16"
                 data-testid="img-shalls-logo"
               />

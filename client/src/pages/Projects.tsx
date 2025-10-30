@@ -38,8 +38,8 @@ export default function Projects() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Our Projects | Commercial Construction Portfolio"
-        description="Explore Shall's Construction portfolio of completed commercial projects across MD/VA/DC/DE. Office buildings, retail centers, medical facilities, and more."
+        title="Commercial Construction Portfolio MD VA DC | Shall's"
+        description="View completed commercial projects in MD, VA, DC, and DE. Office buildings, retail centers, medical facilities, and more. See our quality work firsthand."
         schemas={schemas}
       />
       <Navigation />

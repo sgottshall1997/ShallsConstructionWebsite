@@ -4,12 +4,35 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { generateBreadcrumbSchema } from "@/lib/schema";
-import { Calendar, User, Tag, ArrowLeft, Phone, Mail } from "lucide-react";
+import { Calendar, User, Tag, ArrowLeft, Phone, Mail, Wrench, Building, MapPin } from "lucide-react";
 import { type BlogPost } from "@shared/schema";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+
+const categoryToServicesMap: Record<string, Array<{ name: string; slug: string; description: string }>> = {
+  'safety': [
+    { name: 'Safety & Certifications', slug: 'safety', description: 'Learn about our safety standards and certifications' },
+    { name: 'All Services', slug: 'what-we-do', description: 'Explore our comprehensive service offerings' },
+  ],
+  'maintenance': [
+    { name: 'Exterior Building Services', slug: 'exterior-building-services', description: 'Professional exterior maintenance and repairs' },
+    { name: 'Handyman Services', slug: 'handyman-services', description: 'Quick fixes and routine maintenance' },
+  ],
+  'industry-news': [
+    { name: 'What We Do', slug: 'what-we-do', description: 'Comprehensive commercial property services' },
+    { name: 'Who We Serve', slug: 'who-we-serve', description: 'Property management solutions' },
+  ],
+  'tips': [
+    { name: 'All Services', slug: 'what-we-do', description: 'Professional services for commercial properties' },
+    { name: 'Service Areas', slug: 'service-areas', description: 'Serving MD, VA, DC, and DE' },
+  ],
+  'case-study': [
+    { name: 'Our Projects', slug: 'projects', description: 'See our completed projects and case studies' },
+    { name: 'What We Do', slug: 'what-we-do', description: 'Learn about our services' },
+  ],
+};
 
 export default function BlogDetail() {
   const { slug } = useParams();
@@ -72,9 +95,9 @@ export default function BlogDetail() {
         <Navigation />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
-            <h1 className="text-4xl font-heading font-bold text-gray-900 mb-4" data-testid="text-error-title">
+            <h2 className="text-4xl font-heading font-bold text-gray-900 mb-4" data-testid="text-error-title">
               Blog Post Not Found
-            </h1>
+            </h2>
             <p className="text-lg text-gray-600 mb-8">
               The blog post you're looking for doesn't exist or has been removed.
             </p>
@@ -119,7 +142,7 @@ export default function BlogDetail() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`${post.title} | Shall's Construction Blog`}
-        description={post.excerpt}
+        description={post.excerpt.length > 160 ? post.excerpt.substring(0, 157) + '...' : post.excerpt}
         schemas={schemas}
       />
       <Navigation />
@@ -175,7 +198,7 @@ export default function BlogDetail() {
           <div className="aspect-video overflow-hidden rounded-lg mb-12 bg-gray-200">
             <img
               src={post.imageUrl}
-              alt={post.title}
+              alt={`${post.title} commercial property maintenance blog post featured image`}
               className="w-full h-full object-cover"
               width="1200"
               height="675"
@@ -239,6 +262,50 @@ export default function BlogDetail() {
         </div>
       </article>
 
+      {/* Related Resources */}
+      {post && categoryToServicesMap[post.category] && (
+        <section className="py-16 bg-white border-t border-gray-200">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4" data-testid="text-resources-title">
+              Related Resources
+            </h2>
+            <p className="text-gray-600 mb-8">
+              Explore our services and projects related to this topic.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {categoryToServicesMap[post.category].map((resource, index) => (
+                <Link key={index} href={`/${resource.slug}`}>
+                  <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer border-2 hover:border-primary/50" data-testid={`card-resource-${index}`}>
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                        {resource.slug.includes('project') ? (
+                          <Building className="h-6 w-6 text-primary" />
+                        ) : resource.slug.includes('service-areas') ? (
+                          <MapPin className="h-6 w-6 text-primary" />
+                        ) : (
+                          <Wrench className="h-6 w-6 text-primary" />
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-heading font-semibold text-gray-900 mb-2">
+                          {resource.name}
+                        </h3>
+                        <p className="text-sm text-gray-600 mb-2">
+                          {resource.description}
+                        </p>
+                        <span className="text-primary font-semibold text-sm">
+                          Learn More →
+                        </span>
+                      </div>
+                    </div>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Related Posts */}
       {filteredRelatedPosts.length > 0 && (
         <section className="py-16 bg-gray-50">
@@ -256,7 +323,7 @@ export default function BlogDetail() {
                     <div className="aspect-video overflow-hidden bg-gray-200">
                       <img
                         src={relatedPost.imageUrl}
-                        alt={relatedPost.title}
+                        alt={`${relatedPost.title} commercial property management blog article`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                         width="800"

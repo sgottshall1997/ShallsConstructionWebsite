@@ -95,8 +95,8 @@ export default function RockvilleMD() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title={`Commercial Construction in ${location?.city || "Rockville"}, ${location?.state || "MD"} | Shall's Construction`}
-        description={`Professional commercial construction and maintenance services for property managers in ${location?.city || "Rockville"}, ${location?.state || "MD"}. Over 30+ years serving the region. Licensed in MD/VA/DC/DE. Call ${defaultPhone} for reliable service.`}
+        title={`Commercial Property Services ${location?.city || "Rockville"} | Shall's`}
+        description={`Professional commercial property services in ${location?.city || "Rockville"}, ${location?.state || "MD"}. 30+ years serving MD, VA, DC, and DE. Licensed and insured. Call ${defaultPhone} today.`}
         schemas={schemas}
       />
       <Navigation />

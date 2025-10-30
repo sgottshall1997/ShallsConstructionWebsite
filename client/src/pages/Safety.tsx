@@ -48,8 +48,8 @@ export default function Safety() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Safety & Certifications | Shall's Construction"
-        description="Learn about our OSHA compliance, insurance, bonding, and licenses. Safety is our top priority in every commercial construction project across MD/VA/DC/DE."
+        title="Safety & Certifications MD VA DC | Shall's Construction"
+        description="OSHA compliant, fully insured and bonded in MD, VA, DC, and DE. Licensed in all regions. Safety is our top priority on every commercial construction project."
         schemas={schemas}
       />
       <Navigation />

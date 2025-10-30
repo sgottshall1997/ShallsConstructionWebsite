@@ -31,7 +31,7 @@ export default function ProjectCard({
         {imageUrl ? (
           <img
             src={imageUrl}
-            alt={title}
+            alt={`${title} commercial construction project in ${location}`}
             className="w-full h-full object-cover"
             loading="lazy"
           />

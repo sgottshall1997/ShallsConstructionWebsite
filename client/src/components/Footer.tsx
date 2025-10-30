@@ -33,8 +33,9 @@ export default function Footer() {
             <div className="mb-6">
               <img
                 src={shallsLogo}
-                alt="Shall's Construction"
+                alt="Shall's Construction commercial property services logo"
                 className="h-12"
+                loading="lazy"
                 data-testid="img-footer-logo"
               />
             </div>

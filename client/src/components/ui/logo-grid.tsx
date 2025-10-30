@@ -43,6 +43,7 @@ export default function LogoGrid({ logos, columns = 4, title, description }: Log
                 src={logo.imagePath}
                 alt={logo.altText}
                 className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all"
+                loading="lazy"
               />
             ) : (
               <div className="text-center">

@@ -62,3 +62,100 @@ The backend uses Express.js and Node.js 20, primarily serving API routes for art
 - **Lucide React**: Icon library.
 - **react-helmet-async**: For managing document head tags.
 - **AI-generated images**: For construction service photos.
+
+## SEO Implementation
+
+### H1/H2 Heading Hierarchy (Updated: October 30, 2025)
+
+All pages now follow proper SEO heading hierarchy with exactly ONE H1 per page and appropriate H2 usage for major sections:
+
+**Core Pages:**
+- **Home.tsx**: H1 "Commercial Property Services in Maryland • Virginia • DC" + H2s for Services, Projects, Service Areas, Blog sections
+- **About.tsx**: H1 "Who We Are" + H2s for Company Story, Leadership, Mission & Values
+- **WhatWeDo.tsx**: H1 "We make your life easier..." + H2s for each service category
+- **WhoWeServe.tsx**: H1 "We Serve Property Managers" + H2s for service sections
+- **Contact.tsx**: H1 "Contact Us" + H2s for form sections and contact info
+- **Safety.tsx**: H1 "Safety & Certifications" + H2s for OSHA, licenses, insurance
+- **ServiceAreas.tsx**: H1 "Service Areas" + H2s for regional sections
+- **Projects.tsx**: H1 "Our Projects" + H2s for filtering and CTA
+- **Testimonials.tsx**: H1 "What Our Clients Say" + H2s for filters and sections
+
+**Dynamic Pages:**
+- **ServiceDetail.tsx**: H1 with service title + H2s for description, process, featured projects, related services
+- **ProjectDetail.tsx**: H1 with project title + H2s for details, results, related content
+- **BlogDetail.tsx**: H1 with blog post title + H2s for sections and related resources
+- **Articles.tsx**: H1 "News & Insights from Shall's Construction" + H2s for categories
+
+**Location Pages (6 pages):**
+- Each has H1 with "{City} Commercial Property Services" + H2s for services offered, service areas, why choose us
+
+**Error States:**
+- All error pages use H2 (not H1) for "Not Found" messages to maintain single H1 on success state
+
+### Internal Linking Strategy (Updated: October 30, 2025)
+
+Comprehensive internal linking has been implemented to create a strong site architecture for SEO and user navigation:
+
+**1. Service Pages → Projects & Locations**
+- **ServiceDetail.tsx** includes:
+  - "Featured Projects" section: Links to 3 relevant projects filtered by service category
+  - Sidebar "Service Areas" section: Links to all 6 location pages (Bethesda, Rockville, Silver Spring, Baltimore, Gaithersburg, DC Metro)
+  - "View All Projects" button linking to /projects
+  - "View All Service Areas" link
+
+**2. Project Pages → Services & Locations**
+- **ProjectDetail.tsx** includes:
+  - "View {Category} Services" button linking to related service page
+  - "Learn About Our Services in {Location}" link to relevant location page
+  - Category-to-service mapping: construction→construction-remodeling, painting→painting-services, asphalt→parking-lot-services, etc.
+  - Location-to-slug mapping for Bethesda, Rockville, Silver Spring, Baltimore, Gaithersburg, DC Metro
+
+**3. Blog Posts → Services & Projects**
+- **BlogDetail.tsx** includes:
+  - "Related Resources" section with contextual links based on blog category:
+    - Safety articles → Safety & Certifications page, All Services
+    - Maintenance articles → Exterior Building Services, Handyman Services
+    - Industry News → What We Do, Who We Serve
+    - Tips → All Services, Service Areas
+    - Case Studies → Our Projects, What We Do
+  - Links use descriptive anchor text and icons
+
+**4. Homepage → All Key Pages**
+- **Home.tsx** includes comprehensive linking:
+  - Hero: Links to /contact?type=quote and /contact?type=emergency
+  - Services section: Links to 6 service detail pages via anchor links
+  - Projects section: Links to 3 featured projects and /projects
+  - Testimonials section: Links to /testimonials
+  - **NEW Service Areas section**: Links to all 6 location pages with descriptions
+  - **NEW Blog/Articles section**: Links to /blog with category highlights (Safety, Maintenance, Case Studies)
+  - Footer: Links to all major pages
+
+**5. Location Pages → Services** (Already implemented)
+- All 6 location pages dynamically link to all available services
+- Each service card links to corresponding service detail page
+
+**6. Navigation & Footer** (Global linking)
+- Navigation: Links to Home, About, Services, Projects, Blog, Testimonials, Contact, Safety, Service Areas
+- Footer: Comprehensive links to all major pages and social media
+
+### SEO Best Practices Implemented
+
+**Anchor Text:**
+- All internal links use descriptive, keyword-rich anchor text
+- Examples: "View Construction & Remodeling Projects", "Bethesda Commercial Property Services", "Learn About Our Safety Standards"
+
+**Link Distribution:**
+- 2-5 contextual links per section (not over-linking)
+- Links are natural and provide value to users
+- Bi-directional linking where appropriate (e.g., Services ↔ Projects, Projects ↔ Locations)
+
+**User Experience:**
+- All links use Wouter's `<Link>` component for client-side navigation
+- Hover states and visual feedback on all clickable elements
+- Mobile-responsive link layouts
+
+**Technical Implementation:**
+- Service-to-project category mapping for automatic related content
+- Location slug mapping for consistent URL structure
+- TanStack Query for efficient data fetching
+- Conditional rendering to show links only when data exists

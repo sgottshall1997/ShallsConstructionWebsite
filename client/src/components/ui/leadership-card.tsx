@@ -20,7 +20,7 @@ export default function LeadershipCard({
           {imagePath ? (
             <img
               src={imagePath}
-              alt={name}
+              alt={`${name}, ${title} at Shall's Construction`}
               className="w-full h-full object-cover"
               loading="lazy"
             />

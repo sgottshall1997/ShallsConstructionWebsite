@@ -64,8 +64,8 @@ export default function ServiceAreas() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Service Areas | MD, VA, DC, DE Coverage"
-        description="Shall's Construction serves property managers across Maryland, Virginia, DC, and Delaware. Licensed and fully insured in all regions. Call (301) 933-6277."
+        title="Service Areas MD VA DC DE | Shall's Construction Coverage"
+        description="Serving property managers across Maryland, Virginia, DC, and Delaware. Licensed and fully insured in all regions. Call (301) 933-6277 for a free quote today."
         schemas={schemas}
       />
       <Navigation />

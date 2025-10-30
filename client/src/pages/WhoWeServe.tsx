@@ -45,8 +45,8 @@ export default function WhoWeServe() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Property Management Services | Who We Serve"
-        description="Trusted by leading property management companies including Associa, Comsource, and American Community Management. Serving commercial properties across MD, VA, DC, and DE for over 30+ years. Licensed in Maryland, Virginia, DC, and Delaware."
+        title="Property Management Services MD VA DC | Shall's"
+        description="Trusted by Associa, Comsource, and AMC. Serving commercial properties in MD, VA, DC, and DE for 30+ years. Licensed in all regions. Get a quote today."
         schemas={schemas}
       />
       <Navigation />

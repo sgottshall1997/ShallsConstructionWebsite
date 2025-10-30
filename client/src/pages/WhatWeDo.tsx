@@ -43,8 +43,8 @@ export default function WhatWeDo() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Commercial Construction Services | What We Do"
-        description="Comprehensive commercial construction and maintenance services for property managers. Over 30+ years of experience. Licensed in MD, VA, DC, and DE. Construction, handyman, painting, exterior services, parking lots, and snow removal."
+        title="Commercial Construction Services MD VA DC | Shall's"
+        description="Full-service commercial construction in MD, VA, DC, and DE. Handyman, painting, exterior, parking lot services, and snow removal. Get a quote today."
         schemas={schemas}
       />
       <Navigation />
@@ -112,7 +112,7 @@ export default function WhatWeDo() {
             <div>
               <img
                 src={constructionImg}
-                alt="Construction and Remodeling"
+                alt="Commercial construction and remodeling interior office space Maryland Virginia"
                 className="rounded-lg shadow-lg w-full"
                 loading="lazy"
                 width="1200"
@@ -183,7 +183,7 @@ export default function WhatWeDo() {
             <div className="order-1 lg:order-2">
               <img
                 src={handymanImg}
-                alt="Handyman Services"
+                alt="Professional handyman services worker carpentry repair commercial building"
                 className="rounded-lg shadow-lg w-full"
                 loading="lazy"
                 width="1200"
@@ -201,7 +201,7 @@ export default function WhatWeDo() {
             <div>
               <img
                 src={paintingImg}
-                alt="Painting Services"
+                alt="Commercial painting services interior exterior professional application"
                 className="rounded-lg shadow-lg w-full"
                 loading="lazy"
                 width="1200"
@@ -304,7 +304,7 @@ export default function WhatWeDo() {
             <div className="order-1 lg:order-2">
               <img
                 src={exteriorImg}
-                alt="Exterior Building Services"
+                alt="Exterior building services waterproofing masonry commercial property Maryland"
                 className="rounded-lg shadow-lg w-full"
                 loading="lazy"
                 width="1200"
@@ -322,7 +322,7 @@ export default function WhatWeDo() {
             <div>
               <img
                 src={parkingImg}
-                alt="Parking Lot Services"
+                alt="Parking lot asphalt paving striping sealcoating commercial property maintenance"
                 className="rounded-lg shadow-lg w-full"
                 loading="lazy"
                 width="1200"
@@ -435,7 +435,7 @@ export default function WhatWeDo() {
             <div className="order-1 lg:order-2">
               <img
                 src={snowImg}
-                alt="Snow Removal"
+                alt="Professional snow removal service commercial property winter maintenance Maryland"
                 className="rounded-lg shadow-lg w-full"
                 loading="lazy"
                 width="1200"

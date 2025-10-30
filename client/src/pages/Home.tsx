@@ -5,7 +5,7 @@ import { ArrowRight, Clock, Users, Award, MapPin, Building2, Quote } from "lucid
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generateFAQSchema, generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/schema";
 import ProjectCard from "@/components/ui/project-card";
 import TestimonialCard from "@/components/ui/testimonial-card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -195,6 +195,7 @@ export default function Home() {
   ];
 
   const schemas = [
+    generateOrganizationSchema(),
     generateFAQSchema(faqs),
     generateBreadcrumbSchema(breadcrumbs),
   ];
@@ -202,8 +203,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Commercial Construction & Property Maintenance | Shall's Construction"
-        description="Professional commercial construction and maintenance services for property managers in MD, VA, DC, and DE. Over 30+ years serving Baltimore, Bethesda, Rockville, Silver Spring, and DC Metro. 24/7 emergency response. Licensed in Maryland, Virginia, DC, and Delaware."
+        title="Commercial Property Services MD VA DC | Shall's Construction"
+        description="Expert commercial property services for MD, VA, DC, and DE property managers. 30+ years, 24/7 emergency response, 100% in-house teams. Get a quote today."
         schemas={schemas}
       />
       <Navigation />
@@ -212,6 +213,8 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
+          role="img"
+          aria-label="Commercial construction site workers building renovation Maryland Virginia DC"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/60"></div>
         </div>
@@ -290,7 +293,7 @@ export default function Home() {
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={service.image}
-                    alt={service.title}
+                    alt={`${service.title} commercial property services Maryland Virginia DC Delaware`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                     width="800"
@@ -359,7 +362,58 @@ export default function Home() {
 
       <TestimonialsSection />
 
-      <section className="py-16 bg-white">
+      <section className="py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-service-areas-heading">
+              Serving Commercial Properties Across the Region
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              Professional commercial property services throughout Maryland, Virginia, Washington DC, and Delaware
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {[
+              { name: 'Bethesda, MD', slug: 'bethesda-md', description: 'Office buildings, retail centers, and more' },
+              { name: 'Rockville, MD', slug: 'rockville-md', description: 'Medical offices and professional spaces' },
+              { name: 'Silver Spring, MD', slug: 'silver-spring-md', description: 'Retail and commercial complexes' },
+              { name: 'Baltimore, MD', slug: 'baltimore-md', description: 'Large-scale commercial properties' },
+              { name: 'Gaithersburg, MD', slug: 'gaithersburg-md', description: 'Commercial and industrial facilities' },
+              { name: 'DC Metro Area', slug: 'dc-metro', description: 'Arlington, Fairfax, Washington DC' },
+            ].map((location) => (
+              <Link key={location.slug} href={`/service-areas/${location.slug}`}>
+                <div className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer" data-testid={`card-location-${location.slug}`}>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <MapPin className="h-6 w-6 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-heading font-semibold text-gray-900 mb-2">
+                        {location.name}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {location.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link href="/service-areas">
+              <Button size="lg" variant="outline" className="px-8" data-testid="button-view-all-service-areas">
+                View All Service Areas
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4">
@@ -375,6 +429,81 @@ export default function Home() {
                 <p className="text-gray-400 text-sm">[Client Logo {i}]</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-blog-heading">
+              Latest Insights & News
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              Expert tips, industry news, and best practices for commercial property management
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <Link href="/blog">
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer hover:-translate-y-1" data-testid="card-blog-safety">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Award className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">
+                  Safety & Compliance
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Stay updated on safety standards, certifications, and best practices for commercial properties
+                </p>
+                <span className="text-primary font-semibold">
+                  Read Articles →
+                </span>
+              </div>
+            </Link>
+
+            <Link href="/blog">
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer hover:-translate-y-1" data-testid="card-blog-maintenance">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Building2 className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">
+                  Maintenance Tips
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Expert advice on preventive maintenance and property care to protect your investment
+                </p>
+                <span className="text-primary font-semibold">
+                  Read Articles →
+                </span>
+              </div>
+            </Link>
+
+            <Link href="/blog">
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer hover:-translate-y-1" data-testid="card-blog-case-studies">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">
+                  Case Studies
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Real-world examples of our commercial property services and success stories
+                </p>
+                <span className="text-primary font-semibold">
+                  Read Articles →
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          <div className="text-center">
+            <Link href="/blog">
+              <Button size="lg" className="px-8" data-testid="button-view-all-articles">
+                View All Articles
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

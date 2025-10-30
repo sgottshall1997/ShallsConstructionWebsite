@@ -54,8 +54,8 @@ export default function Articles() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="News & Insights from Shall's Construction | Commercial Property Services Blog"
-        description="Stay informed with expert insights on commercial property maintenance, construction industry news, safety tips, and best practices for property managers in MD, VA, and DC."
+        title="Commercial Property Tips | Shall's Construction Blog"
+        description="Expert commercial property maintenance tips for MD, VA, DC, and DE. Learn strategies from Shall's Construction professionals to protect your investment."
         schemas={schemas}
       />
       <Navigation />
@@ -132,7 +132,7 @@ export default function Articles() {
                     <div className="aspect-video overflow-hidden bg-gray-200 relative">
                       <img
                         src={post.imageUrl}
-                        alt={post.title}
+                        alt={`${post.title} commercial property maintenance tips blog`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                         width="800"

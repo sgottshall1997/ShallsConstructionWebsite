@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 import TestimonialCard from "@/components/ui/testimonial-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateReviewSchema, generateAggregateRatingSchema } from "@/lib/schema";
 import { Quote, ExternalLink } from "lucide-react";
 import type { Testimonial } from "@shared/schema";
 
@@ -34,13 +34,24 @@ export default function Testimonials() {
     { name: "Testimonials", url: "/testimonials" },
   ];
 
-  const schemas = [generateBreadcrumbSchema(breadcrumbs)];
+  const reviewSchemas = testimonials.slice(0, 10).map(testimonial => 
+    generateReviewSchema(testimonial)
+  );
+
+  const schemas = [
+    generateAggregateRatingSchema({
+      ratingValue: parseFloat(averageRating),
+      reviewCount: happyClients,
+    }),
+    ...reviewSchemas,
+    generateBreadcrumbSchema(breadcrumbs),
+  ];
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Client Testimonials | What Property Managers Say"
-        description="Read what property managers say about Shall's Construction. Trusted by commercial property managers across MD/VA/DC/DE for 30+ years."
+        title="Client Testimonials MD VA DC | Shall's Construction"
+        description="Read what property managers say about Shall's Construction. Trusted across MD, VA, DC, and DE for 30+ years. See our 5-star reviews and success stories."
         schemas={schemas}
       />
       <Navigation />

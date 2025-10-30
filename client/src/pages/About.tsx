@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 import LeadershipCard from "@/components/ui/leadership-card";
 import LogoGrid from "@/components/ui/logo-grid";
 import StatCounter from "@/components/ui/stat-counter";
-import { generateBreadcrumbSchema, generateFAQSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema, generateFAQSchema, generateOrganizationSchema } from "@/lib/schema";
 import { CheckCircle2 } from "lucide-react";
 
 export default function About() {
@@ -76,13 +76,16 @@ export default function About() {
     { name: "About Us", url: "/about" },
   ];
 
-  const schemas = [generateBreadcrumbSchema(breadcrumbs)];
+  const schemas = [
+    generateOrganizationSchema(),
+    generateBreadcrumbSchema(breadcrumbs),
+  ];
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
         title="About Shall's Construction | Our Story & Leadership"
-        description="Learn about Shall's Construction - 30+ years serving property managers in MD/VA/DC/DE. Meet our leadership team and discover our commitment to community and excellence in commercial construction."
+        description="Family-owned commercial contractor serving MD, VA, DC, and DE since 1990. 30+ years of experience with 100% in-house teams. Trusted by property managers."
         schemas={schemas}
       />
       <Navigation />

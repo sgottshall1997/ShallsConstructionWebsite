@@ -95,8 +95,8 @@ export default function DCMetro() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title={`Commercial Construction in ${location?.city || "DC Metro"} | Shall's Construction`}
-        description={`Professional commercial construction and maintenance services for property managers in the ${location?.city || "DC Metro"} area. Over 30+ years serving the region. Licensed in MD/VA/DC/DE. Call ${defaultPhone} for reliable service.`}
+        title={`Commercial Property Services ${location?.city || "DC Metro"} | Shall's`}
+        description={`Professional commercial property services in the ${location?.city || "DC Metro"} area. 30+ years serving MD, VA, DC, and DE. Licensed and insured. Call ${defaultPhone} today.`}
         schemas={schemas}
       />
       <Navigation />
