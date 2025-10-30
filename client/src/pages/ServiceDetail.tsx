@@ -118,13 +118,15 @@ export default function ServiceDetail() {
     generateBreadcrumbSchema(breadcrumbs),
   ];
 
-  const metaDescription = `${service.title} for commercial properties in MD VA DC DE — ${service.shortDescription.substring(0, 70)} — 30+ years experience.`;
+  const defaultMetaDescription = `${service.title} for commercial properties in MD VA DC DE — ${service.shortDescription.substring(0, 70)} — 30+ years experience.`;
+  const seoTitle = service.seoTitle || `${service.title} | Commercial Property Services | Shall's`;
+  const seoDescription = service.seoDescription || (defaultMetaDescription.length > 160 ? defaultMetaDescription.substring(0, 157) + '...' : defaultMetaDescription);
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title={`${service.title} | Commercial Property Services | Shall's`}
-        description={metaDescription.length > 160 ? metaDescription.substring(0, 157) + '...' : metaDescription}
+        title={seoTitle}
+        description={seoDescription}
         schemas={schemas}
         canonical={`https://shallsconstruction.com/services/${service.slug}`}
       />
