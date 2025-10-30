@@ -37,7 +37,9 @@
       "commercial interior construction Maryland",
       "property manager construction partner",
       "office renovation contractor DC metro"
-    ]
+    ],
+    "seoTitle": "Commercial Construction & Remodeling | MD, VA, DC, DE | Shall's Construction",
+    "seoDescription": "Commercial construction, tenant build-outs, and office remodeling services for Maryland, Virginia, DC, and Delaware. Reliable, on-time, in-house crews."
   },
   "handyman-services": {
     "slug": "handyman-services",
@@ -78,7 +80,9 @@
       "commercial property repair Kensington",
       "reliable handyman property managers",
       "commercial facility repairs DC metro"
-    ]
+    ],
+    "seoTitle": "Commercial Handyman Services | Montgomery County & DC Metro | Shall's Construction",
+    "seoDescription": "Fast, in-house commercial handyman repairs and maintenance for property managers across Montgomery County and the DC metro area. 24/7 emergency service."
   },
   "exterior-building-services": {
     "slug": "exterior-building-services",
@@ -120,7 +124,9 @@
       "facade restoration Kensington MD",
       "commercial exterior contractor Bethesda",
       "waterproofing services property managers Maryland"
-    ]
+    ],
+    "seoTitle": "Waterproofing & Exterior Building Services | DC, MD, VA, DE | Shall's Construction",
+    "seoDescription": "Waterproofing, masonry, and facade restoration for commercial properties in DC, MD, VA, and DE. Protect your building with Shall's Construction expertise."
   },
   "parking-lot-services": {
     "slug": "parking-lot-services",
@@ -160,7 +166,9 @@
       "parking lot resurfacing Kensington",
       "commercial paving services Bethesda MD",
       "parking lot contractor property managers Maryland"
-    ]
+    ],
+    "seoTitle": "Parking Lot Services | Asphalt, Concrete, Sealcoating | MD, VA, DC, DE",
+    "seoDescription": "Asphalt, concrete, sealcoating, and ADA compliance services for commercial properties in Maryland, Virginia, DC, and Delaware. 24/7 emergency repairs."
   },
   "painting-services": {
     "slug": "painting-services",
@@ -200,7 +208,9 @@
       "office building painting Bethesda",
       "retail painting services Montgomery County",
       "professional commercial painter property managers"
-    ]
+    ],
+    "seoTitle": "Commercial Painting Services | Interior & Exterior | MD & DC | Shall's Construction",
+    "seoDescription": "Interior and exterior commercial painting, epoxy coatings, and wall finishes for Maryland and DC properties. Trusted by property managers for 30+ years."
   },
   "snow-removal": {
     "slug": "snow-removal",
@@ -240,6 +250,8 @@
       "winter maintenance contractor Bethesda",
       "snow and ice management property managers Maryland",
       "reliable snow removal services MD VA DC"
-    ]
+    ],
+    "seoTitle": "Commercial Snow Removal & Ice Management | 24/7 | MD, VA, DC, DE",
+    "seoDescription": "24/7 snow and ice management for commercial properties in MD, VA, DC, and DE. Pre-storm planning, de-icing, and emergency snow removal."
   }
 }
