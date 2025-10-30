@@ -30,7 +30,7 @@ function TestimonialsSection() {
         <div className="text-center mb-16">
           <Quote className="h-12 w-12 text-primary mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-testimonials-heading">
-            What Property Managers Say About Us
+            Client Testimonials
           </h2>
         </div>
 
@@ -77,44 +77,44 @@ export default function Home() {
     {
       title: "Construction & Remodeling",
       image: constructionImg,
-      description: "Complete tenant buildouts and office renovations delivered on schedule and within budget across Montgomery County and Bethesda.",
+      description: "Tenant buildouts, office renovations, and common-area upgrades delivered with precision and reliability across Maryland.",
       link: "/services/construction-remodeling",
     },
     {
       title: "Handyman Services",
       image: handymanImg,
-      description: "From minor repairs to skilled carpentry, our craftsmen handle commercial maintenance work efficiently throughout Northern Virginia.",
+      description: "Carpentry, drywall, and small repairs for commercial facilities throughout Virginia.",
       link: "/services/handyman-services",
     },
     {
       title: "Exterior Building Services",
       image: exteriorImg,
-      description: "Protect your building envelope with expert masonry, waterproofing, and facade restoration services in the DC metro area.",
+      description: "Masonry, waterproofing, and facade restoration to protect your property envelope in DC.",
       link: "/services/exterior-building-services",
     },
     {
       title: "Parking Lot Asphalt & Concrete",
       image: parkingImg,
-      description: "Professional asphalt repair, striping, and sealcoating that keeps your property looking sharp across Maryland and Virginia.",
+      description: "Asphalt repair, striping, and sealcoating for safe, professional curb appeal throughout Virginia.",
       link: "/services/parking-lot-services",
     },
     {
       title: "Painting Services",
       image: paintingImg,
-      description: "Precision interior and exterior painting with meticulous surface preparation for lasting results on Maryland properties.",
+      description: "Interior and exterior painting with attention to surface preparation for Maryland properties.",
       link: "/services/painting-services",
     },
     {
       title: "Snow Removal",
       image: snowImg,
-      description: "Round-the-clock snow and ice management ensuring safe property access throughout the DC, Maryland, and Virginia region.",
+      description: "24/7 snow and ice management for commercial properties in DC, Maryland, and Virginia.",
       link: "/services/snow-removal",
     },
   ];
 
   const stats = [
-    { icon: Award, label: "Since 1992", sublabel: "Family-Owned" },
-    { icon: Clock, label: "24/7", sublabel: "Emergency Service" },
+    { icon: Award, label: "30+ Years", sublabel: "In Business" },
+    { icon: Clock, label: "24/7/365", sublabel: "Emergency Response" },
     { icon: Users, label: "100% In-House", sublabel: "Staff" },
     { icon: MapPin, label: "MD/VA/DC/DE", sublabel: "Coverage" },
   ];
@@ -152,19 +152,19 @@ export default function Home() {
   const faqs = [
     {
       question: "What areas do you serve in Maryland, Virginia, DC, and Delaware?",
-      answer: "We're based in Montgomery County and serve property managers throughout the region, including Bethesda, Rockville, Silver Spring, Gaithersburg, Kensington, Arlington, Fairfax, and Washington DC. With three decades in the area, we know every building inspector, jurisdiction code, and rush permit process.",
+      answer: "We serve property managers throughout the MD/VA/DC/DE region, including Baltimore, Bethesda, Rockville, Silver Spring, Gaithersburg, Arlington, Fairfax, and Washington DC. With over 30+ years of experience, we understand the unique requirements of each jurisdiction.",
     },
     {
-      question: "Do you provide emergency services for property managers?",
-      answer: "Yes, we provide dedicated 24/7 emergency response with a 2-hour on-site guarantee for clients in Montgomery County. Our in-house team is always ready to handle urgent construction and maintenance emergencies with minimal disruption to your tenants.",
+      question: "Do you provide 24/7/365 emergency services for property managers?",
+      answer: "Yes, we provide dedicated 24/7 emergency response for construction and maintenance emergencies. Our in-house team is always ready to handle urgent repairs, ensuring minimal disruption to your tenants.",
     },
     {
       question: "How much of the work is self-performed?",
-      answer: "One hundred percent of our work is performed by our full-time, in-house staff using our own equipment. This means your same crews every time, no subcontractor surprises, and direct accountability from estimate to completion on every project.",
+      answer: "100% of our work is performed by our full-time, in-house staff using our own equipment. This ensures consistent quality, reliability, and direct accountability on every project.",
     },
     {
       question: "What makes Shall's Construction different from other contractors?",
-      answer: "We've specialized exclusively in serving property managers since 1992. We understand work orders, COI requirements, tenant coordination, and budget constraints. Plus, as a three-generation family business headquartered in Montgomery County, we're invested in this community for the long term.",
+      answer: "We were built specifically to serve property managers' needs. We understand the challenges of managing multiple projects, budgets, and schedules. Our comprehensive services, in-house team, and 30+ years of experience make us your single point of contact for all commercial property needs.",
     },
   ];
 
@@ -174,77 +174,74 @@ export default function Home() {
 
   const schemas = [
     generateOrganizationSchema(),
-    generateBreadcrumbSchema(breadcrumbs),
     generateFAQSchema(faqs),
+    generateBreadcrumbSchema(breadcrumbs),
   ];
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Montgomery County Commercial Contractor - 30+ Years Serving Property Managers"
-        description="Family-owned commercial contractor serving Montgomery County property managers since 1992. 100% in-house crews, 24/7 emergency response. Licensed in MD, VA, DC, DE."
-        canonical="https://shallsconstruction.com"
+        title="Commercial Construction & Property Services | MD, VA, DC, DE | Shall's Construction"
+        description="Commercial construction, property maintenance, and 24/7 emergency response across MD, VA, DC, and DE. Family-owned for 30+ years."
+        canonical="https://shallsconstruction.com/"
         schemas={schemas}
       />
       <Navigation />
 
-      <section className="relative bg-gray-900 text-white min-h-[600px] md:min-h-[700px] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/70 z-10"></div>
-        <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt="Shall's Construction commercial project in Montgomery County Maryland"
-            className="w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-            width="1920"
-            height="1080"
-          />
+      <section className="relative min-h-[450px] md:min-h-[500px] flex items-center justify-center py-12 md:py-16">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+          role="img"
+          aria-label="Commercial construction site workers building renovation Maryland Virginia DC"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/60"></div>
         </div>
-        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight" data-testid="text-page-title">
-            Montgomery County's Trusted Commercial Contractor for Property Managers
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
+            Commercial Construction & Property Maintenance
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
-            Since 1992, property managers across Montgomery County, Bethesda, and Kensington have relied on Shall's Construction for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="tel:3019336277"
-              onClick={() => trackEmergencyClick('hero_emergency_call')}
-            >
-              <Button size="lg" className="text-lg px-8 w-full sm:w-auto" data-testid="button-hero-emergency" aria-label="Call for 24/7 emergency services">
-                <Clock className="mr-2 h-5 w-5" />
-                24/7 Emergency: (301) 933-6277
-              </Button>
-            </a>
-            <Link href="/contact">
+          <h2 className="text-lg md:text-xl mb-7 text-gray-200 font-normal" data-testid="hero-subheadline">
+            Family Owned & Operated - Serving the DMV for 30+ years
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
               <Button
                 size="lg"
                 variant="outline"
-                className="text-lg px-8 bg-white/10 border-white text-white hover:bg-white hover:text-gray-900 w-full sm:w-auto"
-                onClick={() => trackQuoteClick('hero_get_quote')}
-                data-testid="button-hero-quote"
-                aria-label="Request a free quote"
+                className="text-base px-8 py-6 bg-white/10 backdrop-blur-md border-white text-white hover:bg-white hover:text-gray-900"
+                data-testid="button-quote"
+                aria-label="Request a quote for commercial construction services"
               >
-                Request Free Quote
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Request a Quote
               </Button>
             </Link>
+            <a href="tel:3019336277" onClick={() => trackEmergencyClick('homepage_hero')}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-base px-8 py-6 bg-white/10 backdrop-blur-md border-white text-white hover:bg-white hover:text-gray-900"
+                data-testid="button-emergency"
+                aria-label="Call for emergency 24/7 commercial construction service"
+              >
+                Emergency Service 24/7
+              </Button>
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-white border-b border-gray-200">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center" data-testid={`stat-${index}`}>
-                <stat.icon className="h-10 w-10 md:h-12 md:w-12 text-primary mx-auto mb-3" />
-                <div className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-1">
+              <div key={index} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
+                <stat.icon className="h-12 w-12 md:h-16 md:w-16 mx-auto text-primary mb-4" />
+                <div className="text-3xl md:text-4xl font-heading font-bold text-gray-900">
                   {stat.label}
                 </div>
-                <div className="text-sm md:text-base text-gray-600 font-medium">
+                <div className="text-sm md:text-base text-gray-600 mt-2">
                   {stat.sublabel}
                 </div>
               </div>
@@ -253,14 +250,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-why-heading">
-            Why Property Managers Keep Our Number on Speed Dial
-          </h2>
-          <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            You're juggling work orders, demanding tenants, and tight budgets. The last thing you need is a contractor who doesn't show up or does sloppy work. We get it—because for three decades, we've specialized exclusively in making your life easier.
+      {/* Intro Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+            Shall's Construction provides commercial renovation, maintenance, and repair services for property managers across Maryland, Virginia, DC, and Delaware. With over 30 years of experience and 24/7 emergency response, we deliver reliable results every time.
           </p>
         </div>
       </section>
@@ -269,7 +263,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-services-heading">
-              Everything Your Property Needs, One Reliable Partner
+              Our Services
             </h2>
           </div>
 
@@ -283,7 +277,7 @@ export default function Home() {
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={service.image}
-                    alt={`${service.title} for commercial properties in Montgomery County Maryland`}
+                    alt={`${service.title} commercial property services Maryland Virginia DC Delaware`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                     width="800"
@@ -307,7 +301,7 @@ export default function Home() {
                       data-testid={`link-service-${index}`}
                       aria-label={`Learn more about ${service.title}`}
                     >
-                      Learn More
+                      Read More
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </span>
                   </Link>
@@ -399,10 +393,10 @@ export default function Home() {
       <section className="py-20 md:py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6" data-testid="text-cta-heading">
-            Ready to Work With a Contractor You Can Trust?
+            Contact Shall's Construction
           </h2>
           <p className="text-lg md:text-xl mb-8 text-white/90">
-            Call for a consultation or submit a work order request today. We respond to all inquiries within 24 hours.
+            Call for consultation or submit a work order request today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
@@ -422,7 +416,7 @@ export default function Home() {
                 data-testid="button-cta-contact"
                 aria-label="Contact Shall's Construction"
               >
-                Get Your Free Quote
+                Contact Us Today
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

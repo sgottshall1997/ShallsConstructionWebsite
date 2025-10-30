@@ -14,35 +14,35 @@ export default function About() {
       name: "[Owner Name]",
       title: "Owner & CEO",
       imagePath: "", // User will add actual photo
-      bio: "[Add owner biography here - Start with: In 1992, [Name] founded Shall's Construction in his garage with one truck and a simple belief: property managers deserve a contractor they can trust completely. After years in commercial construction, he saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So he built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will. Today, [X] years later, that same promise guides everything we do.]",
-      quote: "[Add inspirational quote from owner - Example: 'We're not just building projects—we're building relationships that last decades.']",
+      bio: "[Add owner biography here - education, experience, industry involvement, personal story about founding the company]",
+      quote: "[Add inspirational quote from owner about company values or commitment to excellence]",
     },
     {
       name: "[Co-Owner/Partner Name]",
       title: "Owner & COO",
       imagePath: "", // User will add actual photo
-      bio: "[Add co-owner biography here - Focus on: operational expertise, how they ensure quality control, their role in growing the in-house team, commitment to safety and training]",
-      quote: "[Add quote about quality or team - Example: 'Our crews aren't just employees—they're family. That's why property managers get the same quality on every job.']",
+      bio: "[Add co-owner biography here - background, expertise, role in company growth]",
+      quote: "[Add quote about company culture or client relationships]",
     },
   ];
 
   // Company values
   const values = [
     {
-      title: "Your Same Crews, Every Time",
-      description: "Our in-house team means you get the same skilled craftsmen on every project—no subcontractor surprises, no quality inconsistency, just reliable results you can count on.",
+      title: "Quality Craftsmanship",
+      description: "100% in-house team ensures consistent, high-quality results on every job",
     },
     {
-      title: "Three Generations of Excellence",
-      description: "As a family-owned business headquartered in Montgomery County since 1992, we bring personal accountability and long-term commitment to every client relationship.",
+      title: "Family Commitment",
+      description: "As a family owned and operated business, we bring personal accountability and pride to every project",
     },
     {
-      title: "Built for Property Managers",
-      description: "We understand work orders, COI requirements, tenant coordination, and budget constraints. We speak your language and solve your specific challenges.",
+      title: "Integrity & Trust",
+      description: " Building lasting relationships through honest communication and dependable service",
     },
     {
-      title: "Always Available When You Need Us",
-      description: "True 24/7 emergency response with a 2-hour on-site guarantee in Montgomery County. Building issues don't wait for business hours—and neither do we.",
+      title: "Partnership Focus",
+      description: "We understand property managers’ unique needs and act as an extension of your team",
     },
   ];
 
@@ -84,9 +84,9 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Family-Owned Commercial Contractor Since 1992 | Montgomery County MD"
-        description="Three generations of construction excellence in Bethesda and Montgomery County. Meet the family behind 30+ years of trusted service to property managers across MD, VA, DC."
-        canonical="https://shallsconstruction.com/about"
+        title="About Shall's Construction | Our Story & Leadership"
+        description="Learn the story, leadership, and values behind Shall's Construction — trusted by property managers for three decades across MD VA DC and DE."
+        canonical="https://shallsconstruction.replit.app/about"
         schemas={schemas}
       />
       <Navigation />
@@ -97,15 +97,16 @@ export default function About() {
         <div className="absolute inset-0 bg-gray-700">
           {/* Placeholder for hero image - user will add actual team photo */}
           <div className="w-full h-full flex items-center justify-center text-gray-500">
-            [Add hero image: Team photo or company building photo showing Shall's Construction team]
+            [Add hero image: Team photo or company building photo]
           </div>
         </div>
         <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6" data-testid="text-page-title">
-            Making Property Management Easier Since 1992
+            We make your life easier while enhancing your tenants' experience.
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-            Three generations of family-owned excellence serving Montgomery County property managers with reliable commercial construction and maintenance services.
+            For property managers with countless projects, there's one name to remember:
+              Shall's Construction
           </p>
         </div>
       </section>
@@ -115,19 +116,19 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-              Three Generations of Construction Excellence
+              Our Story
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           </div>
           <div className="prose prose-lg max-w-none text-gray-600">
             <p className="leading-relaxed mb-6">
-              In 1992, [Founder Name] started Shall's Construction with a simple belief: property managers deserve a contractor they can trust completely. After working for years in commercial construction throughout Montgomery County, he saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So he built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will.
+              For over 30 years, Shall’s Construction has been a family owned and operated commercial construction company proudly serving property managers across Maryland, Virginia, Washington, D.C., and Delaware. From day one, Shall’s was built to simplify the complex world of property maintenance, renovation, and construction. Our family foundation drives the way we work — with accountability, pride, and personal investment in every client relationship.
             </p>
             <p className="leading-relaxed mb-6">
-              Three decades later, we're still family-owned, still headquartered in Montgomery County, and still guided by that same promise. Today, our team has grown to [X] skilled craftsmen—but we haven't lost the personal touch that made us who we are. When you call us, you're not getting a faceless corporation. You're getting a family business that treats your properties like our own.
+              We understand the challenges property managers face in balancing multiple projects, budgets, and tenants. That’s why we built a model based on responsiveness, communication, and quality control. With an 100% in-house team, we deliver consistent results without relying on subcontractor variability. Whether executing a capital improvement project or responding to an emergency repair, Shall’s is always ready.
             </p>
             <p className="leading-relaxed">
-              Managing multiple properties, tight budgets, and demanding tenants is exhausting. That's why we built our company around responsiveness, clear communication, and quality control you can count on. Whether it's an emergency repair at 2 AM or a major renovation project, Shall's Construction delivers the same reliable service—making your life easier while keeping your tenants satisfied.
+              For more than three decades, our family-run team has earned the trust of property managers throughout the region by providing high-quality work and seamless 24/7/365 service. Because our name is on every project, we hold ourselves to the highest standards — making your life easier while enhancing your tenants’ experience.
             </p>
           </div>
         </div>
@@ -137,10 +138,10 @@ export default function About() {
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <StatCounter number="1992" label="Established" suffix="" />
-            <StatCounter number="100" label="In-House Team" suffix="%" />
+            <StatCounter number="30" label="Years in Business" suffix="+" />
+            <StatCounter number="100" label="In-House Staff" suffix="%" />
             <StatCounter number="[ADD]" label="Projects Completed" suffix="+" />
-            <StatCounter number="[ADD]" label="Properties Managed" suffix="+" />
+            <StatCounter number="[ADD]" label="Square Feet Managed" suffix="M+" />
           </div>
         </div>
       </section>
@@ -150,11 +151,11 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-              What Property Managers Love About Working With Us
+              Our Values
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our mission is simple: deliver reliable, high-quality commercial construction and maintenance services that make property managers' lives easier—performed by our in-house team with exceptional craftsmanship, honest communication, and round-the-clock availability.
+              To make the lives of property managers easier by delivering reliable, high-quality commercial construction, renovation, and maintenance services—performed by our in-house team with craftsmanship, honesty, and 24/7 responsiveness.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
@@ -179,24 +180,24 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-              Committed to Our Montgomery County Community
+              Commitment to Community
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-              [Add description of community involvement - Example: Being headquartered in Montgomery County for over 30 years means we're invested in this community. We support local charities, youth sports programs, and community development initiatives because this is our home too. When we succeed, we believe in giving back to the neighborhoods where we live and work.]
+              [Add description of community involvement - Why is giving back important to your company? What types of organizations do you support?]
             </p>
           </div>
 
           {/* Community Photos Grid - Placeholder */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
             <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-              <p className="text-gray-500">[Community Photo 1 - Team volunteering]</p>
+              <p className="text-gray-500">[Community Photo 1]</p>
             </div>
             <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-              <p className="text-gray-500">[Community Photo 2 - Charity event]</p>
+              <p className="text-gray-500">[Community Photo 2]</p>
             </div>
             <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-              <p className="text-gray-500">[Community Photo 3 - Local partnership]</p>
+              <p className="text-gray-500">[Community Photo 3]</p>
             </div>
           </div>
 
@@ -211,7 +212,7 @@ export default function About() {
             logos={charities}
             columns={3}
             title="Our Charitable Partners"
-            description="[Add description - Example: We're proud to partner with local and national organizations that strengthen our community. From supporting youth education to providing disaster relief, we believe in using our resources to make a positive impact.]"
+            description="[Add description of your charitable partnerships and community impact]"
           />
         </div>
       </section>
@@ -222,8 +223,8 @@ export default function About() {
           <LogoGrid
             logos={associations}
             columns={4}
-            title="Recognized by the Industry's Leading Organizations"
-            description="We're proud members of leading construction and property management associations, demonstrating our commitment to professional excellence, industry standards, and continuous improvement."
+            title="Industry Partnerships"
+            description="We are proud members of leading construction and property management associations, demonstrating our commitment to industry standards and professional excellence."
           />
         </div>
       </section>

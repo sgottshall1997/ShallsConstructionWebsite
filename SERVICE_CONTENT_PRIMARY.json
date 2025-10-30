@@ -1,8 +1,8 @@
 {
   "construction-remodeling": {
     "slug": "construction-remodeling",
-    "tagline": "Expert commercial construction with safety protocols and minimal tenant disruption",
-    "philosophy": "When it comes to commercial construction and remodeling, Shall's Construction serves as a property manager's most trusted resource. With over 30 years of experience managing every facet of commercial construction across Montgomery County, Bethesda, and Kensington, Maryland, our team delivers white box spaces, tenant build-outs, office remodeling, and common area upgrades with unwavering quality standards.\n\nOur approach prioritizes safety, clear communication, and operational efficiency. With 95% in-house staff, we maintain direct control over every phase of your project—from initial planning through final execution. Licensed and insured in MD, VA, DC, and DE, we serve commercial retail and office properties, schools, universities, hospitals, medical suites, apartments, HOAs, and government facilities.\n\nWe understand the importance of minimizing disruptions to in-place tenants. Our systematic protocols and experienced project managers ensure your construction project stays on schedule and on budget while your property remains operational. Emergency construction services are available 24/7/365 because we know that urgent needs don't follow business hours.",
+    "tagline": "From white box buildouts to complete office renovations—delivered on schedule and within budget",
+    "philosophy": "Need to turn a white box into a functioning office space in three weeks? We do that. Renovate a 10,000 sq ft lobby without disrupting tenants? That's our specialty. For three decades, property managers in Montgomery County have called us when they need commercial construction done right, on time, and within budget.\n\nFrom tenant buildouts to complete office remodels, we bring the same methodical approach: detailed planning, clear communication, and quality craftsmanship. Our project managers keep you updated daily so you never have to wonder what's happening on site. Licensed in Maryland, Virginia, DC, and Delaware, we handle every facet of commercial construction from initial permitting through final walkthrough.\n\nWhether you're preparing a space for a new tenant or renovating common areas, our in-house crews ensure consistent quality and direct accountability. Emergency construction services available 24/7 because we know urgent needs don't follow business hours.",
     "servicesInclude": [
       "White box space preparation for lease",
       "Commercial interior buildout and remodeling",
@@ -10,7 +10,7 @@
       "Retail construction and store fit-outs",
       "Tenant improvement and customization projects",
       "Common area upgrades and modernization",
-      "Emergency construction repair services (24/7/365)",
+      "Emergency construction repair services (24/7)",
       "ADA compliance upgrades and accessibility improvements",
       "Commercial kitchen and restroom renovations",
       "Lobby and reception area renovations",
@@ -41,8 +41,8 @@
   },
   "handyman-services": {
     "slug": "handyman-services",
-    "tagline": "Professional commercial handyman services with rapid response and reliable execution",
-    "philosophy": "Property managers throughout Montgomery County, Bethesda, and Kensington rely on Shall's Construction for comprehensive commercial handyman services that keep their properties operating smoothly. With over 30 years of experience, we handle everything from minor repairs to complex installations with the same level of professionalism and attention to detail.\n\nOur 95% in-house staff model ensures you work with the same skilled technicians who understand your property's unique needs. Licensed in MD, VA, DC, and DE, we provide consistent, high-quality service across your entire portfolio. Our handyman professionals arrive prepared with proper equipment, safety protocols in place, and clear communication about the work scope.\n\nWe specialize in minimizing disruption to tenants while executing repairs efficiently. Whether it's a routine maintenance call or an urgent repair, our systematic approach ensures quality workmanship and timely completion. Emergency handyman services are available 24/7/365 because we understand that building issues don't wait for convenient timing. From office buildings to retail centers, schools to medical facilities, we're the commercial handyman partner property managers trust.",
+    "tagline": "Fast, skilled repairs that keep your properties running smoothly",
+    "philosophy": "Broken door at 3 PM, tenant move-in at 8 AM tomorrow—sound familiar? That's why property managers keep our number saved. For quick repairs and skilled maintenance across Montgomery County, we're the handyman service that actually shows up on time.\n\nDrywall patches, door repairs, ceiling tiles, fixtures—whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small, no timeline too tight. Our team responds fast because we understand that small problems become big headaches when they're not fixed promptly.\n\nLicensed throughout Maryland, Virginia, DC, and Delaware, our handyman professionals arrive prepared with the right tools and materials. Since we're fully in-house, you work with the same skilled technicians who know your properties. Available around the clock for emergency repairs that can't wait until morning.",
     "servicesInclude": [
       "Door and hardware repair and replacement",
       "Drywall repair and patch work",
@@ -55,7 +55,7 @@
       "Minor plumbing repairs and fixture replacement",
       "Electrical outlet and switch replacement",
       "Signage installation and mounting",
-      "Emergency handyman response (24/7/365)",
+      "Emergency handyman response (24/7)",
       "Routine maintenance and preventive repairs"
     ],
     "testimonial": {
@@ -82,8 +82,8 @@
   },
   "exterior-building-services": {
     "slug": "exterior-building-services",
-    "tagline": "Comprehensive building exterior solutions with preventive maintenance and emergency response",
-    "philosophy": "Maintaining commercial building exteriors requires specialized expertise and a proactive approach. Since 1992, Shall's Construction has provided property managers in Montgomery County, Bethesda, and Kensington with comprehensive exterior building services that protect their most valuable assets. Our waterproofing contractors and skilled tradesmen understand the intricacies of preserving and repairing building facades, preventing costly water damage, and extending the life of your property's exterior systems.\n\nWith over 30 years of experience across commercial, industrial, retail, healthcare, educational, and multi-family properties, we deliver cost-effective, long-term solutions. Our 95% in-house staff ensures consistent quality and direct accountability on every project. Licensed in MD, VA, DC, and DE, we bring deep technical knowledge to every building exterior challenge.\n\nOur services are designed to work around in-place tenants with minimal disruption through careful planning and efficient execution. We conduct thorough leak investigations, implement proper waterproofing protocols, and use quality materials that stand the test of time. Emergency exterior services are available 24/7/365 because building envelope failures require immediate attention. Whether you need preventive maintenance or urgent repairs, Shall's delivers reliable exterior building solutions.",
+    "tagline": "Protecting your property investment with expert exterior solutions",
+    "philosophy": "Water leaking through your building facade? Crumbling masonry threatening your property's curb appeal? These aren't just cosmetic issues—they're costly problems that get worse with time. For over 30 years, property managers in Montgomery County have trusted Shall's Construction to protect their most valuable assets with expert exterior building services.\n\nOur waterproofing specialists and skilled masons understand building envelopes. We conduct thorough leak investigations, implement proper waterproofing protocols, and use quality materials that stand up to Mid-Atlantic weather. From facade restoration to concrete repair, we bring technical expertise and meticulous craftsmanship to every exterior challenge.\n\nLicensed in Maryland, Virginia, DC, and Delaware, we work efficiently to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants and respond 24/7 for emergencies that can't wait.",
     "servicesInclude": [
       "Comprehensive waterproofing and restoration",
       "Masonry repair and repointing",
@@ -97,55 +97,53 @@
       "Water repellents and sealers application",
       "Window and glass restoration",
       "Garage repair and waterproofing",
-      "Pedestrian and traffic coating systems",
-      "Emergency exterior repair services (24/7/365)"
+      "Balcony and deck waterproofing",
+      "Emergency exterior repairs (24/7)"
     ],
     "testimonial": {
-      "quote": "After struggling with persistent leaks in our office building, Shall's conducted a thorough investigation and implemented a comprehensive waterproofing solution. The work was completed with zero tenant complaints, and we haven't had a single leak since. Their expertise in building exteriors is exceptional.",
-      "author": "David Thompson",
+      "quote": "We had a persistent leak problem that three other contractors couldn't solve. Shall's team investigated thoroughly, identified the real issue, and fixed it permanently. Their waterproofing expertise saved us from major interior damage. Highly recommend their exterior services.",
+      "author": "Robert Thompson",
       "role": "Property Manager",
-      "company": "Kensington Commercial Realty"
+      "company": "Kensington Commercial Real Estate"
     },
-    "relatedServices": ["parking-lot-services", "emergency-services", "painting-services"],
+    "relatedServices": ["masonry-repair", "waterproofing", "concrete-services"],
     "seoKeywords": [
-      "commercial waterproofing Montgomery County MD",
-      "building exterior repair Bethesda Maryland",
-      "masonry contractor Kensington MD",
-      "facade restoration services Maryland",
-      "commercial caulking services Montgomery County",
-      "leak investigation repair Bethesda",
-      "power washing commercial building Maryland",
-      "exterior building maintenance property manager",
-      "waterproofing contractor MD VA DC",
-      "commercial masonry repair Kensington",
-      "building envelope services Montgomery County",
-      "exterior restoration contractor Bethesda MD"
+      "waterproofing contractor Montgomery County MD",
+      "masonry repair Bethesda Maryland",
+      "building facade restoration Kensington",
+      "commercial waterproofing Maryland",
+      "exterior building services property manager",
+      "leak investigation and repair Montgomery County",
+      "masonry contractor Bethesda MD",
+      "concrete repair services Maryland",
+      "building envelope repair MD VA DC",
+      "facade restoration Kensington MD",
+      "commercial exterior contractor Bethesda",
+      "waterproofing services property managers Maryland"
     ]
   },
   "parking-lot-services": {
     "slug": "parking-lot-services",
-    "tagline": "Professional parking lot maintenance with attention to detail and operational efficiency",
-    "philosophy": "At Shall's Construction, we understand that parking lot maintenance requires precision, proper equipment, and minimal disruption to your business operations. For over 30 years, commercial property managers in Montgomery County, Bethesda, and Kensington have trusted us for comprehensive parking lot services—from asphalt paving and sealcoating to striping and ADA compliance upgrades.\n\nOur expertise spans all aspects of parking lot preservation. We take time to understand your specific needs and budget, then craft an efficient plan executed by our 95% in-house team of professionals with specialized equipment and training. Licensed in MD, VA, DC, and DE, we maintain the highest standards of quality craftsmanship from initial assessment through final striping.\n\nWe excel at working proficiently around in-place tenants, scheduling work during off-hours when necessary to minimize business disruption. Whether your property needs a complete mill and overlay, concrete sidewalk repair, or routine sealcoating, we have the skills and practical experience to execute it right the first time. Our clients in retail, commercial, government, hospital, and education sectors rely on our systematic approach and 24/7/365 emergency response for urgent parking lot issues.",
+    "tagline": "Professional asphalt and concrete services that enhance your property's first impression",
+    "philosophy": "Your parking lot is the first thing tenants and visitors see. Cracks, potholes, and faded striping don't just look unprofessional—they're safety hazards and liability risks. Property managers throughout Montgomery County rely on Shall's Construction to keep their parking areas safe, functional, and attractive.\n\nFrom asphalt repairs to complete resurfacing, our paving specialists deliver quality work that lasts. We schedule projects to minimize disruption, often working after hours or on weekends to keep your property accessible. Whether you need crack sealing, sealcoating, or fresh striping for ADA compliance, we handle it efficiently.\n\nLicensed in Maryland, Virginia, DC, and Delaware, we bring decades of experience to every paving project. Our crews work systematically to protect adjacent landscaping and coordinate with your property schedule. Emergency repairs available 24/7 for urgent situations that threaten tenant safety or access.",
     "servicesInclude": [
-      "Asphalt paving and mill-and-overlay",
-      "Asphalt patching and pothole repair",
+      "Asphalt repair and patching",
+      "Complete parking lot resurfacing",
       "Sealcoating and surface protection",
-      "Parking lot striping and stenciling",
-      "ADA compliance upgrades and accessibility",
-      "Concrete sidewalk repair and replacement",
-      "Curb and gutter installation and repair",
-      "Speed bump installation and traffic control",
-      "Storm drain and inlet repair",
-      "Loading dock concrete work",
-      "Bollard and column installation",
-      "Rout and seal crack repair",
-      "Stamped concrete and decorative finishes",
-      "Emergency parking lot repair (24/7/365)"
+      "Line striping and marking",
+      "ADA compliance striping and signage",
+      "Crack sealing and filling",
+      "Pothole repair and prevention",
+      "Concrete sidewalk and curb repair",
+      "Speed bump installation",
+      "Bollard and wheel stop installation",
+      "Storm drain repair and cleaning",
+      "Emergency asphalt repairs (24/7)"
     ],
     "testimonial": {
-      "quote": "Shall's resurfaced our 200-space parking lot over a weekend with perfect execution. Their crew worked efficiently, communicated clearly, and the lot was ready Monday morning as promised. The striping is flawless and they handled ADA compliance upgrades seamlessly. True professionals.",
-      "author": "Robert Kim",
-      "role": "Facilities Manager",
+      "quote": "Shall's resurfaced our medical plaza parking lot over a long weekend—tenants returned Monday to a beautiful new surface with zero disruption. Their team coordinated everything perfectly, and the quality is outstanding. The best paving contractor we've worked with.",
+      "author": "Dr. Sarah Miller",
+      "role": "Property Manager",
       "company": "Bethesda Medical Plaza"
     },
     "relatedServices": ["exterior-building-services", "snow-removal", "emergency-services"],
@@ -166,8 +164,8 @@
   },
   "painting-services": {
     "slug": "painting-services",
-    "tagline": "Expert commercial painting with precision craftsmanship and minimal tenant disruption",
-    "philosophy": "Professional commercial painting does more than refresh your building's appearance—it adds long-term value and protects your property investment. Shall's Construction brings over 30 years of specialized experience in interior and exterior commercial painting across Montgomery County, Bethesda, and Kensington, Maryland. Our comprehensive approach includes expert surface preparation, quality materials, and precise application techniques that deliver lasting results.\n\nWith 95% in-house staff, our professional painting team maintains consistent quality standards on every project. Licensed in MD, VA, DC, and DE, we provide integrated commercial painting services including wall coverings, wood treatments, drywall, textured coating systems, specialty finishes, and garage sealing. We excel at working around in-place tenants with carefully planned scheduling and systematic protocols that minimize disruption.\n\nOur experienced team provides expert guidance on materials, finishes, design options, and color schemes to help property managers make informed decisions. From interior common spaces and office renovations to retail shopping centers and parking garage coatings, we deliver full-spectrum commercial painting services. Projects of all sizes benefit from our attention to detail, quality craftsmanship, and commitment to completing work on schedule and within budget.",
+    "tagline": "Precision painting that refreshes your property and protects your investment",
+    "philosophy": "There's commercial painting—and then there's commercial painting done right. Proper surface prep. Quality paints that last. Precise application that looks crisp two years later. Protection of floors, fixtures, and HVAC systems. That's what you get with Shall's.\n\nFor three decades, we've painted everything from small office suites to 50,000 sq ft buildings across Montgomery County. The difference? We don't cut corners, and we don't leave a mess. Our painting professionals follow systematic protocols: thorough surface preparation, premium materials, meticulous application, and complete cleanup.\n\nLicensed in Maryland, Virginia, DC, and Delaware, we excel at working around occupied spaces. Projects are carefully scheduled and phased to minimize tenant disruption. From interior common areas to exterior facades, garage coatings to specialty finishes—we deliver lasting results that enhance your property's appearance and value.",
     "servicesInclude": [
       "Interior commercial painting and wall finishes",
       "Exterior building painting and coatings",
@@ -206,8 +204,8 @@
   },
   "snow-removal": {
     "slug": "snow-removal",
-    "tagline": "Reliable snow and ice management ensuring safe property access with minimal disruption",
-    "philosophy": "Winter weather doesn't wait for convenient timing, and neither do property managers who need reliable snow and ice management. Shall's Construction has provided professional snow removal services throughout Montgomery County, Bethesda, and Kensington, Maryland for over 30 years. Our systematic approach ensures your commercial property remains safely accessible during winter months while minimizing disruption to tenants and operations.\n\nWith 95% in-house staff and specialized snow removal equipment, we respond quickly to winter weather events with pre-planned protocols and efficient execution. Licensed in MD, VA, DC, and DE, we serve commercial properties, retail centers, office buildings, medical facilities, educational institutions, and multi-family communities. Our teams work during off-hours when possible, coordinating carefully to maintain business continuity.\n\nWe pride ourselves on prompt response, thorough snow clearing, and professional ice management using proper de-icing techniques. Our crews plan work efficiently—often completing service before tenants arrive, so they may not even know we were on-site. Emergency snow removal services are available 24/7/365 because we understand that safe property access is critical for your business operations and liability management. From pre-season planning through final spring cleanup, Shall's delivers dependable winter property maintenance.",
+    "tagline": "Proactive winter services that keep your property safe and accessible",
+    "philosophy": "It's 4 AM. Snow is falling. Your tenants start arriving at 7 AM. You need your parking lot cleared NOW—not at 9 AM when some contractor finally shows up.\n\nThat's why property managers across Montgomery County contract with us for winter services: we monitor weather forecasts, pre-treat surfaces, and have crews ready to roll the moment snow starts falling. Your parking lot will be clear before your first tenant arrives.\n\nFor over 30 years, we've provided reliable snow and ice management throughout Maryland, Virginia, DC, and Delaware. Our systematic approach includes pre-season planning, real-time weather monitoring, and efficient crew coordination. We work during off-hours whenever possible, often completing service before your tenants even know it snowed. Professional ice management using proper de-icing techniques protects both safety and your surfaces.",
     "servicesInclude": [
       "Commercial parking lot snow plowing",
       "Sidewalk and walkway snow clearing",
@@ -215,7 +213,7 @@
       "Pre-storm preparation and salt application",
       "Loading dock and entrance clearing",
       "Stairway and ramp ice removal",
-      "24/7/365 emergency snow response",
+      "24/7 emergency snow response",
       "Post-storm cleanup and hauling",
       "Pre-season planning and contracts",
       "Real-time weather monitoring and coordination",
