@@ -140,6 +140,7 @@ export default function Contact() {
       <SEO
         title="Contact Shall's Construction | Get Quote MD VA DC"
         description="Request a quote or 24/7 emergency service — licensed MD VA DC DE. Call (301) 933-6277 for commercial construction and maintenance solutions today."
+        canonical="https://shallsconstruction.com/contact"
         schemas={schemas}
       />
       <Navigation />

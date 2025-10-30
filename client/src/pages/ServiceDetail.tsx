@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import ServiceCTA from "@/components/ServiceCTA";
+import RelatedLinks from "@/components/RelatedLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import type { Service } from "@shared/schema";
@@ -232,28 +234,17 @@ export default function ServiceDetail() {
       )}
 
       {/* CTA Section */}
-      <section className="py-12 bg-white text-center">
+      <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-lg text-gray-700" data-testid="text-cta-section">
-            For questions regarding our {service.title} services, please contact{" "}
-            <a 
-              href="mailto:shallsconstructionllc@aol.com" 
-              className="text-primary hover:underline font-semibold"
-              data-testid="link-email"
-              aria-label="Email Shall's Construction"
-            >
-              shallsconstructionllc@aol.com
-            </a>
-            {" "}or call{" "}
-            <a 
-              href="tel:+13019336277" 
-              className="text-primary hover:underline font-semibold"
-              data-testid="link-phone"
-              aria-label="Call Shall's Construction at (301) 933-6277"
-            >
-              (301) 933-6277
-            </a>
-          </p>
+          <ServiceCTA serviceSlug={service.slug} serviceTitle={service.title} />
+          <RelatedLinks 
+            links={[
+              { label: "View All Services", href: "/" },
+              { label: "Who We Serve", href: "/who-we-serve" },
+              { label: "Our Projects", href: "/projects" },
+              { label: "Contact Us", href: "/contact" },
+            ]}
+          />
         </div>
       </section>
 

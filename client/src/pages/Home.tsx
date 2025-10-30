@@ -182,8 +182,8 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction & Property Services | MD, VA, DC, DE | Shall's Construction"
-        description="Shall's Construction provides commercial renovation, maintenance, and repair services for property managers across Maryland, Virginia, DC, and Delaware. 30+ years of experience. 24/7 service."
-        canonical="https://shallsconstruction.replit.app/"
+        description="Commercial construction, property maintenance, and 24/7 emergency response across MD, VA, DC, and DE. Family-owned for 30+ years."
+        canonical="https://shallsconstruction.com/"
         schemas={schemas}
       />
       <Navigation />

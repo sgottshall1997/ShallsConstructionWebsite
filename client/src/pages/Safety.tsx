@@ -51,7 +51,8 @@ export default function Safety() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Safety & Certifications MD VA DC | Shall's Construction"
-        description="OSHA-compliant safety programs, licensed in MD VA DC DE, insured and bonded — learn about our commitment to safe worksites. 30+ years safety record."
+        description="OSHA-compliant safety programs, licensed in MD VA DC DE, insured and bonded. Learn about our commitment to safe worksites."
+        canonical="https://shallsconstruction.com/safety"
         schemas={schemas}
       />
       <Navigation />

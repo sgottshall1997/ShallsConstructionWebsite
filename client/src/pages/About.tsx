@@ -85,8 +85,8 @@ export default function About() {
     <div className="min-h-screen bg-white">
       <SEO
         title="About Shall's Construction | Our Story & Leadership"
-        description="Learn the story, leadership, and values behind Shall's Construction — trusted by property managers for three decades across MD VA DC and DE."
-        canonical="https://shallsconstruction.replit.app/about"
+        description="Family-owned commercial contractor serving MD, VA, DC, and DE for 30+ years. 100% in-house crews. Built for property managers."
+        canonical="https://shallsconstruction.com/about"
         schemas={schemas}
       />
       <Navigation />
