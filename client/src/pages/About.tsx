@@ -159,7 +159,7 @@ export default function About() {
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our mission is simple: deliver reliable, high-quality commercial construction and maintenance services that make property managers' lives easier—performed by our in-house team with exceptional craftsmanship, honest communication, and round-the-clock availability.
+              Our mission is simple: to deliver reliable, high-quality construction and maintenance services that make property managers’ lives easier. We do this with our 100% in-house team, practicing exceptional craftsmanship, honest communication, and true 24/7 availability.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
