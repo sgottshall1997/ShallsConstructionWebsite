@@ -27,8 +27,12 @@ Implemented comprehensive SEO and technical improvements to meet industry best p
 - Condensed content by ~50% following Rock Spring Contracting's minimal style
 - Updated H1 to SEO-optimized format
 - Service descriptions shortened to single concise lines
-- Added "Proven, Responsive, Reliable" differentiators section
-- Removed redundant sections (Service Areas, client logos placeholder)
+- **Removed all redundant information** - each key fact now appears only once:
+  - Removed hero trust indicators (duplicated stats bar)
+  - Removed "Proven, Responsive, Reliable" differentiators section (duplicated stats bar)
+  - Simplified intro text (removed geographic and in-house mentions already in stats)
+- Current structure: Hero → Stats → Intro → Services → Projects → Testimonials → CTA
+- Key facts appear in optimal spots: Stats bar showcases 30+ Years, 24/7/365, 100% In-House, MD/VA/DC/DE
 
 ### Pages Hidden
 Hidden (commented out) for future re-enablement:

@@ -229,7 +229,7 @@ export default function Home() {
           <h2 className="text-lg md:text-xl mb-7 text-gray-200 font-normal" data-testid="hero-subheadline">
             Renovation, Maintenance & Repair for Property Managers
           </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
               <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote" aria-label="Request a quote for commercial construction services">
                 Request a Quote
@@ -247,13 +247,6 @@ export default function Home() {
                 24/7 Emergency Service
               </Button>
             </Link>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center text-sm md:text-base text-gray-200" data-testid="trust-indicators">
-            <span>Licensed in MD, VA, DC, DE</span>
-            <span className="hidden sm:inline text-gray-400">|</span>
-            <span>100% In-House Staff</span>
-            <span className="hidden sm:inline text-gray-400">|</span>
-            <span>24/7 Emergency Response</span>
           </div>
         </div>
       </section>
@@ -280,7 +273,7 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-            Shall's Construction provides comprehensive commercial renovation, maintenance, and repair services for property managers across MD, VA, DC, and DE. 100% of our work is performed by our full-time, in-house team.
+            Shall's Construction provides comprehensive commercial renovation, maintenance, and repair services for property managers.
           </p>
         </div>
       </section>
@@ -334,67 +327,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Shall's Section - Experience & Differentiators */}
-      <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-experience-heading">
-              Proven, Responsive, Reliable
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center" data-testid="differentiator-years">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
-                30+ Years in Business
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Three decades of commercial construction excellence
-              </p>
-            </div>
-
-            <div className="text-center" data-testid="differentiator-emergency">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
-                24/7/365 Emergency Response
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Always available when you need us most
-              </p>
-            </div>
-
-            <div className="text-center" data-testid="differentiator-inhouse">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
-                100% In-House Staff
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Full-time teams ensure consistent quality
-              </p>
-            </div>
-
-            <div className="text-center" data-testid="differentiator-service-area">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
-                Serving MD • VA • DC • DE
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Licensed and insured across the region
-              </p>
-            </div>
           </div>
         </div>
       </section>
