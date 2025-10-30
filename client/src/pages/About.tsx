@@ -116,7 +116,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-              Three Generations of Construction Excellence
+              Family Built. Professionally Driven.
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           </div>
@@ -125,10 +125,10 @@ export default function About() {
               In 1988, Shall's Construction began with a simple belief: property managers deserve a contractor they can trust completely. After working for years in <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> throughout the region, we saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So we built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will.
             </p>
             <p className="leading-relaxed mb-6">
-              Three decades later, we're still family-owned, still headquartered in Montgomery County, and still guided by that same promise. Many of our crew members have been with us for 20+ years - working alongside each other on hundreds of projects. When you call us, you get the same familiar faces every time. That continuity means better work, faster service, and the kind of trust you can't buy. We are a tight-knit team that treats your properties like our own.
+              Three decades later, we're still family-owned, still headquartered in Montgomery County, Maryland, and still guided by that same promise. Many of our crew members have been with us for 20+ years - working alongside each other on hundreds of projects. When you call us, you get the same familiar faces every time. That continuity means better work, faster service, and the kind of trust you can't buy. We are a tight-knit team that treats your properties like our own.
             </p>
             <p className="leading-relaxed">
-              Managing multiple properties, tight budgets, and demanding tenants is exhausting. That's why we built our company around responsiveness, clear communication, and quality control you can count on. Whether it's an emergency repair at 2 AM or a major renovation project, Shall's Construction delivers the same reliable service—making your life easier while keeping your tenants satisfied.
+              Managing multiple properties, tight budgets, and demanding tenants is exhausting. That's why we built our company around responsiveness, clear communication, and quality control you can count on. Whether it's an emergency repair at 2 AM or a major renovation project, Shall's delivers the same reliable service—making your life easier while keeping your tenants satisfied.
             </p>
           </div>
         </div>

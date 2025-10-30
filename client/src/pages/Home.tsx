@@ -205,7 +205,7 @@ export default function Home() {
            The DMV's Trusted Commercial Contractor for Property Managers
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
-            Since 1988, property managers across the Mid-Atlantic have relied on Shall's Construction for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
+            Since 1988, property managers across the Mid-Atlantic have relied on Shall's for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
@@ -255,14 +255,14 @@ export default function Home() {
       <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-why-heading">
-            Why Property Managers Keep Our Number on Speed Dial
+            Why Property Managers Keep Shalls on Speed Dial
           </h2>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6">
-                You're juggling work orders, demanding tenants, and tight budgets. The last thing you need is a contractor who doesn't show up or does sloppy work. We get it—because for three decades, we've specialized exclusively in making your life easier.
+                Managing work orders, tenants, and budgets is hard enough. The last thing you need is a contractor who wastes your time. For over 30 years, we’ve specialized in reliable, no-excuses property maintenance
               </p>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                Here's what sets us apart: many of our crew members have been with us for 15, 20, even 25+ years. That means when you call us for your Bethesda property, you get the same skilled team who worked on your Rockville building last month. No surprises. No learning curve. Just experienced craftsmen who know your properties and deliver consistent results every single time.
+                Our difference: consistency. Many of our crew have been with us 20+ years. When you call for a Bethesda property, it’s the same team who handled your Rockville building — people who already know your standards and deliver quality that doesn’t slip.
               </p>
             </div>
           </section>
