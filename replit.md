@@ -2,6 +2,27 @@
 
 ## Recent Updates (October 30, 2025)
 
+### Hero Images Added to About Us and Who We Serve Pages
+Added professional hero images to both pages matching the style of service pages:
+
+**About Us Page:**
+- Hero image: Professional construction team photo
+- 500px height hero section with overlay
+- Alt text: "Shall's Construction professional team Montgomery County Maryland"
+- Removed placeholder text "[Add hero image: Team photo...]"
+
+**Who We Serve Page:**
+- Hero image: Commercial property management building
+- 500px height hero section with overlay  
+- Alt text: "Commercial property management services Montgomery County Maryland Virginia DC"
+- Replaced gradient background with professional hero image
+
+**Implementation Details:**
+- Both pages now match service page hero styling (500px height, bg-cover, centered white text, dark overlay)
+- Generated images stored in attached_assets/generated_images/
+- Proper SEO optimization with descriptive aria-labels
+- End-to-end testing confirmed visual consistency across all hero sections
+
 ### Comprehensive SEO Optimization Complete - 100/100 Score
 Executed full technical SEO upgrade achieving 100/100 on-page SEO readiness without altering visible content, copy, tone, images, or branding.
 

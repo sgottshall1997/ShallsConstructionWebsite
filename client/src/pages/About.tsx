@@ -7,6 +7,7 @@ import StatCounter from "@/components/ui/stat-counter";
 import { generateBreadcrumbSchema, generateFAQSchema, generateOrganizationSchema } from "@/lib/schema";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
+import aboutHeroImg from "@assets/generated_images/Professional_construction_team_photo_9128835a.png";
 
 export default function About() {
   // Placeholder leadership data - user will replace with actual info
@@ -93,21 +94,24 @@ export default function About() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white py-24 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70 z-10"></div>
-        <div className="absolute inset-0 bg-gray-700">
-          {/* Placeholder for hero image - user will add actual team photo */}
-          <div className="w-full h-full flex items-center justify-center text-gray-500">
-            [Add hero image: Team photo or company building photo showing Shall's Construction team]
+      <section
+        className="relative h-[500px] bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${aboutHeroImg})`,
+        }}
+        role="img"
+        aria-label="Shall's Construction professional team Montgomery County Maryland"
+      >
+        <div className="absolute inset-0 bg-gray-900/70"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center text-center">
+          <div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-white" data-testid="text-page-title">
+              Making Property Management Easier Since 1988
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+              Three generations of family-owned excellence serving Maryland, Virginia, DC, and Delaware property managers with reliable commercial construction and maintenance services.
+            </p>
           </div>
-        </div>
-        <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6" data-testid="text-page-title">
-            Making Property Management Easier Since 1988
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-            Three generations of family-owned excellence serving Maryland, Virginia, DC, and Delaware property managers with reliable commercial construction and maintenance services.
-          </p>
         </div>
       </section>
 

@@ -8,6 +8,7 @@ import associaLogo from "@assets/Associa_1761838352452.png";
 import comsourceLogo from "@assets/comsource_1761838352453.png";
 import acmLogo from "@assets/american community management_1761838352452.png";
 import mmiLogo from "@assets/mmi logo_1761838352451.png";
+import whoWeServeHeroImg from "@assets/generated_images/Property_manager_commercial_building_44638c1c.png";
 
 export default function WhoWeServe() {
   const clients = [
@@ -57,15 +58,25 @@ export default function WhoWeServe() {
       />
       <Navigation />
 
-      <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-page-title">
-            Built Exclusively for Property Managers
-          </h1>
-          <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            For three decades, property managers across Montgomery County have turned to Shall's Construction when they need reliable <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> and maintenance services—because we understand your world and make your job easier.
-          </p>
+      {/* Hero Section */}
+      <section
+        className="relative h-[500px] bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${whoWeServeHeroImg})`,
+        }}
+        role="img"
+        aria-label="Commercial property management services Montgomery County Maryland Virginia DC"
+      >
+        <div className="absolute inset-0 bg-gray-900/70"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center text-center">
+          <div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-white" data-testid="text-page-title">
+              Built Exclusively for Property Managers
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+              For three decades, property managers across Montgomery County have turned to Shall's Construction when they need reliable <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> and maintenance services—because we understand your world and make your job easier.
+            </p>
+          </div>
         </div>
       </section>
 
