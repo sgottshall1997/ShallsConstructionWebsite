@@ -5,6 +5,40 @@ This project is a professional, responsive website for Shall's Construction, a c
 
 ## Recent Changes
 
+### Advanced SEO Enhancements (October 30, 2025)
+Comprehensive SEO improvements to maximize search visibility and accessibility:
+
+**Enhanced Organization Schema:**
+- Added `hasOfferCatalog` to Organization schema with all 6 service categories
+- Nested OfferCatalog structure following schema.org best practices
+- Detailed service descriptions for improved search engine understanding
+
+**Breadcrumb Navigation:**
+- Added visible breadcrumb navigation to 15 pages
+- Consistent styling across detail pages, location pages, and content pages
+- Breadcrumbs match existing BreadcrumbList schema structure
+- Mobile-responsive with proper spacing
+
+**SEO Documentation:**
+- Created `SEO_AUDIT_REPORT.md` with comprehensive analysis (current score: 72/100)
+- Audited 19+ pages with detailed metrics
+- Prioritized recommendations for next improvements
+- Created `CONTENT_PRODUCTION_PLAN.md` with 12-week roadmap
+- 36 detailed blog post briefs targeting property managers
+- Complete keyword research and internal linking strategy
+
+**Accessibility Improvements:**
+- Added descriptive aria-labels to navigation (main nav, mobile menu)
+- Enhanced all CTAs, forms, and interactive elements
+- Added aria-labels to filters, cards, and links across 7 key pages
+- Follows WCAG 2.1 AA guidelines
+
+**Files Modified:**
+- `client/src/lib/schema.ts` - Enhanced Organization schema
+- 15 page files - Added breadcrumb navigation
+- `client/src/components/Navigation.tsx` - Added aria-labels
+- Multiple page components - Accessibility enhancements
+
 ### Password Protection Removed (October 30, 2025)
 - Removed password protection from the website - site now opens directly without login
 - Removed authentication middleware from all API routes

@@ -64,6 +64,13 @@ export default function BlogDetail() {
     enabled: !!post,
   });
 
+  // Track blog post view - must be before any conditional returns
+  useEffect(() => {
+    if (post) {
+      trackBlogView(post.title, post.category);
+    }
+  }, [post]);
+
   // Filter out current post and limit to 3
   const filteredRelatedPosts = relatedPosts
     ?.filter(p => p.slug !== slug)
@@ -76,13 +83,6 @@ export default function BlogDetail() {
   ];
 
   const schemas = post ? [generateBreadcrumbSchema(breadcrumbs)] : [];
-
-  // Track blog post view
-  useEffect(() => {
-    if (post) {
-      trackBlogView(post.title, post.category);
-    }
-  }, [post]);
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {

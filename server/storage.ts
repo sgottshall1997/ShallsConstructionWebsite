@@ -154,6 +154,30 @@ export class MemStorage implements IStorage {
   private seedServices() {
     const sampleServices: InsertService[] = [
       {
+        slug: "construction-remodeling",
+        title: "Commercial Construction & Remodeling",
+        shortDescription: "Full-service commercial construction, remodeling, and renovation for properties across MD, VA, and DC.",
+        fullDescription: "Transform your commercial property with our comprehensive construction and remodeling services. From complete renovations to tenant build-outs, we deliver high-quality results on time and within budget. Our experienced team handles everything from initial planning through final inspection.",
+        benefits: [
+          "30+ years of commercial construction experience",
+          "100% in-house staff and crews",
+          "Licensed in MD, VA, DC, and DE",
+          "Full project management from start to finish",
+          "Minimal disruption to your operations"
+        ],
+        processSteps: [
+          "Initial consultation and site assessment",
+          "Design development and budgeting",
+          "Permitting and approvals",
+          "Construction execution",
+          "Final inspection and handover"
+        ],
+        category: "Construction",
+        imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&auto=format&fit=crop",
+        icon: "Building2",
+        featured: true,
+      },
+      {
         slug: "demolition",
         title: "Demolition",
         shortDescription: "Professional demolition services for commercial properties with 24/7 emergency response.",
@@ -175,7 +199,7 @@ export class MemStorage implements IStorage {
         category: "Construction",
         imageUrl: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop",
         icon: "Hammer",
-        featured: true,
+        featured: false,
       },
       {
         slug: "interior-fit-out",

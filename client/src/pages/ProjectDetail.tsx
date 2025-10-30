@@ -22,6 +22,13 @@ export default function ProjectDetail() {
     enabled: !!slug,
   });
 
+  // Track project page view - must be before any conditional returns
+  useEffect(() => {
+    if (project) {
+      trackProjectView(project.title, project.category);
+    }
+  }, [project]);
+
   const categoryToServiceMap: Record<string, string> = {
     "Office Buildings": "construction-remodeling",
     "Retail Centers": "construction-remodeling",
@@ -137,13 +144,6 @@ export default function ProjectDetail() {
   ];
 
   const metaDescription = `${project.category} project in ${project.location}. ${project.description.substring(0, 110 - project.category.length - project.location.length)}`;
-
-  // Track project page view
-  useEffect(() => {
-    if (project) {
-      trackProjectView(project.title, project.category);
-    }
-  }, [project]);
 
   return (
     <div className="min-h-screen bg-white">

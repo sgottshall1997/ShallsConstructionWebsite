@@ -62,6 +62,13 @@ export default function ServiceDetail() {
     queryKey: ["/api/projects"],
   });
 
+  // Track service page view - must be before any conditional returns
+  useEffect(() => {
+    if (service) {
+      trackServiceView(service.title);
+    }
+  }, [service]);
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-white">
@@ -133,13 +140,6 @@ export default function ServiceDetail() {
     generateServiceSchema(service),
     generateBreadcrumbSchema(breadcrumbs),
   ];
-
-  // Track service page view
-  useEffect(() => {
-    if (service) {
-      trackServiceView(service.title);
-    }
-  }, [service]);
 
   return (
     <div className="min-h-screen bg-white">
