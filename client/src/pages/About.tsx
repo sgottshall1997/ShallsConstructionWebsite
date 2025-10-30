@@ -122,13 +122,13 @@ export default function About() {
           </div>
           <div className="prose prose-lg max-w-none text-gray-600">
             <p className="leading-relaxed mb-6">
-              There are many companies that serve commercial property managers and owners—but none are quite like Shall's. From our inception, Shall's was built to serve property managers' needs. We understand the challenges you face in managing multiple projects, schedules, and budgets. Today, we provide an even greater depth and breadth of expertise to make your life easier. One Call Does It All!
+              For over 30 years, Shall’s Construction has been a family owned and operated commercial construction company proudly serving property managers across Maryland, Virginia, Washington, D.C., and Delaware. From day one, Shall’s was built to simplify the complex world of property maintenance, renovation, and construction. Our family foundation drives the way we work — with accountability, pride, and personal investment in every client relationship.
             </p>
             <p className="leading-relaxed mb-6">
-              At Shall's Construction, our in-house team provides a wide range of commercial renovation, repair & maintenance, and commercial construction services, providing both short and long-term solutions for your property's needs. Whether to make an urgent repair or take on a capital project, Shall's will respond.
+              We understand the challenges property managers face in balancing multiple projects, budgets, and tenants. That’s why we built a model based on responsiveness, communication, and quality control. With a 100% in-house team and our own equipment, we deliver consistent results without relying on subcontractor variability. Whether executing a capital improvement project or responding to an emergency repair, Shall’s Construction is always ready.
             </p>
             <p className="leading-relaxed">
-              For more than 30+ years, we've earned a reputation for helping property managers with their commercial renovation, repair, and maintenance needs both large and small — with professional, high quality work and seamless, 24/7/365 responsiveness to emergency situations. Because 100% of our work is done by our full-time staff using our own equipment, you always get consistent, high-quality results. The bottom line: we make your life easier, while enhancing your tenants' experience.
+              For more than three decades, our family-run team has earned the trust of hundreds of property managers by providing high-quality work and seamless 24/7/365 service. Because our name is on every project, we hold ourselves to the highest standards — making your life easier while enhancing your tenants’ experience.
             </p>
           </div>
         </div>
