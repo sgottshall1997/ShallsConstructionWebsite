@@ -257,8 +257,8 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* Related Services */}
-      {relatedServicesList.length > 0 && (
+      {/* Related Services - HIDDEN FOR NOW (can be re-enabled later) */}
+      {/* {relatedServicesList.length > 0 && (
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-heading font-bold text-gray-900 mb-8" data-testid="text-related-services-heading">
@@ -288,7 +288,7 @@ export default function ServiceDetail() {
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       <Footer />
     </div>

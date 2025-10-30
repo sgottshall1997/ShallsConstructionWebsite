@@ -24,6 +24,9 @@ Replaced body copy on all six primary service pages with new structured content:
 - Concise, punchy service descriptions without redundancy
 - Clear value propositions and differentiators
 
+**Layout Updates:**
+- Related Services section hidden on all service pages (data preserved for future use)
+
 ## Recent Updates (October 30, 2025)
 
 ### SEO & Technical Optimization Complete
