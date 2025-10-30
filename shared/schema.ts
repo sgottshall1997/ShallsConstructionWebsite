@@ -41,6 +41,15 @@ export const services = pgTable("services", {
   imageUrl: text("image_url").notNull(),
   icon: text("icon").notNull(),
   featured: boolean("featured").notNull().default(false),
+  tagline: text("tagline"),
+  philosophy: text("philosophy"),
+  servicesInclude: text("services_include").array(),
+  testimonialQuote: text("testimonial_quote"),
+  testimonialAuthor: text("testimonial_author"),
+  testimonialRole: text("testimonial_role"),
+  testimonialCompany: text("testimonial_company"),
+  relatedServices: text("related_services").array(),
+  seoKeywords: text("seo_keywords").array(),
 });
 
 export const projects = pgTable("projects", {
