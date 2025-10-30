@@ -52,7 +52,7 @@ export default function Navigation() {
               <img
                 src={shallsLogo}
                 alt="Shall's Construction commercial property services logo"
-                className="h-12 md:h-16"
+                className="h-14 md:h-20"
                 data-testid="img-shalls-logo"
               />
             </div>
