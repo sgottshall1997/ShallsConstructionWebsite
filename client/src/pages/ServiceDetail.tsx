@@ -130,7 +130,7 @@ export default function ServiceDetail() {
         title={seoTitle}
         description={seoDescription}
         schemas={schemas}
-        canonical={`https://shallsconstruction.com/services/${service.slug}`}
+        canonical={`https://shallsconstruction.replit.app/services/${service.slug}`}
       />
       <Navigation />
 
