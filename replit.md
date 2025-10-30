@@ -5,6 +5,60 @@ This project is a professional, responsive website for Shall's Construction, a c
 
 ## Recent Changes
 
+### Rock Spring Service Page Rebuild (October 30, 2025)
+Complete redesign of all service pages to match Rock Spring Contracting's professional B2B format targeting property managers:
+
+**Schema Extension:**
+- Extended Service type in `shared/schema.ts` with 9 new fields: tagline, philosophy, servicesInclude, testimonial (quote/author/role/company), relatedServices, seoKeywords
+- All new fields nullable for backwards compatibility with existing data
+- Updated storage to normalize undefined values to null
+
+**Service Catalog Expansion:**
+- Expanded from 6 to 12 total services (6 primary + 6 secondary)
+- Primary services (in Navigation): construction-remodeling, handyman-services, exterior-building-services, parking-lot-services, painting-services, snow-removal
+- Secondary services: demolition, interior-fit-out, tenant-improvements, facility-maintenance, emergency-services, general-maintenance
+- Created SERVICE_CATALOG.md documenting all services, priorities, relationships, and SEO keywords
+
+**ServiceDetail Component Redesign:**
+- Complete rebuild of `client/src/pages/ServiceDetail.tsx` following Rock Spring layout
+- New structure: Hero (H1) → Breadcrumb → Tagline (H2) → Philosophy → Services Include (H2 + H3 bullets) → Testimonial → CTA → Related Services
+- Removed old benefits/processSteps presentation
+- Added intelligent fallbacks: default tagline, philosophy falls back to fullDescription, servicesInclude falls back to benefits
+- Proper H1-H3 hierarchy throughout (one H1, multiple H2/H3)
+- Testimonials conditionally displayed only when present
+- Related services with internal linking
+
+**Professional Content Generation:**
+- Created SERVICE_CONTENT_PRIMARY.json with complete Rock Spring-format content for 6 primary services
+- Each service: 10-15 word tagline, 150-200 word philosophy, 8-15 service bullets, unique testimonial, related services mapping, 12 SEO keywords
+- Professional B2B tone: concise, safety-focused, operations-oriented, minimal-disruption emphasis
+- Geographic targeting: Montgomery County MD, Bethesda MD, Kensington MD
+- Total 400-600 words per service for SEO optimization
+- All content imported into server/storage.ts
+
+**SEO & Accessibility:**
+- Unique meta descriptions (140-160 chars) for each service
+- Canonical URLs configured
+- Hero sections use background images with proper aria-label attributes
+- All sections have data-testid attributes for testing
+- Service schema JSON-LD generated for each page
+
+**Testing Results:**
+- Comprehensive end-to-end testing passed
+- Rock Spring layout verified across desktop and mobile
+- Content quality confirmed (400-600 words, professional tone)
+- SEO metadata validated
+- Fallback behavior working correctly for secondary services
+- Navigation and internal linking functional
+- Responsive design verified (375px mobile width)
+
+**Files Modified:**
+- `shared/schema.ts` - Service type extension
+- `server/storage.ts` - 12 services with Rock Spring data
+- `client/src/pages/ServiceDetail.tsx` - Complete redesign
+- `SERVICE_CATALOG.md` - Service documentation (new)
+- `SERVICE_CONTENT_PRIMARY.json` - Professional content (new)
+
 ### Advanced SEO Enhancements (October 30, 2025)
 Comprehensive SEO improvements to maximize search visibility and accessibility:
 
