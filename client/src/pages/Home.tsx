@@ -77,37 +77,37 @@ export default function Home() {
     {
       title: "Construction & Remodeling",
       image: constructionImg,
-      description: "From tenant buildouts to common-area renovations, we deliver quality and consistency.",
+      description: "Tenant buildouts, office renovations, and common-area upgrades delivered with precision and reliability across Maryland.",
       link: "/services/construction-remodeling",
     },
     {
       title: "Handyman Services",
       image: handymanImg,
-      description: "Expert carpentry, drywall, and repairs for commercial properties of all sizes.",
+      description: "Carpentry, drywall, and small repairs for commercial facilities throughout Virginia.",
       link: "/services/handyman-services",
     },
     {
       title: "Exterior Building Services",
       image: exteriorImg,
-      description: "Waterproofing, masonry, caulking, and power washing to protect your building envelope.",
+      description: "Masonry, waterproofing, and facade restoration to protect your property envelope in DC.",
       link: "/services/exterior-building-services",
     },
     {
       title: "Parking Lot Asphalt & Concrete",
       image: parkingImg,
-      description: "Complete parking lot maintenance from striping to asphalt repair and sealcoating.",
+      description: "Asphalt repair, striping, and sealcoating for safe, professional curb appeal throughout Virginia.",
       link: "/services/parking-lot-services",
     },
     {
       title: "Painting Services",
       image: paintingImg,
-      description: "Professional interior and exterior painting with meticulous surface preparation.",
+      description: "Interior and exterior painting with attention to surface preparation for Maryland properties.",
       link: "/services/painting-services",
     },
     {
       title: "Snow Removal",
       image: snowImg,
-      description: "Reliable snow and ice management to keep your property safe and accessible.",
+      description: "24/7 snow and ice management for commercial properties in DC, Maryland, and Virginia.",
       link: "/services/snow-removal",
     },
   ];
@@ -181,8 +181,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Commercial Property Services MD VA DC | Shall's Construction"
-        description="Commercial construction, remodeling, handyman, asphalt, painting, and snow services across MD VA DC DE — 30 years serving property managers."
+        title="Commercial Construction & Property Services | MD, VA, DC, DE | Shall's Construction"
+        description="Shall's Construction provides commercial renovation, maintenance, and repair services for property managers across Maryland, Virginia, DC, and Delaware. 30+ years of experience. 24/7 service."
         canonical="https://shallsconstruction.replit.app/"
         schemas={schemas}
       />
@@ -200,18 +200,29 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
-            Commercial Construction & Property Services in MD, VA, DC & DE
+            Commercial Construction & Property Maintenance in MD, VA, DC & DE
           </h1>
           <h2 className="text-lg md:text-xl mb-7 text-gray-200 font-normal" data-testid="hero-subheadline">
-            Renovation, Maintenance & Repair for Property Managers
+            Renovation, Repair & Maintenance for Property Managers and Building Owners
           </h2>
-          <div className="flex justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
               <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote" aria-label="Request a quote for commercial construction services">
                 Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+            <a href="tel:3019336277" onClick={() => trackEmergencyClick('homepage_hero')}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-base px-8 py-6 bg-white/10 backdrop-blur-md border-white text-white hover:bg-white hover:text-gray-900"
+                data-testid="button-emergency"
+                aria-label="Call for emergency 24/7 commercial construction service"
+              >
+                Emergency Service 24/7
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -238,7 +249,7 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-            Shall’s Construction provides commercial renovation, maintenance, and property repair services across Maryland, Virginia, DC, and Delaware. 30+ years of experience.
+            Shall's Construction provides commercial renovation, maintenance, and repair services for property managers across Maryland, Virginia, DC, and Delaware. With over 30 years of experience and 24/7 emergency response, we deliver reliable results every time.
           </p>
         </div>
       </section>

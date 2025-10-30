@@ -1,0 +1,48 @@
+You are optimizing and rewriting the homepage of the site currently hosted at https://shallsconstruction.replit.app. 
+Perform a full SEO and UX overhaul with the following requirements:
+
+1. **Core Objective**
+   - Rewrite existing homepage content for SEO, UX clarity, and local conversion — do NOT duplicate or append data.
+   - Replace existing sections cleanly (title, meta description, hero text, service summaries, and footer).
+   - Maintain consistent visual structure and branding (logo, color scheme, layout).
+
+2. **Metadata**
+   - Replace <title> tag with:
+     Commercial Construction & Property Services | MD, VA, DC, DE | Shall’s Construction
+   - Add <meta name="description">:
+     Shall’s Construction provides commercial renovation, maintenance, and repair services for property managers across Maryland, Virginia, DC, and Delaware. 30+ years of experience. 24/7 service.
+   - Ensure only one <title> and one <meta description> exist in the final HTML.
+
+3. **Header / H1**
+   - Use one primary <h1>:
+     Commercial Construction & Property Maintenance in MD, VA, DC & DE
+   - Add subheading (H2):
+     Renovation, Repair & Maintenance for Property Managers and Building Owners
+   - Remove redundant “In Business” or “100% In-House Staff” text blocks unless visually formatted as a feature list.
+
+4. **Hero Section**
+   - Add clear CTA buttons:
+     [Request a Quote] [Emergency Service 24/7]
+   - Ensure phone number is clickable (tel:3019336277).
+   - Add background alt text for accessibility.
+
+5. **Service Blocks**
+   - Rewrite each service card for brevity, clarity, and SEO. 
+   Example:
+   **Construction & Remodeling**
+   > Tenant buildouts, office renovations, and common-area upgrades delivered with precision and reliability.
+   **Handyman Services**
+   > Carpentry, drywall, and small repairs for commercial facilities.
+   **Exterior Building Services**
+   > Masonry, waterproofing, and facade restoration to protect your property envelope.
+   **Parking Lot Services**
+   > Asphalt repair, striping, and sealcoating for safe, professional curb appeal.
+   **Painting Services**
+   > Interior and exterior painting with attention to surface preparation.
+   **Snow Removal**
+   > 24/7 snow and ice management for commercial properties.
+
+   - Each service block should include one keyword-rich sentence referencing “Maryland,” “Virginia,” or “DC” (rotated between cards).
+
+6. **Schema & Structured Data**
+   - Inject JSON-LD schema below the closing </body>:
