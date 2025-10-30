@@ -62,6 +62,7 @@ export default function ProjectCard({
           <button
             className="flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all"
             data-testid={`button-view-project-${slug}`}
+            aria-label={`View ${title} project details`}
           >
             View Project <ArrowRight className="h-4 w-4" />
           </button>

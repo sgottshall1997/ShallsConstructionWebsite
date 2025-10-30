@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { ArrowLeft, Calendar, MapPin, Briefcase, CheckCircle, X } from "lucide-react";
 import { generateBreadcrumbSchema, generateProjectSchema } from "@/lib/schema";
 import type { Project } from "@shared/schema";
@@ -169,14 +170,28 @@ export default function ProjectDetail() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
       </section>
 
-      {/* Breadcrumb & Back Button */}
+      {/* Breadcrumb */}
       <section className="bg-gray-50 py-4 border-b">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/projects">
-            <button className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all" data-testid="button-back-to-projects">
-              <ArrowLeft className="h-4 w-4" /> Back to Projects
-            </button>
-          </Link>
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/projects">Projects</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{project.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
         </div>
       </section>
 

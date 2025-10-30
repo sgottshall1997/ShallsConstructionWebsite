@@ -44,7 +44,7 @@ export default function Navigation() {
   const isServicesActive = () => location.startsWith("/services/");
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" data-testid="link-logo">
@@ -125,6 +125,7 @@ export default function Navigation() {
               href="tel:3019336277"
               className="flex items-center gap-2 text-primary font-semibold"
               data-testid="link-phone"
+              aria-label="Call Shall's Construction at (301) 933-6277"
             >
               <Phone className="h-4 w-4" />
               <span>(301) 933-6277</span>
@@ -135,7 +136,8 @@ export default function Navigation() {
             className="lg:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="button-mobile-menu"
-            aria-label="Toggle mobile menu"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
               <X className="h-6 w-6 text-gray-900" />
@@ -196,6 +198,7 @@ export default function Navigation() {
               href="tel:3019336277"
               className="flex items-center gap-2 py-3 text-primary font-semibold"
               data-testid="link-mobile-phone"
+              aria-label="Call Shall's Construction at (301) 933-6277"
             >
               <Phone className="h-5 w-5" />
               <span>(301) 933-6277</span>

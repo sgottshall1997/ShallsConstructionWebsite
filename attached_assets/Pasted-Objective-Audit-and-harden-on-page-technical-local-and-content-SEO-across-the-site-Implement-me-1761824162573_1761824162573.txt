@@ -1,0 +1,291 @@
+Objective: Audit and harden on-page, technical, local, and content SEO across the site. Implement metadata, headings, schema, internal links, media optimization, sitemap/robots, and content scaffolding. Do not change domain or SSL.
+
+Scope (pages exist or implied):
+
+/ (Home)
+
+/about
+
+/what-we-do (anchors: #construction, #handyman, #exterior, #asphalt, #painting, #snow)
+
+/who-we-serve
+
+/projects and individual project pages
+
+/service-areas and subpages:
+
+/service-areas/bethesda-md, /rockville-md, /silver-spring-md, /baltimore-md, /gaithersburg-md, /dc-metro
+
+/testimonials
+
+/blog and posts
+
+/articles (if duplicate of /blog, consolidate—see Redirects/Canonicals)
+
+/safety
+
+/contact
+
+Any other discovered routes
+
+0) Repository Discovery
+
+Detect framework (pure HTML, templating, or React/Vite). Identify layout file(s) controlling <head> and navigation/footer.
+
+Enumerate all routes/pages. Output a table: path | file | title(h1) | current <title> | meta description | word count | has schema? | images(count) | anchors | status.
+
+1) Global <head> Baseline (in the shared layout/template)
+
+Implement once globally; allow page-level overrides:
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+Default <title> fallback: Shall’s Construction | Commercial Property Services in MD · VA · DC · DE
+
+Default <meta name="description"> fallback: Commercial construction, remodeling, handyman, exterior building, asphalt & concrete, painting, and snow removal services. 30+ years. 24/7 emergency response.
+
+<link rel="canonical" href="[absolute URL of current route]"> (programmatic)
+
+Open Graph/Twitter defaults:
+
+og:type=website, og:site_name=Shall’s Construction
+
+og:title and og:description mirror page <title>/description
+
+og:image and twitter:image to a branded 1200×630 image
+
+twitter:card=summary_large_image
+
+<link rel="icon" ...> and <link rel="manifest" ...> if available
+
+Preload critical font(s) if used
+
+2) Page-Level Title/Meta Templates (override defaults)
+
+Apply deterministic templates per page with unique, keyworded value:
+
+Home
+Title: Commercial Property Services in Maryland, Virginia, DC, Delaware | Shall’s Construction
+Meta: 30+ years serving property managers with commercial construction, remodeling, handyman, exterior building, asphalt & concrete, painting, and 24/7 emergency services.
+
+Service clusters (anchor sections split into dedicated subpages if possible; if not, set fragment-aware IDs and distinct subsections):
+
+Construction & Remodeling → Title: Commercial Construction & Office Remodeling | MD · VA · DC · DE | Shall’s Construction
+Meta: Commercial interiors, tenant build-outs, office remodels, and emergency construction for property managers across MD/VA/DC/DE.
+
+Handyman Services → Title: Commercial Handyman Services | Carpentry, Drywall, Doors | MD · VA · DC · DE
+Meta: Fast, high-quality repairs for commercial properties: carpentry, drywall, doors, and maintenance.
+
+Exterior Building Services → Title: Exterior Building Services | Waterproofing, Masonry, Caulking | MD · VA · DC · DE
+Meta: Leak investigations, crack repair, caulking, masonry, power washing, and waterproofing.
+
+Asphalt & Concrete → Title: Parking Lot Asphalt & Concrete | Sealcoating, Striping, ADA Upgrades | MD · VA · DC · DE
+Meta: Complete parking lot maintenance: repairs, sealcoating, striping, and accessibility upgrades.
+
+Painting → Title: Commercial Painting Services | Interior & Exterior | MD · VA · DC · DE
+Meta: Professional surface prep, coatings, and specialty finishes for commercial properties.
+
+Snow Removal → Title: Commercial Snow & Ice Management | 24/7 Winter Services | MD · VA · DC · DE
+Meta: Prompt, reliable snow and ice management minimizing tenant disruption.
+
+Service-Area pages
+Template Title: [City, State] Commercial Contractor | Construction, Repairs & Maintenance | Shall’s Construction
+Template Meta: Commercial construction, repairs, and property maintenance for [City, ST] office buildings, retail, and multifamily. 30+ years. 24/7 emergency.
+
+Projects
+Title: Commercial Project Portfolio | MD · VA · DC · DE | Shall’s Construction
+Meta: Case studies and before/after results across office, retail, multifamily, and medical.
+
+Testimonials
+Title: Client Testimonials | Property Manager Reviews | Shall’s Construction
+Meta: Trusted by property managers across MD/VA/DC/DE for reliability, quality, and value.
+
+Safety
+Title: Safety & Certifications | Commercial Contractor | Shall’s Construction
+Meta: Safety standards, training, and certifications for all crews and services.
+
+Contact
+Title: Contact Shall’s Construction | 24/7 Emergency Service | (301) 933-6277
+Meta: Request a quote or 24/7 emergency help. Licensed & insured in MD/VA/DC/DE.
+
+Blog/Articles
+Title: [Post Title] | Commercial Property Insights | Shall’s Construction
+Meta: Actionable tips and case studies for property managers in MD/VA/DC/DE.
+
+3) Heading Hierarchy Fix
+
+Exactly one <h1> per page that states the core query/topic.
+
+Convert section titles to <h2>, subsections <h3>.
+
+Ensure anchors map to headings with IDs.
+
+4) Copy Depth Targets
+
+Home: ≥ 500–700 words of unique copy distributed by sections.
+
+Each service (own page or deep section): ≥ 400–600 words including: scope, methods, materials, timelines, risks, QA, and 3–5 FAQs.
+
+Each service-area page: ≥ 400–600 words including local references, example projects, neighborhoods, seasonal issues.
+
+Projects: turn each “Featured Project” into a distinct page with 250–500 words: Client type, location, problem, scope, materials, timeline, before/after outcomes, photos.
+
+Blog: ensure each post ≥ 800–1200 words, with skimmable subheads and an FAQ.
+
+5) Internal Linking Plan
+
+From Home and service pages, link to at least 2 relevant service-area pages with descriptive anchors (e.g., office remodeling in Bethesda).
+
+From service-area pages, link back to relevant service pages and 1–2 local case studies.
+
+From blog posts, link to related services and service-areas; add a “Related Articles” block (3 links).
+
+Ensure breadcrumb navigation on all subpages.
+
+6) Media & Image Optimization
+
+Rename files to descriptive, keyworded names (e.g., bethesda-office-remodel-tenant-fitout.jpg).
+
+Generate WebP versions; keep original as fallback via <picture> where possible.
+
+Add precise alt attributes; pattern: [Subject] — [Service] in [City/Region] by Shall’s Construction (no stuffing).
+
+Set explicit width/height, lazy-load non-hero images.
+
+Compress images (target <200KB when possible without visible loss).
+
+7) Structured Data (JSON-LD)
+
+Implement JSON-LD blocks in the <head>:
+
+Organization/LocalBusiness on Home:
+
+@type: LocalBusiness
+
+name, url, telephone = (301) 933-6277, email = shallsconstructionllc@aol.com
+
+areaServed: list of MD, VA, DC, DE and key cities (Bethesda, Rockville, Silver Spring, Baltimore, Gaithersburg, DC Metro)
+
+openingHoursSpecification for 24/7 emergency
+
+logo, sameAs (add profiles if exist)
+
+hasOfferCatalog with entries for each service category
+
+Service on each service page/section: describe the service, areaServed, provider pointing to Organization.
+
+BreadcrumbList on all subpages.
+
+FAQPage on any page with FAQs.
+
+Review (not AggregateRating unless you have verifiable counts). Add individual Review items that match visible testimonials.
+
+BlogPosting for blog posts.
+
+Validate with Rich Results Test; fix errors/warnings.
+
+8) Canonicals, Duplicates, Redirects
+
+If both /blog and /articles exist, choose one canonical path (prefer /blog).
+
+Add canonical tags on posts and listing pages.
+
+If you change slugs, create 301 redirects from old → new (in whatever routing layer the repo uses).
+
+Ensure only one URL per content (no trailing slash/uppercase/querystring duplicates); normalize.
+
+9) Sitemap & Robots
+
+Generate sitemap.xml including all canonical routes and lastmod dates.
+
+Create/update robots.txt with:
+
+User-agent: *
+Disallow:
+Sitemap: https://shallsconstruction.replit.app/sitemap.xml
+
+
+Exclude non-canonical/utility routes.
+
+10) Accessibility & UX Signals
+
+Add aria-labels on nav and buttons.
+
+Ensure color contrast passes WCAG AA.
+
+Ensure buttons have descriptive text (“Request a Quote for [Service/City]”).
+
+Add tel: and mailto: links where appropriate.
+
+Add a fast, uncluttered mobile menu.
+
+11) Performance (non-hosting)
+
+Inlining critical CSS for above-the-fold if feasible.
+
+Defer noncritical scripts; remove unused libraries.
+
+Preload hero image; lazy-load below-the-fold.
+
+Use CSS aspect-ratio for media to prevent CLS.
+
+12) Content Production Queue (create as /content/plan.md)
+
+Produce a 12-week plan. Include 3 blog posts/week targeting property-manager intent in MD/VA/DC/DE. Examples:
+
+“Office Tenant Build-Out: Permit & Timeline Checklist for Bethesda, MD”
+
+“Parking Lot Sealcoating: How Often for Retail Centers in Rockville?”
+
+“Medical Office Remodels: Infection Control Measures Property Managers Need”
+
+“Commercial Waterproofing: Diagnosing Leaks in 1970s Brick Facades (DC Metro)”
+For each item: target keyword, H1, H2 outline, brief, internal links, CTA.
+
+13) QA & Self-Check (output a final report)
+
+Verify every page has:
+
+Exactly one <h1>, unique <title> (50–60 chars), unique meta description (140–160 chars).
+
+Canonical tag.
+
+At least 2 internal links to relevant pages.
+
+Images with descriptive filenames and non-generic alt.
+
+Appropriate schema with zero Rich Results errors.
+
+Run Lighthouse (or equivalent) and report: Performance, Accessibility, Best Practices, SEO.
+
+Validate sitemap.xml and robots.txt.
+
+Print a diff summary of files changed.
+
+Implementation Notes
+
+Do not invent addresses. Use city/region in areaServed; keep NAP exactly as displayed on site.
+
+Keep phone (301) 933-6277 consistent.
+
+If the site is React/Vite: implement a useSEO() helper and page-level SEO objects; otherwise inject per-page <head> sections.
+
+If anchors remain on /what-we-do, still add section-level schema (it’s valid). If you can split into proper routes, prefer that, with redirects from the old anchors.
+
+Deliverables:
+
+Updated code with global <head> and page-level overrides.
+
+JSON-LD blocks for Organization, Service, BreadcrumbList, FAQ, BlogPosting, Reviews.
+
+Optimized images (renamed, compressed, WebP where possible).
+
+sitemap.xml and robots.txt.
+
+/content/plan.md with 12-week calendar and 36+ briefs.
+
+Final QA report (table from Step 0 updated post-fix; Lighthouse/validator notes; list of remaining gaps).
+
+Execute now.

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
+import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -9,6 +10,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import {
   Select,
   SelectContent,
@@ -142,6 +144,24 @@ export default function Contact() {
       />
       <Navigation />
 
+      <section className="bg-gray-50 py-4 border-b">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Contact</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </section>
+
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-page-title">
@@ -188,6 +208,7 @@ export default function Contact() {
                           : "border-gray-200 hover:border-red-300 hover:bg-red-50/50"
                       }`}
                       data-testid="button-inquiry-emergency"
+                      aria-label="Select emergency service inquiry type"
                     >
                       <AlertCircle className={`h-8 w-8 mb-3 ${inquiryType === "emergency" ? "text-red-500" : "text-gray-400"}`} />
                       <h3 className="font-heading font-bold text-lg mb-2">Emergency Service</h3>
@@ -203,6 +224,7 @@ export default function Contact() {
                           : "border-gray-200 hover:border-primary hover:bg-blue-50/50"
                       }`}
                       data-testid="button-inquiry-quote"
+                      aria-label="Select quote request inquiry type"
                     >
                       <FileText className={`h-8 w-8 mb-3 ${inquiryType === "quote" ? "text-primary" : "text-gray-400"}`} />
                       <h3 className="font-heading font-bold text-lg mb-2">Request a Quote</h3>
@@ -218,6 +240,7 @@ export default function Contact() {
                           : "border-gray-200 hover:border-primary hover:bg-blue-50/50"
                       }`}
                       data-testid="button-inquiry-general"
+                      aria-label="Select general inquiry type"
                     >
                       <Mail className={`h-8 w-8 mb-3 ${inquiryType === "general" ? "text-primary" : "text-gray-400"}`} />
                       <h3 className="font-heading font-bold text-lg mb-2">General Inquiry</h3>
@@ -243,6 +266,7 @@ export default function Contact() {
                           className="inline-block bg-red-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-600 transition-colors"
                           data-testid="button-emergency-call-direct"
                           onClick={() => trackPhoneClick('contact_page_emergency_alert')}
+                          aria-label="Call Shall's Construction now for emergency service at (301) 933-6277"
                         >
                           <Phone className="inline-block h-5 w-5 mr-2" />
                           Call Now: (301) 933-6277
@@ -492,6 +516,7 @@ export default function Contact() {
                       className="w-full md:w-auto px-8"
                       disabled={submitMutation.isPending}
                       data-testid="button-submit"
+                      aria-label="Submit contact form"
                     >
                       {submitMutation.isPending
                         ? "Sending..."
@@ -524,6 +549,7 @@ export default function Contact() {
                         href="tel:3019336277"
                         className="text-primary hover:text-primary/80"
                         data-testid="link-contact-phone"
+                        aria-label="Call Shall's Construction at (301) 933-6277"
                       >
                         (301) 933-6277
                       </a>
@@ -546,6 +572,7 @@ export default function Contact() {
                         href="mailto:shallsconstructionllc@aol.com"
                         className="text-primary hover:text-primary/80 break-all"
                         data-testid="link-contact-email"
+                        aria-label="Email Shall's Construction"
                       >
                         shallsconstructionllc@aol.com
                       </a>

@@ -1,10 +1,12 @@
 import { useState, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ProjectCard from "@/components/ui/project-card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import type { Project } from "@shared/schema";
 
@@ -44,6 +46,24 @@ export default function Projects() {
       />
       <Navigation />
 
+      <section className="bg-gray-50 py-4 border-b">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Projects</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -71,6 +91,7 @@ export default function Projects() {
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
                 data-testid={`button-category-${category.toLowerCase().replace(/\s+/g, "-")}`}
+                aria-label={category === "All" ? "Show all projects" : `Filter projects by ${category}`}
               >
                 {category}
               </button>
@@ -132,6 +153,7 @@ export default function Projects() {
             href="/contact"
             className="inline-block bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
             data-testid="button-contact-cta"
+            aria-label="Request a quote for commercial construction"
           >
             Request a Quote
           </a>

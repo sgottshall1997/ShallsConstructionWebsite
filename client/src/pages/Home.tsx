@@ -72,7 +72,7 @@ function TestimonialsSection() {
 
         <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" className="px-8" data-testid="button-view-all-testimonials">
-            <Link href="/testimonials">
+            <Link href="/testimonials" aria-label="View all client testimonials">
               View All Testimonials
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
@@ -88,6 +88,7 @@ function TestimonialsSection() {
               href="https://www.google.com/search?q=shall%27s+construction+reviews" 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="Leave a review on Google (opens in new window)"
             >
               Leave a Review
             </a>
@@ -229,7 +230,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
-              <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote">
+              <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote" aria-label="Request a quote for commercial construction services">
                 Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -240,6 +241,7 @@ export default function Home() {
                 variant="outline"
                 className="text-base px-8 py-6 bg-white/10 backdrop-blur-md border-white text-white hover:bg-white hover:text-gray-900"
                 data-testid="button-emergency"
+                aria-label="Request emergency commercial construction service"
               >
                 24/7 Emergency Service
               </Button>
@@ -316,6 +318,7 @@ export default function Home() {
                     <span
                       className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors cursor-pointer"
                       data-testid={`link-service-${index}`}
+                      aria-label={`Learn more about ${service.title}`}
                     >
                       Read More
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -355,7 +358,7 @@ export default function Home() {
 
           <div className="text-center">
             <Link href="/projects">
-              <Button size="lg" className="px-8" data-testid="button-view-all-projects">
+              <Button size="lg" className="px-8" data-testid="button-view-all-projects" aria-label="View all commercial construction projects">
                 View All Projects
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -387,7 +390,7 @@ export default function Home() {
               { name: 'DC Metro Area', slug: 'dc-metro', description: 'Arlington, Fairfax, Washington DC' },
             ].map((location) => (
               <Link key={location.slug} href={`/service-areas/${location.slug}`}>
-                <div className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer" data-testid={`card-location-${location.slug}`}>
+                <div className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer" data-testid={`card-location-${location.slug}`} role="link" aria-label={`View commercial services in ${location.name}`}>
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                       <MapPin className="h-6 w-6 text-primary" />
@@ -408,7 +411,7 @@ export default function Home() {
 
           <div className="text-center">
             <Link href="/service-areas">
-              <Button size="lg" variant="outline" className="px-8" data-testid="button-view-all-service-areas">
+              <Button size="lg" variant="outline" className="px-8" data-testid="button-view-all-service-areas" aria-label="View all commercial service areas">
                 View All Service Areas
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -503,7 +506,7 @@ export default function Home() {
 
           <div className="text-center">
             <Link href="/blog">
-              <Button size="lg" className="px-8" data-testid="button-view-all-articles">
+              <Button size="lg" className="px-8" data-testid="button-view-all-articles" aria-label="View all blog articles">
                 View All Articles
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -525,6 +528,7 @@ export default function Home() {
               href="tel:3019336277"
               className="text-2xl md:text-3xl font-heading font-bold hover:text-white/90 transition-colors"
               data-testid="link-cta-phone"
+              aria-label="Call Shall's Construction at (301) 933-6277"
             >
               (301) 933-6277
             </a>
@@ -535,6 +539,7 @@ export default function Home() {
                 variant="outline"
                 className="bg-white text-primary border-white hover:bg-white/90"
                 data-testid="button-cta-contact"
+                aria-label="Contact Shall's Construction"
               >
                 Contact Us Today
                 <ArrowRight className="ml-2 h-5 w-5" />

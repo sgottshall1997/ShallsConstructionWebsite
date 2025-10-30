@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import TestimonialCard from "@/components/ui/testimonial-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { generateBreadcrumbSchema, generateReviewSchema, generateAggregateRatingSchema } from "@/lib/schema";
 import { Quote, ExternalLink } from "lucide-react";
 import type { Testimonial } from "@shared/schema";
@@ -55,6 +57,24 @@ export default function Testimonials() {
         schemas={schemas}
       />
       <Navigation />
+
+      <section className="bg-gray-50 py-4 border-b">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Testimonials</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">
@@ -107,6 +127,7 @@ export default function Testimonials() {
                     ? "bg-primary text-white shadow-md"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
+                aria-label={filter === "All" ? "Show all testimonials" : `Filter testimonials by ${filter}`}
                 data-testid={`button-filter-${filter.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 {filter}

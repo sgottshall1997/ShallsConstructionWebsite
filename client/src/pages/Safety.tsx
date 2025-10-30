@@ -1,8 +1,10 @@
+import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import LogoGrid from "@/components/ui/logo-grid";
 import StatCounter from "@/components/ui/stat-counter";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { Shield, Award, FileCheck, Users } from "lucide-react";
 
@@ -53,6 +55,24 @@ export default function Safety() {
         schemas={schemas}
       />
       <Navigation />
+
+      <section className="bg-gray-50 py-4 border-b">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Safety</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">

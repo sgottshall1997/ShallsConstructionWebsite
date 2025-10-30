@@ -183,6 +183,96 @@ export function generateOrganizationSchema(): object {
       name: "Shall's Construction Founders",
     },
     foundingDate: "1990",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Commercial Property Services",
+      itemListElement: [
+        {
+          "@type": "OfferCatalog",
+          name: "Construction & Remodeling",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Commercial Construction & Remodeling",
+                description: "Commercial interiors, tenant build-outs, office remodels, and emergency construction services.",
+              },
+            },
+          ],
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Handyman Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Commercial Handyman Services",
+                description: "Carpentry, drywall, door installation, and commercial property maintenance.",
+              },
+            },
+          ],
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Exterior Building Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Exterior Building Services",
+                description: "Waterproofing, masonry, caulking, leak investigation, crack repair, and power washing.",
+              },
+            },
+          ],
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Asphalt & Concrete",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Parking Lot Asphalt & Concrete Services",
+                description: "Sealcoating, striping, repairs, and ADA compliance upgrades.",
+              },
+            },
+          ],
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Painting Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Commercial Painting",
+                description: "Interior and exterior painting, surface preparation, and specialty coatings.",
+              },
+            },
+          ],
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Snow Removal",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Commercial Snow & Ice Management",
+                description: "24/7 snow removal, ice management, and winter property maintenance.",
+              },
+            },
+          ],
+        },
+      ],
+    },
   };
 }
 

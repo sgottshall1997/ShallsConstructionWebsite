@@ -4,6 +4,7 @@ import SEO from "@/components/SEO";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { MapPin, Phone } from "lucide-react";
 import { Link } from "wouter";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 export default function ServiceAreas() {
   const regions = [
@@ -69,6 +70,24 @@ export default function ServiceAreas() {
         schemas={schemas}
       />
       <Navigation />
+
+      <section className="bg-gray-50 py-4 border-b">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Service Areas</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">

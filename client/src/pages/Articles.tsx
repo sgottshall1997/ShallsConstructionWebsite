@@ -9,6 +9,7 @@ import { type BlogPost } from "@shared/schema";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { useState } from "react";
 
 export default function Articles() {
@@ -60,6 +61,24 @@ export default function Articles() {
       />
       <Navigation />
 
+      <section className="bg-gray-50 py-4 border-b">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Blog</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </section>
+
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-page-title">
@@ -84,6 +103,7 @@ export default function Articles() {
                 size="sm"
                 onClick={() => setSelectedCategory(null)}
                 data-testid="button-category-all"
+                aria-label="Show all blog posts"
               >
                 All Posts
               </Button>
@@ -94,6 +114,7 @@ export default function Articles() {
                   size="sm"
                   onClick={() => setSelectedCategory(category)}
                   data-testid={`button-category-${category}`}
+                  aria-label={`Filter blog posts by ${category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}`}
                 >
                   {category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                 </Button>

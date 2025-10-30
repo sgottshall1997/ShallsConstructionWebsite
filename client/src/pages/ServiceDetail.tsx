@@ -7,6 +7,7 @@ import SEO from "@/components/SEO";
 import { ArrowLeft, CheckCircle, Phone, FileText, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import type { Service, Project } from "@shared/schema";
 import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/schema";
 import { trackServiceView, trackQuoteClick, trackPhoneClick } from "@/lib/analytics";
@@ -172,14 +173,25 @@ export default function ServiceDetail() {
 
       <section className="bg-gray-50 py-4 border-b">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/what-we-do">
-            <button
-              className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-              data-testid="button-back-to-services"
-            >
-              <ArrowLeft className="h-4 w-4" /> Back to All Services
-            </button>
-          </Link>
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/what-we-do">Services</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{service.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
         </div>
       </section>
 
@@ -248,6 +260,7 @@ export default function ServiceDetail() {
                       variant="outline"
                       className="bg-white text-primary hover:bg-gray-100 border-white w-full sm:w-auto"
                       data-testid="button-request-quote"
+                      aria-label={`Request a quote for ${service.title}`}
                     >
                       <FileText className="mr-2 h-5 w-5" />
                       Request a Quote
@@ -259,6 +272,7 @@ export default function ServiceDetail() {
                       variant="outline"
                       className="bg-white/10 backdrop-blur-md border-white text-white hover:bg-white hover:text-primary w-full sm:w-auto"
                       data-testid="button-emergency-service"
+                      aria-label="Request emergency commercial construction service"
                     >
                       <Phone className="mr-2 h-5 w-5" />
                       24/7 Emergency Service
@@ -281,6 +295,8 @@ export default function ServiceDetail() {
                         <div
                           className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                           data-testid={`featured-project-${project.slug}`}
+                          role="link"
+                          aria-label={`View ${project.title} project details`}
                         >
                           {project.imageUrls && project.imageUrls.length > 0 && (
                             <div className="h-48 overflow-hidden">
@@ -311,7 +327,7 @@ export default function ServiceDetail() {
                   </div>
                   <div className="mt-6 text-center">
                     <Link href="/projects">
-                      <Button variant="outline" data-testid="button-view-all-projects">
+                      <Button variant="outline" data-testid="button-view-all-projects" aria-label="View all commercial construction projects">
                         View All Projects
                       </Button>
                     </Link>
@@ -330,6 +346,8 @@ export default function ServiceDetail() {
                         <div
                           className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                           data-testid={`related-service-${relatedService.slug}`}
+                          role="link"
+                          aria-label={`Learn more about ${relatedService.title}`}
                         >
                           <h3 className="text-lg font-heading font-semibold text-gray-900 mb-2">
                             {relatedService.title}
@@ -361,6 +379,7 @@ export default function ServiceDetail() {
                       href="tel:3019336277"
                       className="text-lg font-semibold text-primary hover:underline"
                       data-testid="link-phone"
+                      aria-label="Call Shall's Construction at (301) 933-6277"
                     >
                       (301) 933-6277
                     </a>
@@ -371,6 +390,7 @@ export default function ServiceDetail() {
                       href="mailto:shallsconstructionllc@aol.com"
                       className="text-sm text-primary hover:underline break-all"
                       data-testid="link-email"
+                      aria-label="Email Shall's Construction"
                     >
                       shallsconstructionllc@aol.com
                     </a>
@@ -380,14 +400,14 @@ export default function ServiceDetail() {
                     <div className="space-y-2">
                       {locationLinks.map((location) => (
                         <Link key={location.slug} href={`/service-areas/${location.slug}`}>
-                          <div className="flex items-center gap-2 text-sm text-primary hover:underline cursor-pointer" data-testid={`link-location-${location.slug}`}>
+                          <div className="flex items-center gap-2 text-sm text-primary hover:underline cursor-pointer" data-testid={`link-location-${location.slug}`} role="link" aria-label={`View commercial services in ${location.name}`}>
                             <MapPin className="h-3 w-3" />
                             <span>{location.name}</span>
                           </div>
                         </Link>
                       ))}
                       <Link href="/service-areas">
-                        <div className="flex items-center gap-2 text-sm text-gray-900 hover:text-primary transition-colors mt-2 pt-2 border-t border-gray-200" data-testid="link-all-service-areas">
+                        <div className="flex items-center gap-2 text-sm text-gray-900 hover:text-primary transition-colors mt-2 pt-2 border-t border-gray-200" data-testid="link-all-service-areas" role="link" aria-label="View all commercial service areas">
                           <span className="font-semibold">View All Service Areas →</span>
                         </div>
                       </Link>
@@ -397,7 +417,7 @@ export default function ServiceDetail() {
 
                 <div className="space-y-3">
                   <Link href="/contact?type=quote" onClick={() => trackQuoteClick('service_detail_sidebar')}>
-                    <Button className="w-full" size="lg" data-testid="button-sidebar-quote">
+                    <Button className="w-full" size="lg" data-testid="button-sidebar-quote" aria-label={`Request a quote for ${service.title}`}>
                       Request a Quote
                     </Button>
                   </Link>
@@ -407,6 +427,7 @@ export default function ServiceDetail() {
                       className="w-full"
                       size="lg"
                       data-testid="button-view-all-services"
+                      aria-label="View all commercial services"
                     >
                       View All Services
                     </Button>
