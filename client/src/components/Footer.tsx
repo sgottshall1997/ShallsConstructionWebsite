@@ -158,18 +158,13 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary" />
                 <a
-                  href="mailto:shallsconstructionllc@aol.com"
+                  href="mailto:shallsconstruction@gmail.com"
                   className="text-gray-400 hover:text-white transition-colors break-all"
                   data-testid="link-footer-email"
                 >
-                  shallsconstructionllc@aol.com
+                  shallsconstruction@gmail.com
                 </a>
               </div>
-            </div>
-
-            <div className="mt-8 p-4 bg-gray-800 rounded-lg">
-              <p className="text-xs text-gray-400 mb-2">Fully Licensed & Insured</p>
-              <p className="text-sm text-white font-semibold">MD · VA · DC · DE</p>
             </div>
           </div>
         </div>
