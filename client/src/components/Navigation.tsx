@@ -70,12 +70,12 @@ export default function Navigation() {
                 return (
                   <div
                     key={index}
-                    className="relative"
+                    className="relative pb-2"
                     onMouseEnter={() => setDropdownOpen(true)}
                     onMouseLeave={() => setDropdownOpen(false)}
                   >
                     <button
-                      className={`flex items-center gap-1 text-sm font-medium transition-colors pb-2 ${
+                      className={`flex items-center gap-1 text-sm font-medium transition-colors ${
                         isMenuActive
                           ? "text-primary font-semibold"
                           : "text-gray-700 hover:text-primary"
