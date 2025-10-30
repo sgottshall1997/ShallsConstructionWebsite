@@ -53,8 +53,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     });
   });
 
-  // Protected routes
-  app.get("/api/articles", requireAuth, async (_req, res) => {
+  // Public API routes
+  app.get("/api/articles", async (_req, res) => {
     try {
       const articles = await storage.getAllArticles();
       res.json(articles);
@@ -64,7 +64,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/services", requireAuth, async (_req, res) => {
+  app.get("/api/services", async (_req, res) => {
     try {
       const services = await storage.getAllServices();
       res.json(services);
@@ -74,7 +74,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/services/:slug", requireAuth, async (req, res) => {
+  app.get("/api/services/:slug", async (req, res) => {
     try {
       const service = await storage.getServiceBySlug(req.params.slug);
       if (!service) {
@@ -87,7 +87,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/projects/featured", requireAuth, async (_req, res) => {
+  app.get("/api/projects/featured", async (_req, res) => {
     try {
       const projects = await storage.getFeaturedProjects();
       res.json(projects);
@@ -97,7 +97,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/projects/:slug", requireAuth, async (req, res) => {
+  app.get("/api/projects/:slug", async (req, res) => {
     try {
       const project = await storage.getProjectBySlug(req.params.slug);
       if (!project) {
@@ -110,7 +110,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/projects", requireAuth, async (_req, res) => {
+  app.get("/api/projects", async (_req, res) => {
     try {
       const projects = await storage.getAllProjects();
       res.json(projects);
@@ -120,7 +120,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/blog/category/:category", requireAuth, async (req, res) => {
+  app.get("/api/blog/category/:category", async (req, res) => {
     try {
       const blogPosts = await storage.getBlogPostsByCategory(req.params.category);
       res.json(blogPosts);
@@ -130,7 +130,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/blog/:slug", requireAuth, async (req, res) => {
+  app.get("/api/blog/:slug", async (req, res) => {
     try {
       const blogPost = await storage.getBlogPostBySlug(req.params.slug);
       if (!blogPost) {
@@ -143,7 +143,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/blog", requireAuth, async (_req, res) => {
+  app.get("/api/blog", async (_req, res) => {
     try {
       const blogPosts = await storage.getAllBlogPosts();
       res.json(blogPosts);
@@ -153,7 +153,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/testimonials/featured", requireAuth, async (_req, res) => {
+  app.get("/api/testimonials/featured", async (_req, res) => {
     try {
       const testimonials = await storage.getFeaturedTestimonials();
       res.json(testimonials);
@@ -163,7 +163,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/testimonials/service/:serviceType", requireAuth, async (req, res) => {
+  app.get("/api/testimonials/service/:serviceType", async (req, res) => {
     try {
       const testimonials = await storage.getTestimonialsByService(req.params.serviceType);
       res.json(testimonials);
@@ -173,7 +173,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/testimonials", requireAuth, async (_req, res) => {
+  app.get("/api/testimonials", async (_req, res) => {
     try {
       const testimonials = await storage.getAllTestimonials();
       res.json(testimonials);
@@ -183,7 +183,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/locations/:slug", requireAuth, async (req, res) => {
+  app.get("/api/locations/:slug", async (req, res) => {
     try {
       const location = await storage.getLocationBySlug(req.params.slug);
       if (!location) {
@@ -196,7 +196,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/locations", requireAuth, async (_req, res) => {
+  app.get("/api/locations", async (_req, res) => {
     try {
       const locations = await storage.getAllLocations();
       res.json(locations);
@@ -206,7 +206,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/contact", requireAuth, async (req, res) => {
+  app.post("/api/contact", async (req, res) => {
     try {
       const result = insertContactSubmissionSchema.safeParse(req.body);
       

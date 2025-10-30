@@ -5,6 +5,12 @@ This project is a professional, responsive website for Shall's Construction, a c
 
 ## Recent Changes
 
+### Password Protection Removed (October 30, 2025)
+- Removed password protection from the website - site now opens directly without login
+- Removed authentication middleware from all API routes
+- Simplified App.tsx to remove AuthWrapper component
+- Site is now fully public and accessible without credentials
+
 ### Performance Optimizations (October 30, 2025)
 Comprehensive performance optimizations implemented to achieve 90+ PageSpeed score:
 
@@ -51,7 +57,7 @@ Comprehensive performance optimizations implemented to achieve 90+ PageSpeed sco
 The website employs a professional blue and white color scheme, utilizing Montserrat for headings and Open Sans for body text. A mobile-first approach is central to its responsive design. Shadcn UI components, styled to match the brand, ensure a consistent and modern look. The site includes 18 distinct pages covering comprehensive services, projects, safety, and testimonials.
 
 ### Technical Implementations
-The frontend is built with React 18 and uses Wouter for routing. SEO is a core focus, implemented with `react-helmet-async` for dynamic meta tags and a robust JSON-LD schema (LocalBusiness, FAQPage, BreadcrumbList). The backend, powered by Express.js and Node.js 20, handles API routes for articles and contact form submissions, using in-memory storage and Zod for input validation. The entire site is password-protected using `express-session` and an environment variable for the password. Google Analytics 4 (GA4) and Google Search Console (GSC) are integrated for analytics and SEO verification, featuring asynchronous loading, development mode logging, IP anonymization, and detailed event tracking for user interactions like form submissions, CTA clicks, and page views.
+The frontend is built with React 18 and uses Wouter for routing. SEO is a core focus, implemented with `react-helmet-async` for dynamic meta tags and a robust JSON-LD schema (LocalBusiness, FAQPage, BreadcrumbList). The backend, powered by Express.js and Node.js 20, handles API routes for articles and contact form submissions, using in-memory storage and Zod for input validation. Google Analytics 4 (GA4) and Google Search Console (GSC) are integrated for analytics and SEO verification, featuring asynchronous loading, development mode logging, IP anonymization, and detailed event tracking for user interactions like form submissions, CTA clicks, and page views.
 
 ### Feature Specifications
 - **Multi-Page Navigation**: Sticky header with mobile menu, "About" dropdown, smooth scrolling, and prominent 24/7 phone number.
