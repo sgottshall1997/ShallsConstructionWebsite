@@ -102,7 +102,8 @@ export default function About() {
         </div>
         <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6" data-testid="text-page-title">
-            Who We Are
+            For property managers with countless projects, there's one name to remember:
+            Shall's Construction
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
             Our commitment to excellence extends beyond the project sites.
