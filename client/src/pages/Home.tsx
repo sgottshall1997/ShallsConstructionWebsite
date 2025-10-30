@@ -224,30 +224,11 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
-            Your Commercial Construction Partner in MD • VA • DC • DE
+            Your Commercial Construction Partner
           </h1>
           <p className="text-lg md:text-xl mb-7 text-gray-200" data-testid="hero-subheadline">
             Over 30 Years of In-House Expertise in Renovation, Repair & Maintenance
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
-              <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote" aria-label="Request a quote for commercial construction services">
-                Request a Quote
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link href="/contact?type=emergency" onClick={() => trackEmergencyClick('homepage_hero')}>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base px-8 py-6 bg-white/10 backdrop-blur-md border-white text-white hover:bg-white hover:text-gray-900"
-                data-testid="button-emergency"
-                aria-label="Request emergency commercial construction service"
-              >
-                24/7 Emergency Service
-              </Button>
-            </Link>
-          </div>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center text-sm md:text-base text-gray-200" data-testid="trust-indicators">
             <span>Licensed in MD, VA, DC, DE</span>
             <span className="hidden sm:inline text-gray-400">|</span>
