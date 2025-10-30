@@ -285,7 +285,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-gray-50">
+      {/* Hidden - Services Section - can be re-enabled in the future */}
+      {/* <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-services-heading">
@@ -336,10 +337,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Why Shall's Section - Experience & Differentiators */}
-      <section className="py-20 md:py-24 bg-white">
+      {/* Hidden - "Proven, Responsive, Reliable" Section - can be re-enabled in the future */}
+      {/* <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-experience-heading">
@@ -397,9 +398,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="py-20 md:py-24 bg-gray-50">
+      {/* Hidden - Featured Projects Section - can be re-enabled in the future */}
+      {/* <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-projects-heading">
@@ -433,7 +435,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <TestimonialsSection />
 
