@@ -42,6 +42,7 @@ export default function Projects() {
       <SEO
         title="Commercial Construction Portfolio MD VA DC | Shall's"
         description="Explore commercial project case studies across MD VA DC DE. View completed office, retail, and multifamily construction projects by Shall's."
+        canonical="https://shallsconstruction.com/projects"
         schemas={schemas}
       />
       <Navigation />

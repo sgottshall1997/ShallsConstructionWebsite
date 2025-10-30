@@ -121,8 +121,9 @@ export default function WhoWeServe() {
                 <div className="w-full h-24 flex items-center justify-center">
                   <img
                     src={client.logo}
-                    alt={`${client.name} logo`}
+                    alt={`${client.name} - Commercial property management company served in Maryland Virginia DC`}
                     className={`max-w-full max-h-full object-contain ${client.name === "American Community Management" ? "scale-125" : ""}`}
+                    loading="lazy"
                     data-testid={`img-client-logo-${index}`}
                   />
                 </div>
