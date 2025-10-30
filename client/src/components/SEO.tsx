@@ -41,7 +41,11 @@ export default function SEO({
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
-      {noindex && <meta name="robots" content="noindex,nofollow" />}
+      <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
+      
+      {/* Local SEO Meta Tags */}
+      <meta name="geo.region" content="US-MD" />
+      <meta name="geo.placename" content="Montgomery County" />
       
       {/* Google Search Console Verification */}
       {gscVerification && <meta name="google-site-verification" content={gscVerification} />}

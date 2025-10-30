@@ -1,0 +1,266 @@
+Perform the full SEO upgrade below across all pages.
+Do not change any visible copy, tone, images, or branding.
+
+1️⃣ Meta Tag Enhancements
+For each page:
+
+
+Add (or update) a <meta name="description"> tag.
+
+
+Add <link rel="canonical" href="https://shallsconstruction.replit.app/{page-path}">.
+
+
+Add Open Graph tags for social previews:
+<meta property="og:type" content="website">
+<meta property="og:title" content="{Page Title}">
+<meta property="og:description" content="{Meta Description}">
+<meta property="og:url" content="https://shallsconstruction.replit.app/{page-path}">
+<meta property="og:image" content="/media/og-default.jpg">
+
+
+
+Add <meta name="robots" content="index, follow"> if not present.
+
+
+
+2️⃣ Meta Description Templates (Use exact wording)
+Home
+
+"Commercial construction, renovation, and property maintenance experts serving Maryland, Virginia, DC, and Delaware. Family-owned since 1992. 24/7 emergency service."
+
+About
+
+"Family-owned commercial contractor in Montgomery County, MD since 1992. 100% in-house team providing construction, renovation, and maintenance for property managers."
+
+Who We Serve
+
+"Built for property managers. Trusted by leading firms across MD, VA, DC, and DE for commercial construction, repairs, and maintenance since 1992."
+
+Construction & Remodeling
+
+"Commercial construction, tenant build-outs, and office remodeling services for Maryland, Virginia, DC, and Delaware. Reliable, on-time, in-house crews."
+
+Handyman Services
+
+"Fast, in-house commercial handyman repairs and maintenance for property managers across Montgomery County and the DC metro area. 24/7 emergency service."
+
+Exterior Building Services
+
+"Waterproofing, masonry, and facade restoration for commercial properties in DC, MD, VA, and DE. Protect your building with Shall’s Construction expertise."
+
+Parking Lot Services
+
+"Asphalt, concrete, sealcoating, and ADA compliance services for commercial properties in Maryland, Virginia, DC, and Delaware. 24/7 emergency repairs."
+
+Painting Services
+
+"Interior and exterior commercial painting, epoxy coatings, and wall finishes for Maryland and DC properties. Trusted by property managers for 30+ years."
+
+Snow Removal
+
+"24/7 snow and ice management for commercial properties in MD, VA, DC, and DE. Pre-storm planning, de-icing, and emergency snow removal."
+
+
+3️⃣ Schema Markup
+A. Global Organization Schema (include in footer partial or global template)
+<script type="application/ld+json" id="org-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Shall's Construction LLC",
+  "url": "https://shallsconstruction.replit.app",
+  "logo": "https://shallsconstruction.replit.app/shalls-construction-logo-DYaZi169.png",
+  "sameAs": [
+    "https://www.linkedin.com/company/shallsconstruction",
+    "https://www.boma.org",
+    "https://www.agc.org"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-301-933-6277",
+    "contactType": "customer service",
+    "areaServed": ["MD","VA","DC","DE"],
+    "availableLanguage": "English"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kensington",
+    "addressRegion": "MD",
+    "addressCountry": "US"
+  }
+}
+</script>
+
+B. Service Schema (add to each service page individually)
+<script type="application/ld+json" class="ld-service">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "{Exact Service Name}",
+  "provider": {
+    "@type": "Organization",
+    "name": "Shall's Construction LLC",
+    "url": "https://shallsconstruction.replit.app"
+  },
+  "areaServed": ["Montgomery County, MD","Bethesda, MD","Rockville, MD","Washington, DC","Northern Virginia","Delaware"],
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://shallsconstruction.replit.app/services/{service-slug}",
+    "servicePhone": "+1-301-933-6277"
+  }
+}
+</script>
+
+Use this for:
+
+
+construction-remodeling
+
+
+handyman-services
+
+
+exterior-building-services
+
+
+parking-lot-services
+
+
+painting-services
+
+
+snow-removal
+
+
+
+4️⃣ Accessibility & Image Optimization
+
+
+Add loading="lazy" to all non-hero <img> elements.
+
+
+Ensure every <img> has descriptive, location-based alt text (e.g., “Commercial waterproofing project in Bethesda, MD”).
+
+
+Confirm only one <h1> per page. All sub-sections use <h2> or <h3>.
+
+
+Verify phone links: href="tel:+13019336277" everywhere for consistency.
+
+
+
+5️⃣ Internal Linking Boost
+
+
+At the end of every service page, under “Related Services,” ensure at least 3 links exist:
+
+
+To another service page
+
+
+To “Who We Serve”
+
+
+To “Contact Us”
+
+
+
+
+On About and Who We Serve, add one inline link to /services/construction-remodeling.
+
+
+On Home, ensure every service card links to the proper URL and uses keyword-friendly anchor text (<a href="/services/handyman-services">Commercial Handyman Services</a>).
+
+
+
+6️⃣ Local SEO Enhancements
+
+
+Add <meta name="geo.region" content="US-MD"> and <meta name="geo.placename" content="Montgomery County"> in the head of every page.
+
+
+Add business NAP (Name, Address, Phone) block to footer in schema-friendly format:
+<address>
+  <strong>Shall's Construction LLC</strong><br>
+  Kensington, Maryland<br>
+  (301) 933-6277<br>
+  shallsconstruction@gmail.com
+</address>
+
+
+
+Add hidden local list markup (visible to search crawlers, not users):
+<!-- Local Service Areas -->
+<ul hidden>
+  <li>Commercial Contractor Bethesda MD</li>
+  <li>Commercial Contractor Rockville MD</li>
+  <li>Commercial Contractor Silver Spring MD</li>
+  <li>Commercial Property Maintenance DC</li>
+  <li>Commercial Construction Northern Virginia</li>
+</ul>
+
+
+
+
+7️⃣ Sitemap & Robots
+
+
+Generate a sitemap.xml containing all pages listed above.
+
+
+Place it at the project root.
+
+
+Add a robots.txt with:
+User-agent: *
+Allow: /
+Sitemap: https://shallsconstruction.replit.app/sitemap.xml
+
+
+
+
+8️⃣ Performance & Technical
+
+
+Ensure all image filenames use lowercase and hyphens (commercial-remodeling-bethesda.jpg).
+
+
+Add compression (if file size > 500 KB).
+
+
+Validate HTML — remove empty placeholders like [ADD]+.
+
+
+Remove duplicated footer blocks if multiple exist.
+
+
+Confirm no broken internal links or redirects.
+
+
+
+9️⃣ Verification Report
+After completion, output a markdown summary with:
+PageMeta AddedSchema AddedCanonicalOG TagsLazy ImagesInternal LinksStatusList all pages edited with checkmarks and highlight any skipped items.
+At the bottom, output a Total SEO Health Score (out of 100) for each page.
+
+✅ Final Safety Rules
+
+
+Do not change visible copy, colors, or headings.
+
+
+Do not rename files or URLs.
+
+
+Do not inject new sections, testimonials, or blogs.
+
+
+Do not alter CTAs or navigation structure.
+
+
+Only enhance what search engines read.
+
+
+
+End of prompt. Execute exactly as written.

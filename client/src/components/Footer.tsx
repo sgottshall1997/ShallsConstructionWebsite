@@ -141,12 +141,18 @@ export default function Footer() {
 
           <div>
             <h4 className="text-lg font-heading font-semibold mb-6">Contact Info</h4>
-            <div className="space-y-4 text-sm">
+            <address className="space-y-4 text-sm not-italic">
+              <div>
+                <strong className="text-white block mb-2">Shall's Construction LLC</strong>
+                <div className="text-gray-400">
+                  Kensington, Maryland
+                </div>
+              </div>
               <div>
                 <p className="text-xs text-gray-500 mb-1">24/7 Emergency Hotline</p>
                 <div className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-red-500" />
-                  <a href="tel:3019336277" className="text-white font-semibold text-lg hover:text-primary transition-colors" data-testid="link-footer-phone">
+                  <a href="tel:+13019336277" className="text-white font-semibold text-lg hover:text-primary transition-colors" data-testid="link-footer-phone">
                     (301) 933-6277
                   </a>
                 </div>
@@ -165,7 +171,7 @@ export default function Footer() {
                   shallsconstruction@gmail.com
                 </a>
               </div>
-            </div>
+            </address>
           </div>
         </div>
 
@@ -193,6 +199,44 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Global Organization Schema */}
+      <script type="application/ld+json" id="org-schema" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Shall's Construction LLC",
+          "url": "https://shallsconstruction.replit.app",
+          "logo": "https://shallsconstruction.replit.app/shalls-construction-logo-DYaZi169.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/shallsconstruction",
+            "https://www.boma.org",
+            "https://www.agc.org"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-301-933-6277",
+            "contactType": "customer service",
+            "areaServed": ["MD","VA","DC","DE"],
+            "availableLanguage": "English"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kensington",
+            "addressRegion": "MD",
+            "addressCountry": "US"
+          }
+        })
+      }} />
+
+      {/* Local Service Areas for SEO (hidden from users) */}
+      <ul hidden>
+        <li>Commercial Contractor Bethesda MD</li>
+        <li>Commercial Contractor Rockville MD</li>
+        <li>Commercial Contractor Silver Spring MD</li>
+        <li>Commercial Property Maintenance DC</li>
+        <li>Commercial Construction Northern Virginia</li>
+      </ul>
     </footer>
   );
 }
