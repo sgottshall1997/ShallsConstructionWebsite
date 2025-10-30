@@ -31,7 +31,10 @@ Implemented comprehensive SEO and technical improvements to meet industry best p
   - Removed hero trust indicators (duplicated stats bar)
   - Removed "Proven, Responsive, Reliable" differentiators section (duplicated stats bar)
   - Simplified intro text (removed geographic and in-house mentions already in stats)
-- Current structure: Hero → Stats → Intro → Services → Projects → Testimonials → CTA
+- Current structure: Hero → Stats → Intro → Services → Testimonials → CTA
+- Removed Featured Projects section entirely
+- Removed 24/7 Emergency Service button from hero (kept Request a Quote, centered)
+- Removed testimonial action buttons (View All, Leave a Review)
 - Key facts appear in optimal spots: Stats bar showcases 30+ Years, 24/7/365, 100% In-House, MD/VA/DC/DE
 
 ### Pages Hidden

@@ -67,30 +67,6 @@ function TestimonialsSection() {
           </div>
         )}
 
-        <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg" className="px-8" data-testid="button-view-all-testimonials">
-            <Link href="/testimonials" aria-label="View all client testimonials">
-              View All Testimonials
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-          <Button 
-            asChild 
-            size="lg" 
-            variant="outline"
-            className="px-8"
-            data-testid="button-leave-review-home"
-          >
-            <a 
-              href="https://www.google.com/search?q=shall%27s+construction+reviews" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Leave a review on Google (opens in new window)"
-            >
-              Leave a Review
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );
@@ -229,22 +205,11 @@ export default function Home() {
           <h2 className="text-lg md:text-xl mb-7 text-gray-200 font-normal" data-testid="hero-subheadline">
             Renovation, Maintenance & Repair for Property Managers
           </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
               <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote" aria-label="Request a quote for commercial construction services">
                 Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link href="/contact?type=emergency" onClick={() => trackEmergencyClick('homepage_hero')}>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base px-8 py-6 bg-white/10 backdrop-blur-md border-white text-white hover:bg-white hover:text-gray-900"
-                data-testid="button-emergency"
-                aria-label="Request emergency commercial construction service"
-              >
-                24/7 Emergency Service
               </Button>
             </Link>
           </div>
@@ -327,42 +292,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-projects-heading">
-              Featured Projects
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Recent commercial construction and property maintenance work across the region.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {featuredProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                slug={project.slug}
-                title={project.title}
-                category={project.category}
-                location={project.location}
-                description={project.description}
-                featured={project.featured}
-              />
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link href="/projects">
-              <Button size="lg" className="px-8" data-testid="button-view-all-projects" aria-label="View all commercial construction projects">
-                View All Projects
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
