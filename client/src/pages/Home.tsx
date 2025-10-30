@@ -196,7 +196,6 @@ export default function Home() {
             alt="Shall's Construction commercial project in Montgomery County Maryland"
             className="w-full h-full object-cover"
             loading="eager"
-            fetchPriority="high"
             width="1920"
             height="1080"
           />
@@ -259,11 +258,14 @@ export default function Home() {
             Why Property Managers Keep Our Number on Speed Dial
           </h2>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            You're juggling work orders, demanding tenants, and tight budgets. The last thing you need is a contractor who doesn't show up or does sloppy work. We get it—because for three decades, we've specialized exclusively in making your life easier.
-          </p>
-        </div>
-      </section>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6">
+                You're juggling work orders, demanding tenants, and tight budgets. The last thing you need is a contractor who doesn't show up or does sloppy work. We get it—because for three decades, we've specialized exclusively in making your life easier.
+              </p>
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                Here's what sets us apart: many of our crew members have been with us for 15, 20, even 25+ years. That means when you call us for your Bethesda property, you get the same skilled team who worked on your Rockville building last month. No surprises. No learning curve. Just experienced craftsmen who know your properties and deliver consistent results every single time.
+              </p>
+            </div>
+          </section>
 
       <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
