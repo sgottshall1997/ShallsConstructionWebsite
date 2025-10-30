@@ -5,6 +5,27 @@ This project is a professional, responsive website for Shall's Construction, a c
 
 ## Recent Changes
 
+### Testimonials Removed (October 30, 2025)
+All sample/placeholder testimonials removed from the website to prepare for real client testimonials:
+
+**Changes Made:**
+- Removed all testimonial data from 6 primary service pages (construction-remodeling, handyman-services, exterior-building-services, parking-lot-services, painting-services, snow-removal)
+- Set testimonialQuote, testimonialAuthor, testimonialRole, and testimonialCompany fields to null in server/storage.ts
+- Emptied sampleTestimonials array on home page
+- Left helpful template comments in storage for easy addition of real testimonials
+
+**User Experience:**
+- Service pages: Testimonial sections are hidden (not rendered when testimonialQuote is null)
+- Home page: Shows "No featured testimonials available." message with View All Testimonials and Leave a Review buttons
+- Testimonials page: Shows "No testimonials found for this service." message
+- All testimonial structure remains in place for easy future addition
+
+**How to Add Real Testimonials:**
+1. Edit `server/storage.ts`
+2. Find `sampleTestimonials` array (line ~973)
+3. Uncomment template and add testimonial objects
+4. For service-specific testimonials, update individual service objects with testimonialQuote, testimonialAuthor, testimonialRole, testimonialCompany fields
+
 ### Rock Spring Service Page Rebuild (October 30, 2025)
 Complete redesign of all service pages to match Rock Spring Contracting's professional B2B format targeting property managers:
 
