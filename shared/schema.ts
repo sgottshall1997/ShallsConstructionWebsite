@@ -50,6 +50,8 @@ export const services = pgTable("services", {
   testimonialCompany: text("testimonial_company"),
   relatedServices: text("related_services").array(),
   seoKeywords: text("seo_keywords").array(),
+  seoTitle: text("seo_title"),
+  seoDescription: text("seo_description"),
 });
 
 export const projects = pgTable("projects", {
