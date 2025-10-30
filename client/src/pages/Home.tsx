@@ -206,7 +206,7 @@ export default function Home() {
             Montgomery County's Trusted Commercial Contractor for Property Managers
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
-            Since 1992, property managers across Maryland, Virginia, DC, and Delaware have relied on Shall's Construction for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
+            Since 1992, property managers across the DMV have relied on Shall's Construction for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a

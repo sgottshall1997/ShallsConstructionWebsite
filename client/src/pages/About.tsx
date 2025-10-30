@@ -105,7 +105,7 @@ export default function About() {
             Making Property Management Easier Since 1992
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-            Three generations of family-owned excellence serving Montgomery County property managers with reliable commercial construction and maintenance services.
+            Three generations of family-owned excellence serving DMV property managers with reliable commercial construction and maintenance services.
           </p>
         </div>
       </section>
