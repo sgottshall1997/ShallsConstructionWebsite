@@ -110,6 +110,34 @@ export default function About() {
         </div>
       </section>
 
+      {/* Property Manager Introduction */}
+      <section className="py-16 md:py-20 bg-primary text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <p className="text-lg md:text-xl mb-2 font-medium">
+              For property managers with countless projects, there's one name to remember:
+            </p>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8">
+              Shall's Construction
+            </h2>
+          </div>
+          <div className="prose prose-lg prose-invert max-w-none">
+            <p className="text-white/95 leading-relaxed mb-6">
+              There are many companies that serve commercial property managers and owners—but none are quite like Shall's. From our inception, Shall's was built to serve property managers' needs. We understand the challenges you face in managing multiple projects, schedules, and budgets. Today, we provide an even greater depth and breadth of expertise to make your life easier. <strong>One Call Does It All!</strong>
+            </p>
+            <p className="text-white/95 leading-relaxed mb-6">
+              At Shall's Construction, our in-house team provides a wide range of commercial renovation, repair & maintenance, and commercial construction services, providing both short and long-term solutions for your property's needs. Whether to make an urgent repair or take on a capital project, Shall's will respond.
+            </p>
+            <p className="text-white/95 leading-relaxed mb-6">
+              For more than 30+ years, we've earned a reputation for helping property managers with their commercial renovation, repair, and maintenance needs both large and small — with professional, high quality work and seamless, 24/7/365 responsiveness to emergency situations. Because 100% of our work is done by our full-time staff using our own equipment, you always get consistent, high-quality results. The bottom line: we make your life easier, while enhancing your tenants' experience.
+            </p>
+            <p className="text-white/95 leading-relaxed">
+              When you need a commercial construction services firm that not only understands your challenges, but also solves them quickly and efficiently - Shall's Construction is your best choice.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Company Story */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -105,37 +105,37 @@ export default function Home() {
       title: "Construction & Remodeling",
       image: constructionImg,
       description: "Commercial interiors, office remodeling, retail construction, tenant build out, and 24/7 emergency construction services.",
-      link: "/what-we-do#construction",
+      link: "/services/construction-remodeling",
     },
     {
       title: "Handyman Services",
       image: handymanImg,
       description: "Repair and maintenance needs both large and small with high quality work. Carpentry, drywall, doors, and more.",
-      link: "/what-we-do#handyman",
+      link: "/services/handyman-services",
     },
     {
       title: "Exterior Building Services",
       image: exteriorImg,
       description: "Waterproofing restoration, power washing, masonry, caulking, crack repair, and leak investigation services.",
-      link: "/what-we-do#exterior",
+      link: "/services/exterior-building-services",
     },
     {
       title: "Parking Lot Asphalt & Concrete",
       image: parkingImg,
       description: "Complete parking lot maintenance, striping, sealcoating, ADA upgrades, and asphalt repair services.",
-      link: "/what-we-do#asphalt",
+      link: "/services/parking-lot-services",
     },
     {
       title: "Painting Services",
       image: paintingImg,
       description: "Interior and exterior commercial painting with expert precision. Professional surface prep and specialty finishes.",
-      link: "/what-we-do#painting",
+      link: "/services/painting-services",
     },
     {
       title: "Snow Removal",
       image: snowImg,
       description: "Prompt snow and ice management with minimal disruptions. Professional winter property maintenance services.",
-      link: "/what-we-do#snow",
+      link: "/services/snow-removal",
     },
   ];
 
@@ -149,6 +149,7 @@ export default function Home() {
   const featuredProjects = [
     {
       id: "project-1",
+      slug: "featured-project-1",
       title: "[Featured Project 1]",
       category: "Office Buildings",
       location: "[City, State]",
@@ -157,6 +158,7 @@ export default function Home() {
     },
     {
       id: "project-2",
+      slug: "featured-project-2",
       title: "[Featured Project 2]",
       category: "Retail Centers",
       location: "[City, State]",
@@ -165,6 +167,7 @@ export default function Home() {
     },
     {
       id: "project-3",
+      slug: "featured-project-3",
       title: "[Featured Project 3]",
       category: "Apartment Complexes",
       location: "[City, State]",
@@ -347,7 +350,7 @@ export default function Home() {
             {featuredProjects.map((project) => (
               <ProjectCard
                 key={project.id}
-                id={project.id}
+                slug={project.slug}
                 title={project.title}
                 category={project.category}
                 location={project.location}

@@ -9,7 +9,6 @@ import { useAnalytics } from "@/hooks/useAnalytics";
 
 const Home = lazy(() => import("@/pages/Home"));
 const About = lazy(() => import("@/pages/About"));
-const WhatWeDo = lazy(() => import("@/pages/WhatWeDo"));
 const WhoWeServe = lazy(() => import("@/pages/WhoWeServe"));
 const Projects = lazy(() => import("@/pages/Projects"));
 const ProjectDetail = lazy(() => import("@/pages/ProjectDetail"));
@@ -49,7 +48,6 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/what-we-do" component={WhatWeDo} />
           <Route path="/who-we-serve" component={WhoWeServe} />
           <Route path="/projects" component={Projects} />
           <Route path="/projects/:slug" component={ProjectDetail} />

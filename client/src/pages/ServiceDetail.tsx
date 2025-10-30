@@ -81,9 +81,9 @@ export default function ServiceDetail() {
           <p className="text-lg text-gray-600 mb-8">
             The service you're looking for doesn't exist or has been moved.
           </p>
-          <Link href="/what-we-do">
+          <Link href="/">
             <a className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors" data-testid="button-view-all-services">
-              View All Services
+              Back to Home
             </a>
           </Link>
         </div>
@@ -109,7 +109,7 @@ export default function ServiceDetail() {
 
   const breadcrumbs = [
     { name: "Home", url: "/" },
-    { name: "Services", url: "/what-we-do" },
+    { name: "Services", url: "/" },
     { name: service.title, url: `/services/${service.slug}` },
   ];
 
@@ -160,7 +160,7 @@ export default function ServiceDetail() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/what-we-do">Services</Link>
+                  <Link href="/">Services</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />

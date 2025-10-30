@@ -5,6 +5,28 @@ This project is a professional, responsive website for Shall's Construction, a c
 
 ## Recent Changes
 
+### What We Do Page Removed & About Page Updated (October 30, 2025)
+Removed the What We Do page and moved key property manager messaging to the About Us page:
+
+**Changes Made:**
+- Removed `/what-we-do` page completely from site navigation and routes
+- Removed "What We Do" link from main navigation
+- Updated all service card links on homepage to point directly to service detail pages (`/services/[slug]`)
+- Added property manager introduction section to top of About Us page (blue section after hero)
+
+**New About Page Structure:**
+1. Hero section - "Who We Are"
+2. **Property Manager Introduction** (new blue section) - "For property managers with countless projects, there's one name to remember: Shall's Construction"
+3. Company Story
+4. Company Stats
+5. Mission & Values
+6. Leadership
+7. Community Involvement
+8. Industry Associations
+
+**How to Add Property Manager Content:**
+The new blue section on the About page contains the key messaging about serving property managers, "One Call Does It All", 30+ years experience, 100% in-house staff, and 24/7 responsiveness.
+
 ### Testimonials Removed (October 30, 2025)
 All sample/placeholder testimonials removed from the website to prepare for real client testimonials:
 

@@ -30,7 +30,6 @@ export default function Navigation() {
         { href: "/services/snow-removal", label: "Snow Removal" },
       ],
     },
-    { href: "/what-we-do", label: "What We Do" },
     { href: "/who-we-serve", label: "Who We Serve" },
     { href: "/projects", label: "Projects" },
     { href: "/service-areas", label: "Service Areas" },
