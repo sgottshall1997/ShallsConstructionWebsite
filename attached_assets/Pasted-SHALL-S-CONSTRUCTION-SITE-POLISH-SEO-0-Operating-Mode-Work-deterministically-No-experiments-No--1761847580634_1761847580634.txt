@@ -1,0 +1,205 @@
+SHALL'S CONSTRUCTION SITE POLISH & SEO
+0) Operating Mode
+Work deterministically. No experiments. No redesign beyond what's specified.
+Don't delete or rename existing pages, components, or routes.
+Don't change phone numbers, emails, or existing URLs.
+Don't alter navigation labels or order unless explicitly stated.
+Don't minify or reformat unrelated files.
+No tests. I will test manually.
+All edits must be idempotent: running this task twice must not duplicate content.
+1) Repo Context - UPDATED FOR YOUR SITE
+Current Architecture:
+
+React + TypeScript + Vite application
+Routes defined in client/src/App.tsx
+SEO component at client/src/components/SEO.tsx (uses react-helmet-async)
+Schema generation at client/src/lib/schema.ts
+Shared layout components: client/src/components/Navigation.tsx and client/src/components/Footer.tsx
+Existing Routes:
+
+Home: / → client/src/pages/Home.tsx
+About: /about → client/src/pages/About.tsx
+Who We Serve: /who-we-serve → client/src/pages/WhoWeServe.tsx
+What We Do: /what-we-do → client/src/pages/WhatWeDo.tsx (contains service anchors)
+Projects: /projects → client/src/pages/Projects.tsx
+Contact: /contact → client/src/pages/Contact.tsx
+Safety: /safety → client/src/pages/Safety.tsx
+Service Areas: /service-areas/* → Individual files in client/src/pages/ServiceAreas/
+Note: Service pages are currently implemented as anchor sections within /what-we-do, NOT separate routes. If you need dedicated service routes, create them as:
+
+client/src/pages/Services/ConstructionRemodeling.tsx
+client/src/pages/Services/HandymanServices.tsx
+etc.
+Action: Inventory the repo and confirm exact structure before making changes.
+
+2) Global Changes - UPDATED FOR REACT
+2.1 Head tags: meta + canonical + basic OG
+Use the existing <SEO /> component in client/src/components/SEO.tsx. For each page:
+
+Ensure unique title prop passed to <SEO />
+Add page-specific description prop (see Section 6 templates)
+Canonical URLs are already handled by the SEO component
+Open Graph tags are already implemented in the SEO component
+Example:
+
+<SEO
+  title="Commercial Construction & Remodeling | Shall's Construction"
+  description="Shall's Construction delivers tenant build-outs, office renovations..."
+  canonical="https://shallsconstruction.replit.app/services/construction-remodeling"
+/>
+2.2 JSON-LD Schema
+Use the existing schema functions in client/src/lib/schema.ts:
+
+Organization schema is already implemented via generateOrganizationSchema()
+Service schema via generateServiceSchema()
+FAQ schema via generateFAQSchema()
+Breadcrumb schema via generateBreadcrumbSchema()
+Ensure schemas are included in page components:
+
+const schemas = [
+  generateOrganizationSchema(),
+  generateServiceSchema({
+    name: "Commercial Construction & Remodeling",
+    description: "...",
+    url: "/services/construction-remodeling"
+  }),
+  generateBreadcrumbSchema([...])
+];
+<SEO schemas={schemas} />
+2.3 Accessibility + Performance
+Add loading="lazy" to non-hero <img> tags
+Update alt attributes to be location-aware (see Section 4.3)
+Ensure only one <h1> per page component
+2.4 Internal Linking (contextual)
+Add at the end of service page content (before component return closes):
+
+<nav className="related-links mt-12 border-t pt-8" aria-label="Related services">
+  <h3 className="text-lg font-semibold mb-4">Related Services</h3>
+  <ul className="space-y-2">
+    <li><Link href="/what-we-do#exterior">Exterior Building Services</Link></li>
+    <li><Link href="/what-we-do#handyman">Handyman Services</Link></li>
+    <li><Link href="/contact">Contact Us</Link></li>
+  </ul>
+</nav>
+2.5 CTA Standardization
+Insert uniform CTA block as a React component:
+
+<section className="cta-block bg-gray-50 rounded-lg p-8 my-12" id="cta-standard">
+  <h2 className="text-3xl font-heading font-bold text-center mb-6">
+    Ready to Start Your Project?
+  </h2>
+  <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+    <Link href="/contact?type={service-slug}">
+      <Button size="lg" className="btn-primary">Request a Quote</Button>
+    </Link>
+    <a href="tel:+13019336277" aria-label="Call for emergency 24/7 commercial service">
+      <Button size="lg" variant="outline">Emergency Help 24/7</Button>
+    </a>
+  </div>
+  <p className="text-center text-gray-600">
+    <a href="tel:+13019336277" className="hover:text-primary">(301) 933-6277</a>
+    {" · "}
+    <a href="mailto:shallsconstructionllc@aol.com" className="hover:text-primary">
+      shallsconstructionllc@aol.com
+    </a>
+  </p>
+</section>
+2.6 Footer Cleanup
+Footer is in client/src/components/Footer.tsx. Leave placeholder logos as-is unless duplicated.
+
+3) Fix Known Copy Issues
+Check client/src/pages/WhatWeDo.tsx for duplicate headings like "Services Services Include" and fix with regex or manual edits.
+
+4) Visual Enhancements - UPDATED FOR REACT
+4.1 Hero Banner Injection
+Create a reusable Hero component or add directly to service pages:
+
+<section className="hero mb-12">
+  <figure className="hero-media relative h-96 rounded-lg overflow-hidden">
+    <img
+      src="/media/commercial-remodeling-bethesda.jpg"
+      alt="Office renovation and tenant build-out in Bethesda by Shall's Construction"
+      width={1600}
+      height={700}
+      className="w-full h-full object-cover"
+    />
+    <div className="hero-tagline absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+      <p className="text-white text-2xl font-bold">Full-Service Build-Outs & Renovations</p>
+    </div>
+  </figure>
+</section>
+Note: If /media/*.jpg files don't exist in public/ directory, create placeholder references only.
+
+4.2 Lists → Semantic hooks
+Wrap existing service lists in WhatWeDo.tsx:
+
+<section className="feature-grid">
+  {/* existing bullet lists */}
+</section>
+4.3 Image alt normalization
+Update all <img> tags in service sections to include location context.
+
+5) Page-Specific JSON-LD
+If creating dedicated service pages, use the existing schema helper:
+
+const serviceSchema = generateServiceSchema({
+  name: "Commercial Construction & Remodeling",
+  description: "Tenant buildouts, office renovations, and common-area upgrades",
+  url: "/services/construction-remodeling",
+  areaServed: ["Montgomery County, MD", "Bethesda, MD", "Kensington, MD", "Washington, DC", "Northern Virginia", "Delaware"]
+});
+6) Meta Description Templates
+Update SEO component calls with these descriptions:
+
+Construction & Remodeling: "Shall's Construction delivers tenant build-outs, office renovations, and capital upgrades across MD, VA, DC, and DE. 30+ years. 100% in-house."
+Handyman Services: "Fast, in-house commercial handyman services in Montgomery County and the DC Metro. Drywall, doors, fixtures, minor MEP, and 24/7 emergencies."
+Exterior Building Services: "Waterproofing, facade restoration, sealants, and masonry repair for DC-area commercial buildings. Extend envelope life with expert crews."
+Parking Lot Services: "Asphalt, concrete, sealcoating, striping, and ADA upgrades for commercial lots across MD, VA, and DC. Reliable, safety-focused service."
+Painting Services: "Interior/exterior commercial painting, drywall finishing, epoxy, and wall coverings across the DC Metro. Minimal tenant disruption."
+Snow Removal: "24/7 commercial snow & ice management in Montgomery County and the DC Metro. Pre-storm planning, plowing, salting, sidewalks."
+About: "Family-owned commercial contractor serving MD, VA, DC, and DE for 30+ years. 100% in-house crews. Built for property managers."
+Who We Serve: "Partner to property managers across MD, VA, DC, and DE for renovation, maintenance, and 24/7 emergency work."
+Home: "Commercial construction, property maintenance, and 24/7 emergency response across MD, VA, DC, and DE. Family-owned for 30+ years."
+7-8) Service Pages Implementation
+OPTION A: If keeping services within /what-we-do as anchors:
+
+Add hero sections, CTAs, and related links to each anchor section
+Update meta description for the What We Do page
+OPTION B: If creating dedicated service routes:
+
+Create files in client/src/pages/Services/
+Add routes to App.tsx
+Implement each with hero, content, CTA, related links, and schema
+Update navigation to link to new routes
+9) Who We Serve — Minimal Upgrades
+File: client/src/pages/WhoWeServe.tsx
+
+Add hero section with specified content
+Add CTA block linking to /contact?type=property-manager
+Add related links nav
+Leave client logos as-is
+10) About — Minimal Upgrades
+File: client/src/pages/About.tsx
+
+Replace placeholder hero section if present
+Ensure meta description is set via SEO component
+11) Breadcrumbs
+Already implemented via generateBreadcrumbSchema() - ensure used on all subpages.
+
+12) Safety Checks
+No duplicate heroes or CTAs
+One H1 per page component
+One Service schema per service page (if applicable)
+Organization schema called once globally
+Tel/email links consistent: tel:+13019336277 and mailto:shallsconstructionllc@aol.com
+Canonical URLs match routes
+13) Deliverable: Change Report
+Provide markdown report with:
+
+File paths changed
+Sections added per file (Hero/CTA/Schema/Meta)
+Heading fixes (before/after)
+Meta description updates
+Lazy loading implementation notes
+Confirmation of idempotency
+End of updated prompt. Execute as specified, adapting to React/TypeScript patterns.

@@ -1,0 +1,562 @@
+REPLIT AGENT PROMPT — SHALL’S CONSTRUCTION SITE POLISH & SEO
+0) Operating Mode
+
+
+Work deterministically. No experiments. No redesign beyond what’s specified.
+
+
+Don’t delete or rename existing pages, components, or routes.
+
+
+Don’t change phone numbers, emails, or existing URLs.
+
+
+Don’t alter navigation labels or order unless explicitly stated.
+
+
+Don’t minify or reformat unrelated files.
+
+
+No tests. I will test manually.
+
+
+All edits must be idempotent: running this task twice must not duplicate content.
+
+
+1) Repo Context Assumptions (adjust only if you find exact names differ)
+
+
+Static site or small framework serving routes:
+
+
+Home: /index.html or /pages/index.html
+
+
+About: /about/index.html
+
+
+Who We Serve: /who-we-serve/index.html
+
+
+Services index: /services/index.html (if present)
+
+
+Service pages:
+
+
+/services/construction-remodeling/index.html
+
+
+/services/handyman-services/index.html
+
+
+/services/exterior-building-services/index.html
+
+
+/services/parking-lot-services/index.html
+
+
+/services/painting-services/index.html
+
+
+/services/snow-removal/index.html
+
+
+
+
+Contact: /contact/index.html
+
+
+
+
+Shared layout (header/footer) likely in a partial (e.g., /partials/header.html, /partials/footer.html) or duplicated across pages.
+
+
+Action: Inventory the repo. In your report, list exact file paths for the pages above and whether the site uses partials or duplicated markup.
+2) Global Changes (apply only where relevant; do not touch unrelated code)
+2.1 Head tags: meta + canonical + basic OG
+For each page, ensure:
+
+
+One <title> already exists — do not change unless empty or nonsense.
+
+
+Add/ensure a page-specific meta description (see Section 6 templates).
+
+
+Add <link rel="canonical" href="https://shallsconstruction.replit.app{PAGE_PATH}">
+
+
+Add basic Open Graph tags:
+<meta property="og:type" content="website">
+<meta property="og:title" content="{TITLE}">
+<meta property="og:description" content="{META_DESCRIPTION}">
+<meta property="og:url" content="https://shallsconstruction.replit.app{PAGE_PATH}">
+
+
+
+If there is already a canonical or OG block, update values only; do not duplicate tags.
+
+
+2.2 JSON-LD Schema
+
+
+Organization schema: Include once sitewide (preferably in the header or footer partial). If already present, update values; do not duplicate.
+<script type="application/ld+json" id="ld-org">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Shall's Construction LLC",
+  "url": "https://shallsconstruction.replit.app",
+  "logo": "https://shallsconstruction.replit.app/shalls-construction-logo-DYaZi169.png",
+  "areaServed": ["MD","VA","DC","DE"],
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+1-301-933-6277",
+    "contactType": "customer service",
+    "areaServed": "US"
+  }]
+}
+</script>
+
+
+
+Service schema: Add per service page (details in Section 5).
+
+
+2.3 Accessibility + Performance
+
+
+Add loading="lazy" to all non-critical images below the fold. Keep the hero image without lazy if it’s the first view.
+
+
+Add alt text that is descriptive and location-aware (Section 4.3).
+
+
+Ensure only one <h1> per page; demote extras to <h2>.
+
+
+2.4 Internal Linking (contextual)
+At the end of each service body (before footer), add a small related-links block:
+<nav class="related-links" aria-label="Related services">
+  <p>Related services:</p>
+  <ul>
+    <li><a href="/services/exterior-building-services">Exterior Building Services</a></li>
+    <li><a href="/services/handyman-services">Handyman Services</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+  </ul>
+</nav>
+
+Adjust links logically per page (e.g., Parking Lot page should link Exterior Building Services, Contact, Construction & Remodeling).
+2.5 CTA Standardization (footer of content area, not the global footer)
+Insert uniform CTA block on every service page right above the page footer:
+<section class="cta-block" id="cta-standard">
+  <h2>Ready to Start Your Project?</h2>
+  <div class="cta-actions">
+    <a class="btn btn-primary" href="/contact?type={service-slug}">Request a Quote</a>
+    <a class="btn btn-secondary" href="tel:+13019336277" aria-label="Call for emergency 24/7 commercial service">Emergency Help 24/7</a>
+  </div>
+  <p><a href="tel:+13019336277">(301) 933-6277</a> · <a href="mailto:shallsconstructionllc@aol.com">shallsconstructionllc@aol.com</a></p>
+</section>
+
+
+
+Use the appropriate {service-slug} (e.g., construction-remodeling, handyman-services, etc.).
+
+
+If a similar CTA exists, replace it with this standardized block; don’t duplicate.
+
+
+2.6 Footer Cleanup
+
+
+If footers contain placeholder [AGC] Logo, etc., do not remove yet. Leave as-is unless you see duplicate placeholders (then keep one). No styling changes beyond removing obvious duplicate lines.
+
+
+3) Fix Known Copy Issues (safe regex replacements)
+Perform these scoped replacements only inside the main content area of service pages (not in header, nav, or footer):
+
+
+Replace any heading that matches:
+
+
+(?i)([A-Za-z\s]+)\s+Services\s+Services\s+Include: → Our $1 Services Include:
+
+
+
+
+Alternative simpler catch-all if the above doesn’t match reliably:
+
+
+(?i)Services\s+Services\s+Include: → Our Services Include:
+
+
+
+
+Ensure no heading ends with a colon and is immediately followed by a duplicate colon.
+
+
+Log the exact files changed and the before/after line fragments in the report.
+4) Visual Enhancements (non-destructive)
+4.1 Hero Banner Injection (service pages)
+Insert at the top of each service page content, right after the <h1> (if not present), a hero container:
+<section class="hero">
+  <figure class="hero-media">
+    <img src="/media/{service-hero-filename}.jpg"
+         alt="{service-hero-alt}"
+         width="1600" height="700">
+    <figcaption class="visually-hidden">{service-hero-alt}</figcaption>
+  </figure>
+  <div class="hero-tagline">{service-hero-tagline}</div>
+</section>
+
+Do not add CSS; only markup. Use the content values below:
+
+
+Construction & Remodeling:
+
+
+filename: commercial-remodeling-bethesda
+
+
+alt: Office renovation and tenant build-out in Bethesda by Shall’s Construction
+
+
+tagline: Full-Service Build-Outs & Renovations
+
+
+
+
+Handyman Services:
+
+
+filename: handyman-services-montgomery-county
+
+
+alt: Technician performing commercial repair in Montgomery County office
+
+
+tagline: Fast, Tenant-Friendly Repairs
+
+
+
+
+Exterior Building Services:
+
+
+filename: exterior-restoration-dc
+
+
+alt: Facade restoration and waterproofing on a DC commercial property
+
+
+tagline: Waterproofing & Facade Restoration
+
+
+
+
+Parking Lot Services:
+
+
+filename: parking-lot-resurfacing-bethesda
+
+
+alt: Resurfacing and striping commercial parking lot in Bethesda
+
+
+tagline: Asphalt • Concrete • ADA
+
+
+
+
+Painting Services:
+
+
+filename: commercial-painting-dc-office
+
+
+alt: Interior office repaint in Washington, DC
+
+
+tagline: Interior & Exterior Finishes
+
+
+
+
+Snow Removal:
+
+
+filename: snow-removal-montgomery-county
+
+
+alt: Snow plow clearing commercial lot in Montgomery County
+
+
+tagline: 24/7/365 Snow & Ice Response
+
+
+
+
+Important: If /media/*.jpg files don’t exist, create empty references only (placeholders). Do not upload or embed base64. Do not alter <img src> paths elsewhere.
+4.2 Lists → Semantic hooks
+Wrap existing bullet lists in a container for later styling (no CSS now):
+<section class="feature-grid">
+  <!-- existing <ul> or bullets remain; just ensure it's inside this section -->
+</section>
+
+4.3 Image alt normalization
+For each existing <img> in service bodies with generic alt text, update alt to include service + location where obvious. Do not change logos or decorative separators. Skip the site logo.
+5) Page-Specific JSON-LD (Service schema)
+Add one service schema per service page (insert before </body> or near the CTA block). If a Service schema exists, update values, don’t duplicate.
+Use this generic pattern and customize per page:
+<script type="application/ld+json" class="ld-service">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "{Service Name}",
+  "provider": {
+    "@type": "Organization",
+    "name": "Shall's Construction LLC",
+    "url": "https://shallsconstruction.replit.app"
+  },
+  "areaServed": [
+    "Montgomery County, MD", "Bethesda, MD", "Kensington, MD",
+    "Washington, DC", "Northern Virginia", "Delaware"
+  ],
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://shallsconstruction.replit.app{PAGE_PATH}",
+    "servicePhone": "+1-301-933-6277"
+  },
+  "hoursAvailable": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00", "closes": "23:59"
+  }
+}
+</script>
+
+Service Name values:
+
+
+Commercial Construction & Remodeling
+
+
+Commercial Handyman Services
+
+
+Exterior Building Services (Waterproofing & Restoration)
+
+
+Parking Lot Asphalt & Concrete
+
+
+Commercial Painting Services
+
+
+Snow & Ice Removal Services
+
+
+6) Meta Description Templates (insert if missing or clearly bad)
+Use the matching line (do not exceed ~160 chars):
+
+
+Construction & Remodeling
+Shall’s Construction delivers tenant build-outs, office renovations, and capital upgrades across MD, VA, DC, and DE. 30+ years. 95% in-house.
+
+
+Handyman Services
+Fast, in-house commercial handyman services in Montgomery County and the DC Metro. Drywall, doors, fixtures, minor MEP, and 24/7 emergencies.
+
+
+Exterior Building Services
+Waterproofing, facade restoration, sealants, and masonry repair for DC-area commercial buildings. Extend envelope life with expert crews.
+
+
+Parking Lot Services
+Asphalt, concrete, sealcoating, striping, and ADA upgrades for commercial lots across MD, VA, and DC. Reliable, safety-focused service.
+
+
+Painting Services
+Interior/exterior commercial painting, drywall finishing, epoxy, and wall coverings across the DC Metro. Minimal tenant disruption.
+
+
+Snow Removal
+24/7 commercial snow & ice management in Montgomery County and the DC Metro. Pre-storm planning, plowing, salting, sidewalks.
+
+
+About
+Family-owned commercial contractor serving MD, VA, DC, and DE for 30+ years. 95% in-house crews. Built for property managers.
+
+
+Who We Serve
+Partner to property managers across MD, VA, DC, and DE for renovation, maintenance, and 24/7 emergency work.
+
+
+Home
+Commercial construction, property maintenance, and 24/7 emergency response across MD, VA, DC, and DE. Family-owned for 30+ years.
+
+
+7) Reference Implementation — Apply to /services/construction-remodeling
+Make these exact edits in the Construction & Remodeling page:
+
+
+Ensure single <h1> is: Commercial Construction & Remodeling. Demote any duplicate big headings to <h2>.
+
+
+Inject Hero section (Section 4.1) immediately after the <h1> with the specified filename/alt/tagline for this service.
+
+
+Fix the duplicate heading issue via regex (Section 3).
+
+
+Wrap the services bullet list with <section class="feature-grid">...</section>.
+
+
+Add the Related links nav (Section 2.4) below the main body.
+
+
+Add the CTA block (Section 2.5) above the footer.
+
+
+Insert Service schema (Section 5) before </body>.
+
+
+Ensure meta description exists (Section 6) and add canonical + OG tags (Section 2.1).
+
+
+Add loading="lazy" to non-hero images on the page.
+
+
+Verify phone mailto/tel links match:
+
+
+
+
+tel:+13019336277
+
+
+mailto:shallsconstructionllc@aol.com
+
+
+Do not change existing shallsconstruction@gmail.com occurrences in footer; leave them.
+
+
+Report: Provide before/after snippets for:
+
+
+The fixed “Services Services Include” heading.
+
+
+The insertion point for the hero section.
+
+
+The CTA block insertion.
+
+
+8) Replicate for Other Service Pages
+Perform the same steps (7.1 → 7.10) for:
+
+
+/services/handyman-services
+
+
+/services/exterior-building-services
+
+
+/services/parking-lot-services
+
+
+/services/painting-services
+
+
+/services/snow-removal
+
+
+Use the correct hero filename/alt/tagline from Section 4.1, adjust related links smartly, and use each page’s matching meta description from Section 6.
+9) Who We Serve — Minimal Upgrades Only
+
+
+Add one hero block (use filename property-management-construction-services-maryland.jpg, alt Partnering with property managers on commercial projects in Maryland, tagline Built for Property Managers).
+
+
+Insert a CTA block (Section 2.5) linking to /contact?type=property-manager.
+
+
+Do not add Service schema here. Keep Organization schema global only.
+
+
+Add a small Related links nav to Services + Projects + Contact.
+
+
+Leave placeholder client logos intact. Do not attempt image replacement.
+
+
+10) About — Minimal Upgrades Only
+
+
+If there is a [Add hero image ...] placeholder, replace it with the Hero section using filename team-or-yard-hero.jpg, alt Shall’s Construction in-house team serving the DC Metro, tagline Family-Owned. 100% In-House..
+
+
+Add meta description (Section 6).
+
+
+Do not add Service schema here (Organization is already global).
+
+
+11) Breadcrumbs (Optional if time allows, but safe)
+If the pages already show breadcrumb links in-body, leave them. Do not add JSON-LD breadcrumb schema unless a consistent breadcrumb nav exists across pages.
+12) Safety Checks (triple-check pass)
+For every edited file:
+
+
+Confirm no duplicated hero or CTA blocks.
+
+
+Confirm one <h1> per page.
+
+
+Confirm only one Service schema per service page.
+
+
+Confirm one Organization schema sitewide (if partials duplicated it across pages, add id="ld-org" and ensure it appears once per DOM; if it appears on each page due to shared layout, that is acceptable, but do not add a second copy).
+
+
+Confirm tel/email links are correct and unchanged elsewhere.
+
+
+Confirm canonical URLs match each page path.
+
+
+Confirm all new HTML validates (no unclosed tags).
+
+
+13) Deliverable: Change Report
+Output a concise markdown report with:
+
+
+File inventory of the pages you changed (exact paths).
+
+
+For each file:
+
+
+Which sections were added (Hero / Related Links / CTA / Schema / Meta).
+
+
+Any headings fixed (show the one-line before → after).
+
+
+New meta description line.
+
+
+Presence of loading="lazy" where applicable.
+
+
+
+
+Confirm idempotency: running the same steps again will not duplicate structures.
+
+
+
+End of prompt. Execute exactly as written.
