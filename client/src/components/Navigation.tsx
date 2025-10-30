@@ -75,7 +75,7 @@ export default function Navigation() {
                     onMouseLeave={() => setDropdownOpen(false)}
                   >
                     <button
-                      className={`flex items-center gap-1 text-sm font-medium transition-colors ${
+                      className={`flex items-center gap-1 text-sm font-medium transition-colors pb-2 ${
                         isMenuActive
                           ? "text-primary font-semibold"
                           : "text-gray-700 hover:text-primary"
@@ -86,7 +86,7 @@ export default function Navigation() {
                       <ChevronDown className="h-4 w-4" />
                     </button>
                     {dropdownOpen && (
-                      <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg border border-gray-200 py-2 w-56 z-50">
+                      <div className="absolute top-full left-0 bg-white shadow-lg rounded-lg border border-gray-200 py-2 w-56 z-50">
                         {link.dropdown?.map((item) => (
                           <Link key={item.href} href={item.href}>
                             <span

@@ -200,10 +200,10 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
-            Commercial Construction & Property Maintenance in MD, VA, DC & DE
+            Commercial Construction & Property Maintenance
           </h1>
           <h2 className="text-lg md:text-xl mb-7 text-gray-200 font-normal" data-testid="hero-subheadline">
-            Renovation, Repair & Maintenance for Property Managers and Building Owners
+            We make your life easier while enhancing your tenants’ experience
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
