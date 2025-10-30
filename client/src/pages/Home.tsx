@@ -30,11 +30,8 @@ function TestimonialsSection() {
         <div className="text-center mb-16">
           <Quote className="h-12 w-12 text-primary mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-testimonials-heading">
-            What Our Clients Say
+            Client Testimonials
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Property managers across MD, VA, DC, and DE trust Shall's Construction for reliable commercial property services
-          </p>
         </div>
 
         {isLoading ? (
@@ -104,37 +101,37 @@ export default function Home() {
     {
       title: "Construction & Remodeling",
       image: constructionImg,
-      description: "Commercial interiors, office remodeling, retail construction, tenant build out, and 24/7 emergency construction services.",
+      description: "From tenant buildouts to common-area renovations, we deliver quality and consistency.",
       link: "/services/construction-remodeling",
     },
     {
       title: "Handyman Services",
       image: handymanImg,
-      description: "Repair and maintenance needs both large and small with high quality work. Carpentry, drywall, doors, and more.",
+      description: "Expert carpentry, drywall, and repairs for commercial properties of all sizes.",
       link: "/services/handyman-services",
     },
     {
       title: "Exterior Building Services",
       image: exteriorImg,
-      description: "Waterproofing restoration, power washing, masonry, caulking, crack repair, and leak investigation services.",
+      description: "Waterproofing, masonry, caulking, and power washing to protect your building envelope.",
       link: "/services/exterior-building-services",
     },
     {
       title: "Parking Lot Asphalt & Concrete",
       image: parkingImg,
-      description: "Complete parking lot maintenance, striping, sealcoating, ADA upgrades, and asphalt repair services.",
+      description: "Complete parking lot maintenance from striping to asphalt repair and sealcoating.",
       link: "/services/parking-lot-services",
     },
     {
       title: "Painting Services",
       image: paintingImg,
-      description: "Interior and exterior commercial painting with expert precision. Professional surface prep and specialty finishes.",
+      description: "Professional interior and exterior painting with meticulous surface preparation.",
       link: "/services/painting-services",
     },
     {
       title: "Snow Removal",
       image: snowImg,
-      description: "Prompt snow and ice management with minimal disruptions. Professional winter property maintenance services.",
+      description: "Reliable snow and ice management to keep your property safe and accessible.",
       link: "/services/snow-removal",
     },
   ];
@@ -226,11 +223,11 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
-            Commercial Property Services in Maryland • Virginia • DC • Delaware
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
+            Your Commercial Construction Partner in MD • VA • DC • DE
           </h1>
           <p className="text-lg md:text-xl mb-7 text-gray-200" data-testid="hero-subheadline">
-            30+ Years Serving Property Managers with In-House Teams
+            Over 30 Years of In-House Expertise in Renovation, Repair & Maintenance
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
@@ -279,15 +276,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24">
+      {/* Intro Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+            Shall's Construction provides comprehensive commercial renovation, maintenance, and repair services for property managers across MD, VA, DC, and DE. 100% of our work is performed by our full-time, in-house team.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-services-heading">
-              Our Construction Services
+              Services
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              When it comes to repairing and maintaining your commercial property, we're a property manager's greatest resource.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -335,6 +338,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Why Shall's Section - Experience & Differentiators */}
+      <section className="py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-experience-heading">
+              Proven, Responsive, Reliable
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center" data-testid="differentiator-years">
+              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                30+ Years in Business
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Three decades of commercial construction excellence
+              </p>
+            </div>
+
+            <div className="text-center" data-testid="differentiator-emergency">
+              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                24/7/365 Emergency Response
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Always available when you need us most
+              </p>
+            </div>
+
+            <div className="text-center" data-testid="differentiator-inhouse">
+              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                100% In-House Staff
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Full-time teams ensure consistent quality
+              </p>
+            </div>
+
+            <div className="text-center" data-testid="differentiator-service-area">
+              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <MapPin className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2">
+                Serving MD • VA • DC • DE
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Licensed and insured across the region
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -342,7 +406,7 @@ export default function Home() {
               Featured Projects
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              See examples of our recent commercial construction and property maintenance work across MD/VA/DC/DE.
+              Recent commercial construction and property maintenance work across the region.
             </p>
           </div>
 
@@ -372,77 +436,6 @@ export default function Home() {
       </section>
 
       <TestimonialsSection />
-
-      <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-service-areas-heading">
-              Serving Commercial Properties Across the Region
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Professional commercial property services throughout Maryland, Virginia, Washington DC, and Delaware
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {[
-              { name: 'Bethesda, MD', slug: 'bethesda-md', description: 'Office buildings, retail centers, and more' },
-              { name: 'Rockville, MD', slug: 'rockville-md', description: 'Medical offices and professional spaces' },
-              { name: 'Silver Spring, MD', slug: 'silver-spring-md', description: 'Retail and commercial complexes' },
-              { name: 'Baltimore, MD', slug: 'baltimore-md', description: 'Large-scale commercial properties' },
-              { name: 'Gaithersburg, MD', slug: 'gaithersburg-md', description: 'Commercial and industrial facilities' },
-              { name: 'DC Metro Area', slug: 'dc-metro', description: 'Arlington, Fairfax, Washington DC' },
-            ].map((location) => (
-              <Link key={location.slug} href={`/service-areas/${location.slug}`}>
-                <div className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all duration-300 cursor-pointer" data-testid={`card-location-${location.slug}`} role="link" aria-label={`View commercial services in ${location.name}`}>
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-heading font-semibold text-gray-900 mb-2">
-                        {location.name}
-                      </h3>
-                      <p className="text-sm text-gray-600">
-                        {location.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link href="/service-areas">
-              <Button size="lg" variant="outline" className="px-8" data-testid="button-view-all-service-areas" aria-label="View all commercial service areas">
-                View All Service Areas
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4">
-              Trusted by Leading Property Management Companies
-            </h3>
-            <p className="text-gray-600">
-              [Add client company names or logos here]
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-gray-100 rounded-lg h-24 flex items-center justify-center border border-gray-200">
-                <p className="text-gray-400 text-sm">[Client Logo {i}]</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Hidden - Latest Insights & News section - can be re-enabled in the future */}
       {/* <section className="py-20 md:py-24 bg-white">
@@ -523,10 +516,10 @@ export default function Home() {
       <section className="py-20 md:py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6" data-testid="text-cta-heading">
-            Make Shall's Your Greatest Resource
+            Make Shall's Your Go-To Resource for Commercial Property Services
           </h2>
           <p className="text-lg md:text-xl mb-8 text-white/90">
-            Call for consultation, or try us out on your next work order.
+            Call for consultation or submit a work order request today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
