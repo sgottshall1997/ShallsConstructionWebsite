@@ -227,7 +227,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
-            Commercial Property Services in Maryland • Virginia • DC
+            Commercial Property Services in Maryland • Virginia • DC • Delaware
           </h1>
           <p className="text-lg md:text-xl mb-7 text-gray-200" data-testid="hero-subheadline">
             30+ Years Serving Property Managers with In-House Teams
