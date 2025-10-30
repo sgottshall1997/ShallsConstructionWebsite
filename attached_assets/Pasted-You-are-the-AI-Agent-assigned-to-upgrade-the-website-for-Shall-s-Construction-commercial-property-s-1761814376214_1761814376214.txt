@@ -1,0 +1,50 @@
+You are the AI Agent assigned to upgrade the website for Shall’s Construction (commercial property services in MD, VA, DC). Your goal: transform the site into a professional, high-quality construction business site that competes with Rock Spring Contracting’s level, and is fully SEO-optimized for lead generation and local search.  
+Tasks to accomplish:
+
+1. Design & UX Improvements  
+   - Create a hero section with a strong headline (e.g., “Commercial Property Services in Maryland • Virginia • DC”), subheadline positioning, and a high-quality background image of a project site.  
+   - Build clear navigation: Home | About Us | Services | Projects | Locations | Contact.  
+   - For each major service (e.g., Demolition, Interior Fit-Out, Tenant Improvements, Facility Maintenance), create a dedicated service page with summary, benefits, process, and visual image.  
+   - Build a “Projects” or “Portfolio” page with 6-10 featured projects, each with image gallery, short description, location, client, and key results.  
+   - Add an “About Us” page: establishment year, team credentials, certifications, local presence, mission, and trust cues (licensing, insurance, affiliations).  
+   - Add a “Locations / Service Area” page listing MD, VA, DC, and optionally city-subareas; include Google Map embed, contact phone for each location if any.  
+   - Ensure responsive design: mobile menu, optimized images, fast load, consistent brand colors and typography.
+
+2. On-page SEO / Content Optimization  
+   - Use custom domain (e.g., shallsconstruction.com) and ensure HTTPS, canonical tags, sitemap.xml, robots.txt.  
+   - For each page: write unique `<title>` (~50-60 characters) and `<meta description>` (~150-160 characters) that include key-phrase and location (e.g., “Commercial property demolition Maryland | Shall’s Construction”).  
+   - Use H1, H2 hierarchical headings: H1 for page title, H2 for service/subsections. Incorporate keywords like “commercial property services Maryland”, “DC tenant improvements”, etc.  
+   - Ensure images have `alt` attributes describing what’s shown (e.g., “tenant improvement fit-out interior Washington DC”).  
+   - Add schema markup: Organization, LocalBusiness (multiple locations optionally), Service, Project.  
+   - Add internal linking: from service pages link to portfolio items, from about page link to services.  
+   - Create location-specific landing content if you serve cities: e.g., “Commercial property services Arlington VA”.  
+   - Add a blog or news section: publish 1-2 posts per month on topics relevant to your niche (case study, maintenance tips, local project spotlight) to build fresh content and backlinks.
+
+3. Technical SEO / Performance  
+   - Minimize render-blocking JS/CSS, ensure images are optimized (WebP/AVIF) and lazy loaded.  
+   - Verify mobile performance: use Google PageSpeed Insights and target score 90+.  
+   - Ensure site is crawlable: sitemap.xml submitted to Google Search Console, check for noindex issues.  
+   - Implement canonical URLs, remove duplicate URLs (e.g., `replit.app` vs custom domain).  
+   - Enable structured data testing via Google Rich Results Test to confirm markup validity.  
+   - Ensure site architecture is shallow (max 3 clicks to any page) and navigation is clear.  
+   - Use descriptive, SEO-friendly URLs (e.g., `/services/demolition-md`, `/projects/tenant-improvement-dc`).  
+   - Set up Google Analytics (GA4) and Google Search Console; enable performance tracking (keywords, clicks, impressions).  
+   - Use 301 redirects if you restructure URLs to preserve any existing link equity.
+
+4. Local SEO & Backlink Strategy  
+   - Create and verify Google Business Profile for “Shall’s Construction” with accurate NAP (name, address, phone) and service areas MD, VA, DC.  
+   - Embed Google Map and list service area cities on site.  
+   - Encourage client reviews and testimonials; display on site.  
+   - Build local citations: chamber of commerce listings, local industry directories.  
+   - Obtain backlinks: partner with trade associations, industry blogs, local project news, showcase case studies with local press release.  
+   - Publish location + service combination pages (e.g., “Tenant Improvements Arlington VA”) to target local intent.
+
+5. Delivery & Deployment  
+   - Provide a site map (list of pages).  
+   - Generate content drafts (headlines, service blurbs, meta descriptions) ready for insertion.  
+   - Create a checklist for deployment: domain switch, SSL, redirect rules, sitemap submission, performance testing.  
+   - Provide a 90-day roadmap: content calendar (blogs, case studies), backlink outreach schedule, performance review cadence.
+
+Result: A polished, professional construction website for Shall’s Construction that clearly communicates your capabilities, ranks strongly in local search for MD/VA/DC commercial projects, and generates leads.
+
+Proceed with this plan and output file structure, new page templates, content drafts, and technical audit checklist.
