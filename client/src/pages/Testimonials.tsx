@@ -53,7 +53,7 @@ export default function Testimonials() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Client Testimonials MD VA DC | Shall's Construction"
-        description="Read what property managers say about Shall's Construction. Trusted across MD, VA, DC, and DE for 30+ years. See our 5-star reviews and success stories."
+        description="Read verified property-manager reviews of Shall's Construction's reliability and workmanship. Trusted across MD, VA, DC and DE for 30+ years."
         schemas={schemas}
       />
       <Navigation />

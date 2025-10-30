@@ -97,7 +97,7 @@ export default function SilverSpringMD() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`Commercial Property Services ${location?.city || "Silver Spring"} | Shall's`}
-        description={`Professional commercial property services in ${location?.city || "Silver Spring"}, ${location?.state || "MD"}. 30+ years serving MD, VA, DC, and DE. Licensed and insured. Call ${defaultPhone} today.`}
+        description="Full-service commercial contractor for Silver Spring MD office, retail, and multifamily properties. 24/7 emergency service, 30+ years serving MD."
         schemas={schemas}
       />
       <Navigation />

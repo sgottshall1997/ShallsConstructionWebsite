@@ -143,7 +143,8 @@ export default function ProjectDetail() {
     generateBreadcrumbSchema(breadcrumbs),
   ];
 
-  const metaDescription = `${project.category} project in ${project.location}. ${project.description.substring(0, 110 - project.category.length - project.location.length)}`;
+  const keyResult = project.description.substring(0, 60);
+  const metaDescription = `${project.category} in ${project.location} — ${keyResult} — view our commercial construction case study.`;
 
   return (
     <div className="min-h-screen bg-white">

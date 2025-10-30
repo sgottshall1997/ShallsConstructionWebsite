@@ -85,7 +85,7 @@ export default function About() {
     <div className="min-h-screen bg-white">
       <SEO
         title="About Shall's Construction | Our Story & Leadership"
-        description="Family-owned commercial contractor serving MD, VA, DC, and DE since 1990. 30+ years of experience with 100% in-house teams. Trusted by property managers."
+        description="Learn the story, leadership, and values behind Shall's Construction — trusted by property managers for three decades across MD VA DC and DE."
         schemas={schemas}
       />
       <Navigation />

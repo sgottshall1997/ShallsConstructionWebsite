@@ -97,7 +97,7 @@ export default function GaithersburgMD() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`Commercial Property Services ${location?.city || "Gaithersburg"} | Shall's`}
-        description={`Professional commercial property services in ${location?.city || "Gaithersburg"}, ${location?.state || "MD"}. 30+ years serving MD, VA, DC, and DE. Licensed and insured. Call ${defaultPhone} today.`}
+        description="Full-service commercial contractor for Gaithersburg MD office, retail, and multifamily properties. Trusted by property managers for 30+ years."
         schemas={schemas}
       />
       <Navigation />

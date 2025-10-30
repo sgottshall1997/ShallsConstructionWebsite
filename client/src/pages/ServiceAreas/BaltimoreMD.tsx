@@ -97,7 +97,7 @@ export default function BaltimoreMD() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`Commercial Property Services ${location?.city || "Baltimore"} | Shall's`}
-        description={`Professional commercial property services in ${location?.city || "Baltimore"}, ${location?.state || "MD"}. 30+ years serving MD, VA, DC, and DE. Licensed and insured. Call ${defaultPhone} today.`}
+        description="Full-service commercial contractor for Baltimore MD office, retail, and multifamily properties. Serving Baltimore City and County for 30+ years."
         schemas={schemas}
       />
       <Navigation />

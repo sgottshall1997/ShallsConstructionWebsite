@@ -1,0 +1,133 @@
+Goal: Elevate all weak SEO areas (meta descriptions, structured data, canonicals, sitemap, robots, content completeness) to professional grade. Skip domain/SSL changes.
+
+Phase A – Meta & Canonical Repair
+
+Audit: Enumerate every route under / – /about, /what-we-do, /projects, /who-we-serve, /service-areas/*, /testimonials, /safety, /blog, /articles, /contact.
+
+Insert unique <meta name="description"> per page (140–160 chars):
+
+Home → “Commercial construction, remodeling, handyman, asphalt, painting, and snow services across MD VA DC DE — 30 years serving property managers.”
+
+About → “Learn the story, leadership, and values behind Shall’s Construction — trusted by property managers for three decades.”
+
+Each Service Page → Summarize service + regions.
+
+Each Service-Area Page → “Full-service commercial contractor for [City ST] office, retail, and multifamily properties.”
+
+Projects → “Explore commercial project case studies across MD VA DC DE.”
+
+Testimonials → “Read verified property-manager reviews of Shall’s Construction’s reliability and workmanship.”
+
+Blog → “Industry tips and maintenance insights for commercial property managers.”
+
+Contact → “Request a quote or 24/7 emergency service — licensed MD VA DC DE.”
+
+Add <link rel="canonical" href="https://shallsconstruction.replit.app[exact path]"> to each page’s <head>.
+
+Confirm one <h1> per page; demote duplicates to <h2>.
+
+Phase B – Structured Data (JSON-LD)
+
+Insert inside <head> blocks or via a global SEO component. Validate all with Google’s Rich Results Test.
+
+Organization / LocalBusiness (on /)
+
+{
+ "@context":"https://schema.org",
+ "@type":"LocalBusiness",
+ "name":"Shall's Construction LLC",
+ "url":"https://shallsconstruction.replit.app",
+ "telephone":"+13019336277",
+ "email":"shallsconstructionllc@aol.com",
+ "logo":"https://shallsconstruction.replit.app/shalls-construction-logo-DYaZi169.png",
+ "address":{"@type":"PostalAddress","addressLocality":"Kensington","addressRegion":"MD","addressCountry":"US"},
+ "areaServed":["Maryland","Virginia","District of Columbia","Delaware"],
+ "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],
+ "sameAs":["https://www.google.com/search?q=Shall's+Construction"]
+}
+
+
+Service Schema (each major section/page)
+
+{
+ "@context":"https://schema.org",
+ "@type":"Service",
+ "serviceType":"Commercial Construction & Property Maintenance",
+ "provider":{"@type":"LocalBusiness","name":"Shall's Construction LLC","url":"https://shallsconstruction.replit.app"},
+ "areaServed":["MD","VA","DC","DE"]
+}
+
+
+BreadcrumbList (all subpages)
+
+{
+ "@context":"https://schema.org",
+ "@type":"BreadcrumbList",
+ "itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://shallsconstruction.replit.app"},
+  {"@type":"ListItem","position":2,"name":"{{Current Page Name}}","item":"{{Current URL}}"}
+ ]
+}
+
+
+FAQPage – Add to /what-we-do or /safety using visible Q&A.
+
+Review – Convert each testimonial into:
+
+{
+ "@context":"https://schema.org",
+ "@type":"Review",
+ "author":{"@type":"Person","name":"{{Client Name}}"},
+ "reviewBody":"{{Quoted Testimonial}}",
+ "reviewRating":{"@type":"Rating","ratingValue":5,"bestRating":5},
+ "itemReviewed":{"@type":"LocalBusiness","name":"Shall's Construction LLC"}
+}
+
+
+BlogPosting – Add to each blog article.
+
+Phase C – Sitemap + Robots
+
+Generate /sitemap.xml automatically listing all canonical URLs with <lastmod> timestamps.
+
+Create /robots.txt:
+
+User-agent: *
+Disallow:
+Sitemap: https://shallsconstruction.replit.app/sitemap.xml
+
+Phase D – Content Depth & Placeholder Elimination
+
+Service Pages: Minimum 400–600 words each. Use subheads: “Overview,” “Key Capabilities,” “Typical Clients,” “Recent Projects,” “FAQs.”
+
+Service-Area Pages: 350–450 words, include city-specific references and a single embedded map (<iframe src="https://www.google.com/maps/embed?...">).
+
+Projects: Replace [Add project description] placeholders with at least 150 words each and 2–3 optimized photos (alt="Office build-out in Bethesda MD").
+
+Client Logos: Replace [Client Logo 1] etc. with actual image tags and descriptive alt text.
+
+Ensure internal links between services, projects, and service-areas.
+
+Phase E – Quality Verification
+
+Run a full audit after changes:
+
+Validate JSON-LD in Rich Results Test → 0 errors, 0 warnings.
+
+Lighthouse SEO ≥ 95, Accessibility ≥ 90.
+
+Confirm <title>, <meta>, <h1> uniqueness via script.
+
+Confirm sitemap.xml and robots.txt accessible in browser.
+
+Generate final report: table of each page with title | meta | h1 | schema types | word count | status.
+
+Deliverables
+
+All HTML/React pages updated with meta, canonical, and JSON-LD.
+
+sitemap.xml + robots.txt in root.
+
+Placeholder-free visible content.
+
+seo-report.md summarizing audit results and Lighthouse scores.

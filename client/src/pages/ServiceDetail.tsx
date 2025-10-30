@@ -141,11 +141,13 @@ export default function ServiceDetail() {
     generateBreadcrumbSchema(breadcrumbs),
   ];
 
+  const metaDescription = `${service.title} for commercial properties in MD VA DC DE — ${service.shortDescription.substring(0, 70)} — 30+ years experience.`;
+
   return (
     <div className="min-h-screen bg-white">
       <SEO
         title={`${service.title} | Commercial Property Services | Shall's`}
-        description={`${service.shortDescription.substring(0, 95)} Professional services in MD, VA, DC, and DE. 30+ years serving property managers.`}
+        description={metaDescription.length > 160 ? metaDescription.substring(0, 157) + '...' : metaDescription}
         schemas={schemas}
       />
       <Navigation />

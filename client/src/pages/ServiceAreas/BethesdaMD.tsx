@@ -97,7 +97,7 @@ export default function BethesdaMD() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`Commercial Property Services ${location?.city || "Bethesda"} | Shall's`}
-        description={`Professional commercial property services in ${location?.city || "Bethesda"}, ${location?.state || "MD"}. 30+ years serving MD, VA, DC, and DE. Licensed and insured. Call ${defaultPhone} today.`}
+        description="Full-service commercial contractor for Bethesda MD office, retail, and multifamily properties. 30+ years serving Montgomery County property managers."
         schemas={schemas}
       />
       <Navigation />

@@ -56,7 +56,7 @@ export default function Articles() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Property Tips | Shall's Construction Blog"
-        description="Expert commercial property maintenance tips for MD, VA, DC, and DE. Learn strategies from Shall's Construction professionals to protect your investment."
+        description="Industry tips and maintenance insights for commercial property managers. Expert advice for MD VA DC DE properties from Shall's Construction professionals."
         schemas={schemas}
       />
       <Navigation />

@@ -46,7 +46,7 @@ export default function WhoWeServe() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Property Management Services MD VA DC | Shall's"
-        description="Trusted by Associa, Comsource, and AMC. Serving commercial properties in MD, VA, DC, and DE for 30+ years. Licensed in all regions. Get a quote today."
+        description="Tailored commercial construction and maintenance solutions for property managers, building owners, and facility managers across the Mid-Atlantic."
         schemas={schemas}
       />
       <Navigation />

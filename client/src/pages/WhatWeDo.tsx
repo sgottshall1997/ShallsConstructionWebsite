@@ -44,7 +44,7 @@ export default function WhatWeDo() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Construction Services MD VA DC | Shall's"
-        description="Full-service commercial construction in MD, VA, DC, and DE. Handyman, painting, exterior, parking lot services, and snow removal. Get a quote today."
+        description="Comprehensive commercial property services: construction, maintenance, emergency repairs — serving MD VA DC DE property managers. 30+ years experience."
         schemas={schemas}
       />
       <Navigation />

@@ -84,6 +84,8 @@ export default function BlogDetail() {
 
   const schemas = post ? [generateBreadcrumbSchema(breadcrumbs)] : [];
 
+  const blogMetaDescription = post ? `${post.title} — expert insights for commercial property managers in MD VA DC DE.` : '';
+
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
       'safety': 'bg-red-100 text-red-800',
@@ -152,7 +154,7 @@ export default function BlogDetail() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`${post.title} | Shall's Construction Blog`}
-        description={post.excerpt.length > 160 ? post.excerpt.substring(0, 157) + '...' : post.excerpt}
+        description={blogMetaDescription.length > 160 ? blogMetaDescription.substring(0, 157) + '...' : blogMetaDescription}
         schemas={schemas}
       />
       <Navigation />

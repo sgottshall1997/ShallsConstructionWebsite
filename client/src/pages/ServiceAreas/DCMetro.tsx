@@ -97,7 +97,7 @@ export default function DCMetro() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`Commercial Property Services ${location?.city || "DC Metro"} | Shall's`}
-        description={`Professional commercial property services in the ${location?.city || "DC Metro"} area. 30+ years serving MD, VA, DC, and DE. Licensed and insured. Call ${defaultPhone} today.`}
+        description="Full-service commercial contractor for DC Metro (Arlington, Fairfax, DC) office, retail, and multifamily properties. 30+ years experience serving DMV."
         schemas={schemas}
       />
       <Navigation />

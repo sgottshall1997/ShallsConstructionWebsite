@@ -206,7 +206,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Commercial Property Services MD VA DC | Shall's Construction"
-        description="Expert commercial property services for MD, VA, DC, and DE property managers. 30+ years, 24/7 emergency response, 100% in-house teams. Get a quote today."
+        description="Commercial construction, remodeling, handyman, asphalt, painting, and snow services across MD VA DC DE — 30 years serving property managers."
         schemas={schemas}
       />
       <Navigation />

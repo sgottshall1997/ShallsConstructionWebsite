@@ -66,7 +66,7 @@ export default function ServiceAreas() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Service Areas MD VA DC DE | Shall's Construction Coverage"
-        description="Serving property managers across Maryland, Virginia, DC, and Delaware. Licensed and fully insured in all regions. Call (301) 933-6277 for a free quote today."
+        description="Commercial construction and maintenance serving Maryland, Virginia, DC, and Delaware — find your local contractor. 30+ years serving property managers."
         schemas={schemas}
       />
       <Navigation />
