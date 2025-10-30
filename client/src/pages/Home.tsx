@@ -200,7 +200,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
-            Commercial Construction & Property Maintenance
+            Commercial Construction & Property Maintenance in the DMV
           </h1>
           <h2 className="text-lg md:text-xl mb-7 text-gray-200 font-normal" data-testid="hero-subheadline">
             We make your life easier while enhancing your tenants’ experience
