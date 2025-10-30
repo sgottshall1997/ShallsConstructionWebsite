@@ -122,7 +122,7 @@ export default function WhoWeServe() {
                   <img
                     src={client.logo}
                     alt={`${client.name} logo`}
-                    className="max-w-full max-h-full object-contain"
+                    className={`max-w-full max-h-full object-contain ${client.name === "American Community Management" ? "scale-125" : ""}`}
                     data-testid={`img-client-logo-${index}`}
                   />
                 </div>

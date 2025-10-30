@@ -2,6 +2,7 @@ interface Logo {
   name: string;
   imagePath?: string;
   altText: string;
+  className?: string;
 }
 
 interface LogoGridProps {
@@ -42,7 +43,7 @@ export default function LogoGrid({ logos, columns = 4, title, description }: Log
               <img
                 src={logo.imagePath}
                 alt={logo.altText}
-                className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all"
+                className={`max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all ${logo.className || ''}`}
                 loading="lazy"
               />
             ) : (
