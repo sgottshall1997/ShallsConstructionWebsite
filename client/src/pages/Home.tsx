@@ -224,7 +224,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
-            Your Commercial Construction Partner in MD • VA • DC • DE
+            Your Commercial Construction Partner 
           </h1>
           <p className="text-lg md:text-xl mb-7 text-gray-200" data-testid="hero-subheadline">
             Over 30 Years of In-House Expertise in Renovation, Repair & Maintenance
