@@ -14,15 +14,7 @@ export default function About() {
       name: "[Owner Name]",
       title: "Owner & CEO",
       imagePath: "", // User will add actual photo
-      bio: `For property managers with countless projects, there's one name to remember: Shall's Construction
-
-There are many companies that serve commercial property managers and owners—but none are quite like Shall's. From our inception, Shall's was built to serve property managers' needs. We understand the challenges you face in managing multiple projects, schedules, and budgets. Today, we provide an even greater depth and breadth of expertise to make your life easier. One Call Does It All!
-
-At Shall's Construction, our in-house team provides a wide range of commercial renovation, repair & maintenance, and commercial construction services, providing both short and long-term solutions for your property's needs. Whether to make an urgent repair or take on a capital project, Shall's will respond.
-
-For more than 30+ years, we've earned a reputation for helping property managers with their commercial renovation, repair, and maintenance needs both large and small — with professional, high quality work and seamless, 24/7/365 responsiveness to emergency situations. Because 100% of our work is done by our full-time staff using our own equipment, you always get consistent, high-quality results. The bottom line: we make your life easier, while enhancing your tenants' experience.
-
-When you need a commercial construction services firm that not only understands your challenges, but also solves them quickly and efficiently - Shall's Construction is your best choice.`,
+      bio: "[Add owner biography here - education, experience, industry involvement, personal story about founding the company]",
       quote: "[Add inspirational quote from owner about company values or commitment to excellence]",
     },
     {

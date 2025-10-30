@@ -224,11 +224,30 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
-            Your Commercial Construction Partner
+            Your Commercial Construction Partner in MD • VA • DC • DE
           </h1>
           <p className="text-lg md:text-xl mb-7 text-gray-200" data-testid="hero-subheadline">
             Over 30 Years of In-House Expertise in Renovation, Repair & Maintenance
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+            <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
+              <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote" aria-label="Request a quote for commercial construction services">
+                Request a Quote
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/contact?type=emergency" onClick={() => trackEmergencyClick('homepage_hero')}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-base px-8 py-6 bg-white/10 backdrop-blur-md border-white text-white hover:bg-white hover:text-gray-900"
+                data-testid="button-emergency"
+                aria-label="Request emergency commercial construction service"
+              >
+                24/7 Emergency Service
+              </Button>
+            </Link>
+          </div>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center text-sm md:text-base text-gray-200" data-testid="trust-indicators">
             <span>Licensed in MD, VA, DC, DE</span>
             <span className="hidden sm:inline text-gray-400">|</span>
@@ -266,7 +285,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-gray-50">
+      {/* Hidden - Services Section - can be re-enabled in the future */}
+      {/* <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-services-heading">
@@ -317,10 +337,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Why Shall's Section - Experience & Differentiators */}
-      <section className="py-20 md:py-24 bg-white">
+      {/* Hidden - "Proven, Responsive, Reliable" Section - can be re-enabled in the future */}
+      {/* <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-experience-heading">
@@ -378,9 +398,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="py-20 md:py-24 bg-gray-50">
+      {/* Hidden - Featured Projects Section - can be re-enabled in the future */}
+      {/* <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-projects-heading">
@@ -414,7 +435,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <TestimonialsSection />
 
