@@ -10,9 +10,11 @@ import WhatWeDo from "@/pages/WhatWeDo";
 import WhoWeServe from "@/pages/WhoWeServe";
 import Projects from "@/pages/Projects";
 import ProjectDetail from "@/pages/ProjectDetail";
+import ServiceDetail from "@/pages/ServiceDetail";
 import Safety from "@/pages/Safety";
 import ServiceAreas from "@/pages/ServiceAreas";
 import Articles from "@/pages/Articles";
+import BlogDetail from "@/pages/BlogDetail";
 import Testimonials from "@/pages/Testimonials";
 import Contact from "@/pages/Contact";
 import Login from "@/pages/Login";
@@ -34,9 +36,12 @@ function Router() {
         <Route path="/what-we-do" component={WhatWeDo} />
         <Route path="/who-we-serve" component={WhoWeServe} />
         <Route path="/projects" component={Projects} />
-        <Route path="/projects/:id" component={ProjectDetail} />
+        <Route path="/projects/:slug" component={ProjectDetail} />
+        <Route path="/services/:slug" component={ServiceDetail} />
         <Route path="/safety" component={Safety} />
         <Route path="/service-areas" component={ServiceAreas} />
+        <Route path="/blog" component={Articles} />
+        <Route path="/blog/:slug" component={BlogDetail} />
         <Route path="/articles" component={Articles} />
         <Route path="/testimonials" component={Testimonials} />
         <Route path="/contact" component={Contact} />

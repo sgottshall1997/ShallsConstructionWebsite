@@ -1,71 +1,33 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import TestimonialCard from "@/components/ui/testimonial-card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 import { generateBreadcrumbSchema } from "@/lib/schema";
-import { Quote } from "lucide-react";
+import { Quote, ExternalLink } from "lucide-react";
+import type { Testimonial } from "@shared/schema";
 
 export default function Testimonials() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filters = ["All", "Construction", "Painting", "Handyman", "Emergency Service"];
 
-  // Placeholder testimonials - user will replace with actual client quotes
-  const testimonials = [
-    {
-      quote: "[Add client testimonial here - What did you appreciate about working with Shall's Construction?]",
-      author: "[Client Name 1]",
-      company: "[Property Management Company 1]",
-      role: "Property Manager",
-      rating: 5,
-      service: "Construction",
-    },
-    {
-      quote: "[Add client testimonial here]",
-      author: "[Client Name 2]",
-      company: "[Property Management Company 2]",
-      role: "Facilities Director",
-      rating: 5,
-      service: "Painting",
-    },
-    {
-      quote: "[Add client testimonial here]",
-      author: "[Client Name 3]",
-      company: "[Property Management Company 3]",
-      role: "Property Manager",
-      rating: 5,
-      service: "Handyman",
-    },
-    {
-      quote: "[Add client testimonial here]",
-      author: "[Client Name 4]",
-      company: "[Property Management Company 4]",
-      role: "Regional Manager",
-      rating: 5,
-      service: "Emergency Service",
-    },
-    {
-      quote: "[Add client testimonial here]",
-      author: "[Client Name 5]",
-      company: "[Property Management Company 5]",
-      role: "Property Manager",
-      rating: 5,
-      service: "Construction",
-    },
-    {
-      quote: "[Add client testimonial here]",
-      author: "[Client Name 6]",
-      company: "[Property Management Company 6]",
-      role: "Portfolio Manager",
-      rating: 5,
-      service: "Painting",
-    },
-  ];
+  const { data: testimonials = [], isLoading } = useQuery<Testimonial[]>({
+    queryKey: ["/api/testimonials"],
+  });
 
   const filteredTestimonials = activeFilter === "All"
     ? testimonials
-    : testimonials.filter((t) => t.service === activeFilter);
+    : testimonials.filter((t) => t.serviceType === activeFilter);
+
+  const averageRating = testimonials.length > 0
+    ? (testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length).toFixed(1)
+    : "5.0";
+
+  const happyClients = testimonials.length;
 
   const breadcrumbs = [
     { name: "Home", url: "/" },
@@ -102,11 +64,15 @@ export default function Testimonials() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-5xl font-heading font-bold text-primary mb-2">5.0</div>
+              <div className="text-5xl font-heading font-bold text-primary mb-2" data-testid="stat-average-rating">
+                {isLoading ? <Skeleton className="h-12 w-20 mx-auto" /> : averageRating}
+              </div>
               <div className="text-gray-600">Average Rating</div>
             </div>
             <div>
-              <div className="text-5xl font-heading font-bold text-primary mb-2">[ADD]</div>
+              <div className="text-5xl font-heading font-bold text-primary mb-2" data-testid="stat-happy-clients">
+                {isLoading ? <Skeleton className="h-12 w-20 mx-auto" /> : happyClients}
+              </div>
               <div className="text-gray-600">Happy Clients</div>
             </div>
             <div>
@@ -142,22 +108,35 @@ export default function Testimonials() {
       {/* Testimonials Grid */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredTestimonials.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {filteredTestimonials.map((testimonial, index) => (
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-testid="testimonials-loading">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md p-6 md:p-8 border border-gray-200">
+                  <Skeleton className="h-5 w-32 mb-4" />
+                  <Skeleton className="h-20 w-full mb-6" />
+                  <Skeleton className="h-6 w-48 mb-2" />
+                  <Skeleton className="h-4 w-32" />
+                </div>
+              ))}
+            </div>
+          ) : filteredTestimonials.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-testid="testimonials-grid">
+              {filteredTestimonials.map((testimonial) => (
                 <TestimonialCard
-                  key={index}
-                  quote={testimonial.quote}
-                  author={testimonial.author}
+                  key={testimonial.id}
+                  quote={testimonial.comment}
+                  author={testimonial.clientName}
                   company={testimonial.company}
                   role={testimonial.role}
                   rating={testimonial.rating}
-                  service={testimonial.service}
+                  service={testimonial.serviceType}
+                  location={testimonial.location}
+                  featured={testimonial.featured}
                 />
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="text-center py-12" data-testid="no-testimonials">
               <p className="text-gray-500 text-lg">No testimonials found for this service.</p>
             </div>
           )}
@@ -193,13 +172,35 @@ export default function Testimonials() {
           <p className="text-lg text-gray-600 mb-8">
             Experience the difference that 30+ years of excellence makes
           </p>
-          <a
-            href="/contact"
-            className="inline-block bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-            data-testid="button-contact-cta"
-          >
-            Get Started Today
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              asChild 
+              size="lg" 
+              className="px-8"
+              data-testid="button-contact-cta"
+            >
+              <a href="/contact">
+                Get Started Today
+              </a>
+            </Button>
+            <Button 
+              asChild 
+              size="lg" 
+              variant="outline"
+              className="px-8"
+              data-testid="button-leave-review"
+            >
+              <a 
+                href="https://www.google.com/search?q=shall%27s+construction+reviews" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                Leave a Review
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 

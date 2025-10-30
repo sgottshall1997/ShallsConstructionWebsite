@@ -1,11 +1,15 @@
 import { Link } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Users, Award, MapPin, Building2 } from "lucide-react";
+import { ArrowRight, Clock, Users, Award, MapPin, Building2, Quote } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import ProjectCard from "@/components/ui/project-card";
+import TestimonialCard from "@/components/ui/testimonial-card";
+import { Skeleton } from "@/components/ui/skeleton";
+import type { Testimonial } from "@shared/schema";
 import heroImage from "@assets/generated_images/Homepage_hero_construction_scene_4f48bae9.png";
 import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.png";
 import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.png";
@@ -13,6 +17,85 @@ import exteriorImg from "@assets/generated_images/Exterior_Building_Services_wor
 import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.png";
 import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.png";
 import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.png";
+
+function TestimonialsSection() {
+  const { data: testimonials = [], isLoading } = useQuery<Testimonial[]>({
+    queryKey: ["/api/testimonials/featured"],
+  });
+
+  return (
+    <section className="py-20 md:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <Quote className="h-12 w-12 text-primary mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-testimonials-heading">
+            What Our Clients Say
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Property managers across MD, VA, DC, and DE trust Shall's Construction for reliable commercial property services
+          </p>
+        </div>
+
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md p-6 md:p-8 border border-gray-200">
+                <Skeleton className="h-5 w-32 mb-4" />
+                <Skeleton className="h-16 w-full mb-6" />
+                <Skeleton className="h-6 w-48 mb-2" />
+                <Skeleton className="h-4 w-32" />
+              </div>
+            ))}
+          </div>
+        ) : testimonials.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" data-testid="featured-testimonials-grid">
+            {testimonials.slice(0, 3).map((testimonial) => (
+              <TestimonialCard
+                key={testimonial.id}
+                quote={testimonial.comment.length > 150 ? `${testimonial.comment.substring(0, 150)}...` : testimonial.comment}
+                author={testimonial.clientName}
+                company={testimonial.company}
+                role={testimonial.role}
+                rating={testimonial.rating}
+                service={testimonial.serviceType}
+                location={testimonial.location}
+                featured={testimonial.featured}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-500">No featured testimonials available.</p>
+          </div>
+        )}
+
+        <div className="text-center flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild size="lg" className="px-8" data-testid="button-view-all-testimonials">
+            <Link href="/testimonials">
+              View All Testimonials
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <Button 
+            asChild 
+            size="lg" 
+            variant="outline"
+            className="px-8"
+            data-testid="button-leave-review-home"
+          >
+            <a 
+              href="https://www.google.com/search?q=shall%27s+construction+reviews" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Leave a Review
+            </a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   const services = [
@@ -134,30 +217,36 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-5 leading-tight" data-testid="text-hero-title">
-            We make your life easier while enhancing your tenants' experience.
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
+            Commercial Property Services in Maryland • Virginia • DC
           </h1>
-          <p className="text-lg md:text-xl mb-7 text-gray-200" data-testid="text-hero-subtitle">
-            For property managers with countless projects, there's one name to remember:
-            <span className="block font-heading font-bold mt-2 text-primary">Shall's Construction</span>
+          <p className="text-lg md:text-xl mb-7 text-gray-200" data-testid="hero-subheadline">
+            30+ Years Serving Property Managers with In-House Teams
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/what-we-do">
-              <Button size="lg" className="text-base px-8 py-6" data-testid="button-learn-more">
-                Learn More About Our Services
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+            <Link href="/contact?type=quote">
+              <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote">
+                Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact?type=emergency">
               <Button
                 size="lg"
                 variant="outline"
                 className="text-base px-8 py-6 bg-white/10 backdrop-blur-md border-white text-white hover:bg-white hover:text-gray-900"
-                data-testid="button-contact-us"
+                data-testid="button-emergency"
               >
-                Contact Us Today
+                24/7 Emergency Service
               </Button>
             </Link>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center text-sm md:text-base text-gray-200" data-testid="trust-indicators">
+            <span>Licensed in MD, VA, DC, DE</span>
+            <span className="hidden sm:inline text-gray-400">|</span>
+            <span>100% In-House Staff</span>
+            <span className="hidden sm:inline text-gray-400">|</span>
+            <span>24/7 Emergency Response</span>
           </div>
         </div>
       </section>
@@ -267,6 +356,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <TestimonialsSection />
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

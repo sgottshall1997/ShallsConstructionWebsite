@@ -1,76 +1,32 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ProjectCard from "@/components/ui/project-card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { generateBreadcrumbSchema } from "@/lib/schema";
+import type { Project } from "@shared/schema";
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["All", "Office Buildings", "Retail Centers", "Apartment Complexes", "Medical Facilities", "Government"];
+  const { data: projects, isLoading } = useQuery<Project[]>({
+    queryKey: ["/api/projects"],
+  });
 
-  // Placeholder projects - user will replace with actual project data
-  const projects = [
-    {
-      id: "project-1",
-      title: "[Project Name 1]",
-      category: "Office Buildings",
-      location: "[City, State]",
-      imagePath: "",
-      description: "[Add project description - scope of work, challenges overcome, client needs addressed]",
-      featured: true,
-    },
-    {
-      id: "project-2",
-      title: "[Project Name 2]",
-      category: "Retail Centers",
-      location: "[City, State]",
-      imagePath: "",
-      description: "[Add project description]",
-      featured: false,
-    },
-    {
-      id: "project-3",
-      title: "[Project Name 3]",
-      category: "Apartment Complexes",
-      location: "[City, State]",
-      imagePath: "",
-      description: "[Add project description]",
-      featured: false,
-    },
-    {
-      id: "project-4",
-      title: "[Project Name 4]",
-      category: "Medical Facilities",
-      location: "[City, State]",
-      imagePath: "",
-      description: "[Add project description]",
-      featured: false,
-    },
-    {
-      id: "project-5",
-      title: "[Project Name 5]",
-      category: "Office Buildings",
-      location: "[City, State]",
-      imagePath: "",
-      description: "[Add project description]",
-      featured: false,
-    },
-    {
-      id: "project-6",
-      title: "[Project Name 6]",
-      category: "Government",
-      location: "[City, State]",
-      imagePath: "",
-      description: "[Add project description]",
-      featured: false,
-    },
-  ];
+  const categories = useMemo(() => {
+    if (!projects) return ["All"];
+    const uniqueCategories = Array.from(new Set(projects.map(p => p.category)));
+    return ["All", ...uniqueCategories.sort()];
+  }, [projects]);
 
-  const filteredProjects = activeCategory === "All"
-    ? projects
-    : projects.filter((project) => project.category === activeCategory);
+  const filteredProjects = useMemo(() => {
+    if (!projects) return [];
+    return activeCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
+  }, [projects, activeCategory]);
 
   const breadcrumbs = [
     { name: "Home", url: "/" },
@@ -126,23 +82,37 @@ export default function Projects() {
       {/* Projects Grid */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredProjects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-testid="projects-loading">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="bg-white rounded-lg shadow-md overflow-hidden">
+                  <Skeleton className="h-64 w-full rounded-none" />
+                  <div className="p-6 space-y-3">
+                    <Skeleton className="h-6 w-3/4" />
+                    <Skeleton className="h-4 w-1/2" />
+                    <Skeleton className="h-20 w-full" />
+                    <Skeleton className="h-4 w-24" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : filteredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-testid="projects-grid">
               {filteredProjects.map((project) => (
                 <ProjectCard
                   key={project.id}
-                  id={project.id}
+                  slug={project.slug}
                   title={project.title}
                   category={project.category}
                   location={project.location}
-                  imagePath={project.imagePath}
+                  imageUrl={project.imageUrls[0]}
                   description={project.description}
                   featured={project.featured}
                 />
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="text-center py-12" data-testid="no-projects-message">
               <p className="text-gray-500 text-lg">No projects found in this category.</p>
             </div>
           )}
