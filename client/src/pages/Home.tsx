@@ -238,7 +238,7 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-            Shall's Construction provides comprehensive commercial renovation, maintenance, and repair services for property managers.
+            Shall’s Construction provides commercial renovation, maintenance, and property repair services across Maryland, Virginia, DC, and Delaware. 30+ years of experience.
           </p>
         </div>
       </section>
