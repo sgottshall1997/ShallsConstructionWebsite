@@ -155,7 +155,7 @@ export default function About() {
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              [Add mission statement here - What is the company's core mission? What drives your team every day?]
+              To make the lives of property managers easier by delivering reliable, high-quality commercial construction, renovation, and maintenance services—performed by our in-house team with craftsmanship, honesty, and 24/7 responsiveness.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
