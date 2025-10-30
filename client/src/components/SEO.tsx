@@ -19,9 +19,9 @@ export default function SEO({
   noindex = false,
 }: SEOProps) {
   const siteName = "Shall's Construction LLC";
-  const baseUrl = typeof window !== "undefined" ? window.location.origin : "https://shallsconstruction.com";
+  const baseUrl = "https://shallsconstruction.replit.app";
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
-  const canonicalUrl = canonical || (typeof window !== "undefined" ? window.location.href : baseUrl);
+  const canonicalUrl = canonical || (typeof window !== "undefined" ? `${baseUrl}${window.location.pathname}` : baseUrl);
   const imageUrl = ogImage || `${baseUrl}/og-image.png`;
   
   // Google Search Console verification code from environment variables

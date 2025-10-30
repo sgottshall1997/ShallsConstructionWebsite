@@ -45,6 +45,7 @@ export default function WhatWeDo() {
       <SEO
         title="Commercial Construction Services MD VA DC | Shall's"
         description="Comprehensive commercial property services: construction, maintenance, emergency repairs — serving MD VA DC DE property managers. 30+ years experience."
+        canonical="https://shallsconstruction.replit.app/what-we-do"
         schemas={schemas}
       />
       <Navigation />

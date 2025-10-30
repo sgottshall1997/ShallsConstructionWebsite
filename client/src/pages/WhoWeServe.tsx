@@ -47,6 +47,7 @@ export default function WhoWeServe() {
       <SEO
         title="Property Management Services MD VA DC | Shall's"
         description="Tailored commercial construction and maintenance solutions for property managers, building owners, and facility managers across the Mid-Atlantic."
+        canonical="https://shallsconstruction.replit.app/who-we-serve"
         schemas={schemas}
       />
       <Navigation />
