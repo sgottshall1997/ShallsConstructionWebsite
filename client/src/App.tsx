@@ -1,58 +1,76 @@
+import { lazy, Suspense } from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider, useQuery } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "@/components/ScrollToTop";
-import Home from "@/pages/Home";
-import About from "@/pages/About";
-import WhatWeDo from "@/pages/WhatWeDo";
-import WhoWeServe from "@/pages/WhoWeServe";
-import Projects from "@/pages/Projects";
-import ProjectDetail from "@/pages/ProjectDetail";
-import ServiceDetail from "@/pages/ServiceDetail";
-import Safety from "@/pages/Safety";
-import ServiceAreas from "@/pages/ServiceAreas";
-import Articles from "@/pages/Articles";
-import BlogDetail from "@/pages/BlogDetail";
-import Testimonials from "@/pages/Testimonials";
-import Contact from "@/pages/Contact";
+import { useAnalytics } from "@/hooks/useAnalytics";
 import Login from "@/pages/Login";
-import BethesdaMD from "@/pages/ServiceAreas/BethesdaMD";
-import RockvilleMD from "@/pages/ServiceAreas/RockvilleMD";
-import SilverSpringMD from "@/pages/ServiceAreas/SilverSpringMD";
-import BaltimoreMD from "@/pages/ServiceAreas/BaltimoreMD";
-import GaithersburgMD from "@/pages/ServiceAreas/GaithersburgMD";
-import DCMetro from "@/pages/ServiceAreas/DCMetro";
-import NotFound from "@/pages/not-found";
+
+const Home = lazy(() => import("@/pages/Home"));
+const About = lazy(() => import("@/pages/About"));
+const WhatWeDo = lazy(() => import("@/pages/WhatWeDo"));
+const WhoWeServe = lazy(() => import("@/pages/WhoWeServe"));
+const Projects = lazy(() => import("@/pages/Projects"));
+const ProjectDetail = lazy(() => import("@/pages/ProjectDetail"));
+const ServiceDetail = lazy(() => import("@/pages/ServiceDetail"));
+const Safety = lazy(() => import("@/pages/Safety"));
+const ServiceAreas = lazy(() => import("@/pages/ServiceAreas"));
+const Articles = lazy(() => import("@/pages/Articles"));
+const BlogDetail = lazy(() => import("@/pages/BlogDetail"));
+const Testimonials = lazy(() => import("@/pages/Testimonials"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const BethesdaMD = lazy(() => import("@/pages/ServiceAreas/BethesdaMD"));
+const RockvilleMD = lazy(() => import("@/pages/ServiceAreas/RockvilleMD"));
+const SilverSpringMD = lazy(() => import("@/pages/ServiceAreas/SilverSpringMD"));
+const BaltimoreMD = lazy(() => import("@/pages/ServiceAreas/BaltimoreMD"));
+const GaithersburgMD = lazy(() => import("@/pages/ServiceAreas/GaithersburgMD"));
+const DCMetro = lazy(() => import("@/pages/ServiceAreas/DCMetro"));
+const NotFound = lazy(() => import("@/pages/not-found"));
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+        <p className="mt-4 text-gray-600">Loading...</p>
+      </div>
+    </div>
+  );
+}
 
 function Router() {
+  useAnalytics();
+  
   return (
     <>
       <ScrollToTop />
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/what-we-do" component={WhatWeDo} />
-        <Route path="/who-we-serve" component={WhoWeServe} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/projects/:slug" component={ProjectDetail} />
-        <Route path="/services/:slug" component={ServiceDetail} />
-        <Route path="/safety" component={Safety} />
-        <Route path="/service-areas" component={ServiceAreas} />
-        <Route path="/blog" component={Articles} />
-        <Route path="/blog/:slug" component={BlogDetail} />
-        <Route path="/articles" component={Articles} />
-        <Route path="/testimonials" component={Testimonials} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/service-areas/bethesda-md" component={BethesdaMD} />
-        <Route path="/service-areas/rockville-md" component={RockvilleMD} />
-        <Route path="/service-areas/silver-spring-md" component={SilverSpringMD} />
-        <Route path="/service-areas/baltimore-md" component={BaltimoreMD} />
-        <Route path="/service-areas/gaithersburg-md" component={GaithersburgMD} />
-        <Route path="/service-areas/dc-metro" component={DCMetro} />
-        <Route component={NotFound} />
-      </Switch>
+      <Suspense fallback={<LoadingFallback />}>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/what-we-do" component={WhatWeDo} />
+          <Route path="/who-we-serve" component={WhoWeServe} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/projects/:slug" component={ProjectDetail} />
+          <Route path="/services/:slug" component={ServiceDetail} />
+          <Route path="/safety" component={Safety} />
+          <Route path="/service-areas" component={ServiceAreas} />
+          <Route path="/blog" component={Articles} />
+          <Route path="/blog/:slug" component={BlogDetail} />
+          <Route path="/articles" component={Articles} />
+          <Route path="/testimonials" component={Testimonials} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/service-areas/bethesda-md" component={BethesdaMD} />
+          <Route path="/service-areas/rockville-md" component={RockvilleMD} />
+          <Route path="/service-areas/silver-spring-md" component={SilverSpringMD} />
+          <Route path="/service-areas/baltimore-md" component={BaltimoreMD} />
+          <Route path="/service-areas/gaithersburg-md" component={GaithersburgMD} />
+          <Route path="/service-areas/dc-metro" component={DCMetro} />
+          <Route component={NotFound} />
+        </Switch>
+      </Suspense>
     </>
   );
 }

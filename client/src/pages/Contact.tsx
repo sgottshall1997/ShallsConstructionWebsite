@@ -28,6 +28,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Phone, Printer, Mail, MapPin, AlertCircle, Clock, FileText } from "lucide-react";
 import { insertContactSubmissionSchema, type InsertContactSubmission } from "@shared/schema";
 import { apiRequest, queryClient } from "@/lib/queryClient";
+import { trackContactFormSubmit, trackCTAClick, trackPhoneClick } from "@/lib/analytics";
 
 type InquiryType = "emergency" | "quote" | "general";
 
@@ -65,6 +66,9 @@ export default function Contact() {
       return apiRequest("POST", "/api/contact", data);
     },
     onSuccess: () => {
+      // Track successful form submission
+      trackContactFormSubmit(inquiryType);
+      
       setIsSubmitted(true);
       toast({
         title: "Message Sent!",
@@ -104,6 +108,9 @@ export default function Contact() {
   const handleInquiryTypeChange = (type: InquiryType) => {
     setInquiryType(type);
     form.setValue("inquiryType", type);
+    
+    // Track inquiry type selection
+    trackCTAClick(`inquiry_type_${type}`, 'contact_page_selector');
   };
 
   const serviceAreas = [
@@ -235,6 +242,7 @@ export default function Contact() {
                           href="tel:3019336277"
                           className="inline-block bg-red-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-600 transition-colors"
                           data-testid="button-emergency-call-direct"
+                          onClick={() => trackPhoneClick('contact_page_emergency_alert')}
                         >
                           <Phone className="inline-block h-5 w-5 mr-2" />
                           Call Now: (301) 933-6277

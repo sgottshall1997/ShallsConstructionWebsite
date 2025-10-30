@@ -23,6 +23,9 @@ export default function SEO({
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
   const canonicalUrl = canonical || (typeof window !== "undefined" ? window.location.href : baseUrl);
   const imageUrl = ogImage || `${baseUrl}/og-image.png`;
+  
+  // Google Search Console verification code from environment variables
+  const gscVerification = import.meta.env.VITE_GSC_VERIFICATION;
 
   // Include LocalBusiness schema only if not already provided in schemas array
   const hasLocalBusiness = schemas.some(
@@ -39,6 +42,9 @@ export default function SEO({
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
+      
+      {/* Google Search Console Verification */}
+      {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
       
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />

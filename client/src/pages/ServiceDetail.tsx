@@ -1,5 +1,6 @@
 import { useRoute, Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Service, Project } from "@shared/schema";
 import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/schema";
+import { trackServiceView, trackQuoteClick, trackPhoneClick } from "@/lib/analytics";
 import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.png";
 import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.png";
 import exteriorImg from "@assets/generated_images/Exterior_Building_Services_work_4ebd45e5.png";
@@ -131,6 +133,13 @@ export default function ServiceDetail() {
     generateBreadcrumbSchema(breadcrumbs),
   ];
 
+  // Track service page view
+  useEffect(() => {
+    if (service) {
+      trackServiceView(service.title);
+    }
+  }, [service]);
+
   return (
     <div className="min-h-screen bg-white">
       <SEO
@@ -233,7 +242,7 @@ export default function ServiceDetail() {
                   Contact us today for a free consultation and quote for your {service.title.toLowerCase()} needs.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/contact?type=quote">
+                  <Link href="/contact?type=quote" onClick={() => trackQuoteClick('service_detail_cta')}>
                     <Button
                       size="lg"
                       variant="outline"
@@ -244,7 +253,7 @@ export default function ServiceDetail() {
                       Request a Quote
                     </Button>
                   </Link>
-                  <Link href="/contact?type=emergency">
+                  <Link href="/contact?type=emergency" onClick={() => trackPhoneClick('service_detail_emergency')}>
                     <Button
                       size="lg"
                       variant="outline"
@@ -387,7 +396,7 @@ export default function ServiceDetail() {
                 </div>
 
                 <div className="space-y-3">
-                  <Link href="/contact?type=quote">
+                  <Link href="/contact?type=quote" onClick={() => trackQuoteClick('service_detail_sidebar')}>
                     <Button className="w-full" size="lg" data-testid="button-sidebar-quote">
                       Request a Quote
                     </Button>

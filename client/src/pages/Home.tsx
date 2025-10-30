@@ -10,6 +10,7 @@ import ProjectCard from "@/components/ui/project-card";
 import TestimonialCard from "@/components/ui/testimonial-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Testimonial } from "@shared/schema";
+import { trackQuoteClick, trackEmergencyClick, trackCTAClick, trackNavigationClick } from "@/lib/analytics";
 import heroImage from "@assets/generated_images/Homepage_hero_construction_scene_4f48bae9.png";
 import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.png";
 import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.png";
@@ -227,13 +228,13 @@ export default function Home() {
             30+ Years Serving Property Managers with In-House Teams
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Link href="/contact?type=quote">
+            <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
               <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote">
                 Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link href="/contact?type=emergency">
+            <Link href="/contact?type=emergency" onClick={() => trackEmergencyClick('homepage_hero')}>
               <Button
                 size="lg"
                 variant="outline"
@@ -308,7 +309,10 @@ export default function Home() {
                   <p className="text-gray-600 mb-4 leading-relaxed" data-testid={`text-service-description-${index}`}>
                     {service.description}
                   </p>
-                  <Link href={service.link}>
+                  <Link 
+                    href={service.link}
+                    onClick={() => trackNavigationClick('service_card_read_more', service.link)}
+                  >
                     <span
                       className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors cursor-pointer"
                       data-testid={`link-service-${index}`}

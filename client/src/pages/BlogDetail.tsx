@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "wouter";
 import Navigation from "@/components/Navigation";
@@ -10,6 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { trackBlogView, trackCTAClick, trackPhoneClick } from "@/lib/analytics";
 
 const categoryToServicesMap: Record<string, Array<{ name: string; slug: string; description: string }>> = {
   'safety': [
@@ -73,6 +75,13 @@ export default function BlogDetail() {
   ];
 
   const schemas = post ? [generateBreadcrumbSchema(breadcrumbs)] : [];
+
+  // Track blog post view
+  useEffect(() => {
+    if (post) {
+      trackBlogView(post.title, post.category);
+    }
+  }, [post]);
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
@@ -244,14 +253,14 @@ export default function BlogDetail() {
                 Our team of experts is here to help. Contact us today to discuss your commercial property needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact">
+                <Link href="/contact" onClick={() => trackCTAClick('contact_us', 'blog_detail_cta')}>
                   <Button size="lg" data-testid="button-contact">
                     <Mail className="mr-2 h-5 w-5" />
                     Contact Us
                   </Button>
                 </Link>
                 <Button size="lg" variant="outline" asChild data-testid="button-call">
-                  <a href="tel:3019336277">
+                  <a href="tel:3019336277" onClick={() => trackPhoneClick('blog_detail_cta')}>
                     <Phone className="mr-2 h-5 w-5" />
                     Call (301) 933-6277
                   </a>

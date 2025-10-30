@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRoute, Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import Navigation from "@/components/Navigation";
@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ArrowLeft, Calendar, MapPin, Briefcase, CheckCircle, X } from "lucide-react";
 import { generateBreadcrumbSchema, generateProjectSchema } from "@/lib/schema";
 import type { Project } from "@shared/schema";
+import { trackProjectView, trackCTAClick } from "@/lib/analytics";
 
 export default function ProjectDetail() {
   const [, params] = useRoute("/projects/:slug");
@@ -135,6 +136,13 @@ export default function ProjectDetail() {
   ];
 
   const metaDescription = `${project.category} project in ${project.location}. ${project.description.substring(0, 110 - project.category.length - project.location.length)}`;
+
+  // Track project page view
+  useEffect(() => {
+    if (project) {
+      trackProjectView(project.title, project.category);
+    }
+  }, [project]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -323,7 +331,7 @@ export default function ProjectDetail() {
                   <p className="text-sm text-gray-600 mb-4">
                     Interested in a similar project? Get in touch with our team today.
                   </p>
-                  <Link href="/contact">
+                  <Link href="/contact" onClick={() => trackCTAClick('request_quote', 'project_detail_sidebar')}>
                     <button className="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors" data-testid="button-start-your-project">
                       Request a Quote
                     </button>
@@ -345,7 +353,7 @@ export default function ProjectDetail() {
             Let's discuss how we can bring your vision to life with the same level of excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link href="/contact" onClick={() => trackCTAClick('get_started', 'project_detail_bottom_cta')}>
               <button className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors" data-testid="button-contact-cta">
                 Get Started
               </button>
