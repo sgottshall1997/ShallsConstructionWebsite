@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { Building2, CheckCircle2 } from "lucide-react";
+import { Link } from "wouter";
 import associaLogo from "@assets/Associa_1761838352452.png";
 import comsourceLogo from "@assets/comsource_1761838352453.png";
 import acmLogo from "@assets/american community management_1761838352452.png";
@@ -50,8 +51,8 @@ export default function WhoWeServe() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Built for Property Managers | Bethesda Commercial Contractor MD"
-        description="Montgomery County's property management partner since 1992. Commercial construction, maintenance, and 24/7 emergency services designed specifically for your needs."
-        canonical="https://shallsconstruction.com/who-we-serve"
+        description="Built for property managers. Trusted by leading firms across MD, VA, DC, and DE for commercial construction, repairs, and maintenance since 1992."
+        canonical="https://shallsconstruction.replit.app/who-we-serve"
         schemas={schemas}
       />
       <Navigation />
@@ -63,7 +64,7 @@ export default function WhoWeServe() {
           </h1>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            For three decades, property managers across Montgomery County have turned to Shall's Construction when they need reliable commercial construction and maintenance services—because we understand your world and make your job easier.
+            For three decades, property managers across Montgomery County have turned to Shall's Construction when they need reliable <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> and maintenance services—because we understand your world and make your job easier.
           </p>
         </div>
       </section>

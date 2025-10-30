@@ -6,6 +6,7 @@ import LogoGrid from "@/components/ui/logo-grid";
 import StatCounter from "@/components/ui/stat-counter";
 import { generateBreadcrumbSchema, generateFAQSchema, generateOrganizationSchema } from "@/lib/schema";
 import { CheckCircle2 } from "lucide-react";
+import { Link } from "wouter";
 
 export default function About() {
   // Placeholder leadership data - user will replace with actual info
@@ -85,8 +86,8 @@ export default function About() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Family-Owned Commercial Contractor Since 1992 | Montgomery County MD"
-        description="Three generations of construction excellence in Bethesda and Montgomery County. Meet the family behind 30+ years of trusted service to property managers across MD, VA, DC."
-        canonical="https://shallsconstruction.com/about"
+        description="Family-owned commercial contractor in Montgomery County, MD since 1992. 100% in-house team providing construction, renovation, and maintenance for property managers."
+        canonical="https://shallsconstruction.replit.app/about"
         schemas={schemas}
       />
       <Navigation />
@@ -121,7 +122,7 @@ export default function About() {
           </div>
           <div className="prose prose-lg max-w-none text-gray-600">
             <p className="leading-relaxed mb-6">
-              In 1992, Shall's Construction began with a simple belief: property managers deserve a contractor they can trust completely. After working for years in commercial construction throughout the region, we saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So we built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will.
+              In 1992, Shall's Construction began with a simple belief: property managers deserve a contractor they can trust completely. After working for years in <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> throughout the region, we saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So we built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will.
             </p>
             <p className="leading-relaxed mb-6">
               Three decades later, we're still family-owned, still headquartered in Montgomery County, and still guided by that same promise. Many of our crew members have been with us for 20+ years - working alongside each other on hundreds of projects. When you call us, you get the same familiar faces every time. That continuity means better work, faster service, and the kind of trust you can't buy. We are a tight-knit team that treats your properties like our own.
