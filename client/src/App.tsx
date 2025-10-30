@@ -14,17 +14,18 @@ const Projects = lazy(() => import("@/pages/Projects"));
 const ProjectDetail = lazy(() => import("@/pages/ProjectDetail"));
 const ServiceDetail = lazy(() => import("@/pages/ServiceDetail"));
 const Safety = lazy(() => import("@/pages/Safety"));
-const ServiceAreas = lazy(() => import("@/pages/ServiceAreas"));
-const Articles = lazy(() => import("@/pages/Articles"));
-const BlogDetail = lazy(() => import("@/pages/BlogDetail"));
-const Testimonials = lazy(() => import("@/pages/Testimonials"));
+// Hidden - can be re-enabled in the future:
+// const ServiceAreas = lazy(() => import("@/pages/ServiceAreas"));
+// const Articles = lazy(() => import("@/pages/Articles"));
+// const BlogDetail = lazy(() => import("@/pages/BlogDetail"));
+// const Testimonials = lazy(() => import("@/pages/Testimonials"));
 const Contact = lazy(() => import("@/pages/Contact"));
-const BethesdaMD = lazy(() => import("@/pages/ServiceAreas/BethesdaMD"));
-const RockvilleMD = lazy(() => import("@/pages/ServiceAreas/RockvilleMD"));
-const SilverSpringMD = lazy(() => import("@/pages/ServiceAreas/SilverSpringMD"));
-const BaltimoreMD = lazy(() => import("@/pages/ServiceAreas/BaltimoreMD"));
-const GaithersburgMD = lazy(() => import("@/pages/ServiceAreas/GaithersburgMD"));
-const DCMetro = lazy(() => import("@/pages/ServiceAreas/DCMetro"));
+// const BethesdaMD = lazy(() => import("@/pages/ServiceAreas/BethesdaMD"));
+// const RockvilleMD = lazy(() => import("@/pages/ServiceAreas/RockvilleMD"));
+// const SilverSpringMD = lazy(() => import("@/pages/ServiceAreas/SilverSpringMD"));
+// const BaltimoreMD = lazy(() => import("@/pages/ServiceAreas/BaltimoreMD"));
+// const GaithersburgMD = lazy(() => import("@/pages/ServiceAreas/GaithersburgMD"));
+// const DCMetro = lazy(() => import("@/pages/ServiceAreas/DCMetro"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function LoadingFallback() {
@@ -53,18 +54,19 @@ function Router() {
           <Route path="/projects/:slug" component={ProjectDetail} />
           <Route path="/services/:slug" component={ServiceDetail} />
           <Route path="/safety" component={Safety} />
-          <Route path="/service-areas" component={ServiceAreas} />
-          <Route path="/blog" component={Articles} />
-          <Route path="/blog/:slug" component={BlogDetail} />
-          <Route path="/articles" component={Articles} />
-          <Route path="/testimonials" component={Testimonials} />
+          {/* Hidden routes - can be re-enabled in the future: */}
+          {/* <Route path="/service-areas" component={ServiceAreas} /> */}
+          {/* <Route path="/blog" component={Articles} /> */}
+          {/* <Route path="/blog/:slug" component={BlogDetail} /> */}
+          {/* <Route path="/articles" component={Articles} /> */}
+          {/* <Route path="/testimonials" component={Testimonials} /> */}
           <Route path="/contact" component={Contact} />
-          <Route path="/service-areas/bethesda-md" component={BethesdaMD} />
-          <Route path="/service-areas/rockville-md" component={RockvilleMD} />
-          <Route path="/service-areas/silver-spring-md" component={SilverSpringMD} />
-          <Route path="/service-areas/baltimore-md" component={BaltimoreMD} />
-          <Route path="/service-areas/gaithersburg-md" component={GaithersburgMD} />
-          <Route path="/service-areas/dc-metro" component={DCMetro} />
+          {/* <Route path="/service-areas/bethesda-md" component={BethesdaMD} /> */}
+          {/* <Route path="/service-areas/rockville-md" component={RockvilleMD} /> */}
+          {/* <Route path="/service-areas/silver-spring-md" component={SilverSpringMD} /> */}
+          {/* <Route path="/service-areas/baltimore-md" component={BaltimoreMD} /> */}
+          {/* <Route path="/service-areas/gaithersburg-md" component={GaithersburgMD} /> */}
+          {/* <Route path="/service-areas/dc-metro" component={DCMetro} /> */}
           <Route component={NotFound} />
         </Switch>
       </Suspense>

@@ -5,6 +5,29 @@ This project is a professional, responsive website for Shall's Construction, a c
 
 ## Recent Changes
 
+### Pages Temporarily Hidden (October 30, 2025)
+Hidden several pages and sections for future re-enablement (code preserved, not deleted):
+
+**Hidden Navigation Links:**
+- Blog
+- Service Areas
+- Testimonials
+
+**Hidden Home Page Section:**
+- "Latest Insights & News" section
+
+**Hidden Routes:**
+- `/blog` and `/blog/:slug` (Articles and BlogDetail pages)
+- `/testimonials` (Testimonials page)
+- `/service-areas` and all location-specific pages (Service Areas pages)
+
+**How to Re-enable:**
+All code is commented out with clear markers. To re-enable:
+1. Uncomment navigation links in `client/src/components/Navigation.tsx`
+2. Uncomment lazy imports in `client/src/App.tsx`
+3. Uncomment routes in `client/src/App.tsx`
+4. For homepage section: Uncomment section in `client/src/pages/Home.tsx`
+
 ### What We Do Page Removed & About Page Updated (October 30, 2025)
 Removed the What We Do page and moved key property manager messaging to the About Us page:
 

@@ -32,9 +32,10 @@ export default function Navigation() {
     },
     { href: "/who-we-serve", label: "Who We Serve" },
     { href: "/projects", label: "Projects" },
-    { href: "/service-areas", label: "Service Areas" },
-    { href: "/blog", label: "Blog" },
-    { href: "/testimonials", label: "Testimonials" },
+    // Hidden - can be re-enabled in the future:
+    // { href: "/service-areas", label: "Service Areas" },
+    // { href: "/blog", label: "Blog" },
+    // { href: "/testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact Us" },
   ];
 

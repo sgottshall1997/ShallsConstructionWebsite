@@ -444,7 +444,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24 bg-white">
+      {/* Hidden - Latest Insights & News section - can be re-enabled in the future */}
+      {/* <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-blog-heading">
@@ -517,7 +518,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-20 md:py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
