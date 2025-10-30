@@ -1,0 +1,65 @@
+You are optimizing the Shall’s Construction homepage at https://shallsconstruction.replit.app for design and brevity.
+
+GOAL:
+Condense and modernize the current homepage to match the structure, clarity, and tone of https://springcontracting.com (Rock Spring Contracting).
+Preserve the essence of Shall’s Construction’s experience, professionalism, and local credibility, but eliminate all redundant, repetitive, or filler text.
+
+OUTPUT INSTRUCTIONS:
+- Rewrite the homepage content to fit a **minimal, modern construction-firm layout**.
+- Tone: professional, confident, concise, and client-focused.
+- Length: roughly 50% shorter than current.
+- Maintain SEO for these keywords:
+  “commercial construction services,” “property management,” “Maryland Virginia DC,” “renovation,” “repair,” “maintenance,” “in-house team.”
+- Use brief section headers and 1–2 short sentences per section.
+- Each block should read like Rock Spring’s — strong headline + 1 short paragraph + CTA.
+
+STRUCTURE BLUEPRINT (follow this order):
+
+1. **Hero Section**
+   - Headline: 1 clear line emphasizing Shall’s Construction as a top commercial construction partner in MD/VA/DC.
+   - Subheadline: “Over 30 Years of In-House Expertise in Renovation, Repair & Maintenance.”
+   - Buttons: “Request a Quote” and “24/7 Emergency Service.”
+
+2. **Intro Section**
+   - Replace long opening paragraph with 2 sentences that summarize Shall’s value:
+     Example: “Shall’s Construction provides comprehensive commercial renovation, maintenance, and repair services for property managers. 100% of our work is performed by our full-time, in-house team.”
+
+3. **Core Services**
+   - Create clean, uniform blocks for each:
+     - Construction & Remodeling
+     - Handyman Services
+     - Painting
+     - Exterior Building Services
+     - Parking Lot Asphalt & Concrete
+     - Snow Removal
+   - Each with 1 short summary line, not paragraphs. Example: “From tenant buildouts to common-area renovations, we deliver quality and consistency, start to finish.”
+
+4. **Experience Section**
+   - Headline: “Proven, Responsive, Reliable.”
+   - Bullets: 
+     - “30+ Years in Business”
+     - “24/7/365 Emergency Response”
+     - “100% In-House Staff”
+     - “Serving MD • VA • DC • DE”
+
+5. **Projects Section**
+   - Replace placeholders with 2–3 sample descriptions or keep existing photos but shorten captions.
+
+6. **Testimonials Section**
+   - Keep only 1–2 short quotes.
+
+7. **Service Areas**
+   - Compact list (Bethesda, Rockville, Silver Spring, Baltimore, DC Metro).
+
+8. **CTA Footer**
+   - Keep a single, strong call to action:
+     “Make Shall’s Your Go-To Resource for Commercial Property Services.”
+     Include phone, email, and button to contact form.
+
+STYLE:
+- Use whitespace and clear visual hierarchy.
+- Avoid repetition of “30+ years” or “in-house” across every block.
+- Match the layout rhythm of Rock Spring — clean sections, minimal text, single-sentence value statements.
+
+DELIVERABLE:
+Replace the existing homepage HTML with the new condensed version following the above structure and tone. Keep all current images and links, just update text and layout for brevity and professionalism.
