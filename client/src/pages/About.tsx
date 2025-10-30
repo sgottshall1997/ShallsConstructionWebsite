@@ -15,7 +15,7 @@ export default function About() {
       name: "[Owner Name]",
       title: "Owner & CEO",
       imagePath: "", // User will add actual photo
-      bio: "[Add owner biography here - Start with: In 1992, [Name] founded Shall's Construction in his garage with one truck and a simple belief: property managers deserve a contractor they can trust completely. After years in commercial construction, he saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So he built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will. Today, [X] years later, that same promise guides everything we do.]",
+      bio: "[Add owner biography here - Start with: In 1988, [Name] founded Shall's Construction in his garage with one truck and a simple belief: property managers deserve a contractor they can trust completely. After years in commercial construction, he saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So he built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will. Today, [X] years later, that same promise guides everything we do.]",
       quote: "[Add inspirational quote from owner - Example: 'We're not just building projects—we're building relationships that last decades.']",
     },
     {
@@ -35,7 +35,7 @@ export default function About() {
     },
     {
       title: "Three Generations of Excellence",
-      description: "As a family-owned business headquartered in Montgomery County since 1992, we bring personal accountability and long-term commitment to every client relationship.",
+      description: "As a family-owned business headquartered in Montgomery County since 1988, we bring personal accountability and long-term commitment to every client relationship.",
     },
     {
       title: "Built for Property Managers",
@@ -85,8 +85,8 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Family-Owned Commercial Contractor Since 1992 | Montgomery County MD"
-        description="Family-owned commercial contractor in Montgomery County, MD since 1992. 100% in-house team providing construction, renovation, and maintenance for property managers."
+        title="Family-Owned Commercial Contractor Since 1988 | Montgomery County MD"
+        description="Family-owned commercial contractor in Montgomery County, MD since 1988. 100% in-house team providing construction, renovation, and maintenance for property managers."
         canonical="https://shallsconstruction.replit.app/about"
         schemas={schemas}
       />
@@ -103,7 +103,7 @@ export default function About() {
         </div>
         <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6" data-testid="text-page-title">
-            Making Property Management Easier Since 1992
+            Making Property Management Easier Since 1988
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
             Three generations of family-owned excellence serving Maryland, Virginia, DC, and Delaware property managers with reliable commercial construction and maintenance services.
@@ -122,7 +122,7 @@ export default function About() {
           </div>
           <div className="prose prose-lg max-w-none text-gray-600">
             <p className="leading-relaxed mb-6">
-              In 1992, Shall's Construction began with a simple belief: property managers deserve a contractor they can trust completely. After working for years in <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> throughout the region, we saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So we built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will.
+              In 1988, Shall's Construction began with a simple belief: property managers deserve a contractor they can trust completely. After working for years in <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> throughout the region, we saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So we built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will.
             </p>
             <p className="leading-relaxed mb-6">
               Three decades later, we're still family-owned, still headquartered in Montgomery County, and still guided by that same promise. Many of our crew members have been with us for 20+ years - working alongside each other on hundreds of projects. When you call us, you get the same familiar faces every time. That continuity means better work, faster service, and the kind of trust you can't buy. We are a tight-knit team that treats your properties like our own.
@@ -138,7 +138,7 @@ export default function About() {
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <StatCounter number="1992" label="Established" suffix="" />
+            <StatCounter number="1988" label="Established" suffix="" />
             <StatCounter number="100" label="In-House Team" suffix="%" />
             <StatCounter number="[ADD]" label="Projects Completed" suffix="+" />
             <StatCounter number="[ADD]" label="Properties Managed" suffix="+" />

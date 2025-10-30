@@ -113,7 +113,7 @@ export default function Home() {
   ];
 
   const stats = [
-    { icon: Award, label: "Since 1992", sublabel: "Family-Owned" },
+    { icon: Award, label: "Since 1988", sublabel: "Family-Owned" },
     { icon: Clock, label: "24/7", sublabel: "Emergency Service" },
     { icon: Users, label: "100% In-House", sublabel: "Staff" },
     { icon: MapPin, label: "MD/VA/DC/DE", sublabel: "Coverage" },
@@ -164,7 +164,7 @@ export default function Home() {
     },
     {
       question: "What makes Shall's Construction different from other contractors?",
-      answer: "We've specialized exclusively in serving property managers since 1992. We understand work orders, COI requirements, tenant coordination, and budget constraints. Plus, as a three-generation family business headquartered in Montgomery County, we're invested in this community for the long term.",
+      answer: "We've specialized exclusively in serving property managers since 1988. We understand work orders, COI requirements, tenant coordination, and budget constraints. Plus, as a three-generation family business headquartered in Montgomery County, we're invested in this community for the long term.",
     },
   ];
 
@@ -182,7 +182,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Montgomery County Commercial Contractor - 30+ Years Serving Property Managers"
-        description="Commercial construction, renovation, and property maintenance experts serving Maryland, Virginia, DC, and Delaware. Family-owned since 1992. 24/7 emergency service."
+        description="Commercial construction, renovation, and property maintenance experts serving Maryland, Virginia, DC, and Delaware. Family-owned since 1988. 24/7 emergency service."
         canonical="https://shallsconstruction.replit.app"
         schemas={schemas}
       />
@@ -205,7 +205,7 @@ export default function Home() {
            The DMV's Trusted Commercial Contractor for Property Managers
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
-            Since 1992, property managers across the Mid-Atlantic have relied on Shall's Construction for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
+            Since 1988, property managers across the Mid-Atlantic have relied on Shall's Construction for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
