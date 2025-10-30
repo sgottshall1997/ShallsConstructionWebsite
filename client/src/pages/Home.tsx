@@ -182,8 +182,8 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Montgomery County Commercial Contractor - 30+ Years Serving Property Managers"
-        description="Family-owned commercial contractor serving Montgomery County property managers since 1992. 100% in-house crews, 24/7 emergency response. Licensed in MD, VA, DC, DE."
-        canonical="https://shallsconstruction.com"
+        description="Commercial construction, renovation, and property maintenance experts serving Maryland, Virginia, DC, and Delaware. Family-owned since 1992. 24/7 emergency service."
+        canonical="https://shallsconstruction.replit.app"
         schemas={schemas}
       />
       <Navigation />
