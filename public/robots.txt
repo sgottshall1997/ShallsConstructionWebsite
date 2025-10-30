@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://shallsconstruction.com/sitemap.xml
+Sitemap: https://shallsconstruction.replit.app/sitemap.xml
