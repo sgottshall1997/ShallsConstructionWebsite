@@ -3,13 +3,17 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
 import { Building2, CheckCircle2 } from "lucide-react";
+import associaLogo from "@assets/Associa_1761838352452.png";
+import comsourceLogo from "@assets/comsource_1761838352453.png";
+import acmLogo from "@assets/american community management_1761838352452.png";
+import mmiLogo from "@assets/mmi logo_1761838352451.png";
 
 export default function WhoWeServe() {
   const clients = [
-    { name: "Associa", logo: null },
-    { name: "Comsource", logo: null },
-    { name: "American Community Management", logo: null },
-    { name: "Majerle Management Inc", logo: null },
+    { name: "Associa", logo: associaLogo },
+    { name: "Comsource", logo: comsourceLogo },
+    { name: "American Community Management", logo: acmLogo },
+    { name: "Majerle Management Inc", logo: mmiLogo },
   ];
 
   const benefits = [
@@ -111,15 +115,17 @@ export default function WhoWeServe() {
             {clients.map((client, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-lg p-6 md:p-8 flex flex-col items-center justify-center hover:shadow-lg transition-shadow duration-300 group"
+                className="bg-white border border-gray-200 rounded-lg p-6 md:p-8 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-300"
                 data-testid={`card-client-${index}`}
               >
-                <div className="w-full aspect-square flex items-center justify-center mb-3">
-                  <Building2 className="h-16 w-16 md:h-20 md:w-20 text-gray-300 group-hover:text-primary transition-colors" />
+                <div className="w-full h-24 flex items-center justify-center">
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    className="max-w-full max-h-full object-contain"
+                    data-testid={`img-client-logo-${index}`}
+                  />
                 </div>
-                <h3 className="text-center text-sm md:text-base font-semibold text-gray-900" data-testid={`text-client-name-${index}`}>
-                  {client.name}
-                </h3>
               </div>
             ))}
           </div>
