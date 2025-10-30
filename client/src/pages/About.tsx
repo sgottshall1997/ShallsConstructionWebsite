@@ -184,7 +184,7 @@ export default function About() {
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-              Being headquartered in Montgomery County for over 30 years means we're invested in this community. We support local charities, youth sports programs, and community development initiatives because this is our home too. When we succeed, we believe in giving back to the neighborhoods where we live and work.
+              Being headquartered in Montgomery County for over 30 years means we're invested in this community. We support local charities, youth sports programs, and community development initiatives because this is our home too. When we succeed, we believe in using our resources to make a positive impact.
             </p>
           </div>
 

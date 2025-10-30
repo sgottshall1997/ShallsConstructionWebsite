@@ -20,17 +20,17 @@ All pages now feature unique, optimized meta descriptions under 160 characters w
 #### Core Pages:
 - **Home** (`/`)
   - Title: "Montgomery County Commercial Contractor - 30+ Years Serving Property Managers"
-  - Description: "Commercial construction, renovation, and property maintenance experts serving Maryland, Virginia, DC, and Delaware. Family-owned since 1992. 24/7 emergency service."
+  - Description: "Commercial construction, renovation, and property maintenance experts serving Maryland, Virginia, DC, and Delaware. Family-owned since 1988. 24/7 emergency service."
   - **Score: 10/10** - Perfect length (159 chars), includes primary keywords, CTAs, and locations
 
 - **About** (`/about`)
-  - Title: "Family-Owned Commercial Contractor Since 1992 | Montgomery County MD"
-  - Description: "Family-owned commercial contractor in Montgomery County, MD since 1992. 100% in-house team providing construction, renovation, and maintenance for property managers."
+  - Title: "Family-Owned Commercial Contractor Since 1988 | Montgomery County MD"
+  - Description: "Family-owned commercial contractor in Montgomery County, MD since 1988. 100% in-house team providing construction, renovation, and maintenance for property managers."
   - **Score: 10/10** - Excellent location targeting and USP emphasis
 
 - **Who We Serve** (`/who-we-serve`)
   - Title: "Built for Property Managers | Bethesda Commercial Contractor MD"
-  - Description: "Built for property managers. Trusted by leading firms across MD, VA, DC, and DE for commercial construction, repairs, and maintenance since 1992."
+  - Description: "Built for property managers. Trusted by leading firms across MD, VA, DC, and DE for commercial construction, repairs, and maintenance since 1988."
   - **Score: 10/10** - Perfect audience targeting
 
 - **Contact** (`/contact`)

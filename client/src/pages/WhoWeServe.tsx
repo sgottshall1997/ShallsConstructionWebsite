@@ -29,7 +29,7 @@ export default function WhoWeServe() {
   const faqs = [
     {
       question: "Why do property managers choose Shall's Construction?",
-      answer: "We've specialized exclusively in serving property managers since 1992. We understand work orders, COI requirements, tenant coordination, and budget constraints. Plus, our 100% in-house team means you get the same crews every time—no subcontractor variability, no quality inconsistency.",
+      answer: "We've specialized exclusively in serving property managers since 1988. We understand work orders, COI requirements, tenant coordination, and budget constraints. Plus, our 100% in-house team means you get the same crews every time—no subcontractor variability, no quality inconsistency.",
     },
     {
       question: "What types of properties do you work on?",
@@ -51,7 +51,7 @@ export default function WhoWeServe() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Built for Property Managers | Bethesda Commercial Contractor MD"
-        description="Built for property managers. Trusted by leading firms across MD, VA, DC, and DE for commercial construction, repairs, and maintenance since 1992."
+        description="Built for property managers. Trusted by leading firms across MD, VA, DC, and DE for commercial construction, repairs, and maintenance since 1988."
         canonical="https://shallsconstruction.replit.app/who-we-serve"
         schemas={schemas}
       />

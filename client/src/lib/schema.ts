@@ -182,7 +182,7 @@ export function generateOrganizationSchema(): object {
       "@type": "Person",
       name: "Shall's Construction Founders",
     },
-    foundingDate: "1990",
+    foundingDate: "1988",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Commercial Property Services",
