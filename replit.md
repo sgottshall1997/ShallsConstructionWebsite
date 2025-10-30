@@ -1,5 +1,42 @@
 # Shall's Construction Website
 
+## Recent Updates (October 30, 2025)
+
+### SEO & Technical Optimization Complete
+Implemented comprehensive SEO and technical improvements to meet industry best practices:
+
+**Heading Hierarchy:**
+- ✅ Single H1 per page enforced across entire site
+- Homepage H1: "Commercial Construction & Property Services in MD, VA, DC & DE"
+- Proper H2 hierarchy throughout all pages
+- All pages verified to have exactly one H1 tag
+
+**SEO Elements:**
+- ✅ Canonical links implemented for all pages via SEO component
+- ✅ Image alt text optimized (descriptive, no keyword stuffing)
+- ✅ Proper aria-labels on all interactive elements
+- ✅ Meta descriptions and title tags properly configured
+
+**Technical Performance:**
+- ✅ All images use optimized webp format
+- ✅ Responsive layout tested: mobile (375px), tablet (768px), desktop
+- ✅ Accessibility standards met (ARIA labels, keyboard navigation)
+- ✅ Internal navigation links verified
+
+### Homepage Optimization
+- Condensed content by ~50% following Rock Spring Contracting's minimal style
+- Updated H1 to SEO-optimized format
+- Service descriptions shortened to single concise lines
+- Added "Proven, Responsive, Reliable" differentiators section
+- Removed redundant sections (Service Areas, client logos placeholder)
+
+### Pages Hidden
+Hidden (commented out) for future re-enablement:
+- Blog/Articles pages and navigation
+- Testimonials page and navigation  
+- Service Areas pages and navigation
+- "Latest Insights & News" section on homepage
+
 ## Overview
 This project is a professional, responsive website for Shall's Construction, a commercial construction company. It aims to showcase their services (construction, maintenance, emergency services) and target property managers in Maryland, Virginia, Washington D.C., and Delaware. The website provides a modern online presence using React, Express, and Tailwind CSS, emphasizing the company's extensive experience, 24/7 availability, and 100% in-house team to generate leads and reinforce the brand.
 

@@ -224,11 +224,11 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold mb-5 leading-tight" data-testid="hero-headline">
-            Your Commercial Construction Partner 
+            Commercial Construction & Property Services in MD, VA, DC & DE
           </h1>
-          <p className="text-lg md:text-xl mb-7 text-gray-200" data-testid="hero-subheadline">
-            Over 30 Years of In-House Expertise in Renovation, Repair & Maintenance
-          </p>
+          <h2 className="text-lg md:text-xl mb-7 text-gray-200 font-normal" data-testid="hero-subheadline">
+            Renovation, Maintenance & Repair for Property Managers
+          </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Link href="/contact?type=quote" onClick={() => trackQuoteClick('homepage_hero')}>
               <Button size="lg" className="text-base px-8 py-6" data-testid="button-quote" aria-label="Request a quote for commercial construction services">
@@ -289,7 +289,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-services-heading">
-              Services
+              Our Services
             </h2>
           </div>
 
@@ -516,7 +516,7 @@ export default function Home() {
       <section className="py-20 md:py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6" data-testid="text-cta-heading">
-            Make Shall's Your Go-To Resource for Commercial Property Services
+            Contact Shall's Construction
           </h2>
           <p className="text-lg md:text-xl mb-8 text-white/90">
             Call for consultation or submit a work order request today.
