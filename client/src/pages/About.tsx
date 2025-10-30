@@ -105,7 +105,7 @@ export default function About() {
             Making Property Management Easier Since 1992
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-            Three generations of family-owned excellence serving DMV property managers with reliable commercial construction and maintenance services.
+            Three generations of family-owned excellence serving Maryland, Virginia, DC, and Delaware property managers with reliable commercial construction and maintenance services.
           </p>
         </div>
       </section>
@@ -121,10 +121,10 @@ export default function About() {
           </div>
           <div className="prose prose-lg max-w-none text-gray-600">
             <p className="leading-relaxed mb-6">
-              In 1992, [Founder Name] started Shall's Construction with a simple belief: property managers deserve a contractor they can trust completely. After working for years in commercial construction throughout Montgomery County, he saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So he built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will.
+              In 1992, Shall's Construction began with a simple belief: property managers deserve a contractor they can trust completely. After working for years in commercial construction throughout the region, we saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So we built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will.
             </p>
             <p className="leading-relaxed mb-6">
-              Three decades later, we're still family-owned, still headquartered in Montgomery County, and still guided by that same promise. Today, our team has grown to [X] skilled craftsmen—but we haven't lost the personal touch that made us who we are. When you call us, you're not getting a faceless corporation. You're getting a family business that treats your properties like our own.
+              Three decades later, we're still family-owned, still headquartered in Montgomery County, and still guided by that same promise. Many of our crew members have been with us for 20+ years - working alongside each other on hundreds of projects. When you call us, you get the same familiar faces every time. That continuity means better work, faster service, and the kind of trust you can't buy. We are a tight-knit team that treats your properties like our own.
             </p>
             <p className="leading-relaxed">
               Managing multiple properties, tight budgets, and demanding tenants is exhausting. That's why we built our company around responsiveness, clear communication, and quality control you can count on. Whether it's an emergency repair at 2 AM or a major renovation project, Shall's Construction delivers the same reliable service—making your life easier while keeping your tenants satisfied.
@@ -183,7 +183,7 @@ export default function About() {
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-              [Add description of community involvement - Example: Being headquartered in Montgomery County for over 30 years means we're invested in this community. We support local charities, youth sports programs, and community development initiatives because this is our home too. When we succeed, we believe in giving back to the neighborhoods where we live and work.]
+              Being headquartered in Montgomery County for over 30 years means we're invested in this community. We support local charities, youth sports programs, and community development initiatives because this is our home too. When we succeed, we believe in giving back to the neighborhoods where we live and work.
             </p>
           </div>
 

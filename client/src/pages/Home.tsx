@@ -203,10 +203,10 @@ export default function Home() {
         </div>
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight" data-testid="text-page-title">
-            Montgomery County's Trusted Commercial Contractor for Property Managers
+           The DMV's Trusted Commercial Contractor for Property Managers
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
-            Since 1992, property managers across the DMV have relied on Shall's Construction for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
+            Since 1992, property managers across the Mid-Atlantic have relied on Shall's Construction for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a

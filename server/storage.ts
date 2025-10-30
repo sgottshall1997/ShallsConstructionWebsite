@@ -15,6 +15,8 @@ import {
   type InsertLocation
 } from "@shared/schema";
 import { randomUUID } from "crypto";
+import { readFileSync } from "fs";
+import { join } from "path";
 
 export interface IStorage {
   getAllArticles(): Promise<Article[]>;
@@ -152,63 +154,124 @@ export class MemStorage implements IStorage {
   }
 
   private seedServices() {
-    const sampleServices: InsertService[] = [
-      {
-        slug: "construction-remodeling",
+    // Load service content from SERVICE_CONTENT_PRIMARY.json
+    const serviceContentPath = join(process.cwd(), 'SERVICE_CONTENT_PRIMARY.json');
+    const serviceContent = JSON.parse(readFileSync(serviceContentPath, 'utf-8'));
+
+    // Service metadata (images, icons, categories, titles)
+    const serviceMetadata: Record<string, {
+      title: string;
+      category: string;
+      imageUrl: string;
+      icon: string;
+      featured: boolean;
+      shortDescription: string;
+      seoTitle?: string;
+      seoDescription?: string;
+    }> = {
+      "construction-remodeling": {
         title: "Commercial Construction & Remodeling",
-        shortDescription: "Full-service commercial construction, remodeling, and renovation for properties across MD, VA, and DC.",
-        fullDescription: "Transform your commercial property with our comprehensive construction and remodeling services. From complete renovations to tenant build-outs, we deliver high-quality results on time and within budget. Our experienced team handles everything from initial planning through final inspection.",
-        benefits: [
-          "30+ years of commercial construction experience",
-          "100% in-house staff and crews",
-          "Licensed in MD, VA, DC, and DE",
-          "Full project management from start to finish",
-          "Minimal disruption to your operations"
-        ],
-        processSteps: [
-          "Initial consultation and site assessment",
-          "Design development and budgeting",
-          "Permitting and approvals",
-          "Construction execution",
-          "Final inspection and handover"
-        ],
         category: "Construction",
         imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&auto=format&fit=crop",
         icon: "Building2",
         featured: true,
+        shortDescription: "Full-service commercial construction, remodeling, and renovation for properties across MD, VA, and DC.",
         seoTitle: "Commercial Construction & Remodeling | Shall's Construction | MD, VA, DC",
-        seoDescription: "Comprehensive commercial construction and remodeling across Maryland, DC, and Virginia. From tenant build-outs to full office renovations, Shall's Construction delivers precision and reliability.",
-        tagline: "Full-Service Commercial Construction, from Build-Out to Renovation",
-        philosophy: "Shall's Construction is the trusted partner for property managers and owners who demand precision, transparency, and on-time delivery. Our commercial construction and remodeling team transforms spaces across Montgomery County, Bethesda, and Kensington — from white box preparations to full office modernizations and tenant build-outs.\n\nWe control every phase of the project — planning, budgeting, coordination, and execution — with 95% in-house staff and licensed professionals across MD, VA, DC, and DE. That means no subcontractor confusion, fewer delays, and a seamless process guided by clear communication and safety protocols. We're known for finishing on schedule while maintaining full tenant access throughout the project.\n\nOur team brings over three decades of experience across retail, education, healthcare, and government sectors. We anticipate challenges before they happen and deliver spaces that meet both aesthetic and operational goals.",
-        servicesInclude: [
-          "White box and tenant build-outs",
-          "Office and retail renovations",
-          "Lobby and common area upgrades",
-          "ADA and code compliance modifications",
-          "Commercial kitchen and restroom remodels",
-          "Structural and mechanical coordination",
-          "Emergency construction and restoration"
-        ],
-        testimonialQuote: null,
-        testimonialAuthor: null,
-        testimonialRole: null,
-        testimonialCompany: null,
-        relatedServices: ["interior-fit-out", "tenant-improvements", "demolition", "drywall-services"],
-        seoKeywords: [
-          "commercial construction Montgomery County MD",
-          "office remodeling Bethesda Maryland",
-          "tenant build out contractor Kensington",
-          "white box construction services Maryland",
-          "commercial renovation property manager",
-          "retail construction Montgomery County",
-          "emergency construction services MD VA DC",
-          "licensed commercial contractor Bethesda",
-          "common area renovation Kensington MD",
-          "commercial interior construction Maryland",
-          "property manager construction partner",
-          "office renovation contractor DC metro"
-        ],
+        seoDescription: "Comprehensive commercial construction and remodeling across Maryland, DC, and Virginia. From tenant build-outs to full office renovations, Shall's Construction delivers precision and reliability."
       },
+      "handyman-services": {
+        title: "Commercial Handyman Services",
+        category: "Maintenance",
+        imageUrl: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&auto=format&fit=crop",
+        icon: "Wrench",
+        featured: true,
+        shortDescription: "Professional commercial handyman services with rapid response and reliable execution for property managers.",
+        seoTitle: "Commercial Handyman Services | Montgomery County, MD | Shall's Construction",
+        seoDescription: "Professional commercial handyman services in Montgomery County, Bethesda, and Kensington. Trusted by property managers for repairs, maintenance, and 24/7 emergency support."
+      },
+      "exterior-building-services": {
+        title: "Exterior Building Services",
+        category: "Specialty",
+        imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop",
+        icon: "Home",
+        featured: true,
+        shortDescription: "Comprehensive building exterior solutions with preventive maintenance and emergency response for commercial properties.",
+        seoTitle: "Exterior Building Services | Waterproofing & Restoration | Shall's Construction",
+        seoDescription: "Comprehensive exterior building maintenance and waterproofing services in Maryland, DC, and Virginia. Protect your property with expert facade repair and restoration."
+      },
+      "parking-lot-services": {
+        title: "Parking Lot Services",
+        category: "Specialty",
+        imageUrl: "https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=800&auto=format&fit=crop",
+        icon: "Car",
+        featured: true,
+        shortDescription: "Professional parking lot maintenance with attention to detail and operational efficiency for commercial properties.",
+        seoTitle: "Parking Lot Services | Asphalt & Maintenance | Shall's Construction",
+        seoDescription: "Professional parking lot paving, sealcoating, and striping services across Maryland, DC, and Virginia. Expert asphalt repair and maintenance for commercial properties."
+      },
+      "painting-services": {
+        title: "Commercial Painting Services",
+        category: "Specialty",
+        imageUrl: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&auto=format&fit=crop",
+        icon: "Paintbrush",
+        featured: true,
+        shortDescription: "Precision commercial painting for interiors and exteriors with meticulous surface preparation and lasting results.",
+        seoTitle: "Commercial Painting Services | Interior & Exterior | Shall's Construction",
+        seoDescription: "Professional commercial painting services in Maryland, DC, and Virginia. Expert interior and exterior painting with precision application and quality materials."
+      },
+      "snow-removal": {
+        title: "Snow Removal & Ice Management",
+        category: "Seasonal",
+        imageUrl: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&auto=format&fit=crop",
+        icon: "Snowflake",
+        featured: true,
+        shortDescription: "24/7 commercial snow removal and ice management with proactive monitoring and rapid response across the Mid-Atlantic.",
+        seoTitle: "Commercial Snow Removal | 24/7 Ice Management | Shall's Construction",
+        seoDescription: "Reliable commercial snow removal and ice management services across MD, VA, DC, and DE. 24/7 emergency response with proactive storm monitoring."
+      }
+    };
+
+    const sampleServices: InsertService[] = Object.keys(serviceContent).map(slug => {
+      const content = serviceContent[slug];
+      const metadata = serviceMetadata[slug];
+      
+      if (!metadata) {
+        throw new Error(`Missing metadata for service: ${slug}`);
+      }
+
+      return {
+        slug: content.slug,
+        title: metadata.title,
+        shortDescription: metadata.shortDescription,
+        fullDescription: content.philosophy || metadata.shortDescription,
+        benefits: content.servicesInclude?.slice(0, 5) || [],
+        processSteps: [
+          "Initial consultation and assessment",
+          "Detailed planning and scheduling",
+          "Professional execution",
+          "Quality inspection",
+          "Completion and follow-up"
+        ],
+        category: metadata.category,
+        imageUrl: metadata.imageUrl,
+        icon: metadata.icon,
+        featured: metadata.featured,
+        tagline: content.tagline || null,
+        philosophy: content.philosophy || null,
+        servicesInclude: content.servicesInclude || null,
+        testimonialQuote: content.testimonial?.quote || null,
+        testimonialAuthor: content.testimonial?.author || null,
+        testimonialRole: content.testimonial?.role || null,
+        testimonialCompany: content.testimonial?.company || null,
+        relatedServices: content.relatedServices || null,
+        seoKeywords: content.seoKeywords || null,
+        seoTitle: metadata.seoTitle || null,
+        seoDescription: metadata.seoDescription || null,
+      };
+    });
+
+    // Keep secondary services (demolition, interior-fit-out, etc.) for backwards compatibility
+    const secondaryServices: InsertService[] = [
       {
         slug: "demolition",
         title: "Demolition",
@@ -353,79 +416,36 @@ export class MemStorage implements IStorage {
         icon: "Tool",
         featured: false,
       },
+    ];
+
+    // Combine primary services from JSON with secondary services
+    const allServices = [...sampleServices, ...secondaryServices];
+
+    allServices.forEach(service => {
+      const id = randomUUID();
+      const fullService: Service = {
+        ...service,
+        featured: service.featured ?? false,
+        id,
+        tagline: service.tagline ?? null,
+        philosophy: service.philosophy ?? null,
+        servicesInclude: service.servicesInclude ?? null,
+        testimonialQuote: service.testimonialQuote ?? null,
+        testimonialAuthor: service.testimonialAuthor ?? null,
+        testimonialRole: service.testimonialRole ?? null,
+        testimonialCompany: service.testimonialCompany ?? null,
+        relatedServices: service.relatedServices ?? null,
+        seoKeywords: service.seoKeywords ?? null,
+        seoTitle: service.seoTitle ?? null,
+        seoDescription: service.seoDescription ?? null,
+      };
+      this.services.set(id, fullService);
+    });
+  }
+
+  private seedProjects() {
+    const sampleProjects: InsertProject[] = [
       {
-        slug: "handyman-services",
-        title: "Commercial Handyman Services",
-        shortDescription: "Professional commercial handyman services with rapid response and reliable execution for property managers.",
-        fullDescription: "Property managers throughout Montgomery County, Bethesda, and Kensington rely on Shall's Construction for comprehensive commercial handyman services that keep their properties operating smoothly. With over 30 years of experience, we handle everything from minor repairs to complex installations with the same level of professionalism and attention to detail.",
-        benefits: [
-          "Door and hardware repair and replacement",
-          "Drywall repair and patch work",
-          "Fixture installation and mounting services",
-          "Light carpentry and trim work",
-          "Shelving and storage installation",
-          "Window and blind repair",
-          "Lock replacement and rekeying coordination"
-        ],
-        processSteps: [
-          "Service request and assessment",
-          "Scheduling and coordination",
-          "Professional repair execution",
-          "Quality inspection and testing",
-          "Completion and follow-up"
-        ],
-        category: "Maintenance",
-        imageUrl: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&auto=format&fit=crop",
-        icon: "Wrench",
-        featured: true,
-        seoTitle: "Commercial Handyman Services | Montgomery County, MD | Shall's Construction",
-        seoDescription: "Professional commercial handyman services in Montgomery County, Bethesda, and Kensington. Trusted by property managers for repairs, maintenance, and 24/7 emergency support.",
-        tagline: "Professional Handyman Support for Commercial Properties",
-        philosophy: "When your property needs quick, reliable fixes, Shall's Construction delivers. For over 30 years, property managers across Montgomery County, Bethesda, and Kensington have trusted our in-house technicians for responsive, high-quality repair work that keeps buildings running efficiently. We handle the jobs that keep your property functional — from door and drywall repairs to fixture installation, electrical replacements, and preventive maintenance.\n\nUnlike many contractors who outsource labor, 95% of our work is performed by our own team — ensuring reliability, accountability, and craftsmanship you can count on. Every technician arrives prepared, equipped, and trained to work around active tenants with minimal disruption. Whether it's a single service call or a long-term maintenance plan, we complete each task with precision and care.\n\nOur dedicated emergency response team is available 24/7/365 to handle urgent issues, because building problems don't follow business hours. From retail centers to medical offices, we provide prompt, professional solutions that restore normal operations fast.",
-        servicesInclude: [
-          "Door, window, and hardware repairs",
-          "Drywall patching and painting",
-          "Fixture and shelving installation",
-          "Trim and carpentry work",
-          "Lock and ceiling repairs",
-          "Minor plumbing and electrical service",
-          "Routine and emergency maintenance"
-        ],
-        testimonialQuote: null,
-        testimonialAuthor: null,
-        testimonialRole: null,
-        testimonialCompany: null,
-        relatedServices: ["facility-maintenance", "emergency-services", "drywall-services"],
-        seoKeywords: [
-          "commercial handyman services Montgomery County",
-          "property manager handyman Maryland",
-          "commercial maintenance Bethesda MD",
-          "handyman contractor Kensington Maryland",
-          "office building handyman services",
-          "commercial repair services MD VA DC",
-          "property maintenance handyman Montgomery County",
-          "licensed handyman contractor Bethesda",
-          "emergency handyman services Maryland",
-          "commercial property repair Kensington",
-          "reliable handyman property managers",
-          "commercial facility repairs DC metro"
-        ],
-      },
-      {
-        slug: "exterior-building-services",
-        title: "Exterior Building Services",
-        shortDescription: "Comprehensive building exterior solutions with preventive maintenance and emergency response for commercial properties.",
-        fullDescription: "Maintaining commercial building exteriors requires specialized expertise and a proactive approach. Since 1992, Shall's Construction has provided property managers with comprehensive exterior building services that protect their most valuable assets.",
-        benefits: [
-          "Comprehensive waterproofing and restoration",
-          "Masonry repair and repointing",
-          "Full system joint-sealant replacement",
-          "Window caulking and wet glazing",
-          "Facade and sidewalk power washing",
-          "Leak investigation and repair",
-          "Concrete repair and restoration"
-        ],
-        processSteps: [
           "Comprehensive exterior assessment",
           "Detailed repair planning",
           "Professional execution with minimal disruption",
