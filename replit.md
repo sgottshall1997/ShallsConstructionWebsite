@@ -2,6 +2,30 @@
 
 ## Recent Updates (October 30, 2025)
 
+### Service Pages Body Copy Update Complete
+Replaced body copy on all six primary service pages with new structured content:
+
+**Schema Enhancements:**
+- Added `seoTitle` and `seoDescription` fields to Service schema for custom SEO control
+- ServiceDetail component now uses custom SEO metadata when available
+
+**Updated Services:**
+1. **Handyman Services** - New SEO optimized title/description, professional tagline, 3-paragraph philosophy emphasizing 95% in-house staff and 24/7 availability, 7 concise service items
+2. **Construction & Remodeling** - Custom SEO, tagline "Full-Service Commercial Construction," streamlined philosophy, 7 service items
+3. **Exterior Building Services** - Custom SEO, tagline "Protecting and Restoring Your Building's Exterior," focused philosophy, 7 service items
+4. **Parking Lot Services** - Custom SEO, tagline "Professional Parking Lot Maintenance and Restoration," client-focused philosophy, 8 service items
+5. **Painting Services** - Custom SEO, tagline "Precision Painting for Commercial Interiors and Exteriors," value-driven philosophy, 7 service items
+6. **Snow Removal** - Custom SEO, tagline "Dependable Snow & Ice Management," proactive approach philosophy, 7 service items
+
+**Content Improvements:**
+- Professional B2B tone targeting property managers
+- Location-specific keywords (Montgomery County, Bethesda, Kensington, MD/VA/DC)
+- Emphasis on 95% in-house staff, 24/7/365 emergency response, 30+ years experience
+- Concise, punchy service descriptions without redundancy
+- Clear value propositions and differentiators
+
+## Recent Updates (October 30, 2025)
+
 ### SEO & Technical Optimization Complete
 Implemented comprehensive SEO and technical improvements to meet industry best practices:
 
