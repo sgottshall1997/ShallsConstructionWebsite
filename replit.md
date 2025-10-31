@@ -11,21 +11,29 @@ Implemented site-wide password protection using the existing SITE_PASSWORD envir
 - Session-based authentication (persists across page navigation)
 - Automatic bypass if SITE_PASSWORD is not set
 - Error handling for invalid passwords
+- Immediate unlock after successful login (no page reload required)
 
 **Implementation:**
-- Backend routes already existed in `server/routes.ts`:
+- Backend routes in `server/routes.ts`:
   - POST `/api/auth/login` - Verifies password and sets session
   - POST `/api/auth/logout` - Destroys session
   - GET `/api/auth/check` - Returns authentication status
 - Created `PasswordGate` component that checks auth status on load
 - Integrated into `App.tsx` to protect all routes
 - Uses existing SESSION_SECRET for secure session management
+- Fixed: Added explicit refetch after login to immediately show site content
 
 **Usage:**
 - Set `SITE_PASSWORD` environment variable to enable password protection
 - Users must enter correct password to access site
-- Session persists across navigation
+- Site content appears immediately after correct password entry
+- Session persists across navigation (no re-authentication needed)
 - Remove or unset `SITE_PASSWORD` to disable authentication
+
+**Testing:**
+- End-to-end testing confirmed password gate works correctly
+- Verified site unlocks immediately after correct password
+- Confirmed session persistence across all pages
 
 ## Recent Updates (October 30, 2025)
 

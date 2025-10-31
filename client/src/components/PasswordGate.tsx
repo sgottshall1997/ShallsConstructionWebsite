@@ -19,7 +19,7 @@ export default function PasswordGate({ children }: PasswordGateProps) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { data: authStatus, isLoading } = useQuery<AuthStatus>({
+  const { data: authStatus, isLoading, refetch } = useQuery<AuthStatus>({
     queryKey: ["/api/auth/check"],
   });
 
@@ -28,9 +28,10 @@ export default function PasswordGate({ children }: PasswordGateProps) {
       const response = await apiRequest("POST", "/api/auth/login", { password });
       return response;
     },
-    onSuccess: () => {
+    onSuccess: async () => {
       setError("");
-      queryClient.invalidateQueries({ queryKey: ["/api/auth/check"] });
+      // Refetch auth status immediately after successful login
+      await refetch();
     },
     onError: () => {
       setError("Invalid password. Please try again.");
