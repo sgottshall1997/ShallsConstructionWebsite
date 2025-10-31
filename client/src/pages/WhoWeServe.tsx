@@ -20,7 +20,7 @@ export default function WhoWeServe() {
 
   const benefits = [
     "2-hour emergency response guarantee in Montgomery County",
-    "Your same crews on every property—no subcontractor surprises",
+    "Your same crews on every property: no subcontractor surprises, no quality variability",
     "Three decades serving property managers exclusively",
     "One call handles everything from estimates to cleanup",
     "Tenant-friendly scheduling with after-hours availability",
@@ -30,7 +30,7 @@ export default function WhoWeServe() {
   const faqs = [
     {
       question: "Why do property managers choose Shall's Construction?",
-      answer: "We've specialized exclusively in serving property managers since 1988. We understand work orders, COI requirements, tenant coordination, and budget constraints. Plus, our 100% in-house team means you get the same crews every time—no subcontractor variability, no quality inconsistency.",
+      answer: "We've specialized exclusively in serving property managers since 1988. We understand work orders, COI requirements, tenant coordination, and budget constraints. Plus, our 100% in-house team means you get the same crews every time. No subcontractor variability. No quality inconsistency.",
     },
     {
       question: "What types of properties do you work on?",
@@ -74,7 +74,7 @@ export default function WhoWeServe() {
               Built Exclusively for Property Managers
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-              For three decades, property managers across Montgomery County have turned to Shall's Construction when they need reliable <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> and maintenance services—because we understand your world and make your job easier.
+              For three decades, property managers across the DMV have turned to Shall's<Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> and maintenance services because we understand your world and make your job easier.
             </p>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function WhoWeServe() {
                 We Get It: Property Management Is Exhausting
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Let's be honest—you're juggling work orders from six different buildings, a tenant is screaming about a broken door, your boss wants the quarterly renovations done under budget, and it's only Tuesday morning. Sound familiar?
+                Let's be honest: you're juggling work orders from six different buildings, a tenant is screaming about a broken door, your boss wants the quarterly renovations done under budget, and it's only Tuesday morning. Sound familiar?
               </p>
               <p className="text-gray-600 leading-relaxed">
                 That's exactly why we built Shall's Construction specifically for property managers. We understand your world because we've lived it alongside you for three decades. No runaround. No subcontractor surprises. Just reliable results, clear communication, and crews who show up when they say they will.

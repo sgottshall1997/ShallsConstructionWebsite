@@ -16,15 +16,15 @@ export default function About() {
       name: "[Owner Name]",
       title: "Owner & CEO",
       imagePath: "", // User will add actual photo
-      bio: "[Add owner biography here - Start with: In 1988, [Name] founded Shall's Construction in his garage with one truck and a simple belief: property managers deserve a contractor they can trust completely. After years in commercial construction, he saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So he built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will. Today, [X] years later, that same promise guides everything we do.]",
-      quote: "[Add inspirational quote from owner - Example: 'We're not just building projects—we're building relationships that last decades.']",
+      bio: "[Add owner biography here - Start with: In 1988, [Name] founded Shall's Construction in his garage with one truck and a simple belief: property managers deserve a contractor they can trust completely. After years in commercial construction, he saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So he built a company differently: all in-house crews, clear communication, and a commitment to showing up when we say we will. Today, [X] years later, that same promise guides everything we do.]",
+      quote: "[Add inspirational quote from owner - Example: 'We're not just building projects. We're building relationships that last decades.']",
     },
     {
       name: "[Co-Owner/Partner Name]",
       title: "Owner & COO",
       imagePath: "", // User will add actual photo
       bio: "[Add co-owner biography here - Focus on: operational expertise, how they ensure quality control, their role in growing the in-house team, commitment to safety and training]",
-      quote: "[Add quote about quality or team - Example: 'Our crews aren't just employees—they're family. That's why property managers get the same quality on every job.']",
+      quote: "[Add quote about quality or team - Example: 'Our crews aren't just employees. They're family. That's why property managers get the same quality on every job.']",
     },
   ];
 
@@ -32,7 +32,7 @@ export default function About() {
   const values = [
     {
       title: "Your Same Crews, Every Time",
-      description: "Our in-house team means you get the same skilled craftsmen on every project—no subcontractor surprises, no quality inconsistency, just reliable results you can count on.",
+      description: "Our in-house team means you get the same skilled craftsmen on every project. No subcontractor surprises. No quality inconsistency. Just reliable results you can count on.",
     },
     {
       title: "Three Generations of Excellence",
@@ -44,7 +44,7 @@ export default function About() {
     },
     {
       title: "Always Available When You Need Us",
-      description: "True 24/7 emergency response with a 2-hour on-site guarantee in Montgomery County. Building issues don't wait for business hours—and neither do we.",
+      description: "True 24/7 emergency response with a 2-hour on-site guarantee in Montgomery County. Building issues don't wait for business hours, and neither do we.",
     },
   ];
 
@@ -126,13 +126,13 @@ export default function About() {
           </div>
           <div className="prose prose-lg max-w-none text-gray-600">
             <p className="leading-relaxed mb-6">
-              In 1988, Shall's Construction began with a simple belief: property managers deserve a contractor they can trust completely. After working for years in <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> throughout the region, we saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So we built a company differently—with in-house crews, clear communication, and a commitment to showing up when we say we will.
+              In 1988, Shall's Construction began with a simple belief: property managers deserve a contractor they can trust completely. After working for years in <Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> throughout the region, we saw how unpredictable subcontractors and missed deadlines created chaos for building managers. So we built a company on three principles: in-house crews only, clear communication always, and showing up when we say we will.
             </p>
             <p className="leading-relaxed mb-6">
               Three decades later, we're still family-owned, still headquartered in Montgomery County, Maryland, and still guided by that same promise. Many of our crew members have been with us for 20+ years - working alongside each other on hundreds of projects. When you call us, you get the same familiar faces every time. That continuity means better work, faster service, and the kind of trust you can't buy. We are a tight-knit team that treats your properties like our own.
             </p>
             <p className="leading-relaxed">
-              Managing multiple properties, tight budgets, and demanding tenants is exhausting. That's why we built our company around responsiveness, clear communication, and quality control you can count on. Whether it's an emergency repair at 2 AM or a major renovation project, Shall's delivers the same reliable service—making your life easier while keeping your tenants satisfied.
+              Managing multiple properties, tight budgets, and demanding tenants is exhausting. That's why we built our company around responsiveness, clear communication, and quality control you can count on. Whether it's an emergency repair at 2 AM or a major renovation project, Shall's delivers the same reliable service, making your life easier while keeping your tenants satisfied.
             </p>
           </div>
         </div>
@@ -144,8 +144,8 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatCounter number="1988" label="Established" suffix="" />
             <StatCounter number="100" label="In-House Team" suffix="%" />
-            <StatCounter number="[ADD]" label="Projects Completed" suffix="+" />
-            <StatCounter number="[ADD]" label="Properties Managed" suffix="+" />
+            <StatCounter number="[Input]" label="Projects Completed" suffix="+" />
+            <StatCounter number="[Input]" label="Properties Managed" suffix="+" />
           </div>
         </div>
       </section>
@@ -159,7 +159,7 @@ export default function About() {
             </h2>
             <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our mission is simple: to deliver reliable, high-quality construction and maintenance services that make property managers’ lives easier. We do this with our 100% in-house team, practicing exceptional craftsmanship, honest communication, and true 24/7 availability.
+              Our mission is simple: deliver reliable, high-quality construction and maintenance services that make property managers' lives easier. We do this through our 100% in-house team, exceptional craftsmanship, honest communication, and true 24/7 availability.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
@@ -207,8 +207,8 @@ export default function About() {
 
           {/* Community Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <StatCounter number="[ADD]" label="Local and national charities supported" suffix="+" />
-            <StatCounter number="[ADD]" label="Community service hours volunteered" suffix="+" />
+            <StatCounter number="[X]" label="Local and national charities supported" suffix="+" />
+            <StatCounter number="[Probably remove]" label="Community service hours volunteered" suffix="+" />
           </div>
 
           {/* Charity Logos */}
@@ -227,7 +227,7 @@ export default function About() {
           <LogoGrid
             logos={associations}
             columns={4}
-            title="Recognized by the Industry's Leading Organizations"
+            title="Recognized by the Industry's Leading Organizations (samples below)"
             description="We're proud members of leading construction and property management associations, demonstrating our commitment to professional excellence, industry standards, and continuous improvement."
           />
         </div>

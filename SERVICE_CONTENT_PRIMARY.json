@@ -1,7 +1,7 @@
 {
   "construction-remodeling": {
     "slug": "construction-remodeling",
-    "tagline": "From white box buildouts to complete office renovations—delivered on schedule and within budget",
+    "tagline": "From white box buildouts to complete office renovations, all delivered on schedule and within budget",
     "philosophy": "Need to turn a white box into a functioning office space in three weeks? We do that. Renovate a 10,000 sq ft lobby without disrupting tenants? That's our specialty. For three decades, property managers have called us when they need commercial construction done right, on time, and within budget.\n\nFrom tenant buildouts to complete office remodels, we bring the same methodical approach: detailed planning, clear communication, and quality craftsmanship. Our team  keeps you updated daily so you never have to wonder what's happening on site. We handle every facet of commercial construction from initial permitting through final walkthrough.\n\nWhether you're preparing a space for a new tenant or renovating common areas, our in-house crews ensure consistent quality and direct accountability. Emergency construction services available 24/7 because we know urgent needs don't follow business hours.",
     "servicesInclude": [
       "White box space preparation for lease",
@@ -44,7 +44,7 @@
   "handyman-services": {
     "slug": "handyman-services",
     "tagline": "Fast, skilled repairs that keep your properties running smoothly",
-    "philosophy": "Broken door at 3 PM, tenant move-in at 8 AM tomorrow—sound familiar? That's why property managers keep our number saved. For quick repairs and skilled maintenance, we're the handyman service that actually shows up on time.\n\nDrywall patches, door repairs, ceiling tiles, fixtures—whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small, no timeline too tight. Our team responds fast because we understand that small problems become big headaches when they're not fixed promptly.\n\n Since we're fully in-house, you work with the same skilled technicians who know your properties. Available around the clock for emergency repairs that can't wait until morning.",
+    "philosophy": "Broken door at 3 PM. Tenant move-in at 8 AM tomorrow. Sound familiar? That's why property managers keep our number saved. For quick repairs and skilled maintenance, we're the handyman service that actually shows up on time.\n\nDrywall patches, door repairs, ceiling tiles, fixtures: whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small, no timeline too tight. Our team responds fast because we understand that small problems become big headaches when they're not fixed promptly.\n\n Since we're fully in-house, you work with the same skilled technicians who know your properties. Available around the clock for emergency repairs that can't wait until morning.",
     "servicesInclude": [
       "Door and hardware repair and replacement",
       "Drywall repair and patch work",
@@ -87,7 +87,7 @@
   "exterior-building-services": {
     "slug": "exterior-building-services",
     "tagline": "Protecting your property investment with expert exterior solutions",
-    "philosophy": "Water leaking through your building facade? Crumbling masonry threatening your property's curb appeal? These aren't just cosmetic issues—they're costly problems that get worse with time. For over 30 years, property managers have trusted Shall's Construction to protect their most valuable assets with expert exterior building services.\n\nOur waterproofing specialists and skilled masons are experts in building envelop systems. We conduct thorough leak investigations, implement proper waterproofing protocols, and use quality materials that stand up to Mid-Atlantic weather. From facade restoration to concrete repair, we bring technical expertise and meticulous craftsmanship to every exterior challenge.\n\nWe work efficiently to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants and respond 24/7 for emergencies that can't wait.",
+    "philosophy": "Water leaking through your building facade? Crumbling masonry threatening your property's curb appeal? These aren't just cosmetic issues. They're costly problems that get worse with time. For over 30 years, property managers have trusted Shall's Construction to protect their most valuable assets with expert exterior building services.\n\nOur waterproofing specialists and skilled masons are experts in building envelop systems. We conduct thorough leak investigations, implement proper waterproofing protocols, and use quality materials that stand up to Mid-Atlantic weather. From facade restoration to concrete repair, we bring technical expertise and meticulous craftsmanship to every exterior challenge.\n\nWe work efficiently to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants and respond 24/7 for emergencies that can't wait.",
     "servicesInclude": [
       "Comprehensive waterproofing and restoration",
       "Masonry repair and repointing",
@@ -131,7 +131,7 @@
   "parking-lot-services": {
     "slug": "parking-lot-services",
     "tagline": "Professional asphalt and concrete services that enhance your property's first impression",
-    "philosophy": "Your parking lot is the first thing tenants and visitors see. Cracks, potholes, and faded striping don't just look unprofessional—they're safety hazards and liability risks. Property managers rely on Shall's Construction to keep their parking areas safe, functional, and attractive.\n\nFrom asphalt repairs to complete resurfacing, our paving specialists deliver quality work that lasts. We schedule projects to minimize disruption, often working after hours or on weekends to keep your property accessible. Whether you need crack sealing, sealcoating, or fresh striping for ADA compliance, we handle it efficiently.\n\nWe bring decades of experience to every paving project. Our crews work systematically to protect adjacent landscaping and coordinate with your property schedule. Emergency repairs available 24/7 for urgent situations that threaten tenant safety or access.",
+    "philosophy": "Your parking lot is the first thing tenants and visitors see. Cracks, potholes, and faded striping don't just look unprofessional. They're safety hazards and liability risks. Property managers rely on Shall's Construction to keep their parking areas safe, functional, and attractive.\n\nFrom asphalt repairs to complete resurfacing, our paving specialists deliver quality work that lasts. We schedule projects to minimize disruption, often working after hours or on weekends to keep your property accessible. Whether you need crack sealing, sealcoating, or fresh striping for ADA compliance, we handle it efficiently.\n\nWe bring decades of experience to every paving project. Our crews work systematically to protect adjacent landscaping and coordinate with your property schedule. Emergency repairs available 24/7 for urgent situations that threaten tenant safety or access.",
     "servicesInclude": [
       "Asphalt repair and patching",
       "Complete parking lot resurfacing",
@@ -147,7 +147,7 @@
       "Emergency asphalt repairs (24/7)"
     ],
     "testimonial": {
-      "quote": "Example: Shall's resurfaced our medical plaza parking lot over a long weekend—tenants returned Monday to a beautiful new surface with zero disruption. Their team coordinated everything perfectly, and the quality is outstanding. The best paving contractor we've worked with.",
+      "quote": "Example: Shall's resurfaced our medical plaza parking lot over a long weekend. Tenants returned Monday to a beautiful new surface with zero disruption. Their team coordinated everything perfectly, and the quality is outstanding. The best paving contractor we've worked with.",
       "author": "Dr. Sarah Miller",
       "role": "Property Manager",
       "company": "Bethesda Medical Plaza"
@@ -173,7 +173,7 @@
   "painting-services": {
     "slug": "painting-services",
     "tagline": "Precision painting that refreshes your property and protects your investment",
-    "philosophy": "There's commercial painting—and then there's commercial painting done right. Proper surface prep. Quality paints that last. Precise application that looks crisp two years later. Protection of floors, fixtures, and HVAC systems. That's what you get with Shall's.\n\nFor three decades, we've painted everything from small office suites to 50,000 sq ft buildings across Montgomery County. The difference? We don't cut corners, and we don't leave a mess. Our painting professionals follow systematic protocols: thorough surface preparation, premium materials, meticulous application, and complete cleanup.\n\nWe excel at working around occupied spaces. Projects are carefully scheduled and phased to minimize tenant disruption. From interior common areas to exterior facades, garage coatings to specialty finishes—we deliver lasting results that enhance your property's appearance and value.",
+    "philosophy": "There's commercial painting, and then there's commercial painting done right. Proper surface prep. Quality paints that last. Precise application that looks crisp two years later. Protection of floors, fixtures, and HVAC systems. That's what you get with Shall's.\n\nFor three decades, we've painted everything from small office suites to 50,000 sq ft buildings across Montgomery County. The difference? We don't cut corners, and we don't leave a mess. Our painting professionals follow systematic protocols: thorough surface preparation, premium materials, meticulous application, and complete cleanup.\n\nWe excel at working around occupied spaces. Projects are carefully scheduled and phased to minimize tenant disruption. From interior common areas to exterior facades, from garage coatings to specialty finishes, we deliver lasting results that enhance your property's appearance and value.",
     "servicesInclude": [
       "Interior commercial painting and wall finishes",
       "Exterior building painting and coatings",
@@ -189,7 +189,7 @@
       "Epoxy floor coating and sealing"
     ],
     "testimonial": {
-      "quote": "Example: We hired Shall's to paint our 50,000 sq ft office building interior and they exceeded expectations. Work was completed in phases with zero disruption to tenants. The attention to detail was remarkable—perfectly straight lines, no overspray, thorough cleanup. Exceptional commercial painters.",
+      "quote": "Example: We hired Shall's to paint our 50,000 sq ft office building interior and they exceeded expectations. Work was completed in phases with zero disruption to tenants. The attention to detail was remarkable: perfectly straight lines, no overspray, thorough cleanup. Exceptional commercial painters.",
       "author": "Lisa Anderson",
       "role": "Property Manager",
       "company": "Montgomery County Office Properties"
@@ -215,7 +215,7 @@
   "snow-removal": {
     "slug": "snow-removal",
     "tagline": "Proactive winter services that keep your property safe and accessible",
-    "philosophy": "It's 4 AM. Snow is falling. Your tenants start arriving at 7 AM. You need your parking lot cleared NOW—not at 9 AM when some contractor finally shows up.\n\nThat's why property managers contract with us for winter services: we monitor weather forecasts, pre-treat surfaces, and have crews ready to roll the moment snow starts falling. Your parking lot will be clear before your first tenant arrives.\n\nFor over 30 years, we've provided reliable snow and ice management throughout Maryland, Virginia, DC, and Delaware. Our systematic approach includes pre-season planning, real-time weather monitoring, and efficient crew coordination. We work during off-hours whenever possible, often completing service before your tenants even know it snowed. Professional ice management using proper de-icing techniques protects both safety and your surfaces.",
+    "philosophy": "It's 4 AM. Snow is falling. Your tenants start arriving at 7 AM. You need your parking lot cleared NOW. Not at 9 AM when some contractor finally shows up.\n\nThat's why property managers contract with us for winter services: we monitor weather forecasts, pre-treat surfaces, and have crews ready to roll the moment snow starts falling. Your parking lot will be clear before your first tenant arrives.\n\nFor over 30 years, we've provided reliable snow and ice management throughout Maryland, Virginia, DC, and Delaware. Our systematic approach includes pre-season planning, real-time weather monitoring, and efficient crew coordination. We work during off-hours whenever possible, often completing service before your tenants even know it snowed. Professional ice management using proper de-icing techniques protects both safety and your surfaces.",
     "servicesInclude": [
       "Commercial parking lot snow plowing",
       "Sidewalk and walkway snow clearing",

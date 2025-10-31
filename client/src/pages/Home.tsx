@@ -262,7 +262,7 @@ export default function Home() {
                 Managing work orders, tenants, and budgets is hard enough. The last thing you need is a contractor who wastes your time. For over 30 years, we’ve specialized in reliable, no-excuses property maintenance
               </p>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                Our difference: consistency. Many of our crew have been with us 25+ years. When you call for a Bethesda property, it’s the same team who handled your Rockville building — people who already know your standards and deliver quality that doesn’t slip.
+                Our difference: consistency. Many of our crew have been with us 25+ years. When you call about your Bethesda property, you'll get the same team who handled your Rockville building. They already know your standards and deliver quality that doesn't slip.
               </p>
             </div>
           </section>
