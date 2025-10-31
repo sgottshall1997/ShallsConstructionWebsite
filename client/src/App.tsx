@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import PasswordGate from "@/components/PasswordGate";
 
 const Home = lazy(() => import("@/pages/Home"));
 const About = lazy(() => import("@/pages/About"));
@@ -80,7 +81,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router />
+        <PasswordGate>
+          <Router />
+        </PasswordGate>
       </TooltipProvider>
     </QueryClientProvider>
   );
