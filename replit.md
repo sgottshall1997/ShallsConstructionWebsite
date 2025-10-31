@@ -1,5 +1,32 @@
 # Shall's Construction Website
 
+## Recent Updates (October 31, 2025)
+
+### Simple Password Authentication Added
+Implemented site-wide password protection using the existing SITE_PASSWORD environment secret:
+
+**Features:**
+- Password gate component wraps entire application
+- Simple, clean UI with card-based password input
+- Session-based authentication (persists across page navigation)
+- Automatic bypass if SITE_PASSWORD is not set
+- Error handling for invalid passwords
+
+**Implementation:**
+- Backend routes already existed in `server/routes.ts`:
+  - POST `/api/auth/login` - Verifies password and sets session
+  - POST `/api/auth/logout` - Destroys session
+  - GET `/api/auth/check` - Returns authentication status
+- Created `PasswordGate` component that checks auth status on load
+- Integrated into `App.tsx` to protect all routes
+- Uses existing SESSION_SECRET for secure session management
+
+**Usage:**
+- Set `SITE_PASSWORD` environment variable to enable password protection
+- Users must enter correct password to access site
+- Session persists across navigation
+- Remove or unset `SITE_PASSWORD` to disable authentication
+
 ## Recent Updates (October 30, 2025)
 
 ### Hero Images Added to About Us and Who We Serve Pages
