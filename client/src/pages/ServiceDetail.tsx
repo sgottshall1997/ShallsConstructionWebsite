@@ -5,18 +5,20 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ServiceCTA from "@/components/ServiceCTA";
+import { COMPANY, yearsText, hasProjects } from "@shared/company";
+import { SERVICE_NAMES } from "@shared/routes";
 import RelatedLinks from "@/components/RelatedLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import type { Service } from "@shared/schema";
 import { generateBreadcrumbSchema, generateServiceSchema } from "@/lib/schema";
 import { trackServiceView } from "@/lib/analytics";
-import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.png";
-import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.png";
-import exteriorImg from "@assets/generated_images/Exterior_Building_Services_work_4ebd45e5.png";
-import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.png";
-import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.png";
-import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.png";
+import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.webp";
+import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.webp";
+import exteriorImg from "@assets/generated_images/Exterior_Building_Services_work_4ebd45e5.webp";
+import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.webp";
+import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.webp";
+import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.webp";
 
 const SERVICE_IMAGES: Record<string, string> = {
   "construction-remodeling": constructionImg,
@@ -83,11 +85,9 @@ export default function ServiceDetail() {
           <p className="text-lg text-gray-600 mb-8">
             The service you're looking for doesn't exist or has been moved.
           </p>
-          <Link href="/">
-            <a className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors" data-testid="button-view-all-services">
-              Back to Home
-            </a>
-          </Link>
+          <Link href="/#services"><span className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors" data-testid="button-view-all-services">
+              View All Services
+            </span></Link>
         </div>
         <Footer />
       </div>
@@ -111,7 +111,7 @@ export default function ServiceDetail() {
 
   const breadcrumbs = [
     { name: "Home", url: "/" },
-    { name: "Services", url: "/" },
+    { name: "Services", url: "/#services" },
     { name: service.title, url: `/services/${service.slug}` },
   ];
 
@@ -120,7 +120,8 @@ export default function ServiceDetail() {
     generateBreadcrumbSchema(breadcrumbs),
   ];
 
-  const defaultMetaDescription = `${service.title} for commercial properties in MD VA DC DE — ${service.shortDescription.substring(0, 70)} — 30+ years experience.`;
+  const years = yearsText();
+  const defaultMetaDescription = `${service.title} for commercial properties in ${COMPANY.regionShort} — ${service.shortDescription.substring(0, 70)}${years ? ` — ${years} experience` : ""}.`;
   const seoTitle = service.seoTitle || `${service.title} | Commercial Property Services | Shall's`;
   const seoDescription = service.seoDescription || (defaultMetaDescription.length > 160 ? defaultMetaDescription.substring(0, 157) + '...' : defaultMetaDescription);
 
@@ -130,7 +131,7 @@ export default function ServiceDetail() {
         title={seoTitle}
         description={seoDescription}
         schemas={schemas}
-        canonical={`https://shallsconstruction.replit.app/services/${service.slug}`}
+        canonical={`/services/${service.slug}`}
       />
       <Navigation />
 
@@ -141,12 +142,12 @@ export default function ServiceDetail() {
           backgroundImage: `url(${serviceImage})`,
         }}
         role="img"
-        aria-label={`${service.title} commercial property services Maryland Virginia DC`}
+        aria-label={`${service.title} commercial property services `}
       >
         <div className="absolute inset-0 bg-gray-900/70"></div>
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight" data-testid="text-service-title">
-            {service.title}
+            {SERVICE_NAMES[service.slug as keyof typeof SERVICE_NAMES] ?? service.title}
           </h1>
         </div>
       </section>
@@ -164,7 +165,7 @@ export default function ServiceDetail() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/">Services</Link>
+                  <Link href="/#services">Services</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
@@ -198,13 +199,13 @@ export default function ServiceDetail() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8" data-testid="text-services-include-heading">
-            {service.title} Services Include:
+            What's Included
           </h2>
           <ul className="space-y-6" data-testid="list-services-include">
             {servicesInclude?.map((item, idx) => (
               <li key={idx} className="flex items-start gap-4" data-testid={`service-include-${idx}`}>
                 <span className="text-primary font-bold text-2xl flex-shrink-0 mt-1" aria-hidden="true">•</span>
-                <h3 className="text-xl font-semibold text-gray-800">{item}</h3>
+                <span className="text-xl font-semibold text-gray-800">{item}</span>
               </li>
             ))}
           </ul>
@@ -239,9 +240,9 @@ export default function ServiceDetail() {
           <ServiceCTA serviceSlug={service.slug} serviceTitle={service.title} />
           <RelatedLinks 
             links={[
-              { label: "View All Services", href: "/" },
+              { label: "View All Services", href: "/#services" },
               { label: "Who We Serve", href: "/who-we-serve" },
-              { label: "Our Projects", href: "/projects" },
+              ...(hasProjects() ? [{ label: "Our Projects", href: "/projects" }] : []),
               { label: "Contact Us", href: "/contact" },
             ]}
           />

@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { generateLocalBusinessSchema } from "@/lib/schema";
+import { generateLocalBusinessSchema, generateOrganizationSchema } from "@/lib/schema";
+import { COMPANY } from "@shared/company";
 
 interface SEOProps {
   title: string;
@@ -8,71 +9,54 @@ interface SEOProps {
   ogImage?: string;
   schemas?: object[];
   noindex?: boolean;
+  /** When true, do not auto-inject Organization/LocalBusiness (caller provides them once). */
+  skipDefaultSchemas?: boolean;
 }
 
 export default function SEO({
-  title,
-  description,
-  canonical,
-  ogImage,
-  schemas = [],
-  noindex = false,
+  title, description, canonical, ogImage, schemas = [], noindex = false, skipDefaultSchemas = false,
 }: SEOProps) {
-  const siteName = "Shall's Construction LLC";
-  const baseUrl = "https://shallsconstruction.replit.app";
-  const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
-  const canonicalUrl = canonical || (typeof window !== "undefined" ? `${baseUrl}${window.location.pathname}` : baseUrl);
-  const imageUrl = ogImage || `${baseUrl}/og-image.png`;
-  
-  // Google Search Console verification code from environment variables
+  const siteName = COMPANY.legalName;
+  const fullTitle = title.includes(siteName) || title.includes(COMPANY.name) ? title : `${title} | ${COMPANY.name}`;
+  const path = canonical
+    ? canonical.replace(/^https?:\/\/[^/]+/, "") || "/"
+    : typeof window !== "undefined" ? window.location.pathname : "/";
+  const canonicalUrl = path === "/" ? `${COMPANY.url}/` : `${COMPANY.url}${path}`;
+  const imageUrl = ogImage || `${COMPANY.url}/og-image.png`;
   const gscVerification = import.meta.env.VITE_GSC_VERIFICATION;
 
-  // Include LocalBusiness schema only if not already provided in schemas array
-  const hasLocalBusiness = schemas.some(
-    (schema: any) => schema["@type"] && 
-    (schema["@type"] === "LocalBusiness" || 
-     (Array.isArray(schema["@type"]) && schema["@type"].includes("LocalBusiness")))
+  // Exactly one Organization + one LocalBusiness site-wide; pages may add FAQ/Breadcrumb/Service.
+  const hasOrg = schemas.some((s: any) => s["@type"] === "Organization");
+  const hasLB = schemas.some((s: any) =>
+    s["@type"] === "LocalBusiness" || (Array.isArray(s["@type"]) && s["@type"].includes("LocalBusiness")),
   );
-  const allSchemas = hasLocalBusiness ? schemas : [generateLocalBusinessSchema(), ...schemas];
+  const allSchemas = skipDefaultSchemas
+    ? schemas
+    : [
+        ...(hasOrg ? [] : [generateOrganizationSchema()]),
+        ...(hasLB ? [] : [generateLocalBusinessSchema()]),
+        ...schemas,
+      ];
 
   return (
     <Helmet>
-      {/* Primary Meta Tags */}
       <title>{fullTitle}</title>
-      <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
       <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
-      
-      {/* Local SEO Meta Tags */}
-      <meta name="geo.region" content="US-MD" />
-      <meta name="geo.placename" content="Montgomery County" />
-      
-      {/* Google Search Console Verification */}
       {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
-      
-      {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
-
-      {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:site_name" content={siteName} />
-
-      {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={canonicalUrl} />
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={imageUrl} />
-
-      {/* JSON-LD Schemas */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={imageUrl} />
       {allSchemas.map((schema, index) => (
-        <script key={index} type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
+        <script key={index} type="application/ld+json">{JSON.stringify(schema)}</script>
       ))}
     </Helmet>
   );

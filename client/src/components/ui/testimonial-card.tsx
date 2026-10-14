@@ -17,7 +17,7 @@ export default function TestimonialCard({
   author,
   company,
   role,
-  rating = 5,
+  rating,
   service,
   location,
   featured = false,
@@ -30,6 +30,7 @@ export default function TestimonialCard({
       <Quote className="h-10 w-10 text-primary/20 absolute top-4 right-4" aria-hidden="true" />
       
       <div className="flex items-start justify-between mb-4">
+        {typeof rating === "number" && (
         <div className="flex gap-1" data-testid={`rating-${author.toLowerCase().replace(/\s+/g, "-")}`}>
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
@@ -41,6 +42,7 @@ export default function TestimonialCard({
             />
           ))}
         </div>
+        )}
         {featured && (
           <Badge variant="secondary" className="text-xs">Featured</Badge>
         )}

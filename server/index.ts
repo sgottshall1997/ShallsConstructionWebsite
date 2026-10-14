@@ -1,41 +1,30 @@
 import express, { type Request, Response, NextFunction } from "express";
-import session from "express-session";
+import helmet from "helmet";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
-
-declare module 'express-session' {
-  interface SessionData {
-    authenticated?: boolean;
-  }
-}
-
-declare module 'http' {
-  interface IncomingMessage {
-    rawBody: unknown
-  }
-}
-
-// Session middleware
+app.disable("x-powered-by");
 app.use(
-  session({
-    secret: process.env.SESSION_SECRET || "fallback-secret-for-development",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: process.env.NODE_ENV === "production",
-      httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000, // 24 hours
-    },
-  })
+  helmet({
+    contentSecurityPolicy: false, // SPA + inline JSON-LD; tighten later if needed
+    hsts: process.env.NODE_ENV === "production" ? { maxAge: 31536000, includeSubDomains: true } : false,
+    frameguard: { action: "deny" },
+    noSniff: true,
+    referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+  }),
 );
 
-app.use(express.json({
-  verify: (req, _res, buf) => {
-    req.rawBody = buf;
+// Canonical host: send www.shallsconstruction.com (and any non-canonical host in prod) to the apex
+app.use((req, res, next) => {
+  const host = req.headers.host || "";
+  if (process.env.NODE_ENV === "production" && host.startsWith("www.")) {
+    return res.redirect(301, `https://${host.slice(4)}${req.originalUrl}`);
   }
-}));
+  next();
+});
+
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
@@ -74,9 +63,10 @@ app.use((req, res, next) => {
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
-
-    res.status(status).json({ message });
-    throw err;
+    if (!res.headersSent) {
+      res.status(status).json({ message });
+    }
+    console.error(err);
   });
 
   // importantly only setup vite in development and after

@@ -6,7 +6,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { hasProjects, hasSafety } from "@shared/company";
 
+// Keep in sync with shared/routes.ts (sitemap + verification read that file).
 const Home = lazy(() => import("@/pages/Home"));
 const About = lazy(() => import("@/pages/About"));
 const WhoWeServe = lazy(() => import("@/pages/WhoWeServe"));
@@ -14,18 +16,8 @@ const Projects = lazy(() => import("@/pages/Projects"));
 const ProjectDetail = lazy(() => import("@/pages/ProjectDetail"));
 const ServiceDetail = lazy(() => import("@/pages/ServiceDetail"));
 const Safety = lazy(() => import("@/pages/Safety"));
-// Hidden - can be re-enabled in the future:
-// const ServiceAreas = lazy(() => import("@/pages/ServiceAreas"));
-// const Articles = lazy(() => import("@/pages/Articles"));
-// const BlogDetail = lazy(() => import("@/pages/BlogDetail"));
-// const Testimonials = lazy(() => import("@/pages/Testimonials"));
 const Contact = lazy(() => import("@/pages/Contact"));
-// const BethesdaMD = lazy(() => import("@/pages/ServiceAreas/BethesdaMD"));
-// const RockvilleMD = lazy(() => import("@/pages/ServiceAreas/RockvilleMD"));
-// const SilverSpringMD = lazy(() => import("@/pages/ServiceAreas/SilverSpringMD"));
-// const BaltimoreMD = lazy(() => import("@/pages/ServiceAreas/BaltimoreMD"));
-// const GaithersburgMD = lazy(() => import("@/pages/ServiceAreas/GaithersburgMD"));
-// const DCMetro = lazy(() => import("@/pages/ServiceAreas/DCMetro"));
+const Privacy = lazy(() => import("@/pages/Privacy"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function LoadingFallback() {
@@ -41,7 +33,9 @@ function LoadingFallback() {
 
 function Router() {
   useAnalytics();
-  
+  const showProjects = hasProjects();
+  const showSafety = hasSafety();
+
   return (
     <>
       <ScrollToTop />
@@ -50,30 +44,18 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/who-we-serve" component={WhoWeServe} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/projects/:slug" component={ProjectDetail} />
+          {showProjects && <Route path="/projects" component={Projects} />}
+          {showProjects && <Route path="/projects/:slug" component={ProjectDetail} />}
           <Route path="/services/:slug" component={ServiceDetail} />
-          <Route path="/safety" component={Safety} />
-          {/* Hidden routes - can be re-enabled in the future: */}
-          {/* <Route path="/service-areas" component={ServiceAreas} /> */}
-          {/* <Route path="/blog" component={Articles} /> */}
-          {/* <Route path="/blog/:slug" component={BlogDetail} /> */}
-          {/* <Route path="/articles" component={Articles} /> */}
-          {/* <Route path="/testimonials" component={Testimonials} /> */}
+          {showSafety && <Route path="/safety" component={Safety} />}
           <Route path="/contact" component={Contact} />
-          {/* <Route path="/service-areas/bethesda-md" component={BethesdaMD} /> */}
-          {/* <Route path="/service-areas/rockville-md" component={RockvilleMD} /> */}
-          {/* <Route path="/service-areas/silver-spring-md" component={SilverSpringMD} /> */}
-          {/* <Route path="/service-areas/baltimore-md" component={BaltimoreMD} /> */}
-          {/* <Route path="/service-areas/gaithersburg-md" component={GaithersburgMD} /> */}
-          {/* <Route path="/service-areas/dc-metro" component={DCMetro} /> */}
+          <Route path="/privacy-policy" component={Privacy} />
           <Route component={NotFound} />
         </Switch>
       </Suspense>
     </>
   );
 }
-
 
 function App() {
   return (
