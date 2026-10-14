@@ -5,7 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ServiceCTA from "@/components/ServiceCTA";
-import { COMPANY, stateCodesComma, yearsPhrase, stateNamesList } from "@shared/company";
+import { COMPANY, yearsText } from "@shared/company";
 import RelatedLinks from "@/components/RelatedLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
@@ -84,11 +84,9 @@ export default function ServiceDetail() {
           <p className="text-lg text-gray-600 mb-8">
             The service you're looking for doesn't exist or has been moved.
           </p>
-          <Link href="/">
-            <a className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors" data-testid="button-view-all-services">
-              Back to Home
-            </a>
-          </Link>
+          <Link href="/"><span className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors" data-testid="button-view-all-services">
+              View All Services
+            </span></Link>
         </div>
         <Footer />
       </div>
@@ -112,7 +110,7 @@ export default function ServiceDetail() {
 
   const breadcrumbs = [
     { name: "Home", url: "/" },
-    { name: "Services", url: "/" },
+    { name: "Services", url: "/#services" },
     { name: service.title, url: `/services/${service.slug}` },
   ];
 
@@ -121,8 +119,8 @@ export default function ServiceDetail() {
     generateBreadcrumbSchema(breadcrumbs),
   ];
 
-  const years = yearsPhrase();
-  const defaultMetaDescription = `${service.title} for commercial properties in ${stateCodesComma()} — ${service.shortDescription.substring(0, 70)}${years ? ` — ${years} experience` : ""}.`;
+  const years = yearsText();
+  const defaultMetaDescription = `${service.title} for commercial properties in ${COMPANY.regionShort} — ${service.shortDescription.substring(0, 70)}${years ? ` — ${years} experience` : ""}.`;
   const seoTitle = service.seoTitle || `${service.title} | Commercial Property Services | Shall's`;
   const seoDescription = service.seoDescription || (defaultMetaDescription.length > 160 ? defaultMetaDescription.substring(0, 157) + '...' : defaultMetaDescription);
 
@@ -143,7 +141,7 @@ export default function ServiceDetail() {
           backgroundImage: `url(${serviceImage})`,
         }}
         role="img"
-        aria-label={`${service.title} commercial property services Maryland Virginia DC`}
+        aria-label={`${service.title} commercial property services `}
       >
         <div className="absolute inset-0 bg-gray-900/70"></div>
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center text-center">
@@ -166,7 +164,7 @@ export default function ServiceDetail() {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/">Services</Link>
+                  <Link href="/#services">Services</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
@@ -241,7 +239,7 @@ export default function ServiceDetail() {
           <ServiceCTA serviceSlug={service.slug} serviceTitle={service.title} />
           <RelatedLinks 
             links={[
-              { label: "View All Services", href: "/" },
+              { label: "View All Services", href: "/#services" },
               { label: "Who We Serve", href: "/who-we-serve" },
               { label: "Our Projects", href: "/projects" },
               { label: "Contact Us", href: "/contact" },

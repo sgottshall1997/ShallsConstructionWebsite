@@ -11,10 +11,8 @@ import { join } from "path";
 import {
   COMPANY,
   fillCompanyTokens,
-  publishableTestimonials,
-  stateCodesComma,
-  stateNamesList,
 } from "@shared/company";
+import { SERVICE_NAMES } from "@shared/routes";
 import { SERVICE_SLUGS } from "@shared/routes";
 
 function fillTokensDeep<T>(value: T): T {
@@ -93,14 +91,14 @@ export class MemStorage implements IStorage {
       seoDescription?: string;
     }> = {
       "construction-remodeling": {
-        title: "Commercial Construction & Remodeling",
+        title: SERVICE_NAMES["construction-remodeling"],
         category: "Construction",
         imageUrl: "/og-image.png",
         icon: "Building2",
         featured: true,
-        shortDescription: `Full-service commercial construction, remodeling, and renovation for properties across ${stateCodesComma()}.`,
-        seoTitle: `Commercial Construction & Remodeling | Shall's Construction | ${stateCodesComma()}`,
-        seoDescription: `Comprehensive commercial construction and remodeling across ${stateNamesList()}. From tenant build-outs to full office renovations, Shall's Construction delivers precision and reliability.`
+        shortDescription: `Full-service commercial construction, remodeling, and renovation for properties across ${COMPANY.regionShort}.`,
+        seoTitle: `Commercial Construction & Remodeling | Shall's Construction | ${COMPANY.regionShort}`,
+        seoDescription: `Comprehensive commercial construction and remodeling across ${COMPANY.regionShort}. From tenant build-outs to full office renovations, Shall's Construction delivers precision and reliability.`
       },
       "handyman-services": {
         title: "Commercial Handyman Services",
@@ -110,27 +108,27 @@ export class MemStorage implements IStorage {
         featured: true,
         shortDescription: "Professional commercial handyman services with rapid response and reliable execution for property managers.",
         seoTitle: "Commercial Handyman Services | Montgomery County, MD | Shall's Construction",
-        seoDescription: "Professional commercial handyman services in Montgomery County, Bethesda, and Kensington. Trusted by property managers for repairs, maintenance, and 24/7 emergency support."
+        seoDescription: "Professional commercial handyman services in Montgomery County, Bethesda, and Kensington. Trusted by property managers for repairs, maintenance,."
       },
       "exterior-building-services": {
-        title: "Exterior Building Services",
+        title: SERVICE_NAMES["exterior-building-services"],
         category: "Specialty",
         imageUrl: "/og-image.png",
         icon: "Home",
         featured: true,
-        shortDescription: "Comprehensive building exterior solutions with preventive maintenance and emergency response for commercial properties.",
+        shortDescription: "Comprehensive building exterior solutions with preventive maintenance for commercial properties.",
         seoTitle: "Exterior Building Services | Waterproofing & Restoration | Shall's Construction",
-        seoDescription: `Comprehensive exterior building maintenance and waterproofing services in ${stateNamesList()}. Protect your property with expert facade repair and restoration.`
+        seoDescription: `Comprehensive exterior building maintenance and waterproofing services in ${COMPANY.regionShort}. Protect your property with expert facade repair and restoration.`
       },
       "parking-lot-services": {
-        title: "Parking Lot Services",
+        title: SERVICE_NAMES["parking-lot-services"],
         category: "Specialty",
         imageUrl: "/og-image.png",
         icon: "Car",
         featured: true,
         shortDescription: "Professional parking lot maintenance with attention to detail and operational efficiency for commercial properties.",
         seoTitle: "Parking Lot Services | Asphalt & Maintenance | Shall's Construction",
-        seoDescription: `Professional parking lot paving, sealcoating, and striping services across ${stateNamesList()}. Expert asphalt repair and maintenance for commercial properties.`
+        seoDescription: `Professional parking lot paving, sealcoating, and striping services across ${COMPANY.regionShort}. Expert asphalt repair and maintenance for commercial properties.`
       },
       "painting-services": {
         title: "Commercial Painting Services",
@@ -140,7 +138,7 @@ export class MemStorage implements IStorage {
         featured: true,
         shortDescription: "Precision commercial painting for interiors and exteriors with meticulous surface preparation and lasting results.",
         seoTitle: "Commercial Painting Services | Interior & Exterior | Shall's Construction",
-        seoDescription: `Professional commercial painting services in ${stateNamesList()}. Expert interior and exterior painting with precision application and quality materials.`
+        seoDescription: `Professional commercial painting services in ${COMPANY.regionShort}. Expert interior and exterior painting with precision application and quality materials.`
       },
       "snow-removal": {
         title: "Snow Removal & Ice Management",
@@ -148,9 +146,9 @@ export class MemStorage implements IStorage {
         imageUrl: "/og-image.png",
         icon: "Snowflake",
         featured: true,
-        shortDescription: `24/7 commercial snow removal and ice management with proactive monitoring and rapid response across the Mid-Atlantic.`,
-        seoTitle: "Commercial Snow Removal | 24/7 Ice Management | Shall's Construction",
-        seoDescription: `Reliable commercial snow removal and ice management services across ${stateCodesComma()}. ${COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase())}.`
+        shortDescription: `Commercial snow removal and ice management with proactive monitoring and rapid response across the Mid-Atlantic.`,
+        seoTitle: "Commercial Snow Removal | Ice Management | Shall's Construction",
+        seoDescription: `Reliable commercial snow removal and ice management services across ${COMPANY.regionShort}. ${COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase())}.`
       }
     };
 
@@ -202,18 +200,18 @@ export class MemStorage implements IStorage {
 
   /** Only testimonials the owners marked permissionGranted in shared/company.ts */
   async getAllTestimonials(): Promise<Testimonial[]> {
-    return publishableTestimonials().map((t, i) => ({
-      id: `t-${i}`,
-      clientName: t.author,
+    return COMPANY.testimonials.map((t, i) => ({
+      id: String(i),
+      quote: t.quote,
+      author: t.author,
       company: t.company || "",
-      role: t.role || "",
+      role: t.role || null,
       rating: 5,
-      comment: t.quote,
-      serviceType: "",
-      location: "",
+      service: null,
+      location: null,
       featured: true,
-      createdAt: new Date(0),
-    }));
+      createdAt: new Date(),
+    })) as unknown as Testimonial[];
   }
 
   async getFeaturedTestimonials(): Promise<Testimonial[]> {

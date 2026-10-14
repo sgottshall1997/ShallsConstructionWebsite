@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -27,13 +27,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Printer, Mail, MapPin, AlertCircle, Clock, FileText } from "lucide-react";
+import { Phone, Printer, Mail, MapPin, Clock, FileText } from "lucide-react";
 import { insertContactSubmissionSchema, type InsertContactSubmission } from "@shared/schema";
-import { apiRequest, queryClient } from "@/lib/queryClient";
+import { apiRequest } from "@/lib/queryClient";
 import { trackContactFormSubmit, trackCTAClick, trackPhoneClick } from "@/lib/analytics";
-import { COMPANY, mailto, telHref, stateNamesList } from "@shared/company";
+import { COMPANY, mailto, telHref } from "@shared/company";
+import { SERVICE_SLUGS, SERVICE_NAMES } from "@shared/routes";
 
-type InquiryType = "emergency" | "quote" | "general";
+type InquiryType = "quote" | "general";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -64,7 +65,17 @@ export default function Contact() {
     },
   });
 
-  const submitMutation = useMutation({
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const type = new URLSearchParams(window.location.search).get("type");
+    if (type && (SERVICE_SLUGS as readonly string[]).includes(type)) {
+      setInquiryType("quote");
+      form.setValue("inquiryType", "quote");
+      form.setValue("projectType", type);
+    }
+  }, []);
+
+    const submitMutation = useMutation({
     mutationFn: async (data: InsertContactSubmission) => {
       return apiRequest("POST", "/api/contact", data);
     },
@@ -76,8 +87,8 @@ export default function Contact() {
       toast({
         title: "Message Sent!",
         description: inquiryType === "quote" 
-          ? "Thank you for requesting a quote. We'll get back to you soon."
-          : "Thank you for contacting us. We'll get back to you soon.",
+          ? `Thank you for requesting a quote. ${COMPANY.responsePromise}`
+          : `Thank you for contacting us. ${COMPANY.responsePromise}`,
       });
       form.reset({
         inquiryType: inquiryType,
@@ -92,7 +103,6 @@ export default function Contact() {
         budgetRange: "",
         website: "",
       });
-      queryClient.invalidateQueries({ queryKey: ["/api/contact"] });
       setTimeout(() => setIsSubmitted(false), 8000);
     },
     onError: () => {
@@ -116,13 +126,13 @@ export default function Contact() {
     trackCTAClick(`inquiry_type_${type}`, 'contact_page_selector');
   };
 
-  const serviceAreas = COMPANY.serviceStates.map((s) => s.name);
+  const serviceAreas = COMPANY.serviceAreas;
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title={`Contact ${COMPANY.shortName}`}
-        description={`Request a free quote or emergency service for commercial construction and maintenance in ${stateNamesList()}. Call ${COMPANY.phone.display}.`}
+        title={`Contact ${COMPANY.name}`}
+        description={`Request a quote for commercial construction and maintenance in ${COMPANY.regionShort}. Call ${COMPANY.phone}.`}
         canonical="/contact"
         schemas={schemas}
       />
@@ -158,16 +168,16 @@ export default function Contact() {
             <div className="flex items-center justify-center gap-3 mb-2">
               <Clock className="h-6 w-6 text-primary" />
               <h2 className="text-2xl font-heading font-bold text-gray-900">
-                {COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase())}
+                {COMPANY.responsePromise}
               </h2>
             </div>
             <p className="text-gray-700">
-              Call the emergency line anytime, or send a work order or quote request below.
+              Call us or send a work order or quote request below.
             </p>
           </div>
 
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            Whether you need emergency service, a project quote, or have general questions, we're here to help.
+            Whether you need a project quote or have general questions, we're here to help.
           </p>
         </div>
       </section>
@@ -182,23 +192,7 @@ export default function Contact() {
                   <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">
                     How Can We Help You?
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <button
-                      type="button"
-                      onClick={() => handleInquiryTypeChange("emergency")}
-                      className={`p-6 rounded-lg border-2 transition-all text-left ${
-                        inquiryType === "emergency"
-                          ? "border-red-500 bg-red-50 shadow-md"
-                          : "border-gray-200 hover:border-red-300 hover:bg-red-50/50"
-                      }`}
-                      data-testid="button-inquiry-emergency"
-                      aria-label="Select emergency service inquiry type"
-                    >
-                      <AlertCircle className={`h-8 w-8 mb-3 ${inquiryType === "emergency" ? "text-red-500" : "text-gray-400"}`} />
-                      <h3 className="font-heading font-bold text-lg mb-2">Emergency Service</h3>
-                      <p className="text-sm text-gray-600">24/7 immediate assistance needed</p>
-                    </button>
-
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <button
                       type="button"
                       onClick={() => handleInquiryTypeChange("quote")}
@@ -232,36 +226,6 @@ export default function Contact() {
                     </button>
                   </div>
                 </div>
-
-                {/* Emergency Alert */}
-                {inquiryType === "emergency" && (
-                  <div className="bg-red-50 border-2 border-red-500 rounded-lg p-6 mb-8">
-                    <div className="flex items-start gap-4">
-                      <AlertCircle className="h-8 w-8 text-red-500 flex-shrink-0" />
-                      <div>
-                        <h3 className="font-heading font-bold text-xl text-red-900 mb-2">
-                          Need Immediate Assistance?
-                        </h3>
-                        <p className="text-red-800 mb-4">
-                          For 24/7 emergency service, call us directly for the fastest response.
-                        </p>
-                        <a
-                          href={telHref()}
-                          className="inline-block bg-red-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-600 transition-colors"
-                          data-testid="button-emergency-call-direct"
-                          onClick={() => trackPhoneClick('contact_page_emergency_alert')}
-                          aria-label={`Call Shall's Construction now for emergency service at ${COMPANY.phone.display}`}
-                        >
-                          <Phone className="inline-block h-5 w-5 mr-2" />
-                          Call Now: {COMPANY.phone.display}
-                        </a>
-                        <p className="text-sm text-red-700 mt-3">
-                          Or fill out the form below and we'll call you immediately.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )}
 
                 {isSubmitted && (
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
@@ -344,7 +308,7 @@ export default function Contact() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>
-                              Phone {(inquiryType === "quote" || inquiryType === "emergency") && "*"}
+                              Phone {inquiryType === "quote" && "*"}
                             </FormLabel>
                             <FormControl>
                               <Input
@@ -398,12 +362,9 @@ export default function Contact() {
                                     </SelectTrigger>
                                   </FormControl>
                                   <SelectContent>
-                                    <SelectItem value="construction">Construction & Remodeling</SelectItem>
-                                    <SelectItem value="handyman">Handyman Services</SelectItem>
-                                    <SelectItem value="painting">Painting</SelectItem>
-                                    <SelectItem value="exterior">Exterior Building Services</SelectItem>
-                                    <SelectItem value="parking">Parking Lot Services</SelectItem>
-                                    <SelectItem value="snow">Snow Removal</SelectItem>
+                                    {SERVICE_SLUGS.map((slug) => (
+                                      <SelectItem key={slug} value={slug}>{SERVICE_NAMES[slug]}</SelectItem>
+                                    ))}
                                     <SelectItem value="other">Other</SelectItem>
                                   </SelectContent>
                                 </Select>
@@ -511,8 +472,6 @@ export default function Contact() {
                         ? "Sending..."
                         : inquiryType === "quote"
                         ? "Request Quote"
-                        : inquiryType === "emergency"
-                        ? "Submit Emergency Request"
                         : "Submit"}
                     </Button>
 
@@ -538,9 +497,9 @@ export default function Contact() {
                         href={telHref()}
                         className="text-primary hover:text-primary/80"
                         data-testid="link-contact-phone"
-                        aria-label={`Call Shall's Construction at ${COMPANY.phone.display}`}
+                        aria-label={`Call Shall's Construction at ${COMPANY.phone}`}
                       >
-                        {COMPANY.phone.display}
+                        {COMPANY.phone}
                       </a>
                     </div>
                   </div>
@@ -584,21 +543,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="bg-primary text-white rounded-lg p-6">
-                <h3 className="text-xl font-heading font-semibold mb-3">
-                  24/7 Emergency Service
-                </h3>
-                <p className="text-sm text-white/90 mb-4">
-                  We provide round-the-clock emergency response for urgent construction and maintenance needs.
-                </p>
-                <a
-                  href={telHref()}
-                  className="inline-block bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors"
-                  data-testid="button-emergency-call"
-                >
-                  Call Now: {COMPANY.phone.display}
-                </a>
-              </div>
             </div>
           </div>
         </div>

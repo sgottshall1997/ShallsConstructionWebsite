@@ -1,52 +1,39 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { COMPANY, mailto } from "@shared/company";
-import { generateBreadcrumbSchema } from "@/lib/schema";
+import { COMPANY, currentYear, mailto } from "@shared/company";
 
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
         title="Privacy Policy"
-        description={`How ${COMPANY.legalName} collects and uses information submitted through this website.`}
-        canonical="/privacy"
-        schemas={[
-          generateBreadcrumbSchema([
-            { name: "Home", url: "/" },
-            { name: "Privacy Policy", url: "/privacy" },
-          ]),
-        ]}
+        description={`Privacy policy for ${COMPANY.legalName}.`}
+        canonical="/privacy-policy"
+        noindex
       />
       <Navigation />
-      <section className="py-16 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-gray">
-          <h1 className="text-4xl font-heading font-bold text-gray-900 mb-8">Privacy Policy</h1>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            {COMPANY.legalName} ("we", "us") operates {COMPANY.url}. This page explains what happens to information you send us through the contact form or by email.
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <h1 className="text-4xl font-heading font-bold text-gray-900 mb-8" data-testid="text-page-title">Privacy Policy</h1>
+        <div className="prose prose-lg text-gray-600 space-y-6">
+          <p>Last updated: {currentYear()}.</p>
+          <p>
+            {COMPANY.legalName} ("we", "us") operates {COMPANY.url}. This page describes how we handle information submitted through our website contact form.
           </p>
-          <h2 className="text-2xl font-heading font-semibold text-gray-900 mt-8 mb-3">What we collect</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            When you submit the contact form we collect the name, email, phone number, company, and message you provide, plus basic technical data such as your IP address and the time of submission (used to prevent spam).
+          <h2 className="text-2xl font-heading font-semibold text-gray-900">Information we collect</h2>
+          <p>
+            When you submit the contact form, we collect the name, email, phone number, company name, inquiry type, and message you provide. We also receive your IP address for abuse prevention.
           </p>
-          <h2 className="text-2xl font-heading font-semibold text-gray-900 mt-8 mb-3">How we use it</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            We use that information only to respond to your inquiry and to keep a record of the request. We do not sell it or share it with third parties for marketing.
+          <h2 className="text-2xl font-heading font-semibold text-gray-900">How we use it</h2>
+          <p>
+            We use form submissions only to respond to your inquiry and to operate our business. We do not sell personal information.
           </p>
-          <h2 className="text-2xl font-heading font-semibold text-gray-900 mt-8 mb-3">Email delivery</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Form submissions are delivered to us by email through our email provider. Message content is processed by that provider solely to deliver the email.
-          </p>
-          <h2 className="text-2xl font-heading font-semibold text-gray-900 mt-8 mb-3">Contact</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Questions about this policy:{" "}
-            <a href={mailto()} className="text-primary hover:underline">
-              {COMPANY.email}
-            </a>
-            .
+          <h2 className="text-2xl font-heading font-semibold text-gray-900">Contact</h2>
+          <p>
+            Questions about this policy: <a href={mailto()} className="text-primary hover:underline">{COMPANY.email}</a> or {COMPANY.phone}.
           </p>
         </div>
-      </section>
+      </main>
       <Footer />
     </div>
   );

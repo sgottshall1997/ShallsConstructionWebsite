@@ -1,53 +1,22 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema";
-import { Building2, CheckCircle2 } from "lucide-react";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 import { Link } from "wouter";
-import associaLogo from "@assets/Associa_1761838352452.png";
-import comsourceLogo from "@assets/comsource_1761838352453.png";
-import acmLogo from "@assets/american community management_1761838352452.png";
-import mmiLogo from "@assets/mmi logo_1761838352451.png";
-import whoWeServeHeroImg from "@assets/generated_images/Property_manager_commercial_building_44638c1c.webp";
-import {
-  COMPANY,
-  stateNamesList,
-  selfPerformedText,
-  yearsPhrase,
-  telHref,
-} from "@shared/company";
+import { Button } from "@/components/ui/button";
+import { Building2, School, Home, Stethoscope, Landmark, ArrowRight } from "lucide-react";
+import { COMPANY, yearsText, telHref } from "@shared/company";
+
+const audiences = [
+  { icon: Building2, title: "Retail & Office Buildings", description: "Tenant turnovers, common-area refreshes, and exterior work that keep leasing strong." },
+  { icon: School, title: "Schools & Institutions", description: "Scheduled renovations and maintenance planned around academic calendars." },
+  { icon: Home, title: "Apartments & HOAs", description: "Unit turns, amenities, and exterior projects coordinated with residents in place." },
+  { icon: Stethoscope, title: "Medical Suites", description: "Fit-outs and repairs that respect clinical schedules and infection-control needs." },
+  { icon: Landmark, title: "Government Clients", description: "Compliant commercial work for municipal and agency facilities." },
+];
 
 export default function WhoWeServe() {
-  const years = yearsPhrase();
-  const clients = [
-    { name: "Associa", logo: associaLogo },
-    { name: "Comsource", logo: comsourceLogo },
-    { name: "American Community Management", logo: acmLogo },
-    { name: "Majerle Management Inc", logo: mmiLogo },
-  ];
-
-  const benefits = [
-    COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase()),
-    "Your same crews on every property — no subcontractor surprises",
-    COMPANY.tagline,
-    "Tenant-friendly scheduling with after-hours availability",
-    "Work designed to work around in-place tenants with minimal disruptions",
-    "Work order system compatible with your property management software",
-  ];
-
-  const faqs = [
-    {
-      question: `Why do property managers choose ${COMPANY.shortName}?`,
-      answer: `We specialize in serving property managers. We understand work orders, COI requirements, tenant coordination, and budget constraints. And ${selfPerformedText()}, so you get consistent crews every time.`,
-    },
-    {
-      question: "What types of properties do you work on?",
-      answer: `We serve commercial retail and office buildings, schools and universities, apartments and HOAs, hospitals and medical suites, corporate and government facilities, and multi-family housing throughout ${stateNamesList()}.`,
-    },
-  ];
-
   const schemas = [
-    generateFAQSchema(faqs),
     generateBreadcrumbSchema([
       { name: "Home", url: "/" },
       { name: "Who We Serve", url: "/who-we-serve" },
@@ -57,131 +26,74 @@ export default function WhoWeServe() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Built for Property Managers"
-        description={`Commercial construction, repairs, and maintenance built for property managers across ${stateNamesList()}.`}
+        title={`Who We Serve | Property Managers in ${COMPANY.regionShort}`}
+        description={`${COMPANY.name} works with property managers of retail, office, schools, apartments, medical suites, and government facilities across ${COMPANY.regionShort}.`}
         canonical="/who-we-serve"
         schemas={schemas}
       />
       <Navigation />
 
-      <section
-        className="relative h-[500px] bg-cover bg-center"
-        style={{ backgroundImage: `url(${whoWeServeHeroImg})` }}
-        role="img"
-        aria-label="Commercial office building managed by a property management firm"
-      >
-        <div className="absolute inset-0 bg-gray-900/70"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center text-center">
-          <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-white" data-testid="text-page-title">
-              Built Exclusively for Property Managers
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-              Property managers across the DMV turn to Shall's{" "}
-              <Link href="/services/construction-remodeling">
-                <span className="text-primary hover:underline cursor-pointer">commercial construction</span>
-              </Link>{" "}
-              and maintenance services because we understand your world and make your job easier.
-            </p>
-          </div>
+      <section className="bg-gray-900 text-white py-20 md:py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6" data-testid="text-page-title">
+            Built for Property Managers
+          </h1>
+          <p className="text-xl text-gray-200 leading-relaxed">
+            For {yearsText()}, {COMPANY.name} has specialized exclusively in serving property managers across {COMPANY.regionShort}.
+          </p>
         </div>
       </section>
 
       <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-                We Get It: Property Management Is Exhausting
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                You're juggling work orders from multiple buildings, a tenant is calling about a broken door, budgets are tight, and it's only Tuesday morning.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                That's why {COMPANY.shortName} is built for property managers.
-                {years ? ` ${years} of that focus means` : " That focus means"} no runaround, no subcontractor surprises — just reliable results, clear communication, and crews who show up when they say they will.
-              </p>
-            </div>
-            <div className="bg-primary/5 rounded-lg p-8">
-              <h3 className="text-xl font-heading font-semibold text-gray-900 mb-6">
-                Why Property Managers Keep Our Number Saved
-              </h3>
-              <ul className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-3" data-testid={`benefit-${index}`}>
-                    <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
-              Trusted by Leading Property Management Companies
-            </h2>
-            <p className="text-gray-600">
-              Property managers across the region rely on {COMPANY.shortName} for commercial services they can count on
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {clients.map((client, index) => (
-              <div
-                key={index}
-                className="bg-white border border-gray-200 rounded-lg p-6 md:p-8 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-shadow duration-300"
-                data-testid={`card-client-${index}`}
-              >
-                <div className="w-full h-24 flex items-center justify-center">
-                  <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className={`max-w-full max-h-full object-contain ${client.name === "American Community Management" ? "scale-125" : ""}`}
-                    loading="lazy"
-                    width="200"
-                    height="96"
-                    data-testid={`img-client-logo-${index}`}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">Property Types We Serve</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mt-12">
-            {[
-              "Commercial Retail & Office",
-              "Schools & Universities",
-              "Apartments & HOAs",
-              "Hospitals & Medical Suites",
-              "Corporate & Government",
-              "Multi-Family Housing",
-            ].map((industry, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow" data-testid={`industry-${index}`}>
-                <Building2 className="h-8 w-8 text-primary mx-auto mb-3" />
-                <p className="text-gray-900 font-medium text-sm md:text-base">{industry}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-24 bg-primary text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-            Ready to Work With a Contractor Who Understands Your World?
-          </h2>
-          <p className="text-lg md:text-xl mb-8 text-white/90">
-            Call or send a work order request — free quotes for commercial property work.
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+          <p className="text-lg text-gray-600 leading-relaxed">
+            We understand work orders and occupied buildings. {COMPANY.responsePromise}
           </p>
-          <a href={telHref()} className="text-2xl md:text-3xl font-heading font-bold hover:text-white/90 transition-colors" data-testid="link-phone">
-            {COMPANY.phone.display}
-          </a>
+        </div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {audiences.map((a) => (
+              <div key={a.title} className="bg-gray-50 rounded-lg p-8" data-testid={`card-${a.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                <a.icon className="h-10 w-10 text-primary mb-4" />
+                <h2 className="text-xl font-heading font-bold text-gray-900 mb-3">{a.title}</h2>
+                <p className="text-gray-600 leading-relaxed">{a.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {COMPANY.clients.length > 0 && (
+        <section className="py-16 md:py-20 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8">Clients We Work With</h2>
+            <ul className="flex flex-wrap justify-center gap-6">
+              {COMPANY.clients.map((c) => (
+                <li key={c.name} className="bg-white border border-gray-200 rounded-lg px-6 py-4 text-gray-800 font-semibold" data-testid={`client-${c.logo}`}>
+                  {c.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      <section className="py-16 md:py-20 bg-primary text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">Ready to Partner With Us?</h2>
+          <p className="text-lg mb-8 text-white/90">{COMPANY.responsePromise}</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact">
+              <Button size="lg" variant="outline" className="bg-white text-primary border-white hover:bg-white/90">
+                Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <a href={telHref()}>
+              <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10">
+                Call {COMPANY.phone}
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
 

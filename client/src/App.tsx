@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { hasProjects, hasSafety } from "@shared/company";
 
 // Keep in sync with shared/routes.ts (sitemap + verification read that file).
 const Home = lazy(() => import("@/pages/Home"));
@@ -32,6 +33,8 @@ function LoadingFallback() {
 
 function Router() {
   useAnalytics();
+  const showProjects = hasProjects();
+  const showSafety = hasSafety();
 
   return (
     <>
@@ -41,12 +44,12 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/who-we-serve" component={WhoWeServe} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/projects/:slug" component={ProjectDetail} />
+          {showProjects && <Route path="/projects" component={Projects} />}
+          {showProjects && <Route path="/projects/:slug" component={ProjectDetail} />}
           <Route path="/services/:slug" component={ServiceDetail} />
-          <Route path="/safety" component={Safety} />
+          {showSafety && <Route path="/safety" component={Safety} />}
           <Route path="/contact" component={Contact} />
-          <Route path="/privacy" component={Privacy} />
+          <Route path="/privacy-policy" component={Privacy} />
           <Route component={NotFound} />
         </Switch>
       </Suspense>

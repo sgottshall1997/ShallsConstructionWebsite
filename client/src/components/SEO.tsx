@@ -1,45 +1,42 @@
 import { Helmet } from "react-helmet-async";
-import { generateLocalBusinessSchema } from "@/lib/schema";
+import { generateLocalBusinessSchema, generateOrganizationSchema } from "@/lib/schema";
 import { COMPANY } from "@shared/company";
 
 interface SEOProps {
   title: string;
   description: string;
-  /** Path ("/about") or absolute URL. Always resolved against COMPANY.url. */
   canonical?: string;
   ogImage?: string;
   schemas?: object[];
   noindex?: boolean;
+  /** When true, do not auto-inject Organization/LocalBusiness (caller provides them once). */
+  skipDefaultSchemas?: boolean;
 }
 
 export default function SEO({
-  title,
-  description,
-  canonical,
-  ogImage,
-  schemas = [],
-  noindex = false,
+  title, description, canonical, ogImage, schemas = [], noindex = false, skipDefaultSchemas = false,
 }: SEOProps) {
   const siteName = COMPANY.legalName;
-  const baseUrl = COMPANY.url;
-  const fullTitle =
-    title.includes(siteName) || title.includes(COMPANY.shortName) ? title : `${title} | ${siteName}`;
+  const fullTitle = title.includes(siteName) || title.includes(COMPANY.name) ? title : `${title} | ${COMPANY.name}`;
   const path = canonical
     ? canonical.replace(/^https?:\/\/[^/]+/, "") || "/"
-    : typeof window !== "undefined"
-      ? window.location.pathname
-      : "/";
-  const canonicalUrl = path === "/" ? `${baseUrl}/` : `${baseUrl}${path}`;
-  const imageUrl = ogImage || `${baseUrl}/og-image.png`;
+    : typeof window !== "undefined" ? window.location.pathname : "/";
+  const canonicalUrl = path === "/" ? `${COMPANY.url}/` : `${COMPANY.url}${path}`;
+  const imageUrl = ogImage || `${COMPANY.url}/og-image.png`;
   const gscVerification = import.meta.env.VITE_GSC_VERIFICATION;
 
-  const hasLocalBusiness = schemas.some(
-    (schema: any) =>
-      schema["@type"] &&
-      (schema["@type"] === "LocalBusiness" ||
-        (Array.isArray(schema["@type"]) && schema["@type"].includes("LocalBusiness"))),
+  // Exactly one Organization + one LocalBusiness site-wide; pages may add FAQ/Breadcrumb/Service.
+  const hasOrg = schemas.some((s: any) => s["@type"] === "Organization");
+  const hasLB = schemas.some((s: any) =>
+    s["@type"] === "LocalBusiness" || (Array.isArray(s["@type"]) && s["@type"].includes("LocalBusiness")),
   );
-  const allSchemas = hasLocalBusiness ? schemas : [generateLocalBusinessSchema(), ...schemas];
+  const allSchemas = skipDefaultSchemas
+    ? schemas
+    : [
+        ...(hasOrg ? [] : [generateOrganizationSchema()]),
+        ...(hasLB ? [] : [generateLocalBusinessSchema()]),
+        ...schemas,
+      ];
 
   return (
     <Helmet>
@@ -59,9 +56,7 @@ export default function SEO({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
       {allSchemas.map((schema, index) => (
-        <script key={index} type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
+        <script key={index} type="application/ld+json">{JSON.stringify(schema)}</script>
       ))}
     </Helmet>
   );

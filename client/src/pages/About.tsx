@@ -2,34 +2,26 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import StatCounter from "@/components/ui/stat-counter";
-import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/schema";
+import { generateBreadcrumbSchema } from "@/lib/schema";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import aboutHeroImg from "@assets/generated_images/Professional_construction_team_photo_9128835a.webp";
-import {
-  COMPANY,
-  stateNamesList,
-  stateCodesSlash,
-  selfPerformedText,
-  yearsPhrase,
-} from "@shared/company";
+import { COMPANY, yearsText, inHouseText } from "@shared/company";
 
 export default function About() {
-  const years = yearsPhrase();
-
   const values = [
     {
       title: "Your Own Crews, Not a Chain of Subs",
-      description: `${selfPerformedText().replace(/^./, (c) => c.toUpperCase())}, so quality and accountability stay with us from estimate to final walkthrough.`,
+      description: `${inHouseText().replace(/^./, (c) => c.toUpperCase())}, so quality and accountability stay with us from estimate to final walkthrough.`,
     },
     {
       title: "Built for Property Managers",
       description:
-        "We understand work orders, COI requirements, tenant coordination, and budget constraints. Our work is designed to work around in-place tenants with minimal disruptions.",
+        "We understand work orders, insurance paperwork, and occupied buildings, and we schedule around your tenants.",
     },
     {
       title: "Always Reachable",
-      description: `${COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase())}. Building issues don't wait for business hours, and neither do we.`,
+      description: COMPANY.responsePromise,
     },
     {
       title: "Construction to Snow Removal",
@@ -39,14 +31,12 @@ export default function About() {
   ];
 
   const stats = [
-    years ? { number: COMPANY.yearsInBusiness!, label: "Years in Business" } : null,
-    COMPANY.foundingYear ? { number: String(COMPANY.foundingYear), label: "Established" } : null,
-    { number: stateCodesSlash(), label: "Service Area" },
-    { number: "24/7", label: "Emergency Line" },
-  ].filter(Boolean) as { number: string; label: string }[];
+    { number: `${COMPANY.yearsInBusiness}+`, label: "Years in Business" },
+    { number: `${COMPANY.selfPerformedPercent}%`, label: "Self-Performed" },
+    { number: COMPANY.regionShort, label: "Service Area" },
+  ];
 
   const schemas = [
-    generateOrganizationSchema(),
     generateBreadcrumbSchema([
       { name: "Home", url: "/" },
       { name: "About Us", url: "/about" },
@@ -57,7 +47,7 @@ export default function About() {
     <div className="min-h-screen bg-white">
       <SEO
         title="About Us | Commercial Contractor in Kensington, MD"
-        description={`${COMPANY.legalName} is a commercial contractor in ${COMPANY.address.locality}, ${COMPANY.address.region} serving property managers across ${stateNamesList()}.`}
+        description={`${COMPANY.legalName} is a commercial contractor in ${COMPANY.address.city}, ${COMPANY.address.state} serving property managers across ${COMPANY.regionShort}.`}
         canonical="/about"
         schemas={schemas}
       />
@@ -76,7 +66,7 @@ export default function About() {
               Making Property Management Easier
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-              Commercial construction and maintenance for property managers across {stateNamesList()}.
+              Commercial construction and maintenance for property managers across {COMPANY.regionShort}.
             </p>
           </div>
         </div>
@@ -92,23 +82,31 @@ export default function About() {
           </div>
           <div className="prose prose-lg max-w-none text-gray-600">
             <p className="leading-relaxed mb-6">
-              {COMPANY.shortName} is based in {COMPANY.address.locality}, {COMPANY.address.region}, and works for the people who keep commercial buildings running: property managers.
-              {years ? ` For ${years}` : " For years"}, we've handled{" "}
+              {COMPANY.name} is based in {COMPANY.address.city}, {COMPANY.address.state}, and works for the people who keep commercial buildings running: property managers.
+              For {yearsText()}, we've handled{" "}
               <Link href="/services/construction-remodeling">
                 <span className="text-primary hover:underline cursor-pointer">commercial construction</span>
               </Link>
               , repairs, exterior work, parking lots, painting, and snow removal for retail and office buildings, schools, apartments and HOAs, medical suites, and government clients.
             </p>
-            <p className="leading-relaxed">
-              Because {selfPerformedText()}, you deal with one accountable team. Managing multiple properties, tight budgets, and demanding tenants is hard enough. We focus on responsiveness, clear communication, and quality control so your tenants stay satisfied.
+            <p className="leading-relaxed mb-6">
+              After working for years alongside property managers, {COMPANY.name} built its approach around how they actually work: clear communication, reliable scheduling, and crews that understand occupied buildings.
             </p>
+            <p className="leading-relaxed">
+              Because {inHouseText()}, you deal with one accountable team. Managing multiple properties, tight budgets, and demanding tenants is hard enough. We focus on responsiveness, clear communication, and quality control so your tenants stay satisfied.
+            </p>
+            {COMPANY.insuranceLine && (
+              <p className="leading-relaxed mt-6 text-gray-700 font-medium" data-testid="text-insurance">
+                {COMPANY.insuranceLine}
+              </p>
+            )}
           </div>
         </div>
       </section>
 
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`grid grid-cols-2 md:grid-cols-4 gap-8`}>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {stats.map((s) => (
               <StatCounter key={s.label} number={s.number} label={s.label} />
             ))}
@@ -148,9 +146,7 @@ export default function About() {
               {COMPANY.associations.map((a) => (
                 <li key={a.name} className="bg-white border border-gray-200 rounded-lg px-6 py-4 text-gray-700 font-semibold">
                   {a.url ? (
-                    <a href={a.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-                      {a.name}
-                    </a>
+                    <a href={a.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary">{a.name}</a>
                   ) : (
                     a.name
                   )}

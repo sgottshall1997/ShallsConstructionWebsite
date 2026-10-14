@@ -17,7 +17,7 @@ export function buildContactEmail(data: InsertContactSubmission): {
   text: string;
   html: string;
 } {
-  const subject = `[${COMPANY.shortName}] ${data.inquiryType.toUpperCase()} from ${data.firstName} ${data.lastName}`;
+  const subject = `[${COMPANY.name}] ${data.inquiryType.toUpperCase()} from ${data.firstName} ${data.lastName}`;
   const lines = [
     `Inquiry type: ${data.inquiryType}`,
     `Name: ${data.firstName} ${data.lastName}`,
@@ -56,7 +56,7 @@ export async function sendContactNotification(
 
   const { subject, text, html } = buildContactEmail(data);
   const to = process.env.FORM_TO_EMAIL || COMPANY.email;
-  const from = process.env.FORM_FROM_EMAIL || `${COMPANY.shortName} <onboarding@resend.dev>`;
+  const from = process.env.FORM_FROM_EMAIL || `${COMPANY.name} <onboarding@resend.dev>`;
 
   if (!process.env.RESEND_API_KEY) {
     console.log("[contact-email] RESEND_API_KEY not set — logging instead of sending");

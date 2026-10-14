@@ -6,7 +6,7 @@ import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbP
 import { Button } from "@/components/ui/button";
 import { generateBreadcrumbSchema } from "@/lib/schema";
 import { Shield, FileCheck, Award } from "lucide-react";
-import { COMPANY, stateNamesList } from "@shared/company";
+import { COMPANY } from "@shared/company";
 
 export default function Safety() {
   const schemas = [
@@ -16,14 +16,13 @@ export default function Safety() {
     ]),
   ];
 
-  const stateName = (code: string) =>
-    COMPANY.serviceStates.find((s) => s.code === code)?.name ?? code;
+  const stateName = (code: string) => code;
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
         title="Safety & Certifications"
-        description={`Jobsite safety, licensing, and insurance information for ${COMPANY.legalName}, serving property managers in ${stateNamesList()}.`}
+        description={`Jobsite safety, licensing, and insurance information for ${COMPANY.legalName}, serving property managers in ${COMPANY.regionShort}.`}
         canonical="/safety"
         schemas={schemas}
       />
@@ -88,7 +87,7 @@ export default function Safety() {
               </ul>
             ) : (
               <p className="text-gray-600 leading-relaxed">
-                Contact us for license details for your jurisdiction in {stateNamesList()}.
+                Contact us for license details for your jurisdiction in {COMPANY.regionShort}.
               </p>
             )}
           </div>

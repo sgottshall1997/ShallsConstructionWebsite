@@ -1,8 +1,5 @@
-/**
- * Every routed, indexable page. Used by the client router (App.tsx), the
- * Express sitemap generator, and launch verification. Add a page here or it
- * does not exist.
- */
+import { COMPANY, hasProjects, hasSafety } from "./company";
+
 export const SERVICE_SLUGS = [
   "construction-remodeling",
   "handyman-services",
@@ -12,37 +9,48 @@ export const SERVICE_SLUGS = [
   "snow-removal",
 ] as const;
 
-export const STATIC_ROUTES = [
+export const SERVICE_NAMES: Record<(typeof SERVICE_SLUGS)[number], string> = {
+  "construction-remodeling": "Construction & Remodeling",
+  "handyman-services": "Handyman Services",
+  "exterior-building-services": "Exterior Building Services",
+  "parking-lot-services": "Parking Lot Asphalt & Concrete",
+  "painting-services": "Painting Services",
+  "snow-removal": "Snow Removal",
+};
+
+/** Build-date constant used as sitemap lastmod. */
+export const BUILD_DATE = "2026-10-14";
+
+export type StaticRoute = { path: string; changefreq: string; priority: string };
+
+/** Routed pages. Drives App.tsx and the sitemap. Projects/Safety only when facts exist. */
+export const STATIC_ROUTES: StaticRoute[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/about", changefreq: "monthly", priority: "0.8" },
   { path: "/who-we-serve", changefreq: "monthly", priority: "0.8" },
-  { path: "/projects", changefreq: "monthly", priority: "0.7" },
-  { path: "/safety", changefreq: "monthly", priority: "0.7" },
+  ...(hasProjects() ? [{ path: "/projects", changefreq: "monthly", priority: "0.7" }] : []),
+  ...(hasSafety() ? [{ path: "/safety", changefreq: "monthly", priority: "0.7" }] : []),
   { path: "/contact", changefreq: "monthly", priority: "0.8" },
-  { path: "/privacy", changefreq: "yearly", priority: "0.3" },
-] as const;
-
-export const ALL_ROUTES: string[] = [
-  ...STATIC_ROUTES.map((r) => r.path),
-  ...SERVICE_SLUGS.map((s) => `/services/${s}`),
+  { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
 ];
 
-/** Old WordPress URLs -> new paths (301). Trailing slashes are normalised. */
+export const SERVICE_ROUTES = SERVICE_SLUGS.map((s) => `/services/${s}`);
+export const PROJECT_ROUTES = COMPANY.projects.map((p) => `/projects/${p.slug}`);
+export const ALL_ROUTES: string[] = [...STATIC_ROUTES.map((r) => r.path), ...SERVICE_ROUTES, ...PROJECT_ROUTES];
+
+/** Exact legacy redirects (301). Generic trailing-slash strip handles the rest. */
 export const LEGACY_REDIRECTS: Record<string, string> = {
   "/what-we-do": "/services/construction-remodeling",
-  "/construction-services": "/services/construction-remodeling",
-  "/handyman-services": "/services/handyman-services",
-  "/painting-services": "/services/painting-services",
-  "/building-exterior-services": "/services/exterior-building-services",
-  "/exterior-building-services": "/services/exterior-building-services",
-  "/parking-lot-services": "/services/parking-lot-services",
-  "/snow-removal": "/services/snow-removal",
-  "/snow-removal-services": "/services/snow-removal",
-  "/about-us": "/about",
-  "/contact-us": "/contact",
-  "/privacy-policy": "/privacy",
-  "/testimonials": "/about",
-  "/service-areas": "/who-we-serve",
-  "/articles": "/",
-  "/blog": "/",
+  "/what-we-do/": "/services/construction-remodeling",
+  "/who-we-serve/": "/who-we-serve",
+  "/contact/": "/contact",
+  "/privacy-policy/": "/privacy-policy",
+  "/category/article": "/",
+  "/category/article/": "/",
+  "/your-property-maintenance-checklist-for-the-winter/": "/",
+  "/seasonal-checklist/": "/",
+  "/hello-world/": "/",
 };
+
+/** Gone (410). */
+export const GONE_PATTERNS: RegExp[] = [/^\/wp-login\.php$/, /^\/wp-admin(\/.*)?$/];

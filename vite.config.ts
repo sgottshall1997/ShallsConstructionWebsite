@@ -1,18 +1,16 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import { COMPANY, stateCodesComma, stateNamesList, yearsPhrase } from "./shared/company";
+import { COMPANY, yearsText } from "./shared/company";
 
 function companyHtml(): Plugin {
-  const years = yearsPhrase();
   const tokens: Record<string, string> = {
     "%COMPANY_NAME%": COMPANY.legalName,
-    "%COMPANY_SHORT%": COMPANY.shortName,
+    "%COMPANY_SHORT%": COMPANY.name,
     "%COMPANY_URL%": COMPANY.url,
-    "%COMPANY_REGION_CODES%": stateCodesComma(),
-    "%COMPANY_REGION%": stateNamesList(),
+    "%COMPANY_REGION%": COMPANY.regionShort,
     "%COMPANY_RESPONSE%": COMPANY.responsePromise,
-    "%COMPANY_YEARS_SENTENCE%": years ? ` ${years} of experience.` : "",
+    "%COMPANY_YEARS%": yearsText(),
   };
   return {
     name: "company-html",
@@ -36,10 +34,5 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
-  server: {
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
-    },
-  },
+  server: { fs: { strict: true, deny: ["**/.*"] } },
 });

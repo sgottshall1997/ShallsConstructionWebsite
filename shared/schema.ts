@@ -3,7 +3,7 @@ import { z } from "zod";
 /* Types and validation only. There is no database: contact leads are emailed. */
 
 export const insertContactSubmissionSchema = z.object({
-  inquiryType: z.enum(["emergency", "quote", "general"]).default("general"),
+  inquiryType: z.enum(["quote", "general"]).default("general"),
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Valid email is required"),

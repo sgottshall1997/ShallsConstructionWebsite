@@ -1,59 +1,52 @@
-import {
-  COMPANY,
-  stateNamesList,
-  yearsPhrase,
-  selfPerformedText,
-} from "@shared/company";
+import { COMPANY, yearsText, inHouseText } from "@shared/company";
 
-export interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-export interface BreadcrumbItem {
-  name: string;
-  url: string;
-}
+export interface FAQItem { question: string; answer: string }
+export interface BreadcrumbItem { name: string; url: string }
 
 const postalAddress = () => ({
   "@type": "PostalAddress",
   ...(COMPANY.address.street ? { streetAddress: COMPANY.address.street } : {}),
-  addressLocality: COMPANY.address.locality,
-  addressRegion: COMPANY.address.region,
-  ...(COMPANY.address.postalCode ? { postalCode: COMPANY.address.postalCode } : {}),
-  addressCountry: COMPANY.address.country,
+  addressLocality: COMPANY.address.city,
+  addressRegion: COMPANY.address.state,
+  postalCode: COMPANY.address.zip,
+  addressCountry: "US",
 });
 
-const areaServed = () =>
-  COMPANY.serviceStates.map((s) => ({ "@type": "AdministrativeArea", name: s.name }));
+const areaServed = () => COMPANY.serviceAreas.map((name) => ({ "@type": "City", name }));
 
+const sameAs = () => [COMPANY.social.linkedin].filter(Boolean);
+
+/** Exactly one LocalBusiness. No openingHours, no AggregateRating, no founder. */
 export function generateLocalBusinessSchema(): object {
-  const years = yearsPhrase();
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "GeneralContractor", "ProfessionalService"],
+    "@type": ["LocalBusiness", "GeneralContractor"],
     name: COMPANY.legalName,
     url: COMPANY.url,
-    telephone: COMPANY.phone.e164,
+    telephone: COMPANY.phoneE164,
     email: COMPANY.email,
     address: postalAddress(),
     areaServed: areaServed(),
-    openingHoursSpecification: COMPANY.hours.map((hours) => ({
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: hours.startsWith("Mo-Fr")
-        ? ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-        : [],
-      opens: hours.match(/(\d{2}:\d{2})/)?.[0] || "08:00",
-      closes: hours.match(/(\d{2}:\d{2})/g)?.[1] || "17:00",
-    })),
-    description: [
-      `Commercial construction and property maintenance for property managers in ${stateNamesList()}.`,
-      years ? `${years} of experience.` : "",
-    ]
-      .filter(Boolean)
-      .join(" "),
+    description: `Commercial construction and property maintenance for property managers in ${COMPANY.regionShort}. ${yearsText()} of experience. ${inHouseText()}.`,
     image: `${COMPANY.url}/logo.png`,
-    sameAs: COMPANY.linkedInUrl ? [COMPANY.linkedInUrl] : [],
+    ...(sameAs().length ? { sameAs: sameAs() } : {}),
+  };
+}
+
+/** Exactly one Organization. */
+export function generateOrganizationSchema(): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: COMPANY.legalName,
+    url: COMPANY.url,
+    logo: `${COMPANY.url}/logo.png`,
+    description: `Commercial construction and property maintenance for property managers in ${COMPANY.regionShort}.`,
+    telephone: COMPANY.phoneE164,
+    email: COMPANY.email,
+    address: postalAddress(),
+    areaServed: areaServed(),
+    ...(sameAs().length ? { sameAs: sameAs() } : {}),
   };
 }
 
@@ -82,30 +75,8 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]): object {
   };
 }
 
-export function generateOrganizationSchema(): object {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: COMPANY.legalName,
-    url: COMPANY.url,
-    logo: `${COMPANY.url}/logo.png`,
-    description: `Commercial construction and property maintenance for property managers in ${stateNamesList()}; ${selfPerformedText()}.`,
-    telephone: COMPANY.phone.e164,
-    email: COMPANY.email,
-    address: postalAddress(),
-    areaServed: areaServed(),
-    sameAs: COMPANY.linkedInUrl ? [COMPANY.linkedInUrl] : [],
-    ...(COMPANY.foundingYear ? { foundingDate: String(COMPANY.foundingYear) } : {}),
-  };
-}
-
 export interface ServiceData {
-  id: string;
-  slug: string;
-  title: string;
-  shortDescription: string;
-  fullDescription: string;
-  category: string;
+  id: string; slug: string; title: string; shortDescription: string; fullDescription: string; category: string;
 }
 
 export function generateServiceSchema(service: ServiceData): object {
@@ -115,14 +86,8 @@ export function generateServiceSchema(service: ServiceData): object {
     name: service.title,
     description: service.fullDescription || service.shortDescription,
     serviceType: service.category,
-    provider: {
-      "@type": "Organization",
-      name: COMPANY.legalName,
-      url: COMPANY.url,
-      telephone: COMPANY.phone.e164,
-    },
+    provider: { "@type": "Organization", name: COMPANY.legalName, url: COMPANY.url, telephone: COMPANY.phoneE164 },
     areaServed: areaServed(),
     url: `${COMPANY.url}/services/${service.slug}`,
-    category: service.category,
   };
 }

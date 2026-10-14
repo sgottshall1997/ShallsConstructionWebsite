@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import ProjectCard from "@/components/ui/project-card";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { generateBreadcrumbSchema } from "@/lib/schema";
-import { COMPANY, stateNamesList } from "@shared/company";
+import { COMPANY } from "@shared/company";
 
 export default function Projects() {
   const projects = COMPANY.projects;
@@ -21,7 +21,7 @@ export default function Projects() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Projects"
-        description={`Commercial construction projects by ${COMPANY.shortName} across ${stateNamesList()}.`}
+        description={`Commercial construction projects by ${COMPANY.name} across ${COMPANY.regionShort}.`}
         canonical="/projects"
         schemas={schemas}
       />
@@ -53,8 +53,8 @@ export default function Projects() {
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
             {projects.length > 0
-              ? `Selected commercial work across ${stateNamesList()}.`
-              : `Project case studies will appear here once the owners add them. In the meantime, ask us about work near your properties in ${stateNamesList()}.`}
+              ? `Selected commercial work across ${COMPANY.regionShort}.`
+              : `Project case studies will appear here once the owners add them. In the meantime, ask us about work near your properties in ${COMPANY.regionShort}.`}
           </p>
         </div>
       </section>

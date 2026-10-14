@@ -3,7 +3,8 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import shallsLogo from "@assets/shalls-construction-logo.png";
-import { COMPANY, telHref } from "@shared/company";
+import { COMPANY, telHref, hasProjects, hasSafety } from "@shared/company";
+import { SERVICE_SLUGS, SERVICE_NAMES } from "@shared/routes";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -11,32 +12,19 @@ export default function Navigation() {
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
 
+  const aboutDropdown = [
+    { href: "/about", label: "About Us" },
+    ...(hasSafety() ? [{ href: "/safety", label: "Safety & Certifications" }] : []),
+  ];
   const navLinks = [
     { href: "/", label: "Home" },
-    {
-      label: "About",
-      dropdown: [
-        { href: "/about", label: "About Us" },
-        { href: "/safety", label: "Safety & Certifications" },
-      ],
-    },
+    { label: "About", dropdown: aboutDropdown },
     {
       label: "Services",
-      dropdown: [
-        { href: "/services/construction-remodeling", label: "Construction & Remodeling" },
-        { href: "/services/handyman-services", label: "Handyman Services" },
-        { href: "/services/exterior-building-services", label: "Exterior Building Services" },
-        { href: "/services/parking-lot-services", label: "Parking Lot Services" },
-        { href: "/services/painting-services", label: "Painting Services" },
-        { href: "/services/snow-removal", label: "Snow Removal" },
-      ],
+      dropdown: SERVICE_SLUGS.map((slug) => ({ href: `/services/${slug}`, label: SERVICE_NAMES[slug] })),
     },
     { href: "/who-we-serve", label: "Who We Serve" },
-    { href: "/projects", label: "Projects" },
-    // Hidden - can be re-enabled in the future:
-    // { href: "/service-areas", label: "Service Areas" },
-    // { href: "/blog", label: "Blog" },
-    // { href: "/testimonials", label: "Testimonials" },
+    ...(hasProjects() ? [{ href: "/projects", label: "Projects" }] : []),
     { href: "/contact", label: "Contact Us" },
   ];
 
@@ -52,7 +40,7 @@ export default function Navigation() {
             <div className="flex items-center cursor-pointer">
               <img
                 src={shallsLogo}
-                alt="Shall's Construction commercial property services logo"
+                alt={`${COMPANY.name} logo`}
                 className="h-14 md:h-20"
                 data-testid="img-shalls-logo"
               />
@@ -126,10 +114,10 @@ export default function Navigation() {
               href={telHref()}
               className="flex items-center gap-2 text-primary font-semibold"
               data-testid="link-phone"
-              aria-label={`Call ${COMPANY.shortName} at ${COMPANY.phone.display}`}
+              aria-label={`Call ${COMPANY.name} at ${COMPANY.phone}`}
             >
               <Phone className="h-4 w-4" />
-              <span>{COMPANY.phone.display}</span>
+              <span>{COMPANY.phone}</span>
             </a>
           </div>
 
@@ -199,10 +187,10 @@ export default function Navigation() {
               href={telHref()}
               className="flex items-center gap-2 py-3 text-primary font-semibold"
               data-testid="link-mobile-phone"
-              aria-label={`Call ${COMPANY.shortName} at ${COMPANY.phone.display}`}
+              aria-label={`Call ${COMPANY.name} at ${COMPANY.phone}`}
             >
               <Phone className="h-5 w-5" />
-              <span>{COMPANY.phone.display}</span>
+              <span>{COMPANY.phone}</span>
             </a>
           </div>
         </div>

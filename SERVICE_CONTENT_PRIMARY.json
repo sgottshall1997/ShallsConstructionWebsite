@@ -2,7 +2,7 @@
   "construction-remodeling": {
     "slug": "construction-remodeling",
     "tagline": "From white box buildouts to complete office renovations, all delivered on schedule and within budget",
-    "philosophy": "Need to turn a white box into a functioning office space in three weeks? We do that. Renovate a 10,000 sq ft lobby without disrupting tenants? That's our specialty. For {{yearsPhrase}}, property managers have called us when they need commercial construction done right, on time, and within budget. From tenant buildouts to complete office remodels, we bring the same methodical approach: detailed planning, clear communication, and quality craftsmanship. Our team keeps you updated daily so you never have to wonder what's happening on site. We handle every facet of commercial construction from initial permitting through final walkthrough. Whether you're preparing a space for a new tenant or renovating common areas, our own crews ensure consistent quality and direct accountability. Emergency construction services available 24/7 because we know urgent needs don't follow business hours.",
+    "philosophy": "Need to turn a white box into a functioning office space in three weeks? We do that. Renovate a 10,000 sq ft lobby without disrupting tenants? That's our specialty. For {{years}}, property managers have called us when they need commercial construction done right, on time, and within budget. From tenant buildouts to complete office remodels, we bring the same methodical approach: detailed planning, clear communication, and quality craftsmanship. Our team keeps you updated daily so you never have to wonder what's happening on site. We handle every facet of commercial construction from initial permitting through final walkthrough. Whether you're preparing a space for a new tenant or renovating common areas, our own crews ensure consistent quality and direct accountability.",
     "servicesInclude": [
       "White box space preparation for lease",
       "Commercial interior buildout and remodeling",
@@ -10,7 +10,6 @@
       "Retail construction and store fit-outs",
       "Tenant improvement and customization projects",
       "Common area upgrades and modernization",
-      "Emergency construction repair services (24/7)",
       "ADA compliance upgrades and accessibility improvements",
       "Commercial kitchen and restroom renovations",
       "Lobby and reception area renovations",
@@ -18,27 +17,13 @@
       "HVAC coordination and mechanical system integration"
     ],
     "relatedServices": [],
-    "seoKeywords": [
-      "commercial construction Montgomery County MD",
-      "office remodeling Bethesda Maryland",
-      "tenant build out contractor Kensington",
-      "white box construction services Maryland",
-      "commercial renovation property manager",
-      "retail construction Montgomery County",
-      "emergency construction services MD VA DC",
-      "licensed commercial contractor Bethesda",
-      "common area renovation Kensington MD",
-      "commercial interior construction Maryland",
-      "property manager construction partner",
-      "office renovation contractor DC metro"
-    ],
-    "seoTitle": "Commercial Construction & Remodeling | {{regionCodes}} | Shall's Construction",
+    "seoTitle": "Commercial Construction & Remodeling | {{region}} | Shall's Construction",
     "seoDescription": "Commercial construction, tenant build-outs, and office remodeling services for {{region}}. Reliable, on-time crews."
   },
   "handyman-services": {
     "slug": "handyman-services",
     "tagline": "Fast, skilled repairs that keep your properties running smoothly",
-    "philosophy": "Broken door at 3 PM. Tenant move-in at 8 AM tomorrow. Sound familiar? That's why property managers keep our number saved. For quick repairs and skilled maintenance, we're the handyman service that actually shows up on time. Drywall patches, door repairs, ceiling tiles, fixtures: whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small, no timeline too tight. Our team responds fast because we understand that small problems become big headaches when they're not fixed promptly. Because {{selfPerformed}}, you work with the same skilled technicians who know your properties. Available around the clock for emergency repairs that can't wait until morning.",
+    "philosophy": "That's why property managers keep our number saved. For quick repairs and skilled maintenance, we're the handyman service that actually shows up on time. Drywall patches, door repairs, ceiling tiles, fixtures: whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small, no timeline too tight. Our team responds fast because we understand that small problems become big headaches when they're not fixed promptly. Because {{inHouse}}, you work with the same skilled technicians who know your properties.",
     "servicesInclude": [
       "Door and hardware repair and replacement",
       "Drywall repair and patch work",
@@ -51,33 +36,18 @@
       "Minor plumbing repairs and fixture replacement",
       "Electrical outlet and switch replacement",
       "Signage installation and mounting",
-      "Emergency handyman response (24/7)",
       "Routine maintenance and preventive repairs"
     ],
     "relatedServices": [],
-    "seoKeywords": [
-      "commercial handyman services Montgomery County",
-      "property manager handyman Maryland",
-      "commercial maintenance Bethesda MD",
-      "handyman contractor Kensington Maryland",
-      "office building handyman services",
-      "commercial repair services MD VA DC",
-      "property maintenance handyman Montgomery County",
-      "licensed handyman contractor Bethesda",
-      "emergency handyman services Maryland",
-      "commercial property repair Kensington",
-      "reliable handyman property managers",
-      "commercial facility repairs DC metro"
-    ],
     "seoTitle": "Commercial Handyman Services | Montgomery County & DC Metro | Shall's Construction",
-    "seoDescription": "Fast, self-performed commercial handyman repairs and maintenance for property managers across Montgomery County and the DC metro area. 24/7 emergency service."
+    "seoDescription": "Fast, self-performed commercial handyman repairs and maintenance for property managers across Montgomery County and the DC metro area."
   },
   "exterior-building-services": {
     "slug": "exterior-building-services",
     "tagline": "Protecting your property investment with expert exterior solutions",
-    "philosophy": "Water leaking through your building facade? Crumbling masonry threatening your property's curb appeal? These aren't just cosmetic issues. They're costly problems that get worse with time. For {{yearsPhrase}}, property managers have trusted Shall's Construction to protect their most valuable assets with expert exterior building services. Our waterproofing specialists and skilled masons are experts in building envelope systems. We conduct thorough leak investigations, implement proper waterproofing protocols, and use quality materials that stand up to Mid-Atlantic weather. From facade restoration to concrete repair, we bring technical expertise and meticulous craftsmanship to every exterior challenge. We work efficiently to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants and respond 24/7 for emergencies that can't wait.",
+    "philosophy": "Water leaking through your building facade? Crumbling masonry threatening your property's curb appeal? These aren't just cosmetic issues. They're costly problems that get worse with time. For {{years}}, property managers have trusted Shall's Construction to protect their most valuable assets with expert exterior building services. Our waterproofing specialists and skilled masons are experts in building envelope systems. We conduct thorough leak investigations, implement proper waterproofing protocols, and use quality materials that stand up to Mid-Atlantic weather. From facade restoration to concrete repair, we bring technical expertise and meticulous craftsmanship to every exterior challenge. We work efficiently to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants",
     "servicesInclude": [
-      "Full system joint-sealant replacement",
+      "Full joint-sealant replacement",
       "Façade power washing",
       "Masonry repair & repointing",
       "Garage & sidewalk power washing",
@@ -87,48 +57,33 @@
       "Thru-wall flashing / steel lintel repair",
       "Pedestrian/traffic coating",
       "Concrete repair",
-      "Expansion joint replacement & installation",
+      "Expansion joint replacement",
       "Waterproofing",
       "Water repellents/sealers",
-      "Window/glass restoration",
-      "Emergency exterior repairs (24/7)"
+      "Window/glass restoration"
     ],
     "relatedServices": [],
-    "seoKeywords": [
-      "waterproofing contractor Montgomery County MD",
-      "masonry repair Bethesda Maryland",
-      "building facade restoration Kensington",
-      "commercial waterproofing Maryland",
-      "exterior building services property manager",
-      "leak investigation and repair Montgomery County",
-      "masonry contractor Bethesda MD",
-      "concrete repair services Maryland",
-      "building envelope repair MD VA DC",
-      "facade restoration Kensington MD",
-      "commercial exterior contractor Bethesda",
-      "waterproofing services property managers Maryland"
-    ],
-    "seoTitle": "Waterproofing & Exterior Building Services | {{regionCodes}} | Shall's Construction",
-    "seoDescription": "Waterproofing, masonry, and facade restoration for commercial properties in {{regionCodes}}. Protect your building with Shall's Construction expertise."
+    "seoTitle": "Waterproofing & Exterior Building Services | {{region}} | Shall's Construction",
+    "seoDescription": "Waterproofing, masonry, and facade restoration for commercial properties in {{region}}. Protect your building with Shall's Construction expertise."
   },
   "parking-lot-services": {
     "slug": "parking-lot-services",
     "tagline": "Professional asphalt and concrete services that enhance your property's first impression",
-    "philosophy": "Your parking lot is the first thing tenants and visitors see. Cracks, potholes, and faded striping don't just look unprofessional. They're safety hazards and liability risks. Property managers rely on Shall's Construction to keep their parking areas safe, functional, and attractive. From asphalt repairs to complete resurfacing, our paving specialists deliver quality work that lasts. We schedule projects to minimize disruption, often working after hours or on weekends to keep your property accessible. Whether you need crack sealing, sealcoating, or fresh striping for ADA compliance, we handle it efficiently. We bring {{yearsPhrase}} of experience to every paving project. Our crews work systematically to protect adjacent landscaping and coordinate with your property schedule. Emergency repairs available 24/7 for urgent situations that threaten tenant safety or access.",
+    "philosophy": "Your parking lot is the first thing tenants and visitors see. Cracks, potholes, and faded striping don't just look unprofessional. They're safety hazards and liability risks. Property managers rely on Shall's Construction to keep their parking areas safe, functional, and attractive. From asphalt repairs to complete resurfacing, our paving specialists deliver quality work that lasts. We schedule projects to minimize disruption, often working after hours or on weekends to keep your property accessible. Whether you need crack sealing, sealcoating, or fresh striping for ADA compliance, we handle it efficiently. We bring {{years}} of experience to every paving project. Our crews work systematically to protect adjacent landscaping and coordinate with your property schedule.",
     "servicesInclude": [
-      "Asphalt patching",
+      "Patching",
       "Paving",
       "Seal coat",
       "Profiling",
       "Speed bumps",
       "Striping",
-      "Sidewalks (including exposed aggregate)",
+      "Sidewalks (exposed aggregate)",
       "Curb & gutter",
-      "Steps, landings, and railings",
-      "Pads, ramps, aprons, and entrances",
+      "Steps/landings/railings",
+      "Pads/ramps/aprons/entrances",
       "Loading docks",
       "Walls & retaining walls",
-      "Bollards, columns, and beams",
+      "Bollards/columns/beams",
       "Trench & storm drains",
       "Pool decks & patios",
       "Stamped concrete",
@@ -138,34 +93,19 @@
       "Partial/full-depth spall repair",
       "Curb sandblasting",
       "Sidewalk sealing",
-      "ADA compliance",
-      "Emergency asphalt repairs (24/7)"
+      "ADA compliance"
     ],
     "relatedServices": [
       "exterior-building-services",
       "snow-removal"
     ],
-    "seoKeywords": [
-      "parking lot paving Montgomery County MD",
-      "asphalt repair Bethesda Maryland",
-      "sealcoating services Kensington MD",
-      "parking lot striping Montgomery County",
-      "commercial asphalt contractor Bethesda",
-      "ADA parking lot compliance Maryland",
-      "parking lot maintenance property manager",
-      "concrete sidewalk repair Montgomery County",
-      "asphalt paving contractor MD VA DC",
-      "parking lot resurfacing Kensington",
-      "commercial paving services Bethesda MD",
-      "parking lot contractor property managers Maryland"
-    ],
-    "seoTitle": "Parking Lot Services | Asphalt, Concrete, Sealcoating | {{regionCodes}}",
-    "seoDescription": "Asphalt, concrete, sealcoating, and ADA compliance services for commercial properties in {{region}}. 24/7 emergency repairs."
+    "seoTitle": "Parking Lot Services | Asphalt, Concrete, Sealcoating | {{region}}",
+    "seoDescription": "Asphalt, concrete, sealcoating, and ADA compliance services for commercial properties in {{region}}."
   },
   "painting-services": {
     "slug": "painting-services",
     "tagline": "Precision painting that refreshes your property and protects your investment",
-    "philosophy": "There's commercial painting, and then there's commercial painting done right. Proper surface prep. Quality paints that last. Precise application that looks crisp two years later. Protection of floors, fixtures, and HVAC systems. That's what you get with Shall's. For {{yearsPhrase}}, we've painted everything from small office suites to 50,000 sq ft buildings across Montgomery County. The difference? We don't cut corners, and we don't leave a mess. Our painting professionals follow systematic protocols: thorough surface preparation, premium materials, meticulous application, and complete cleanup. We excel at working around occupied spaces. Projects are carefully scheduled and phased to minimize tenant disruption. From interior common areas to exterior facades, from garage coatings to specialty finishes, we deliver lasting results that enhance your property's appearance and value.",
+    "philosophy": "There's commercial painting, and then there's commercial painting done right. Proper surface prep. Quality paints that last. Precise application that looks crisp two years later. Protection of floors, fixtures, and HVAC systems. That's what you get with Shall's. For {{years}}, we've painted everything from small office suites to 50,000 sq ft buildings across Montgomery County. The difference? We don't cut corners, and we don't leave a mess. Our painting professionals follow systematic protocols: thorough surface preparation, premium materials, meticulous application, and complete cleanup. We excel at working around occupied spaces. Projects are carefully scheduled and phased to minimize tenant disruption. From interior common areas to exterior facades, from garage coatings to specialty finishes, we deliver lasting results that enhance your property's appearance and value.",
     "servicesInclude": [
       "Interior commercial painting and wall finishes",
       "Exterior building painting and coatings",
@@ -184,27 +124,13 @@
       "construction-remodeling",
       "exterior-building-services"
     ],
-    "seoKeywords": [
-      "commercial painting Montgomery County MD",
-      "office painting services Bethesda Maryland",
-      "interior painting contractor Kensington MD",
-      "exterior commercial painting Maryland",
-      "property manager painting services Montgomery County",
-      "commercial painter Bethesda MD",
-      "garage painting and sealing Kensington",
-      "specialty coatings contractor Maryland",
-      "commercial painting contractor MD VA DC",
-      "office building painting Bethesda",
-      "retail painting services Montgomery County",
-      "professional commercial painter property managers"
-    ],
     "seoTitle": "Commercial Painting Services | Interior & Exterior | MD & DC | Shall's Construction",
-    "seoDescription": "Interior and exterior commercial painting, epoxy coatings, and wall finishes for Maryland and DC properties. Trusted by property managers for {{yearsPhrase}}."
+    "seoDescription": "Interior and exterior commercial painting, epoxy coatings, and wall finishes for Maryland and DC properties. Trusted by property managers for {{years}}."
   },
   "snow-removal": {
     "slug": "snow-removal",
     "tagline": "Proactive winter services that keep your property safe and accessible",
-    "philosophy": "It's 4 AM. Snow is falling. Your tenants start arriving at 7 AM. You need your parking lot cleared NOW. Not at 9 AM when some contractor finally shows up. That's why property managers contract with us for winter services: we monitor weather forecasts, pre-treat surfaces, and have crews ready to roll the moment snow starts falling. Your parking lot will be clear before your first tenant arrives. For {{yearsPhrase}}, we've provided reliable snow and ice management throughout {{region}}. Our systematic approach includes pre-season planning, real-time weather monitoring, and efficient crew coordination. We work during off-hours whenever possible, often completing service before your tenants even know it snowed. Professional ice management using proper de-icing techniques protects both safety and your surfaces.",
+    "philosophy": "That's why property managers contract with us for winter services: we monitor weather forecasts, pre-treat surfaces, and have crews ready to roll the moment snow starts falling. Your parking lot will be clear before your first tenant arrives. For {{years}}, we've provided reliable snow and ice management throughout {{region}}. Our systematic approach includes pre-season planning, real-time weather monitoring, and efficient crew coordination. We work during off-hours whenever possible, often completing service before your tenants even know it snowed. Professional ice management using proper de-icing techniques protects both safety and your surfaces.",
     "servicesInclude": [
       "Commercial parking lot snow plowing",
       "Sidewalk and walkway snow clearing",
@@ -212,7 +138,6 @@
       "Pre-storm preparation and salt application",
       "Loading dock and entrance clearing",
       "Stairway and ramp ice removal",
-      "24/7 emergency snow response",
       "Post-storm cleanup and hauling",
       "Pre-season planning and contracts",
       "Real-time weather monitoring and coordination",
@@ -223,21 +148,7 @@
     "relatedServices": [
       "parking-lot-services"
     ],
-    "seoKeywords": [
-      "commercial snow removal Montgomery County MD",
-      "snow plowing services Bethesda Maryland",
-      "ice management Kensington MD",
-      "winter property maintenance Montgomery County",
-      "commercial snow contractor Bethesda",
-      "parking lot snow removal Maryland",
-      "property manager snow services MD",
-      "24/7 snow removal Montgomery County",
-      "commercial snow plowing Kensington MD",
-      "winter maintenance contractor Bethesda",
-      "snow and ice management property managers Maryland",
-      "reliable snow removal services MD VA DC"
-    ],
-    "seoTitle": "Commercial Snow Removal & Ice Management | 24/7 | {{regionCodes}}",
-    "seoDescription": "24/7 snow and ice management for commercial properties in {{regionCodes}}. Pre-storm planning, de-icing, and emergency snow removal."
+    "seoTitle": "Commercial Snow Removal & Ice Management | {{region}}",
+    "seoDescription": "Snow and ice management for commercial properties in {{region}}. Pre-storm planning, de-icing."
   }
 }

@@ -119,7 +119,7 @@ export function trackEvent(eventName: string, eventParams?: Record<string, any>)
 /**
  * Track contact form submission
  */
-export function trackContactFormSubmit(inquiryType: 'emergency' | 'quote' | 'general'): void {
+export function trackContactFormSubmit(inquiryType: 'quote' | 'general'): void {
   trackEvent('contact_form_submit', {
     inquiry_type: inquiryType,
     event_category: 'engagement',
@@ -135,17 +135,6 @@ export function trackCTAClick(ctaType: string, ctaLocation?: string): void {
     cta_type: ctaType,
     cta_location: ctaLocation || 'unknown',
     event_category: 'engagement',
-  });
-}
-
-/**
- * Track emergency service button clicks
- */
-export function trackEmergencyClick(location: string): void {
-  trackEvent('cta_click_emergency', {
-    click_location: location,
-    event_category: 'high_intent',
-    event_label: '24/7 Emergency Service',
   });
 }
 
