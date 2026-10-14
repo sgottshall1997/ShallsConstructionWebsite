@@ -12,10 +12,11 @@ import heroImage from "@assets/generated_images/Homepage_hero_construction_scene
 import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.webp";
 import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.webp";
 import exteriorImg from "@assets/generated_images/Exterior_Building_Services_work_4ebd45e5.webp";
-import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.webp";
+import parkingImg from "@assets/generated_images/Parking_Lot_Services_pexels.webp";
 import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.webp";
 import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.webp";
 import { COMPANY, yearsText, telHref } from "@shared/company";
+import { META_DESCRIPTIONS } from "@shared/meta";
 import { SERVICE_NAMES } from "@shared/routes";
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
     { slug: "construction-remodeling", image: constructionImg, alt: "Crew framing an interior office build-out", description: "Tenant build-outs and office renovations delivered on schedule and within budget." },
     { slug: "handyman-services", image: handymanImg, alt: "Technician repairing a commercial door fixture", description: "Repairs, carpentry, and day-to-day maintenance handled by skilled craftsmen." },
     { slug: "exterior-building-services", image: exteriorImg, alt: "Worker repointing brick on a building facade", description: "Masonry, waterproofing, and facade restoration that protect your building envelope." },
-    { slug: "parking-lot-services", image: parkingImg, alt: "Freshly sealed and striped parking lot", description: "Asphalt repair, concrete work, sealcoating, and striping." },
+    { slug: "parking-lot-services", image: parkingImg, alt: "Empty parking lot with white striped spaces and light poles", description: "Asphalt repair, concrete work, sealcoating, and striping." },
     { slug: "painting-services", image: paintingImg, alt: "Painter rolling a commercial interior wall", description: "Interior and exterior painting designed to work around in-place tenants with minimal disruptions." },
     { slug: "snow-removal", image: snowImg, alt: "Plow clearing snow from a commercial lot", description: "Snow and ice management that keeps your property accessible all winter." },
   ] as const;
@@ -55,7 +56,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`Commercial Contractor for Property Managers | ${COMPANY.regionShort}`}
-        description={`Commercial construction, renovation, and property maintenance for property managers in ${COMPANY.regionShort}. ${yearsText()} of experience.`}
+        description={META_DESCRIPTIONS["/"]}
         canonical="/"
         schemas={schemas}
       />

@@ -2,13 +2,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { COMPANY, mailto } from "@shared/company";
+import { META_DESCRIPTIONS } from "@shared/meta";
 
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
         title="Privacy Policy"
-        description={`Privacy policy for ${COMPANY.legalName}.`}
+        description={META_DESCRIPTIONS["/privacy-policy"]}
         canonical="/privacy-policy"
         noindex
       />
@@ -22,7 +23,7 @@ export default function Privacy() {
           </p>
           <h2 className="text-2xl font-heading font-semibold text-gray-900">Information we collect</h2>
           <p>
-            When you submit the contact form, we collect the name, email, phone number, company name, inquiry type, and message you provide. We also receive your IP address for abuse prevention.
+            When you submit the contact form, we collect the name, email, phone number, company name (if provided), inquiry type, and message you provide. We also receive your IP address for abuse prevention.
           </p>
           <h2 className="text-2xl font-heading font-semibold text-gray-900">How we use it</h2>
           <p>

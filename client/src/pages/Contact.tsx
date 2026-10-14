@@ -32,6 +32,7 @@ import { insertContactSubmissionSchema, type InsertContactSubmission } from "@sh
 import { apiRequest } from "@/lib/queryClient";
 import { trackContactFormSubmit, trackCTAClick, trackPhoneClick } from "@/lib/analytics";
 import { COMPANY, mailto, telHref } from "@shared/company";
+import { META_DESCRIPTIONS } from "@shared/meta";
 import { SERVICE_SLUGS, SERVICE_NAMES } from "@shared/routes";
 
 type InquiryType = "quote" | "general";
@@ -132,7 +133,7 @@ export default function Contact() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`Contact ${COMPANY.name}`}
-        description={`Request a quote for commercial construction and maintenance in ${COMPANY.regionShort}. Call ${COMPANY.phone}.`}
+        description={META_DESCRIPTIONS["/contact"]}
         canonical="/contact"
         schemas={schemas}
       />

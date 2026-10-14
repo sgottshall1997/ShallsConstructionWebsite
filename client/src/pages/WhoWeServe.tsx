@@ -6,6 +6,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Building2, School, Home, Stethoscope, Landmark, ArrowRight } from "lucide-react";
 import { COMPANY, yearsText, telHref } from "@shared/company";
+import { META_DESCRIPTIONS } from "@shared/meta";
 import associaLogo from "@assets/Associa_1761838352452.png";
 import comsourceLogo from "@assets/comsource_1761838352453.png";
 import acmLogo from "@assets/american community management_1761838352452.png";
@@ -38,7 +39,7 @@ export default function WhoWeServe() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`Who We Serve | Property Managers in ${COMPANY.regionShort}`}
-        description={`${COMPANY.name} works with property managers of retail and office buildings, schools and universities, apartments and HOAs, hospitals and medical suites, and corporate and government clients across ${COMPANY.regionShort}.`}
+        description={META_DESCRIPTIONS["/who-we-serve"]}
         canonical="/who-we-serve"
         schemas={schemas}
       />

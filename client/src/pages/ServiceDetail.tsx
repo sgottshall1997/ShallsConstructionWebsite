@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ServiceCTA from "@/components/ServiceCTA";
 import { COMPANY, yearsText, hasProjects } from "@shared/company";
+import { META_DESCRIPTIONS } from "@shared/meta";
 import { SERVICE_NAMES } from "@shared/routes";
 import RelatedLinks from "@/components/RelatedLinks";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -16,7 +17,7 @@ import { trackServiceView } from "@/lib/analytics";
 import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.webp";
 import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.webp";
 import exteriorImg from "@assets/generated_images/Exterior_Building_Services_work_4ebd45e5.webp";
-import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.webp";
+import parkingImg from "@assets/generated_images/Parking_Lot_Services_pexels.webp";
 import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.webp";
 import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.webp";
 
@@ -123,7 +124,7 @@ export default function ServiceDetail() {
   const years = yearsText();
   const defaultMetaDescription = `${service.title} for commercial properties in ${COMPANY.regionShort} — ${service.shortDescription.substring(0, 70)}${years ? ` — ${years} experience` : ""}.`;
   const seoTitle = service.seoTitle || `${service.title} | Commercial Property Services | Shall's`;
-  const seoDescription = service.seoDescription || (defaultMetaDescription.length > 160 ? defaultMetaDescription.substring(0, 157) + '...' : defaultMetaDescription);
+  const seoDescription = META_DESCRIPTIONS[`/services/${service.slug}`] || service.seoDescription || (defaultMetaDescription.length > 160 ? defaultMetaDescription.substring(0, 157) + '...' : defaultMetaDescription);
 
   return (
     <div className="min-h-screen bg-white">

@@ -7,6 +7,7 @@ import { CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import aboutHeroImg from "@assets/generated_images/Professional_construction_team_photo_9128835a.webp";
 import { COMPANY, yearsText, inHouseText } from "@shared/company";
+import { META_DESCRIPTIONS } from "@shared/meta";
 
 export default function About() {
   const values = [
@@ -43,7 +44,7 @@ export default function About() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`About Us | Commercial Contractor in ${COMPANY.address.city}, ${COMPANY.address.state}`}
-        description={`${COMPANY.legalName} is a commercial contractor in ${COMPANY.address.city}, ${COMPANY.address.state} serving property managers across ${COMPANY.regionShort}.`}
+        description={META_DESCRIPTIONS["/about"]}
         canonical="/about"
         schemas={schemas}
       />
