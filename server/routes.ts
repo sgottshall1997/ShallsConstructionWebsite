@@ -1,13 +1,22 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
+import rateLimit from "express-rate-limit";
 import { storage } from "./storage";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import { sendContactNotification } from "./email";
-import { LEGACY_REDIRECTS, SERVICE_SLUGS, STATIC_ROUTES } from "@shared/routes";
+import { LEGACY_REDIRECTS, SERVICE_SLUGS, STATIC_ROUTES, BUILD_DATE } from "@shared/routes";
 import { COMPANY } from "@shared/company";
 import path from "path";
 import fs from "fs";
+
+const contactLimiter = rateLimit({
+  windowMs: 60_000,
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many requests. Please try again shortly." },
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Public API routes
@@ -64,7 +73,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
 
 
-  app.post("/api/contact", async (req, res) => {
+  app.post("/api/contact", contactLimiter, async (req, res) => {
     try {
       const result = insertContactSubmissionSchema.safeParse(req.body);
 
@@ -78,12 +87,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(200).json({ ok: true });
       }
 
-      const submission = await storage.createContactSubmission(result.data);
-      try {
-        await sendContactNotification(result.data);
-      } catch (mailErr) {
-        console.error("Contact email failed (submission still stored):", mailErr);
+      const ip = (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() || req.ip;
+      const mail = await sendContactNotification(result.data, { ip });
+      if (!mail.ok) {
+        return res.status(500).json({ error: mail.error });
       }
+
+      const submission = await storage.createContactSubmission(result.data);
       res.status(201).json({ ok: true, id: submission.id });
     } catch (error) {
       console.error("Error creating contact submission:", error);
@@ -109,7 +119,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/sitemap.xml", (_req, res) => {
     try {
       const baseUrl = COMPANY.url;
-      const lastmod = "2026-10-14";
+      const lastmod = BUILD_DATE;
       let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
       xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
