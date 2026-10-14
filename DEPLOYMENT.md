@@ -15,9 +15,9 @@ Target: https://shallsconstruction.com (replacing the existing WordPress site at
 | --- | --- | --- |
 | `PORT` | Runtime | Railway sets this; do not hardcode |
 | `NODE_ENV` | Runtime | `production` |
-| `RESEND_API_KEY` | Runtime | Required for real form email |
+| `RESEND_API_KEY` | Runtime | Required in production; without it the form returns 500 "Form not configured" |
 | `FORM_TO_EMAIL` | Runtime | Inbox for leads (defaults to COMPANY.email) |
-| `FORM_FROM_EMAIL` | Runtime | Start with Resend's `onboarding@resend.dev`; switch after domain verify |
+| `FORM_FROM_EMAIL` | Runtime | Default `Shall's Website <onboarding@resend.dev>`; switch after domain verify |
 | `VITE_GA4_MEASUREMENT_ID` | **Build-time** | Vite inlines it — change requires a rebuild/redeploy |
 | `VITE_GSC_VERIFICATION` | **Build-time** | Same |
 
@@ -35,7 +35,23 @@ Target: https://shallsconstruction.com (replacing the existing WordPress site at
 1. Add `shallsconstruction.com` in Resend → Domains; publish the DNS records they give you.
 2. Once verified, set `FORM_FROM_EMAIL` to e.g. `Shall's Construction <website@shallsconstruction.com>` and redeploy.
 
-## 5. WordPress cutover
+## 5. WordPress redirect table
+
+These are implemented in `shared/routes.ts` and enforced by the Express middleware (one hop):
+
+| Legacy path | Status | Target |
+| --- | --- | --- |
+| `/what-we-do`, `/what-we-do/` | 301 | `/services/construction-remodeling` |
+| `/who-we-serve/` | 301 | `/who-we-serve` |
+| `/contact/` | 301 | `/contact` |
+| `/privacy-policy/` | 301 | `/privacy-policy` |
+| `/category/article`, `/category/article/` | 301 | `/` |
+| `/your-property-maintenance-checklist-for-the-winter/` | 301 | `/` |
+| `/seasonal-checklist/` | 301 | `/` |
+| `/hello-world/` | 301 | `/` |
+| Any other trailing slash | 301 | Same path without slash |
+| `/wp-login.php` | 410 | Gone |
+| `/wp-admin`, `/wp-admin/*` | 410 | Gone |
 
 Leave WordPress live until:
 
@@ -44,11 +60,9 @@ Leave WordPress live until:
 3. Contact form delivers a test email with Resend.
 4. Then lower WordPress TTL and flip DNS.
 
-Legacy path 301s (see `shared/routes.ts` `LEGACY_REDIRECTS`): `/what-we-do`, `/about-us`, `/contact-us`, `/privacy-policy`, service aliases, etc.
-
 ## 6. Post-launch checks
 
 1. Google Search Console → property `https://shallsconstruction.com` → submit `https://shallsconstruction.com/sitemap.xml`.
 2. Confirm GA4 realtime hits if `VITE_GA4_MEASUREMENT_ID` was set at build.
 3. Submit a real contact form and confirm the email arrives.
-4. Spot-check `/`, `/about`, `/services/construction-remodeling`, `/contact`, `/privacy`, a 404, and `/api/health`.
+4. Spot-check `/`, `/about`, `/services/construction-remodeling`, `/contact`, `/privacy-policy`, a 404, `/api/health`, and a rate-limit rejection after 6 rapid POSTs.
