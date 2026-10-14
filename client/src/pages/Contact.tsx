@@ -350,7 +350,7 @@ export default function Contact() {
                               <Input
                                 {...field}
                                 type="tel"
-                                placeholder="(301) 555-0123"
+                                placeholder="(301) 000-0000"
                                 data-testid="input-phone"
                               />
                             </FormControl>

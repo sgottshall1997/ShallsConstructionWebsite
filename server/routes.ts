@@ -9,63 +9,8 @@ import { COMPANY } from "@shared/company";
 import path from "path";
 import fs from "fs";
 
-// Authentication middleware
-const requireAuth = (req: Request, res: Response, next: NextFunction) => {
-  if (req.session.authenticated) {
-    next();
-  } else {
-    res.status(401).json({ error: "Unauthorized" });
-  }
-};
-
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Auth routes (public)
-  app.post("/api/auth/login", (req, res) => {
-    const { password } = req.body;
-    const sitePassword = process.env.SITE_PASSWORD;
-    
-    if (!sitePassword) {
-      // If no password is set, allow access
-      req.session.authenticated = true;
-      return res.json({ success: true });
-    }
-    
-    if (password === sitePassword) {
-      req.session.authenticated = true;
-      res.json({ success: true });
-    } else {
-      res.status(401).json({ error: "Invalid password" });
-    }
-  });
-
-  app.post("/api/auth/logout", (req, res) => {
-    req.session.destroy((err) => {
-      if (err) {
-        res.status(500).json({ error: "Failed to logout" });
-      } else {
-        res.json({ success: true });
-      }
-    });
-  });
-
-  app.get("/api/auth/check", (req, res) => {
-    const sitePassword = process.env.SITE_PASSWORD;
-    res.json({ 
-      authenticated: req.session.authenticated || !sitePassword,
-      passwordRequired: !!sitePassword
-    });
-  });
-
   // Public API routes
-  app.get("/api/articles", async (_req, res) => {
-    try {
-      const articles = await storage.getAllArticles();
-      res.json(articles);
-    } catch (error) {
-      console.error("Error fetching articles:", error);
-      res.status(500).json({ error: "Failed to fetch articles" });
-    }
-  });
 
   app.get("/api/services", async (_req, res) => {
     try {
@@ -90,71 +35,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/projects/featured", async (_req, res) => {
-    try {
-      const projects = await storage.getFeaturedProjects();
-      res.json(projects);
-    } catch (error) {
-      console.error("Error fetching featured projects:", error);
-      res.status(500).json({ error: "Failed to fetch featured projects" });
-    }
-  });
 
-  app.get("/api/projects/:slug", async (req, res) => {
-    try {
-      const project = await storage.getProjectBySlug(req.params.slug);
-      if (!project) {
-        return res.status(404).json({ error: "Project not found" });
-      }
-      res.json(project);
-    } catch (error) {
-      console.error("Error fetching project:", error);
-      res.status(500).json({ error: "Failed to fetch project" });
-    }
-  });
 
-  app.get("/api/projects", async (_req, res) => {
-    try {
-      const projects = await storage.getAllProjects();
-      res.json(projects);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-      res.status(500).json({ error: "Failed to fetch projects" });
-    }
-  });
 
-  app.get("/api/blog/category/:category", async (req, res) => {
-    try {
-      const blogPosts = await storage.getBlogPostsByCategory(req.params.category);
-      res.json(blogPosts);
-    } catch (error) {
-      console.error("Error fetching blog posts by category:", error);
-      res.status(500).json({ error: "Failed to fetch blog posts" });
-    }
-  });
 
-  app.get("/api/blog/:slug", async (req, res) => {
-    try {
-      const blogPost = await storage.getBlogPostBySlug(req.params.slug);
-      if (!blogPost) {
-        return res.status(404).json({ error: "Blog post not found" });
-      }
-      res.json(blogPost);
-    } catch (error) {
-      console.error("Error fetching blog post:", error);
-      res.status(500).json({ error: "Failed to fetch blog post" });
-    }
-  });
 
-  app.get("/api/blog", async (_req, res) => {
-    try {
-      const blogPosts = await storage.getAllBlogPosts();
-      res.json(blogPosts);
-    } catch (error) {
-      console.error("Error fetching blog posts:", error);
-      res.status(500).json({ error: "Failed to fetch blog posts" });
-    }
-  });
 
   app.get("/api/testimonials/featured", async (_req, res) => {
     try {
@@ -166,15 +51,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/testimonials/service/:serviceType", async (req, res) => {
-    try {
-      const testimonials = await storage.getTestimonialsByService(req.params.serviceType);
-      res.json(testimonials);
-    } catch (error) {
-      console.error("Error fetching testimonials by service:", error);
-      res.status(500).json({ error: "Failed to fetch testimonials" });
-    }
-  });
 
   app.get("/api/testimonials", async (_req, res) => {
     try {
@@ -186,28 +62,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/locations/:slug", async (req, res) => {
-    try {
-      const location = await storage.getLocationBySlug(req.params.slug);
-      if (!location) {
-        return res.status(404).json({ error: "Location not found" });
-      }
-      res.json(location);
-    } catch (error) {
-      console.error("Error fetching location:", error);
-      res.status(500).json({ error: "Failed to fetch location" });
-    }
-  });
 
-  app.get("/api/locations", async (_req, res) => {
-    try {
-      const locations = await storage.getAllLocations();
-      res.json(locations);
-    } catch (error) {
-      console.error("Error fetching locations:", error);
-      res.status(500).json({ error: "Failed to fetch locations" });
-    }
-  });
 
   app.post("/api/contact", async (req, res) => {
     try {
