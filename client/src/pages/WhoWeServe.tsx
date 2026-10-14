@@ -6,6 +6,17 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Building2, School, Home, Stethoscope, Landmark, ArrowRight } from "lucide-react";
 import { COMPANY, yearsText, telHref } from "@shared/company";
+import associaLogo from "@assets/Associa_1761838352452.png";
+import comsourceLogo from "@assets/comsource_1761838352453.png";
+import acmLogo from "@assets/american community management_1761838352452.png";
+import mmiLogo from "@assets/mmi logo_1761838352451.png";
+
+const CLIENT_LOGOS: Record<string, string> = {
+  associa: associaLogo,
+  comsource: comsourceLogo,
+  acm: acmLogo,
+  mmi: mmiLogo,
+};
 
 const audiences = [
   { icon: Building2, title: "Retail & Office Buildings", description: "Tenant turnovers, common-area refreshes, and exterior work that keep leasing strong." },
@@ -69,8 +80,12 @@ export default function WhoWeServe() {
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8">Clients We Work With</h2>
             <ul className="flex flex-wrap justify-center gap-6">
               {COMPANY.clients.map((c) => (
-                <li key={c.name} className="bg-white border border-gray-200 rounded-lg px-6 py-4 text-gray-800 font-semibold" data-testid={`client-${c.logo}`}>
-                  {c.name}
+                <li key={c.name} className="bg-white border border-gray-200 rounded-lg px-6 py-4 flex items-center" data-testid={`client-${c.logo}`}>
+                  {CLIENT_LOGOS[c.logo] ? (
+                    <img src={CLIENT_LOGOS[c.logo]} alt={`${c.name} logo`} className="h-12 w-auto object-contain" loading="lazy" width="160" height="48" />
+                  ) : (
+                    <span className="text-gray-800 font-semibold">{c.name}</span>
+                  )}
                 </li>
               ))}
             </ul>

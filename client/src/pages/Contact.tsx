@@ -471,7 +471,7 @@ export default function Contact() {
                       {submitMutation.isPending
                         ? "Sending..."
                         : inquiryType === "quote"
-                        ? "Request Quote"
+                        ? "Request a Quote"
                         : "Submit"}
                     </Button>
 

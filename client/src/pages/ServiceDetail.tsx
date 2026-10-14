@@ -84,7 +84,7 @@ export default function ServiceDetail() {
           <p className="text-lg text-gray-600 mb-8">
             The service you're looking for doesn't exist or has been moved.
           </p>
-          <Link href="/"><span className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors" data-testid="button-view-all-services">
+          <Link href="/#services"><span className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors" data-testid="button-view-all-services">
               View All Services
             </span></Link>
         </div>
