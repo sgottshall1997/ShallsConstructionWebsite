@@ -5,7 +5,7 @@ import { storage } from "./storage";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 import { sendContactNotification } from "./email";
-import { LEGACY_REDIRECTS, SERVICE_SLUGS, STATIC_ROUTES, BUILD_DATE } from "@shared/routes";
+import { LEGACY_REDIRECTS, GONE_PATTERNS, SERVICE_SLUGS, STATIC_ROUTES, BUILD_DATE } from "@shared/routes";
 import { COMPANY } from "@shared/company";
 import path from "path";
 import fs from "fs";
@@ -101,10 +101,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Legacy WordPress / trailing-slash redirects (301)
+  // Legacy WordPress / trailing-slash redirects (301) and Gone (410)
   app.use((req, res, next) => {
     const raw = req.path;
     const query = req.url.slice(raw.length);
+    const lower = raw.toLowerCase();
+    if (GONE_PATTERNS.some((re) => re.test(lower))) {
+      return res.status(410).type("text/plain").send("Gone");
+    }
+    const legacyExact = LEGACY_REDIRECTS[lower] ?? LEGACY_REDIRECTS[raw];
+    if (legacyExact) return res.redirect(301, legacyExact + query);
     const normalized = raw.length > 1 ? raw.replace(/\/+$/, "") : raw;
     const legacy = LEGACY_REDIRECTS[normalized.toLowerCase()];
     if (legacy) return res.redirect(301, legacy + query);

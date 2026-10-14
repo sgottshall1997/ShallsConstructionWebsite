@@ -88,9 +88,13 @@ export function serveStatic(app: Express) {
   const known = new Set(ALL_ROUTES);
   const projectPaths = new Set(COMPANY.projects.map((p) => `/projects/${p.slug}`));
 
-  // SPA shell: 200 for routed pages, 404 (same shell, renders NotFound) otherwise
+  // SPA shell: 200 for routed pages, 404 (same shell, renders NotFound) otherwise.
+  // Paths that look like files (have an extension) stay 404 without the SPA shell.
   app.use("*", (req, res) => {
     const p = req.baseUrl || req.path;
+    if (/\.[a-zA-Z0-9]{1,8}$/.test(p) && !known.has(p)) {
+      return res.status(404).type("text/plain").send("Not found");
+    }
     const status = known.has(p) || projectPaths.has(p) ? 200 : 404;
     res.status(status).sendFile(path.resolve(distPath, "index.html"));
   });
