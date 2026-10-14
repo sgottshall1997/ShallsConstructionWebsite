@@ -15,7 +15,7 @@ import exteriorImg from "@assets/generated_images/Exterior_Building_Services_wor
 import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.webp";
 import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.webp";
 import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.webp";
-import { COMPANY, yearsText, telHref } from "@shared/company";
+import { COMPANY, yearsText, telHref, emergencyLine } from "@shared/company";
 import { SERVICE_NAMES } from "@shared/routes";
 
 export default function Home() {
@@ -32,7 +32,7 @@ export default function Home() {
     { icon: Award, label: `${COMPANY.yearsInBusiness}+`, sublabel: "Years in Business" },
     { icon: Users, label: `${COMPANY.selfPerformedPercent}%`, sublabel: "Self-Performed Work" },
     { icon: MapPin, label: COMPANY.regionShort, sublabel: "Service Area" },
-    { icon: Clock, label: "1 Business Day", sublabel: "Inquiry Response" },
+    ...(COMPANY.emergencyService ? [{ icon: Clock, label: "24/7/365", sublabel: "Emergency Response" }] : []),
   ];
 
   const faqs = [
@@ -76,7 +76,7 @@ export default function Home() {
             The DMV's Trusted Commercial Contractor for Property Managers
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
-            Property managers across {COMPANY.regionShort} rely on Shall's because we show up, deliver, and finish the job right. {COMPANY.tagline}.
+            Property managers across {COMPANY.regionShort} rely on Shall's because we show up, deliver, and finish the job right.{COMPANY.emergencyService && <> {emergencyLine()}</>} {COMPANY.tagline}.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact">

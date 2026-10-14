@@ -14,7 +14,7 @@ Every company fact lives in `shared/company.ts` as `COMPANY`. Change a field the
 | States served | `serviceStates` | Currently `["MD","VA","DC"]` |
 | License numbers | `licenses[]` (`{state,number}`) | Empty → no license list; `/safety` stays hidden |
 | Insurance one-liner | `insuranceLine` | Always shown on About (default: certificates upon request) |
-| Response promise (one sentence) | `responsePromise` | Default: "We respond to all inquiries within one business day." Used on Home, Who We Serve, Contact banner, form success toast. No 24/7 claims. |
+| Response promise (one sentence) | `responsePromise` | Default: "We respond to all inquiries within one business day." Used on Home, Who We Serve, Contact banner, form success toast. Do you still offer 24/7/365 emergency response? Which number? ____ |
 | Family-owned? | `familyBusinessClaim` (`true`/`false`) | `false` → no family-business claims |
 | 3–6 real projects (name, city, scope, photo path, slug) | `projects[]` | Empty → `/projects` route, nav, footer, sitemap all omitted |
 | 2–3 real testimonials **with written permission** | `testimonials[]` | Empty → testimonials section not rendered; no fetch |

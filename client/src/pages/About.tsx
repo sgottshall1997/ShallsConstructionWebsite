@@ -6,7 +6,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import aboutHeroImg from "@assets/generated_images/Professional_construction_team_photo_9128835a.webp";
-import { COMPANY, yearsText, inHouseText } from "@shared/company";
+import { COMPANY, yearsText, inHouseText, emergencyLine } from "@shared/company";
 
 export default function About() {
   const values = [
@@ -19,10 +19,7 @@ export default function About() {
       description:
         "We understand work orders, insurance paperwork, and occupied buildings, and we schedule around your tenants.",
     },
-    {
-      title: "Always Reachable",
-      description: COMPANY.responsePromise,
-    },
+    ...(COMPANY.emergencyService ? [{ title: "Always Reachable", description: emergencyLine() }] : []),
     {
       title: "Construction to Snow Removal",
       description:

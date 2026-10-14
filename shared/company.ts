@@ -40,6 +40,7 @@ export const COMPANY = {
   licenses: [] as CompanyLicense[], // CONFIRM WITH PARENTS
   insuranceLine: "Certificates of insurance available upon request.", // CONFIRM WITH PARENTS
   responsePromise: "We respond to all inquiries within one business day.", // CONFIRM WITH PARENTS
+  emergencyService: true, // CONFIRM WITH PARENTS
   familyBusinessClaim: false, // CONFIRM WITH PARENTS
   projects: [] as CompanyProject[], // CONFIRM WITH PARENTS
   testimonials: [] as CompanyTestimonial[], // CONFIRM WITH PARENTS
@@ -58,6 +59,10 @@ export const COMPANY = {
 };
 
 /* ---------- derived helpers (no new facts below) ---------- */
+/** "24/7/365 emergency response — call (301) 933-6277 any time." (built from COMPANY.phone). Empty when emergencyService is false. */
+// CONFIRM WITH PARENTS
+export const emergencyLine = () =>
+  COMPANY.emergencyService ? `24/7/365 emergency response — call ${COMPANY.phone} any time.` : "";
 export const yearsText = () => `${COMPANY.yearsInBusiness}+ years`;
 export const inHouseText = () => `${COMPANY.selfPerformedPercent}% of our work is self-performed by our own crews`;
 export const telHref = () => `tel:${COMPANY.phoneE164}`;
@@ -76,5 +81,6 @@ export function fillCompanyTokens(text: string): string {
   return text
     .split("{{years}}").join(yearsText())
     .split("{{region}}").join(COMPANY.regionShort)
-    .split("{{inHouse}}").join(inHouseText());
+    .split("{{inHouse}}").join(inHouseText())
+    .split("{{emergencyLead}}").join(COMPANY.emergencyService ? `Emergencies don't keep business hours: we offer ${emergencyLine()} ` : "");
 }

@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { COMPANY, telHref } from "@shared/company";
+import { COMPANY, telHref, emergencyLine } from "@shared/company";
 
 interface ServiceCTAProps { serviceSlug?: string; serviceTitle?: string }
 
@@ -9,6 +9,9 @@ export default function ServiceCTA({ serviceSlug }: ServiceCTAProps) {
   return (
     <section className="bg-gray-50 rounded-lg p-8 my-12" id="cta-standard">
       <h2 className="text-3xl font-heading font-bold text-center mb-6">Ready to Start Your Project?</h2>
+      {COMPANY.emergencyService && (
+        <p className="text-center text-gray-700 mb-6" data-testid="text-cta-emergency">{emergencyLine()}</p>
+      )}
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <Link href={`/contact${queryParam}`}>
           <Button size="lg" className="btn-primary" data-testid="button-request-quote">Request a Quote</Button>

@@ -31,7 +31,7 @@ import { Phone, Printer, Mail, MapPin, Clock, FileText } from "lucide-react";
 import { insertContactSubmissionSchema, type InsertContactSubmission } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { trackContactFormSubmit, trackCTAClick, trackPhoneClick } from "@/lib/analytics";
-import { COMPANY, mailto, telHref } from "@shared/company";
+import { COMPANY, mailto, telHref, emergencyLine } from "@shared/company";
 import { SERVICE_SLUGS, SERVICE_NAMES } from "@shared/routes";
 
 type InquiryType = "quote" | "general";
@@ -171,6 +171,9 @@ export default function Contact() {
                 {COMPANY.responsePromise}
               </h2>
             </div>
+            {COMPANY.emergencyService && (
+              <p className="text-gray-900 font-semibold mb-2" data-testid="text-emergency-line">{emergencyLine()}</p>
+            )}
             <p className="text-gray-700">
               Call us or send a work order or quote request below.
             </p>

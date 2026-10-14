@@ -108,7 +108,7 @@ export class MemStorage implements IStorage {
         featured: true,
         shortDescription: "Professional commercial handyman services with rapid response and reliable execution for property managers.",
         seoTitle: "Commercial Handyman Services | Montgomery County, MD | Shall's Construction",
-        seoDescription: "Professional commercial handyman services in Montgomery County, Bethesda, and Kensington. Trusted by property managers for repairs, maintenance,."
+        seoDescription: `Commercial handyman repairs and maintenance for property managers across ${COMPANY.regionShort}.`
       },
       "exterior-building-services": {
         title: SERVICE_NAMES["exterior-building-services"],

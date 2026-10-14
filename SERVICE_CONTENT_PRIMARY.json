@@ -23,7 +23,7 @@
   "handyman-services": {
     "slug": "handyman-services",
     "tagline": "Fast, skilled repairs that keep your properties running smoothly",
-    "philosophy": "That's why property managers keep our number saved. For quick repairs and skilled maintenance, we're the handyman service that actually shows up on time. Drywall patches, door repairs, ceiling tiles, fixtures: whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small, no timeline too tight. Our team responds fast because we understand that small problems become big headaches when they're not fixed promptly. Because {{inHouse}}, you work with the same skilled technicians who know your properties.",
+    "philosophy": "{{emergencyLead}}Property managers keep our number saved for quick repairs and skilled maintenance, because we show up on time. Drywall patches, door repairs, ceiling tiles, fixtures: whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small, no timeline too tight. Our team responds fast because we understand that small problems become big headaches when they're not fixed promptly. Because {{inHouse}}, you work with the same skilled technicians who know your properties.",
     "servicesInclude": [
       "Door and hardware repair and replacement",
       "Drywall repair and patch work",
@@ -45,7 +45,7 @@
   "exterior-building-services": {
     "slug": "exterior-building-services",
     "tagline": "Protecting your property investment with expert exterior solutions",
-    "philosophy": "Water leaking through your building facade? Crumbling masonry threatening your property's curb appeal? These aren't just cosmetic issues. They're costly problems that get worse with time. For {{years}}, property managers have trusted Shall's Construction to protect their most valuable assets with expert exterior building services. Our waterproofing specialists and skilled masons are experts in building envelope systems. We conduct thorough leak investigations, implement proper waterproofing protocols, and use quality materials that stand up to Mid-Atlantic weather. From facade restoration to concrete repair, we bring technical expertise and meticulous craftsmanship to every exterior challenge. We work efficiently to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants",
+    "philosophy": "Water leaking through your building facade? Crumbling masonry threatening your property's curb appeal? These aren't just cosmetic issues. They're costly problems that get worse with time. For {{years}}, property managers have trusted Shall's Construction to protect their most valuable assets with expert exterior building services. Our waterproofing specialists and skilled masons are experts in building envelope systems. We conduct thorough leak investigations, implement proper waterproofing protocols, and use quality materials that stand up to Mid-Atlantic weather. From facade restoration to concrete repair, we bring technical expertise and meticulous craftsmanship to every exterior challenge. We work efficiently to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants. {{emergencyLead}}",
     "servicesInclude": [
       "Full joint-sealant replacement",
       "Façade power washing",
@@ -130,7 +130,7 @@
   "snow-removal": {
     "slug": "snow-removal",
     "tagline": "Proactive winter services that keep your property safe and accessible",
-    "philosophy": "That's why property managers contract with us for winter services: we monitor weather forecasts, pre-treat surfaces, and have crews ready to roll the moment snow starts falling. Your parking lot will be clear before your first tenant arrives. For {{years}}, we've provided reliable snow and ice management throughout {{region}}. Our systematic approach includes pre-season planning, real-time weather monitoring, and efficient crew coordination. We work during off-hours whenever possible, often completing service before your tenants even know it snowed. Professional ice management using proper de-icing techniques protects both safety and your surfaces.",
+    "philosophy": "{{emergencyLead}}Property managers contract with us for winter services: we monitor weather forecasts, pre-treat surfaces, and have crews ready to roll the moment snow starts falling. Your parking lot will be clear before your first tenant arrives. For {{years}}, we've provided reliable snow and ice management throughout {{region}}. Our systematic approach includes pre-season planning, real-time weather monitoring, and efficient crew coordination. We work during off-hours whenever possible, often completing service before your tenants even know it snowed. Professional ice management using proper de-icing techniques protects both safety and your surfaces.",
     "servicesInclude": [
       "Commercial parking lot snow plowing",
       "Sidewalk and walkway snow clearing",
