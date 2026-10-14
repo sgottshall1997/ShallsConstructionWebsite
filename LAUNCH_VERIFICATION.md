@@ -1,6 +1,6 @@
 # Launch verification: `launch-prep` branch
 
-Audited against the authoritative brief (`shalls-section1-fixes`). Every commit, including each "N (fix)" follow-up, passed `npm ci && npm run check && npm run build` before it was made.
+Audited against the authoritative briefs (`shalls-section1-fixes`, then Round 2 `shalls-round2`). Every commit, including each "N (fix)" follow-up, passed `npm ci && npm run check && npm run build` before it was made.
 
 Script: `scripts/verify-launch.sh`. It starts a production server (`NODE_ENV=production`, port 5055) and a development server (port 5056, used for the no-key 201 path and the rate-limit test).
 
@@ -12,7 +12,7 @@ Script: `scripts/verify-launch.sh`. It starts a production server (`NODE_ENV=pro
 | `npm run check` (`tsc`) | PASS |
 | `npm run build` | PASS |
 
-## Automated checks (36/36 PASS)
+## Automated checks (46/46 PASS)
 
 ```
 PASS  GET / -> 200
@@ -51,7 +51,17 @@ PASS  POST honeypot -> 200
 PASS  rate limit 5/min (saw 429 among:  201 201 201 429 429 429)
 PASS  one h1 marker per page component
 PASS  final placeholder grep zero
---- SUMMARY pass=36 fail=0 ---
+PASS  API service titles == SERVICE_NAMES
+PASS  API content: no 'That's why property managers'
+PASS  API content: emergency line present
+PASS  API content: no invented specifics
+PASS  Source: "What's Included" heading
+PASS  Source: emergencyLine on Home/Contact/ServiceCTA/About
+PASS  Source: responsePromise used 4x (banner, 2 toast variants, Home FAQ)
+PASS  Content: 'For {{years}}' at most twice
+PASS  JSON: no seoTitle/seoDescription
+PASS  Extended R2 grep zero (code)
+--- SUMMARY pass=46 fail=0 ---
 ```
 
 ## Security headers (production)
@@ -75,7 +85,8 @@ PASS  final placeholder grep zero
 - One email: `COMPANY.email` (`shallsconstructionllc@aol.com`).
 - Years are always shown as `${yearsInBusiness}+ years` (25+). `foundedYear` is null, so "since YEAR" never appears.
 - `selfPerformedPercent` 95 is shown on Home and About.
-- Response promise: "We respond to all inquiries within one business day." It appears on Home, Who We Serve, the Contact banner and the success toast. No 24/7 or emergency claims remain anywhere.
+- Response promise: "We respond to all inquiries within one business day." It appears only in the Contact banner, the Home FAQ answer and the form success toast.
+- Emergency service (R2-A): `emergencyService: true` renders "24/7/365 emergency response — call (301) 933-6277 any time." on the Home hero and 4th stat tile, Contact banner, ServiceCTA and About "Always Reachable". It is not used as the response-time promise. Marked CONFIRM WITH PARENTS.
 - `insuranceLine` is always shown on About.
 - Projects, Safety and Testimonials are hidden while their data is empty. That covers routes, nav, footer, sitemap and Home sections.
 - JSON-LD has exactly one Organization and one LocalBusiness, both from `client/lib/schema.ts`:
@@ -86,6 +97,15 @@ PASS  final placeholder grep zero
 - One H1 per page component.
 - Service names match the brief. The only CTAs are "Request a Quote" and "Call (301) 933-6277".
 - Final placeholder grep returns zero hits, including `*.json`/`package-lock.json`, so there were no dependency false positives.
+
+## Round 2 (A–F)
+
+- A: emergency response restored; orphaned handyman/snow/exterior sentences repaired; handyman meta fixed.
+- B: invented specifics removed (three weeks, sq ft figures, updated daily, crisp two years, weather monitoring/standby crews, permitting, after hours/weekends, timeline too tight, infection-control, compliant, exclusively); Home H1 uses `COMPANY.regionShort`; no DMV/Montgomery County/Mid-Atlantic; About title from `COMPANY.address`.
+- C: "What's Included" heading with `<li>` items; `SERVICE_NAMES` is the H1 and storage title; JSON SEO fields deleted; `/projects` related link only when projects exist; nav/footer labels About/Contact/Safety; contact placeholders; privacy date, link and curly quotes; footer uses `COMPANY.tagline`; stars only when a rating exists.
+- D: repetition trimmed; philosophies varied ("For {{years}}" twice); About value renamed "Made for How Property Managers Work".
+- E: FILL_IN_FACTS.md is now a plain owner questionnaire; the field mapping lives in DEV_FACTS_MAP.md.
+- F: extended grep (original + `DMV|Montgomery County|Mid-Atlantic|sq ft|three weeks|Services Services|That's why property managers`) has zero hits in client/, server/, shared/, public/, client/index.html and *.json.
 
 ## Not done / deferred to owners
 
