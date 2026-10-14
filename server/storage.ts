@@ -148,7 +148,7 @@ export class MemStorage implements IStorage {
         featured: true,
         shortDescription: `Commercial snow removal and ice management across ${COMPANY.regionShort}.`,
         seoTitle: `Snow Removal | Ice Management | ${COMPANY.regionShort}`,
-        seoDescription: `Reliable commercial snow removal and ice management services across ${COMPANY.regionShort}. ${COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase())}.`
+        seoDescription: `Reliable commercial snow removal and ice management services across ${COMPANY.regionShort}.`
       }
     };
 

@@ -12,10 +12,10 @@ export default function About() {
   const values = [
     {
       title: "Your Own Crews, Not a Chain of Subs",
-      description: `${inHouseText().replace(/^./, (c) => c.toUpperCase())}, so quality and accountability stay with us from estimate to final walkthrough.`,
+      description: "Quality and accountability stay with one team from estimate to final walkthrough.",
     },
     {
-      title: "Built for Property Managers",
+      title: "Made for How Property Managers Work",
       description:
         "We understand work orders, insurance paperwork, and occupied buildings, and we schedule around your tenants.",
     },
@@ -90,7 +90,7 @@ export default function About() {
               After working for years alongside property managers, {COMPANY.name} built its approach around how they actually work: clear communication, reliable scheduling, and crews that understand occupied buildings.
             </p>
             <p className="leading-relaxed">
-              Because {inHouseText()}, you deal with one accountable team. Managing multiple properties, tight budgets, and demanding tenants is hard enough. We focus on responsiveness, clear communication, and quality control so your tenants stay satisfied.
+              Because {inHouseText()}, you deal with one accountable team. We focus on responsiveness, clear communication, and quality control so your tenants stay satisfied.
             </p>
             {COMPANY.insuranceLine && (
               <p className="leading-relaxed mt-6 text-gray-700 font-medium" data-testid="text-insurance">

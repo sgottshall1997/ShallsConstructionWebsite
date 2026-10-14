@@ -1,8 +1,8 @@
 {
   "construction-remodeling": {
     "slug": "construction-remodeling",
-    "tagline": "From white box buildouts to complete office renovations, all delivered on schedule and within budget",
-    "philosophy": "Need to turn a white box into a functioning office space? We do that. Renovate a lobby without disrupting tenants? That's our specialty. For {{years}}, property managers have called us when they need commercial construction done right, on time, and within budget. From tenant buildouts to complete office remodels, we bring the same methodical approach: detailed planning, clear communication, and quality craftsmanship. Our team keeps you updated so you never have to wonder what's happening on site. We handle every facet of commercial construction through final walkthrough. Whether you're preparing a space for a new tenant or renovating common areas, our own crews ensure consistent quality and direct accountability.",
+    "tagline": "From white box buildouts to complete office renovations",
+    "philosophy": "Need to turn a white box into a functioning office space? We do that. Renovate a lobby without disrupting tenants? That's our specialty. For {{years}}, property managers have called us when they need commercial construction done right and on time. From tenant buildouts to complete office remodels, we plan the work carefully and keep you informed, so you never have to wonder what's happening on site. We handle the job through final walkthrough. Whether you're preparing a space for a new tenant or renovating common areas, our own crews ensure consistent quality and direct accountability.",
     "servicesInclude": [
       "White box space preparation for lease",
       "Commercial interior buildout and remodeling",
@@ -21,7 +21,7 @@
   "handyman-services": {
     "slug": "handyman-services",
     "tagline": "Fast, skilled repairs that keep your properties running smoothly",
-    "philosophy": "{{emergencyLead}}Property managers keep our number saved for quick repairs and skilled maintenance, because we show up on time. Drywall patches, door repairs, ceiling tiles, fixtures: whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small. Our team responds fast because we understand that small problems become big headaches when they're not fixed promptly. Because {{inHouse}}, you work with the same skilled technicians who know your properties.",
+    "philosophy": "{{emergencyLead}}Property managers keep our number saved for quick repairs and skilled maintenance, because we show up on time. Drywall patches, door repairs, ceiling tiles, fixtures: whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small. We respond fast because small problems become big headaches when they're not fixed promptly, and you work with technicians who get to know your properties.",
     "servicesInclude": [
       "Door and hardware repair and replacement",
       "Drywall repair and patch work",
@@ -41,7 +41,7 @@
   "exterior-building-services": {
     "slug": "exterior-building-services",
     "tagline": "Protecting your property investment with expert exterior solutions",
-    "philosophy": "Water leaking through your building facade? Crumbling masonry threatening your property's curb appeal? These aren't just cosmetic issues. They're costly problems that get worse with time. For {{years}}, property managers have trusted Shall's Construction to protect their most valuable assets with expert exterior building services. Our experienced waterproofing and masonry crews handle the work. We conduct thorough leak investigations, implement proper waterproofing protocols, and use quality materials that stand up to local weather. From facade restoration to concrete repair, we bring technical expertise and meticulous craftsmanship to every exterior challenge. We work efficiently to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants. {{emergencyLead}}",
+    "philosophy": "Water leaking through a facade or crumbling masonry isn't just cosmetic. It's a costly problem that gets worse with time. Our experienced waterproofing and masonry crews investigate leaks, repair the building envelope, and use quality materials that stand up to local weather. From facade restoration to concrete repair, we work to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants. {{emergencyLead}}",
     "servicesInclude": [
       "Full joint-sealant replacement",
       "Façade power washing",
@@ -62,8 +62,8 @@
   },
   "parking-lot-services": {
     "slug": "parking-lot-services",
-    "tagline": "Professional asphalt and concrete services that enhance your property's first impression",
-    "philosophy": "Your parking lot is the first thing tenants and visitors see. Cracks, potholes, and faded striping don't just look unprofessional. They're safety hazards and liability risks. Property managers rely on Shall's Construction to keep their parking areas safe, functional, and attractive. From asphalt repairs to complete resurfacing, our paving specialists deliver quality work that lasts. We schedule projects to minimize disruption. Whether you need crack sealing, sealcoating, or fresh striping for ADA compliance, we handle it efficiently. We bring {{years}} of experience to every paving project. Our crews work systematically to protect adjacent landscaping and coordinate with your property schedule.",
+    "tagline": "Professional asphalt and concrete services for commercial properties",
+    "philosophy": "Your parking lot is the first thing tenants and visitors see. Cracks, potholes, and faded striping don't just look unprofessional. They're safety hazards and liability risks. We keep parking areas safe, functional, and attractive, from asphalt repairs to complete resurfacing. We schedule projects to minimize disruption. Whether you need crack sealing, sealcoating, or fresh striping for ADA compliance, we protect adjacent landscaping and coordinate with your property schedule.",
     "servicesInclude": [
       "Patching",
       "Paving",
@@ -97,7 +97,7 @@
   "painting-services": {
     "slug": "painting-services",
     "tagline": "Precision painting that refreshes your property and protects your investment",
-    "philosophy": "There's commercial painting, and then there's commercial painting done right. Proper surface prep. Quality paints that last. Precise application. Protection of floors, fixtures, and HVAC systems. That's what you get with Shall's. For {{years}}, we've painted everything from small office suites to large commercial buildings across {{region}}. The difference? We don't cut corners, and we don't leave a mess. Our painting professionals follow systematic protocols: thorough surface preparation, premium materials, meticulous application, and complete cleanup. We excel at working around occupied spaces. Projects are carefully scheduled and phased to minimize tenant disruption. From interior common areas to exterior facades, from garage coatings to specialty finishes, we deliver lasting results that enhance your property's appearance and value.",
+    "philosophy": "Commercial painting done right starts with proper surface prep, quality paints that last, and protection of floors, fixtures, and HVAC systems. We've painted everything from small office suites to large commercial buildings across {{region}}. We don't cut corners, and we don't leave a mess: thorough preparation, quality materials, careful application, and complete cleanup. Projects are scheduled and phased to minimize tenant disruption, from interior common areas to exterior facades, garage coatings, and specialty finishes.",
     "servicesInclude": [
       "Interior commercial painting and wall finishes",
       "Exterior building painting and coatings",
@@ -120,7 +120,7 @@
   "snow-removal": {
     "slug": "snow-removal",
     "tagline": "Proactive winter services that keep your property safe and accessible",
-    "philosophy": "{{emergencyLead}}Property managers contract with us for winter services: we plan ahead and get your lot cleared early. For {{years}}, we've provided reliable snow and ice management throughout {{region}}. Our systematic approach includes pre-season planning and efficient crew coordination. We work during off-hours whenever possible, often completing service before your tenants even know it snowed. Professional ice management using proper de-icing techniques protects both safety and your surfaces.",
+    "philosophy": "{{emergencyLead}}Property managers contract with us for winter services because we plan ahead and get lots cleared early. For {{years}}, we've provided reliable snow and ice management throughout {{region}}, starting with pre-season planning and efficient crew coordination. We work during off-hours whenever possible, and proper de-icing techniques protect both safety and your surfaces.",
     "servicesInclude": [
       "Commercial parking lot snow plowing",
       "Sidewalk and walkway snow clearing",

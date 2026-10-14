@@ -45,10 +45,6 @@ export default function Home() {
       answer: COMPANY.responsePromise,
     },
     {
-      question: "How much of the work is self-performed?",
-      answer: `${COMPANY.selfPerformedPercent}% of our work is performed by our own crews, so you get consistent quality and direct accountability from estimate to completion.`,
-    },
-    {
       question: `What makes ${COMPANY.name} different?`,
       answer: `We specialize in commercial property work and understand COI requirements, tenant coordination, and budget constraints.`,
     },
@@ -119,7 +115,7 @@ export default function Home() {
             Managing work orders, tenants, and budgets is hard enough. For {yearsText()}, we've delivered reliable, no-excuses property maintenance.
           </p>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            {COMPANY.selfPerformedPercent}% of our work is performed by our own crews, so the team on your property already knows commercial standards. {COMPANY.responsePromise}
+            {COMPANY.selfPerformedPercent}% of our work is performed by our own crews, so the team on your property already knows commercial standards.
           </p>
         </div>
       </section>

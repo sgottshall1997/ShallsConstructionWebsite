@@ -58,7 +58,7 @@ export default function WhoWeServe() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
           <p className="text-lg text-gray-600 leading-relaxed">
-            We understand work orders and occupied buildings. {COMPANY.responsePromise}
+            We understand work orders and occupied buildings.
           </p>
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,7 +96,7 @@ export default function WhoWeServe() {
       <section className="py-16 md:py-20 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">Ready to Partner With Us?</h2>
-          <p className="text-lg mb-8 text-white/90">{COMPANY.responsePromise}</p>
+          <p className="text-lg mb-8 text-white/90">Tell us about your property and what it needs.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
               <Button size="lg" variant="outline" className="bg-white text-primary border-white hover:bg-white/90">
