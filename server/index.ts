@@ -5,6 +5,15 @@ import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
+// Canonical host: send www.shallsconstruction.com (and any non-canonical host in prod) to the apex
+app.use((req, res, next) => {
+  const host = req.headers.host || "";
+  if (process.env.NODE_ENV === "production" && host.startsWith("www.")) {
+    return res.redirect(301, `https://${host.slice(4)}${req.originalUrl}`);
+  }
+  next();
+});
+
 declare module 'express-session' {
   interface SessionData {
     authenticated?: boolean;

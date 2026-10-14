@@ -49,7 +49,7 @@ export default function LogoGrid({ logos, columns = 4, title, description }: Log
             ) : (
               <div className="text-center">
                 <p className="text-sm font-semibold text-gray-700">{logo.name}</p>
-                <p className="text-xs text-gray-400 mt-1">[Logo Placeholder]</p>
+                
               </div>
             )}
           </div>

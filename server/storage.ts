@@ -167,7 +167,13 @@ export class MemStorage implements IStorage {
 
   private seedServices() {
     // Load service content from SERVICE_CONTENT_PRIMARY.json
-    const serviceContentPath = join(process.cwd(), 'SERVICE_CONTENT_PRIMARY.json');
+    const serviceContentPath = [
+      join(process.cwd(), 'SERVICE_CONTENT_PRIMARY.json'),
+      join(process.cwd(), 'dist', 'SERVICE_CONTENT_PRIMARY.json'),
+      join(import.meta.dirname, 'SERVICE_CONTENT_PRIMARY.json'),
+    ].find((candidate) => {
+      try { readFileSync(candidate); return true; } catch { return false; }
+    }) || join(process.cwd(), 'SERVICE_CONTENT_PRIMARY.json');
     const serviceContent = fillTokensDeep(JSON.parse(readFileSync(serviceContentPath, 'utf-8')));
 
     // Service metadata (images, icons, categories, titles)
