@@ -22,8 +22,8 @@ const audiences = [
   { icon: Building2, title: "Retail & Office Buildings", description: "Tenant turnovers, common-area refreshes, and exterior work that keep leasing strong." },
   { icon: School, title: "Schools & Institutions", description: "Scheduled renovations and maintenance planned around academic calendars." },
   { icon: Home, title: "Apartments & HOAs", description: "Unit turns, amenities, and exterior projects coordinated with residents in place." },
-  { icon: Stethoscope, title: "Medical Suites", description: "Fit-outs and repairs that respect clinical schedules and infection-control needs." },
-  { icon: Landmark, title: "Government Clients", description: "Compliant commercial work for municipal and agency facilities." },
+  { icon: Stethoscope, title: "Medical Suites", description: "Fit-outs and repairs that respect clinical schedules." },
+  { icon: Landmark, title: "Government Clients", description: "Commercial work for municipal and agency facilities." },
 ];
 
 export default function WhoWeServe() {
@@ -50,7 +50,7 @@ export default function WhoWeServe() {
             Built for Property Managers
           </h1>
           <p className="text-xl text-gray-200 leading-relaxed">
-            For {yearsText()}, {COMPANY.name} has specialized exclusively in serving property managers across {COMPANY.regionShort}.
+            For {yearsText()}, {COMPANY.name} has specialized in serving property managers across {COMPANY.regionShort}.
           </p>
         </div>
       </section>

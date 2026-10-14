@@ -73,7 +73,7 @@ export default function Home() {
         </div>
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight" data-testid="text-page-title">
-            The DMV's Trusted Commercial Contractor for Property Managers
+            Commercial Construction &amp; Property Maintenance for Property Managers in {COMPANY.regionShort}
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
             Property managers across {COMPANY.regionShort} rely on Shall's because we show up, deliver, and finish the job right.{COMPANY.emergencyService && <> {emergencyLine()}</>} {COMPANY.tagline}.

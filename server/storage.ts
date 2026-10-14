@@ -107,7 +107,7 @@ export class MemStorage implements IStorage {
         icon: "Wrench",
         featured: true,
         shortDescription: "Professional commercial handyman services with rapid response and reliable execution for property managers.",
-        seoTitle: "Commercial Handyman Services | Montgomery County, MD | Shall's Construction",
+        seoTitle: `Handyman Services | ${COMPANY.regionShort} | Shall's Construction`,
         seoDescription: `Commercial handyman repairs and maintenance for property managers across ${COMPANY.regionShort}.`
       },
       "exterior-building-services": {
@@ -117,7 +117,7 @@ export class MemStorage implements IStorage {
         icon: "Home",
         featured: true,
         shortDescription: "Comprehensive building exterior solutions with preventive maintenance for commercial properties.",
-        seoTitle: "Exterior Building Services | Waterproofing & Restoration | Shall's Construction",
+        seoTitle: `Exterior Building Services | Waterproofing & Restoration | ${COMPANY.regionShort}`,
         seoDescription: `Comprehensive exterior building maintenance and waterproofing services in ${COMPANY.regionShort}. Protect your property with expert facade repair and restoration.`
       },
       "parking-lot-services": {
@@ -127,7 +127,7 @@ export class MemStorage implements IStorage {
         icon: "Car",
         featured: true,
         shortDescription: "Professional parking lot maintenance with attention to detail and operational efficiency for commercial properties.",
-        seoTitle: "Parking Lot Services | Asphalt & Maintenance | Shall's Construction",
+        seoTitle: `Parking Lot Asphalt & Concrete | ${COMPANY.regionShort} | Shall's Construction`,
         seoDescription: `Professional parking lot paving, sealcoating, and striping services across ${COMPANY.regionShort}. Expert asphalt repair and maintenance for commercial properties.`
       },
       "painting-services": {
@@ -137,7 +137,7 @@ export class MemStorage implements IStorage {
         icon: "Paintbrush",
         featured: true,
         shortDescription: "Precision commercial painting for interiors and exteriors with meticulous surface preparation and lasting results.",
-        seoTitle: "Commercial Painting Services | Interior & Exterior | Shall's Construction",
+        seoTitle: `Painting Services | Interior & Exterior | ${COMPANY.regionShort}`,
         seoDescription: `Professional commercial painting services in ${COMPANY.regionShort}. Expert interior and exterior painting with precision application and quality materials.`
       },
       "snow-removal": {
@@ -146,8 +146,8 @@ export class MemStorage implements IStorage {
         imageUrl: "/og-image.png",
         icon: "Snowflake",
         featured: true,
-        shortDescription: `Commercial snow removal and ice management with proactive monitoring and rapid response across the Mid-Atlantic.`,
-        seoTitle: "Commercial Snow Removal | Ice Management | Shall's Construction",
+        shortDescription: `Commercial snow removal and ice management across ${COMPANY.regionShort}.`,
+        seoTitle: `Snow Removal | Ice Management | ${COMPANY.regionShort}`,
         seoDescription: `Reliable commercial snow removal and ice management services across ${COMPANY.regionShort}. ${COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase())}.`
       }
     };

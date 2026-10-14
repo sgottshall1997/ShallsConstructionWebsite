@@ -43,7 +43,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="About Us | Commercial Contractor in Kensington, MD"
+        title={`About Us | Commercial Contractor in ${COMPANY.address.city}, ${COMPANY.address.state}`}
         description={`${COMPANY.legalName} is a commercial contractor in ${COMPANY.address.city}, ${COMPANY.address.state} serving property managers across ${COMPANY.regionShort}.`}
         canonical="/about"
         schemas={schemas}
