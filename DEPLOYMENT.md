@@ -7,7 +7,7 @@ Target: https://shallsconstruction.com (replacing the existing WordPress site at
 1. New Project → Deploy from GitHub → `sgottshall1997/ShallsConstructionWebsite`.
 2. Use branch `main` after this launch-prep PR is merged.
 3. Railway will pick up `railway.json` (Nixpacks, `npm ci && npm run build`, `npm start`, healthcheck `/api/health`).
-4. Fallback: the root `Dockerfile` (Node 20) if Nixpacks fails.
+Do not add a Dockerfile — Railway will prefer it over railway.json.
 
 ## 2. Environment variables
 

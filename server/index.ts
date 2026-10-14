@@ -1,7 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import helmet from "helmet";
 import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+import { serveStatic, log } from "./static";
 
 const app = express();
 app.disable("x-powered-by");
@@ -73,6 +73,9 @@ app.use((req, res, next) => {
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
   if (app.get("env") === "development") {
+    // Non-literal specifier so esbuild does not bundle vite into the production build.
+    const viteModulePath = "./vite";
+    const { setupVite } = (await import(viteModulePath)) as typeof import("./vite");
     await setupVite(app, server);
   } else {
     serveStatic(app);
