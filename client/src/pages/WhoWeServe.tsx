@@ -38,7 +38,7 @@ export default function WhoWeServe() {
     <div className="min-h-screen bg-white">
       <SEO
         title={`Who We Serve | Property Managers in ${COMPANY.regionShort}`}
-        description={`${COMPANY.name} works with property managers of retail, office, schools, apartments, medical suites, and government facilities across ${COMPANY.regionShort}.`}
+        description={`${COMPANY.name} works with property managers of retail and office buildings, schools and universities, apartments and HOAs, hospitals and medical suites, and corporate and government clients across ${COMPANY.regionShort}.`}
         canonical="/who-we-serve"
         schemas={schemas}
       />

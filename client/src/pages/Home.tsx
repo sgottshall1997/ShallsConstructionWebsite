@@ -15,7 +15,7 @@ import exteriorImg from "@assets/generated_images/Exterior_Building_Services_wor
 import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.webp";
 import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.webp";
 import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.webp";
-import { COMPANY, yearsText, telHref, emergencyLine } from "@shared/company";
+import { COMPANY, yearsText, telHref } from "@shared/company";
 import { SERVICE_NAMES } from "@shared/routes";
 
 export default function Home() {
@@ -32,7 +32,6 @@ export default function Home() {
     { icon: Award, label: `${COMPANY.yearsInBusiness}+`, sublabel: "Years in Business" },
     { icon: Users, label: `${COMPANY.selfPerformedPercent}%`, sublabel: "Self-Performed Work" },
     { icon: MapPin, label: COMPANY.regionShort, sublabel: "Service Area" },
-    ...(COMPANY.emergencyService ? [{ icon: Clock, label: "24/7/365", sublabel: "Emergency Response" }] : []),
   ];
 
   const faqs = [
@@ -72,7 +71,7 @@ export default function Home() {
             Commercial Construction &amp; Property Maintenance for Property Managers in {COMPANY.regionShort}
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
-            Property managers across {COMPANY.regionShort} rely on Shall's because we show up, deliver, and finish the job right — one call does it all.{COMPANY.emergencyService && <> {emergencyLine()}</>}
+            Property managers across {COMPANY.regionShort} rely on Shall's because we show up, deliver, and finish the job right — one call does it all.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact">
@@ -93,7 +92,7 @@ export default function Home() {
 
       <section className="py-16 md:py-20 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
             {stats.map((stat, index) => (
               <div key={index} className="text-center" data-testid={`stat-${index}`}>
                 <stat.icon className="h-10 w-10 md:h-12 md:w-12 text-primary mx-auto mb-3" />

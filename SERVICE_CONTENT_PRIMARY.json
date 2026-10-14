@@ -21,7 +21,7 @@
   "handyman-services": {
     "slug": "handyman-services",
     "tagline": "Fast, skilled repairs that keep your properties running smoothly",
-    "philosophy": "{{emergencyLead}}Property managers keep our number saved for quick repairs and skilled maintenance, because we show up on time. Drywall patches, door repairs, ceiling tiles, fixtures: whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small. We respond fast because small problems become big headaches when they're not fixed promptly, and you work with technicians who get to know your properties.",
+    "philosophy": "Property managers keep our number saved for quick repairs and skilled maintenance, because we show up on time. Drywall patches, door repairs, ceiling tiles, fixtures: whatever your property needs, our craftsmen handle it efficiently without the runaround. No job too small. We respond fast because small problems become big headaches when they're not fixed promptly, and you work with technicians who get to know your properties.",
     "servicesInclude": [
       "Door and hardware repair and replacement",
       "Drywall repair and patch work",
@@ -41,7 +41,7 @@
   "exterior-building-services": {
     "slug": "exterior-building-services",
     "tagline": "Protecting your property investment with expert exterior solutions",
-    "philosophy": "Water leaking through a facade or crumbling masonry isn't just cosmetic. It's a costly problem that gets worse with time. Our experienced waterproofing and masonry crews investigate leaks, repair the building envelope, and use quality materials that stand up to local weather. From facade restoration to concrete repair, we work to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants. {{emergencyLead}}",
+    "philosophy": "Water leaking through a facade or crumbling masonry isn't just cosmetic. It's a costly problem that gets worse with time. Our experienced waterproofing and masonry crews investigate leaks, repair the building envelope, and use quality materials that stand up to local weather. From facade restoration to concrete repair, we work to minimize disruption while protecting your property for the long term. Whether you need preventive maintenance or urgent leak repairs, our teams coordinate carefully with your tenants.",
     "servicesInclude": [
       "Full joint-sealant replacement",
       "Façade power washing",
@@ -120,7 +120,7 @@
   "snow-removal": {
     "slug": "snow-removal",
     "tagline": "Proactive winter services that keep your property safe and accessible",
-    "philosophy": "{{emergencyLead}}Property managers contract with us for winter services because we plan ahead and get lots cleared early. For {{years}}, we've provided reliable snow and ice management throughout {{region}}, starting with pre-season planning and efficient crew coordination. We work during off-hours whenever possible, and proper de-icing techniques protect both safety and your surfaces.",
+    "philosophy": "Property managers contract with us for winter services because we plan ahead and get lots cleared early. For {{years}}, we've provided reliable snow and ice management throughout {{region}}, starting with pre-season planning and efficient crew coordination. We work during off-hours whenever possible, and proper de-icing techniques protect both safety and your surfaces.",
     "servicesInclude": [
       "Commercial parking lot snow plowing",
       "Sidewalk and walkway snow clearing",

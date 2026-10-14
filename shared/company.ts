@@ -1,5 +1,5 @@
 /**
- * FILL IN BEFORE LAUNCH — see FILL_IN_FACTS.md
+ * Company facts — confirmed with owners Oct 2026. Edit here only.
  *
  * SINGLE SOURCE OF TRUTH for every company fact on the site. Nothing else may
  * hardcode a phone, email, years figure, region, self-performed %, response
@@ -18,51 +18,46 @@ export interface CompanyAward { name: string; year?: number }
 export interface CompanyClient { name: string; logo: string }
 
 export const COMPANY = {
-  name: "Shall's Construction", // CONFIRM WITH PARENTS
-  legalName: "Shall's Construction, LLC", // CONFIRM WITH PARENTS
+  name: "Shall's Construction",
+  legalName: "Shall's Construction, LLC",
   url: "https://shallsconstruction.com",
   tagline: "One Call Does It All",
-  yearsInBusiness: 25, // CONFIRM WITH PARENTS
-  foundedYear: null as number | null, // CONFIRM WITH PARENTS — never render "since YEAR"
-  selfPerformedPercent: 95, // CONFIRM WITH PARENTS
-  phone: "(301) 933-6277", // CONFIRM WITH PARENTS
-  phoneE164: "+13019336277", // CONFIRM WITH PARENTS
-  fax: "(301) 933-3386", // CONFIRM WITH PARENTS
-  email: "shallsconstructionllc@aol.com", // CONFIRM WITH PARENTS — only email site-wide
-  address: { street: "", city: "Kensington", state: "MD", zip: "20895" }, // CONFIRM WITH PARENTS
-  serviceStates: ["MD", "VA", "DC"], // CONFIRM WITH PARENTS
+  yearsInBusiness: 25,
+  foundedYear: null as number | null,
+  selfPerformedPercent: 95,
+  phone: "(301) 933-6277",
+  phoneE164: "+13019336277",
+  fax: "(301) 933-3386",
+  email: "shallsconstructionllc@aol.com",
+  address: { street: "", city: "Kensington", state: "MD", zip: "20895" },
+  serviceStates: ["MD", "VA", "DC"],
   serviceAreas: [
     "Annapolis", "Arlington", "Baltimore", "Bethesda", "Bowie", "Chevy Chase", "Clarksburg",
     "Columbia", "Fairfax", "Frederick", "Gaithersburg", "Germantown", "Laurel", "Rockville",
     "Silver Spring", "Washington DC",
-  ], // CONFIRM WITH PARENTS
-  regionShort: "MD, VA & DC", // CONFIRM WITH PARENTS
-  licenses: [] as CompanyLicense[], // CONFIRM WITH PARENTS
-  insuranceLine: "Certificates of insurance available upon request.", // CONFIRM WITH PARENTS
-  responsePromise: "We respond to all inquiries within one business day.", // CONFIRM WITH PARENTS
-  emergencyService: true, // CONFIRM WITH PARENTS
-  familyBusinessClaim: false, // CONFIRM WITH PARENTS
-  projects: [] as CompanyProject[], // CONFIRM WITH PARENTS
-  testimonials: [] as CompanyTestimonial[], // CONFIRM WITH PARENTS
-  associations: [] as CompanyAssociation[], // CONFIRM WITH PARENTS
-  charities: [] as CompanyCharity[], // CONFIRM WITH PARENTS
-  leadership: [] as CompanyLeader[], // CONFIRM WITH PARENTS
-  safetyStats: [] as CompanyStat[], // CONFIRM WITH PARENTS
-  awards: [] as CompanyAward[], // CONFIRM WITH PARENTS
+  ],
+  regionShort: "MD, VA & DC",
+  licenses: [] as CompanyLicense[],
+  insuranceLine: "Certificates of insurance available upon request.",
+  responsePromise: "We respond to all inquiries within one business day.",
+  familyBusinessClaim: true,
+  projects: [] as CompanyProject[],
+  testimonials: [] as CompanyTestimonial[],
+  associations: [] as CompanyAssociation[],
+  charities: [] as CompanyCharity[],
+  leadership: [] as CompanyLeader[],
+  safetyStats: [] as CompanyStat[],
+  awards: [] as CompanyAward[],
   clients: [
     { name: "Associa", logo: "associa" },
     { name: "Comsource", logo: "comsource" },
     { name: "American Community Management", logo: "acm" },
     { name: "Majerle Management", logo: "mmi" },
-  ] as CompanyClient[], // CONFIRM WITH PARENTS
-  social: { linkedin: "" }, // CONFIRM WITH PARENTS
+  ] as CompanyClient[],
+  social: { linkedin: "" },
 };
 
 /* ---------- derived helpers (no new facts below) ---------- */
-/** "24/7/365 emergency response — call (301) 933-6277 any time." (built from COMPANY.phone). Empty when emergencyService is false. */
-// CONFIRM WITH PARENTS
-export const emergencyLine = () =>
-  COMPANY.emergencyService ? `24/7/365 emergency response — call ${COMPANY.phone} any time.` : "";
 export const yearsText = () => `${COMPANY.yearsInBusiness}+ years`;
 export const inHouseText = () => `${COMPANY.selfPerformedPercent}% of our work is self-performed by our own crews`;
 export const telHref = () => `tel:${COMPANY.phoneE164}`;
@@ -81,6 +76,5 @@ export function fillCompanyTokens(text: string): string {
   return text
     .split("{{years}}").join(yearsText())
     .split("{{region}}").join(COMPANY.regionShort)
-    .split("{{inHouse}}").join(inHouseText())
-    .split("{{emergencyLead}}").join(COMPANY.emergencyService ? `Emergencies don't keep business hours: we offer ${emergencyLine()} ` : "");
+    .split("{{inHouse}}").join(inHouseText());
 }

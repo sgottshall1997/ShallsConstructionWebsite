@@ -104,13 +104,13 @@ PASS  Extended R2 grep zero (code)
 - B: invented specifics removed (three weeks, sq ft figures, updated daily, crisp two years, weather monitoring/standby crews, permitting, after hours/weekends, timeline too tight, infection-control, compliant, exclusively); Home H1 uses `COMPANY.regionShort`; no DMV/Montgomery County/Mid-Atlantic; About title from `COMPANY.address`.
 - C: "What's Included" heading with `<li>` items; `SERVICE_NAMES` is the H1 and storage title; JSON SEO fields deleted; `/projects` related link only when projects exist; nav/footer labels About/Contact/Safety; contact placeholders; privacy date, link and curly quotes; footer uses `COMPANY.tagline`; stars only when a rating exists.
 - D: repetition trimmed; philosophies varied ("For {{years}}" twice); About value renamed "Made for How Property Managers Work".
-- E: FILL_IN_FACTS.md is now a plain owner questionnaire; the field mapping lives in DEV_FACTS_MAP.md.
+- E: owner questionnaire (since removed after the Oct 2026 facts confirmation); the field mapping lives in DEV_FACTS_MAP.md.
 - F: extended grep (original + `DMV|Montgomery County|Mid-Atlantic|sq ft|three weeks|Services Services|That's why property managers`) has zero hits in client/, server/, shared/, public/, client/index.html and *.json.
 
 ## Not done / deferred to owners
 
 - A real `RESEND_API_KEY` and a verified `FORM_FROM_EMAIL` (needs the Resend domain set up).
-- The `FILL_IN_FACTS.md` fields: founding year, licenses, projects, testimonials, LinkedIn, company mailbox.
+- Still empty by owner decision: founding year, licenses, projects, testimonials, associations, LinkedIn.
 - Railway service creation, DNS cutover, GA4 and Search Console are documented in `DEPLOYMENT.md` but not executed (per the brief).
 - Risk: `.replit`, `replit.md` and the Replit plugins were removed, so any Replit deploy of this repo will stop working. Railway is the intended host.
 - Hero WebP is 1408px wide (the source is smaller than 1920; it was not upscaled).

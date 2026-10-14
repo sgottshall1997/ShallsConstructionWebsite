@@ -116,19 +116,19 @@ check "API service titles == SERVICE_NAMES" bash -c '
 '
 svc(){ curl -s "$base/api/services"; }
 c_no_orphan(){ ! svc | grep -q "That's why property managers"; }
-c_emerg(){ svc | grep -q '24/7/365 emergency response'; }
+c_emerg(){ ! svc | grep -Eqi '24/7|emergency|365'; }
 c_specifics(){ ! svc | grep -Eq 'sq ft|three weeks|Mid-Atlantic|Montgomery County|crisp two years|updated daily|initial permitting|timeline too tight|weather forecasts'; }
 c_included(){ grep -q "What's Included" client/src/pages/ServiceDetail.tsx && ! grep -q 'Services Include:' client/src/pages/ServiceDetail.tsx; }
-c_emerg_src(){ for f in client/src/pages/Home.tsx client/src/pages/Contact.tsx client/src/components/ServiceCTA.tsx client/src/pages/About.tsx; do grep -q emergencyLine "$f" || return 1; done; }
+c_emerg_src(){ ! grep -rniEq "24/7|emergency|365" client shared server SERVICE_CONTENT_PRIMARY.json; }
 c_promise(){ local n; n=$(rg -o 'COMPANY\.responsePromise' client/src | wc -l); [[ "$n" -eq 4 ]]; }
 c_years(){ [[ $(grep -o 'For {{years}}' SERVICE_CONTENT_PRIMARY.json | wc -l) -le 2 ]]; }
 c_noseo(){ ! grep -Eq 'seoTitle|seoDescription' SERVICE_CONTENT_PRIMARY.json; }
 c_grep2(){ ! rg -n -P "$(cat scripts/r2-grep-pattern.txt)" client/ server/ shared/ public/ client/index.html *.json; }
 check "API content: no 'That's why property managers'" c_no_orphan
-check "API content: emergency line present" c_emerg
+check "API content: no emergency/24/7 text" c_emerg
 check "API content: no invented specifics" c_specifics
 check "Source: \"What's Included\" heading" c_included
-check "Source: emergencyLine on Home/Contact/ServiceCTA/About" c_emerg_src
+check "Source: no 24/7|emergency|365 in client/shared/server/JSON" c_emerg_src
 check "Source: responsePromise used 4x (banner, 2 toast variants, Home FAQ)" c_promise
 check "Content: 'For {{years}}' at most twice" c_years
 check "JSON: no seoTitle/seoDescription" c_noseo

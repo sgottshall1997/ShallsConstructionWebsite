@@ -6,7 +6,7 @@ import { generateBreadcrumbSchema } from "@/lib/schema";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import aboutHeroImg from "@assets/generated_images/Professional_construction_team_photo_9128835a.webp";
-import { COMPANY, yearsText, inHouseText, emergencyLine } from "@shared/company";
+import { COMPANY, yearsText, inHouseText } from "@shared/company";
 
 export default function About() {
   const values = [
@@ -19,7 +19,6 @@ export default function About() {
       description:
         "We understand work orders, insurance paperwork, and occupied buildings, and we schedule around your tenants.",
     },
-    ...(COMPANY.emergencyService ? [{ title: "Always Reachable", description: emergencyLine() }] : []),
     {
       title: "Construction to Snow Removal",
       description:
@@ -84,7 +83,7 @@ export default function About() {
               <Link href="/services/construction-remodeling">
                 <span className="text-primary hover:underline cursor-pointer">commercial construction</span>
               </Link>
-              , repairs, exterior work, parking lots, painting, and snow removal for retail and office buildings, schools, apartments and HOAs, medical suites, and government clients.
+              , repairs, exterior work, parking lots, painting, and snow removal for retail and office buildings, schools and universities, apartments and HOAs, hospitals and medical suites, and corporate and government clients.
             </p>
             <p className="leading-relaxed mb-6">
               After working for years alongside property managers, {COMPANY.name} built its approach around how they actually work: clear communication, reliable scheduling, and crews that understand occupied buildings.
