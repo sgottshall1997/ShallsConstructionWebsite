@@ -5,7 +5,7 @@ import StatCounter from "@/components/ui/stat-counter";
 import { generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/schema";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
-import aboutHeroImg from "@assets/generated_images/Professional_construction_team_photo_9128835a.png";
+import aboutHeroImg from "@assets/generated_images/Professional_construction_team_photo_9128835a.webp";
 import {
   COMPANY,
   stateNamesList,

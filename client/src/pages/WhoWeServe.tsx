@@ -8,7 +8,7 @@ import associaLogo from "@assets/Associa_1761838352452.png";
 import comsourceLogo from "@assets/comsource_1761838352453.png";
 import acmLogo from "@assets/american community management_1761838352452.png";
 import mmiLogo from "@assets/mmi logo_1761838352451.png";
-import whoWeServeHeroImg from "@assets/generated_images/Property_manager_commercial_building_44638c1c.png";
+import whoWeServeHeroImg from "@assets/generated_images/Property_manager_commercial_building_44638c1c.webp";
 import {
   COMPANY,
   stateNamesList,

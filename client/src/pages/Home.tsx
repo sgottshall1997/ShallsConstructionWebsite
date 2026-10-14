@@ -11,13 +11,13 @@ import ProjectCard from "@/components/ui/project-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Testimonial } from "@shared/schema";
 import { trackQuoteClick, trackEmergencyClick, trackNavigationClick } from "@/lib/analytics";
-import heroImage from "@assets/generated_images/Homepage_hero_construction_scene_4f48bae9.png";
-import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.png";
-import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.png";
-import exteriorImg from "@assets/generated_images/Exterior_Building_Services_work_4ebd45e5.png";
-import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.png";
-import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.png";
-import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.png";
+import heroImage from "@assets/generated_images/Homepage_hero_construction_scene_4f48bae9.webp";
+import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.webp";
+import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.webp";
+import exteriorImg from "@assets/generated_images/Exterior_Building_Services_work_4ebd45e5.webp";
+import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.webp";
+import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.webp";
+import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.webp";
 import {
   COMPANY,
   stateNamesList,

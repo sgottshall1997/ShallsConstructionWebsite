@@ -1,8 +1,19 @@
 import express, { type Request, Response, NextFunction } from "express";
+import helmet from "helmet";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
+app.disable("x-powered-by");
+app.use(
+  helmet({
+    contentSecurityPolicy: false, // SPA + inline JSON-LD; tighten later if needed
+    hsts: process.env.NODE_ENV === "production" ? { maxAge: 31536000, includeSubDomains: true } : false,
+    frameguard: { action: "deny" },
+    noSniff: true,
+    referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+  }),
+);
 
 // Canonical host: send www.shallsconstruction.com (and any non-canonical host in prod) to the apex
 app.use((req, res, next) => {
