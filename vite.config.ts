@@ -1,11 +1,34 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import type { Plugin } from "vite";
+import { COMPANY, stateCodesComma, stateNamesList, yearsPhrase } from "./shared/company";
+
+// Fill %COMPANY_*% tokens in client/index.html from shared/company.ts
+function companyHtml(): Plugin {
+  const years = yearsPhrase();
+  const tokens: Record<string, string> = {
+    "%COMPANY_NAME%": COMPANY.legalName,
+    "%COMPANY_SHORT%": COMPANY.shortName,
+    "%COMPANY_URL%": COMPANY.url,
+    "%COMPANY_REGION_CODES%": stateCodesComma(),
+    "%COMPANY_REGION%": stateNamesList(),
+    "%COMPANY_RESPONSE%": COMPANY.responsePromise,
+    "%COMPANY_YEARS_SENTENCE%": years ? ` ${years} of experience.` : "",
+  };
+  return {
+    name: "company-html",
+    transformIndexHtml(html) {
+      return Object.entries(tokens).reduce((h, [k, v]) => h.split(k).join(v), html);
+    },
+  };
+}
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
   plugins: [
     react(),
+    companyHtml(),
     runtimeErrorOverlay(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined

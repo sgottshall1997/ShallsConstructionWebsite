@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ServiceCTA from "@/components/ServiceCTA";
+import { COMPANY, stateCodesComma, yearsPhrase, stateNamesList } from "@shared/company";
 import RelatedLinks from "@/components/RelatedLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
@@ -120,7 +121,8 @@ export default function ServiceDetail() {
     generateBreadcrumbSchema(breadcrumbs),
   ];
 
-  const defaultMetaDescription = `${service.title} for commercial properties in MD VA DC DE — ${service.shortDescription.substring(0, 70)} — 30+ years experience.`;
+  const years = yearsPhrase();
+  const defaultMetaDescription = `${service.title} for commercial properties in ${stateCodesComma()} — ${service.shortDescription.substring(0, 70)}${years ? ` — ${years} experience` : ""}.`;
   const seoTitle = service.seoTitle || `${service.title} | Commercial Property Services | Shall's`;
   const seoDescription = service.seoDescription || (defaultMetaDescription.length > 160 ? defaultMetaDescription.substring(0, 157) + '...' : defaultMetaDescription);
 
@@ -130,7 +132,7 @@ export default function ServiceDetail() {
         title={seoTitle}
         description={seoDescription}
         schemas={schemas}
-        canonical={`https://shallsconstruction.replit.app/services/${service.slug}`}
+        canonical={`/services/${service.slug}`}
       />
       <Navigation />
 

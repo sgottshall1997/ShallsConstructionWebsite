@@ -15,8 +15,20 @@ import {
   type InsertLocation
 } from "@shared/schema";
 import { randomUUID } from "crypto";
+import { COMPANY, fillCompanyTokens, stateCodesComma, stateNamesList } from "@shared/company";
 import { readFileSync } from "fs";
 import { join } from "path";
+
+function fillTokensDeep<T>(value: T): T {
+  if (typeof value === "string") return fillCompanyTokens(value) as unknown as T;
+  if (Array.isArray(value)) return value.map((v) => fillTokensDeep(v)) as unknown as T;
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>).map(([k, v]) => [k, fillTokensDeep(v)]),
+    ) as T;
+  }
+  return value;
+}
 
 export interface IStorage {
   getAllArticles(): Promise<Article[]>;
@@ -156,7 +168,7 @@ export class MemStorage implements IStorage {
   private seedServices() {
     // Load service content from SERVICE_CONTENT_PRIMARY.json
     const serviceContentPath = join(process.cwd(), 'SERVICE_CONTENT_PRIMARY.json');
-    const serviceContent = JSON.parse(readFileSync(serviceContentPath, 'utf-8'));
+    const serviceContent = fillTokensDeep(JSON.parse(readFileSync(serviceContentPath, 'utf-8')));
 
     // Service metadata (images, icons, categories, titles)
     const serviceMetadata: Record<string, {
@@ -175,9 +187,9 @@ export class MemStorage implements IStorage {
         imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&auto=format&fit=crop",
         icon: "Building2",
         featured: true,
-        shortDescription: "Full-service commercial construction, remodeling, and renovation for properties across MD, VA, and DC.",
-        seoTitle: "Commercial Construction & Remodeling | Shall's Construction | MD, VA, DC",
-        seoDescription: "Comprehensive commercial construction and remodeling across Maryland, DC, and Virginia. From tenant build-outs to full office renovations, Shall's Construction delivers precision and reliability."
+        shortDescription: `Full-service commercial construction, remodeling, and renovation for properties across ${stateCodesComma()}.`,
+        seoTitle: `Commercial Construction & Remodeling | Shall's Construction | ${stateCodesComma()}`,
+        seoDescription: `Comprehensive commercial construction and remodeling across ${stateNamesList()}. From tenant build-outs to full office renovations, Shall's Construction delivers precision and reliability.`
       },
       "handyman-services": {
         title: "Commercial Handyman Services",
@@ -197,7 +209,7 @@ export class MemStorage implements IStorage {
         featured: true,
         shortDescription: "Comprehensive building exterior solutions with preventive maintenance and emergency response for commercial properties.",
         seoTitle: "Exterior Building Services | Waterproofing & Restoration | Shall's Construction",
-        seoDescription: "Comprehensive exterior building maintenance and waterproofing services in Maryland, DC, and Virginia. Protect your property with expert facade repair and restoration."
+        seoDescription: `Comprehensive exterior building maintenance and waterproofing services in ${stateNamesList()}. Protect your property with expert facade repair and restoration.`
       },
       "parking-lot-services": {
         title: "Parking Lot Services",
@@ -207,7 +219,7 @@ export class MemStorage implements IStorage {
         featured: true,
         shortDescription: "Professional parking lot maintenance with attention to detail and operational efficiency for commercial properties.",
         seoTitle: "Parking Lot Services | Asphalt & Maintenance | Shall's Construction",
-        seoDescription: "Professional parking lot paving, sealcoating, and striping services across Maryland, DC, and Virginia. Expert asphalt repair and maintenance for commercial properties."
+        seoDescription: `Professional parking lot paving, sealcoating, and striping services across ${stateNamesList()}. Expert asphalt repair and maintenance for commercial properties.`
       },
       "painting-services": {
         title: "Commercial Painting Services",
@@ -217,7 +229,7 @@ export class MemStorage implements IStorage {
         featured: true,
         shortDescription: "Precision commercial painting for interiors and exteriors with meticulous surface preparation and lasting results.",
         seoTitle: "Commercial Painting Services | Interior & Exterior | Shall's Construction",
-        seoDescription: "Professional commercial painting services in Maryland, DC, and Virginia. Expert interior and exterior painting with precision application and quality materials."
+        seoDescription: `Professional commercial painting services in ${stateNamesList()}. Expert interior and exterior painting with precision application and quality materials.`
       },
       "snow-removal": {
         title: "Snow Removal & Ice Management",
@@ -225,9 +237,9 @@ export class MemStorage implements IStorage {
         imageUrl: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&auto=format&fit=crop",
         icon: "Snowflake",
         featured: true,
-        shortDescription: "24/7 commercial snow removal and ice management with proactive monitoring and rapid response across the Mid-Atlantic.",
+        shortDescription: `24/7 commercial snow removal and ice management with proactive monitoring and rapid response across the Mid-Atlantic.`,
         seoTitle: "Commercial Snow Removal | 24/7 Ice Management | Shall's Construction",
-        seoDescription: "Reliable commercial snow removal and ice management services across MD, VA, DC, and DE. 24/7 emergency response with proactive storm monitoring."
+        seoDescription: `Reliable commercial snow removal and ice management services across ${stateCodesComma()}. ${COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase())}.`
       }
     };
 
@@ -371,7 +383,7 @@ export class MemStorage implements IStorage {
       {
         slug: "emergency-services",
         title: "Emergency Services",
-        shortDescription: "24/7/365 emergency response for urgent commercial property issues across MD, VA, and DC.",
+        shortDescription: `24/7/365 emergency response for urgent commercial property issues across ${stateCodesComma()}.`,
         fullDescription: "When emergencies strike, Shall's Construction responds immediately. Our emergency response team is available around the clock to handle urgent repairs, water damage, structural issues, and more.",
         benefits: [
           "24/7/365 availability",

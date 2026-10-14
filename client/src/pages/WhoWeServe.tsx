@@ -9,8 +9,16 @@ import comsourceLogo from "@assets/comsource_1761838352453.png";
 import acmLogo from "@assets/american community management_1761838352452.png";
 import mmiLogo from "@assets/mmi logo_1761838352451.png";
 import whoWeServeHeroImg from "@assets/generated_images/Property_manager_commercial_building_44638c1c.png";
+import {
+  COMPANY,
+  stateNamesList,
+  selfPerformedText,
+  yearsPhrase,
+  telHref,
+} from "@shared/company";
 
 export default function WhoWeServe() {
+  const years = yearsPhrase();
   const clients = [
     { name: "Associa", logo: associaLogo },
     { name: "Comsource", logo: comsourceLogo },
@@ -19,53 +27,48 @@ export default function WhoWeServe() {
   ];
 
   const benefits = [
-    "2-hour emergency response guarantee in Montgomery County",
-    "Your same crews on every property: no subcontractor surprises, no quality variability",
-    "Three decades serving property managers exclusively",
-    "One call handles everything from estimates to cleanup",
+    COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase()),
+    "Your same crews on every property — no subcontractor surprises",
+    COMPANY.tagline,
     "Tenant-friendly scheduling with after-hours availability",
+    "Work designed to work around in-place tenants with minimal disruptions",
     "Work order system compatible with your property management software",
   ];
 
   const faqs = [
     {
-      question: "Why do property managers choose Shall's Construction?",
-      answer: "We've specialized exclusively in serving property managers since 1988. We understand work orders, COI requirements, tenant coordination, and budget constraints. Plus, our 100% in-house team means you get the same crews every time. No subcontractor variability. No quality inconsistency.",
+      question: `Why do property managers choose ${COMPANY.shortName}?`,
+      answer: `We specialize in serving property managers. We understand work orders, COI requirements, tenant coordination, and budget constraints. And ${selfPerformedText()}, so you get consistent crews every time.`,
     },
     {
       question: "What types of properties do you work on?",
-      answer: "We serve commercial retail and office buildings, schools and universities, apartments and HOAs, hospitals and medical suites, corporate and government facilities, and multi-family housing throughout Montgomery County, Bethesda, Kensington, and the greater MD/VA/DC region.",
+      answer: `We serve commercial retail and office buildings, schools and universities, apartments and HOAs, hospitals and medical suites, corporate and government facilities, and multi-family housing throughout ${stateNamesList()}.`,
     },
-  ];
-
-  const breadcrumbs = [
-    { name: "Home", url: "/" },
-    { name: "Who We Serve", url: "/who-we-serve" },
   ];
 
   const schemas = [
     generateFAQSchema(faqs),
-    generateBreadcrumbSchema(breadcrumbs),
+    generateBreadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: "Who We Serve", url: "/who-we-serve" },
+    ]),
   ];
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Built for Property Managers | Bethesda Commercial Contractor MD"
-        description="Built for property managers. Trusted by leading firms across MD, VA, DC, and DE for commercial construction, repairs, and maintenance since 1988."
-        canonical="https://shallsconstruction.replit.app/who-we-serve"
+        title="Built for Property Managers"
+        description={`Commercial construction, repairs, and maintenance built for property managers across ${stateNamesList()}.`}
+        canonical="/who-we-serve"
         schemas={schemas}
       />
       <Navigation />
 
-      {/* Hero Section */}
       <section
         className="relative h-[500px] bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${whoWeServeHeroImg})`,
-        }}
+        style={{ backgroundImage: `url(${whoWeServeHeroImg})` }}
         role="img"
-        aria-label="Commercial property management services Montgomery County Maryland Virginia DC"
+        aria-label="Commercial office building managed by a property management firm"
       >
         <div className="absolute inset-0 bg-gray-900/70"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center text-center">
@@ -74,7 +77,11 @@ export default function WhoWeServe() {
               Built Exclusively for Property Managers
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-              For three decades, property managers across the DMV have turned to Shall's<Link href="/services/construction-remodeling"><span className="text-primary hover:underline cursor-pointer">commercial construction</span></Link> and maintenance services because we understand your world and make your job easier.
+              Property managers across the DMV turn to Shall's{" "}
+              <Link href="/services/construction-remodeling">
+                <span className="text-primary hover:underline cursor-pointer">commercial construction</span>
+              </Link>{" "}
+              and maintenance services because we understand your world and make your job easier.
             </p>
           </div>
         </div>
@@ -88,10 +95,11 @@ export default function WhoWeServe() {
                 We Get It: Property Management Is Exhausting
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Let's be honest: you're juggling work orders from six different buildings, a tenant is screaming about a broken door, your boss wants the quarterly renovations done under budget, and it's only Tuesday morning. Sound familiar?
+                You're juggling work orders from multiple buildings, a tenant is calling about a broken door, budgets are tight, and it's only Tuesday morning.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                That's exactly why we built Shall's Construction specifically for property managers. We understand your world because we've lived it alongside you for three decades. No runaround. No subcontractor surprises. Just reliable results, clear communication, and crews who show up when they say they will.
+                That's why {COMPANY.shortName} is built for property managers.
+                {years ? ` ${years} of that focus means` : " That focus means"} no runaround, no subcontractor surprises — just reliable results, clear communication, and crews who show up when they say they will.
               </p>
             </div>
             <div className="bg-primary/5 rounded-lg p-8">
@@ -114,7 +122,7 @@ export default function WhoWeServe() {
               Trusted by Leading Property Management Companies
             </h2>
             <p className="text-gray-600">
-              Property managers across the region rely on Shall's Construction for commercial services they can count on
+              Property managers across the region rely on {COMPANY.shortName} for commercial services they can count on
             </p>
           </div>
 
@@ -128,9 +136,11 @@ export default function WhoWeServe() {
                 <div className="w-full h-24 flex items-center justify-center">
                   <img
                     src={client.logo}
-                    alt={`${client.name} - Property management company served in Montgomery County Maryland`}
+                    alt={`${client.name} logo`}
                     className={`max-w-full max-h-full object-contain ${client.name === "American Community Management" ? "scale-125" : ""}`}
                     loading="lazy"
+                    width="200"
+                    height="96"
                     data-testid={`img-client-logo-${index}`}
                   />
                 </div>
@@ -142,9 +152,7 @@ export default function WhoWeServe() {
 
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            Property Types We Serve
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">Property Types We Serve</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mt-12">
             {[
               "Commercial Retail & Office",
@@ -154,11 +162,7 @@ export default function WhoWeServe() {
               "Corporate & Government",
               "Multi-Family Housing",
             ].map((industry, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
-                data-testid={`industry-${index}`}
-              >
+              <div key={index} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow" data-testid={`industry-${index}`}>
                 <Building2 className="h-8 w-8 text-primary mx-auto mb-3" />
                 <p className="text-gray-900 font-medium text-sm md:text-base">{industry}</p>
               </div>
@@ -173,17 +177,11 @@ export default function WhoWeServe() {
             Ready to Work With a Contractor Who Understands Your World?
           </h2>
           <p className="text-lg md:text-xl mb-8 text-white/90">
-            Join the property managers who trust Shall's Construction for all their commercial property needs. Free quotes within 24 hours.
+            Call or send a work order request — free quotes for commercial property work.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="tel:3019336277"
-              className="text-2xl md:text-3xl font-heading font-bold hover:text-white/90 transition-colors"
-              data-testid="link-phone"
-            >
-              (301) 933-6277
-            </a>
-          </div>
+          <a href={telHref()} className="text-2xl md:text-3xl font-heading font-bold hover:text-white/90 transition-colors" data-testid="link-phone">
+            {COMPANY.phone.display}
+          </a>
         </div>
       </section>
 

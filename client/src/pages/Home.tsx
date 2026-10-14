@@ -1,16 +1,16 @@
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Users, Award, MapPin, Building2, Quote } from "lucide-react";
+import { ArrowRight, Clock, Users, Award, MapPin, Quote } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { generateFAQSchema, generateBreadcrumbSchema, generateOrganizationSchema } from "@/lib/schema";
-import ProjectCard from "@/components/ui/project-card";
 import TestimonialCard from "@/components/ui/testimonial-card";
+import ProjectCard from "@/components/ui/project-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Testimonial } from "@shared/schema";
-import { trackQuoteClick, trackEmergencyClick, trackCTAClick, trackNavigationClick } from "@/lib/analytics";
+import { trackQuoteClick, trackEmergencyClick, trackNavigationClick } from "@/lib/analytics";
 import heroImage from "@assets/generated_images/Homepage_hero_construction_scene_4f48bae9.png";
 import constructionImg from "@assets/generated_images/Construction_and_Remodeling_service_1aebcbea.png";
 import handymanImg from "@assets/generated_images/Handyman_Services_worker_984f13b6.png";
@@ -18,11 +18,49 @@ import exteriorImg from "@assets/generated_images/Exterior_Building_Services_wor
 import parkingImg from "@assets/generated_images/Parking_Lot_Services_result_327aebfc.png";
 import paintingImg from "@assets/generated_images/Painting_Services_work_beb0461c.png";
 import snowImg from "@assets/generated_images/Snow_Removal_service_e0dba011.png";
+import {
+  COMPANY,
+  stateNamesList,
+  stateCodesSlash,
+  selfPerformedText,
+  yearsPhrase,
+  telHref,
+  publishableTestimonials,
+} from "@shared/company";
 
 function TestimonialsSection() {
+  const fromCompany = publishableTestimonials();
   const { data: testimonials = [], isLoading } = useQuery<Testimonial[]>({
     queryKey: ["/api/testimonials/featured"],
+    enabled: fromCompany.length === 0,
   });
+
+  const cards =
+    fromCompany.length > 0
+      ? fromCompany.slice(0, 3).map((t, i) => ({
+          key: `c-${i}`,
+          quote: t.quote,
+          author: t.author,
+          company: t.company || "",
+          role: t.role || "",
+          rating: 5,
+          service: "",
+          location: "",
+          featured: true,
+        }))
+      : testimonials.slice(0, 3).map((t) => ({
+          key: t.id,
+          quote: t.comment.length > 150 ? `${t.comment.substring(0, 150)}...` : t.comment,
+          author: t.clientName,
+          company: t.company,
+          role: t.role,
+          rating: t.rating,
+          service: t.serviceType,
+          location: t.location,
+          featured: t.featured,
+        }));
+
+  if (!isLoading && cards.length === 0) return null;
 
   return (
     <section className="py-20 md:py-24 bg-gray-50">
@@ -33,157 +71,77 @@ function TestimonialsSection() {
             What Property Managers Say About Us
           </h2>
         </div>
-
-        {isLoading ? (
+        {isLoading && fromCompany.length === 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {Array.from({ length: 3 }).map((_, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md p-6 md:p-8 border border-gray-200">
                 <Skeleton className="h-5 w-32 mb-4" />
                 <Skeleton className="h-16 w-full mb-6" />
                 <Skeleton className="h-6 w-48 mb-2" />
-                <Skeleton className="h-4 w-32" />
               </div>
             ))}
           </div>
-        ) : testimonials.length > 0 ? (
+        ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" data-testid="featured-testimonials-grid">
-            {testimonials.slice(0, 3).map((testimonial) => (
-              <TestimonialCard
-                key={testimonial.id}
-                quote={testimonial.comment.length > 150 ? `${testimonial.comment.substring(0, 150)}...` : testimonial.comment}
-                author={testimonial.clientName}
-                company={testimonial.company}
-                role={testimonial.role}
-                rating={testimonial.rating}
-                service={testimonial.serviceType}
-                location={testimonial.location}
-                featured={testimonial.featured}
-              />
+            {cards.map((c) => (
+              <TestimonialCard key={c.key} quote={c.quote} author={c.author} company={c.company} role={c.role} rating={c.rating} service={c.service} location={c.location} featured={c.featured} />
             ))}
           </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-500">No featured testimonials available.</p>
-          </div>
         )}
-
       </div>
     </section>
   );
 }
 
 export default function Home() {
+  const years = yearsPhrase();
   const services = [
-    {
-      title: "Construction & Remodeling",
-      image: constructionImg,
-      description: "Complete tenant buildouts and office renovations delivered on schedule and within budget across Montgomery County and Bethesda.",
-      link: "/services/construction-remodeling",
-    },
-    {
-      title: "Handyman Services",
-      image: handymanImg,
-      description: "From minor repairs to skilled carpentry, our craftsmen handle commercial maintenance work efficiently throughout Northern Virginia.",
-      link: "/services/handyman-services",
-    },
-    {
-      title: "Exterior Building Services",
-      image: exteriorImg,
-      description: "Protect your building envelope with expert masonry, waterproofing, and facade restoration services in the DC metro area.",
-      link: "/services/exterior-building-services",
-    },
-    {
-      title: "Parking Lot Asphalt & Concrete",
-      image: parkingImg,
-      description: "Professional asphalt repair, striping, and sealcoating that keeps your property looking sharp across Maryland and Virginia.",
-      link: "/services/parking-lot-services",
-    },
-    {
-      title: "Painting Services",
-      image: paintingImg,
-      description: "Precision interior and exterior painting with meticulous surface preparation for lasting results on Maryland properties.",
-      link: "/services/painting-services",
-    },
-    {
-      title: "Snow Removal",
-      image: snowImg,
-      description: "Round-the-clock snow and ice management ensuring safe property access throughout the DC, Maryland, and Virginia region.",
-      link: "/services/snow-removal",
-    },
+    { title: "Construction & Remodeling", image: constructionImg, description: "Tenant build-outs and office renovations delivered on schedule and within budget.", link: "/services/construction-remodeling" },
+    { title: "Handyman Services", image: handymanImg, description: "From minor repairs to skilled carpentry, our craftsmen handle commercial maintenance work efficiently.", link: "/services/handyman-services" },
+    { title: "Exterior Building Services", image: exteriorImg, description: "Masonry, waterproofing, and facade restoration that protect your building envelope.", link: "/services/exterior-building-services" },
+    { title: "Parking Lot Asphalt & Concrete", image: parkingImg, description: "Asphalt repair, striping, and sealcoating that keep your property looking sharp.", link: "/services/parking-lot-services" },
+    { title: "Painting Services", image: paintingImg, description: "Interior and exterior painting with careful surface preparation, designed to work around in-place tenants with minimal disruptions.", link: "/services/painting-services" },
+    { title: "Snow Removal", image: snowImg, description: "Round-the-clock snow and ice management so tenants can reach your property safely.", link: "/services/snow-removal" },
   ];
 
   const stats = [
-    { icon: Award, label: "Since 1988", sublabel: "Family-Owned" },
+    years ? { icon: Award, label: years, sublabel: "Experience" } : null,
     { icon: Clock, label: "24/7", sublabel: "Emergency Service" },
-    { icon: Users, label: "100% In-House", sublabel: "Staff" },
-    { icon: MapPin, label: "MD/VA/DC/DE", sublabel: "Coverage" },
-  ];
-
-  const featuredProjects = [
-    {
-      id: "project-1",
-      slug: "featured-project-1",
-      title: "[Featured Project 1]",
-      category: "Office Buildings",
-      location: "[City, State]",
-      description: "[Add project description - scope of work and results achieved]",
-      featured: true,
-    },
-    {
-      id: "project-2",
-      slug: "featured-project-2",
-      title: "[Featured Project 2]",
-      category: "Retail Centers",
-      location: "[City, State]",
-      description: "[Add project description]",
-      featured: false,
-    },
-    {
-      id: "project-3",
-      slug: "featured-project-3",
-      title: "[Featured Project 3]",
-      category: "Apartment Complexes",
-      location: "[City, State]",
-      description: "[Add project description]",
-      featured: false,
-    },
-  ];
+    { icon: Users, label: "Own Crews", sublabel: "Self-Performed Work" },
+    { icon: MapPin, label: stateCodesSlash(), sublabel: "Coverage" },
+  ].filter(Boolean) as { icon: typeof Award; label: string; sublabel: string }[];
 
   const faqs = [
     {
-      question: "What areas do you serve in Maryland, Virginia, DC, and Delaware?",
-      answer: "We're based in Montgomery County and serve property managers throughout the region, including Bethesda, Rockville, Silver Spring, Gaithersburg, Kensington, Arlington, Fairfax, and Washington DC. With three decades in the area, we know every building inspector, jurisdiction code, and rush permit process.",
+      question: `What areas do you serve in ${stateNamesList()}?`,
+      answer: `We're based in ${COMPANY.address.locality}, ${COMPANY.address.region}, and serve property managers throughout ${stateNamesList()}, including Bethesda, Rockville, Silver Spring, Gaithersburg, Kensington, Arlington, Fairfax, and Washington, DC.`,
     },
     {
       question: "Do you provide emergency services for property managers?",
-      answer: "Yes, we provide dedicated 24/7 emergency response with a 2-hour on-site guarantee for clients in Montgomery County. Our in-house team is always ready to handle urgent construction and maintenance emergencies with minimal disruption to your tenants.",
+      answer: `Yes. ${COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase())} for urgent construction and maintenance needs, with work planned around your tenants.`,
     },
     {
       question: "How much of the work is self-performed?",
-      answer: "One hundred percent of our work is performed by our full-time, in-house staff using our own equipment. This means your same crews every time, no subcontractor surprises, and direct accountability from estimate to completion on every project.",
+      answer: `${selfPerformedText().replace(/^./, (c) => c.toUpperCase())}. That means consistent crews, no subcontractor surprises, and direct accountability from estimate to completion.`,
     },
     {
-      question: "What makes Shall's Construction different from other contractors?",
-      answer: "We've specialized exclusively in serving property managers since 1988. We understand work orders, COI requirements, tenant coordination, and budget constraints. Plus, as a three-generation family business headquartered in Montgomery County, we're invested in this community for the long term.",
+      question: `What makes ${COMPANY.shortName} different from other contractors?`,
+      answer: `We specialize in serving property managers. We understand work orders, COI requirements, tenant coordination, and budget constraints — and ${COMPANY.tagline.toLowerCase()} covers construction through snow removal.`,
     },
-  ];
-
-  const breadcrumbs = [
-    { name: "Home", url: "/" },
   ];
 
   const schemas = [
     generateOrganizationSchema(),
-    generateBreadcrumbSchema(breadcrumbs),
+    generateBreadcrumbSchema([{ name: "Home", url: "/" }]),
     generateFAQSchema(faqs),
   ];
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Montgomery County Commercial Contractor - 30+ Years Serving Property Managers"
-        description="Commercial construction, renovation, and property maintenance experts serving Maryland, Virginia, DC, and Delaware. Family-owned since 1988. 24/7 emergency service."
-        canonical="https://shallsconstruction.replit.app"
+        title={`Commercial Contractor for Property Managers | ${stateCodesSlash()}`}
+        description={`Commercial construction, renovation, and property maintenance for property managers across ${stateNamesList()}. ${COMPANY.responsePromise}.`}
+        canonical="/"
         schemas={schemas}
       />
       <Navigation />
@@ -193,28 +151,26 @@ export default function Home() {
         <div className="absolute inset-0">
           <img
             src={heroImage}
-            alt="Shall's Construction commercial project in Montgomery County Maryland"
+            alt="Commercial construction crew at work on a building site"
             className="w-full h-full object-cover"
             loading="eager"
+            fetchPriority="high"
             width="1920"
             height="1080"
           />
         </div>
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight" data-testid="text-page-title">
-           The DMV's Trusted Commercial Contractor for Property Managers
+            The DMV's Trusted Commercial Contractor for Property Managers
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
-            Since 1988, property managers across the Mid-Atlantic have relied on Shall's for one simple reason: we show up, we deliver, and we don't leave until the job is done right.
+            Property managers across the Mid-Atlantic rely on Shall's for one reason: we show up, we deliver, and we don't leave until the job is done right. {COMPANY.tagline}.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="tel:3019336277"
-              onClick={() => trackEmergencyClick('hero_emergency_call')}
-            >
+            <a href={telHref()} onClick={() => trackEmergencyClick("hero_emergency_call")}>
               <Button size="lg" className="text-lg px-8 w-full sm:w-auto" data-testid="button-hero-emergency" aria-label="Call for 24/7 emergency services">
                 <Clock className="mr-2 h-5 w-5" />
-                24/7 Emergency: (301) 933-6277
+                24/7 Emergency: {COMPANY.phone.display}
               </Button>
             </a>
             <Link href="/contact">
@@ -222,7 +178,7 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 className="text-lg px-8 bg-white/10 border-white text-white hover:bg-white hover:text-gray-900 w-full sm:w-auto"
-                onClick={() => trackQuoteClick('hero_get_quote')}
+                onClick={() => trackQuoteClick("hero_get_quote")}
                 data-testid="button-hero-quote"
                 aria-label="Request a free quote"
               >
@@ -236,16 +192,12 @@ export default function Home() {
 
       <section className="py-16 md:py-20 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12`}>
             {stats.map((stat, index) => (
               <div key={index} className="text-center" data-testid={`stat-${index}`}>
                 <stat.icon className="h-10 w-10 md:h-12 md:w-12 text-primary mx-auto mb-3" />
-                <div className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-1">
-                  {stat.label}
-                </div>
-                <div className="text-sm md:text-base text-gray-600 font-medium">
-                  {stat.sublabel}
-                </div>
+                <div className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-1">{stat.label}</div>
+                <div className="text-sm md:text-base text-gray-600 font-medium">{stat.sublabel}</div>
               </div>
             ))}
           </div>
@@ -255,17 +207,18 @@ export default function Home() {
       <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6" data-testid="text-why-heading">
-            Why Property Managers Keep Shalls on Speed Dial
+            Why Property Managers Keep Shall's on Speed Dial
           </h2>
           <div className="h-1 w-24 bg-primary mx-auto mb-8"></div>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6">
-                Managing work orders, tenants, and budgets is hard enough. The last thing you need is a contractor who wastes your time. For over 30 years, we’ve specialized in reliable, no-excuses property maintenance
-              </p>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                Our difference: consistency. Many of our crew have been with us 25+ years. When you call about your Bethesda property, you'll get the same team who handled your Rockville building. They already know your standards and deliver quality that doesn't slip.
-              </p>
-            </div>
-          </section>
+            Managing work orders, tenants, and budgets is hard enough. The last thing you need is a contractor who wastes your time.
+            {years ? ` For ${years},` : " For years,"} we've specialized in reliable, no-excuses property maintenance.
+          </p>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            Our difference: consistency. {selfPerformedText().replace(/^./, (c) => c.toUpperCase())}, so when you call about your Bethesda property, you get crews who already know commercial standards.
+          </p>
+        </div>
+      </section>
 
       <section className="py-20 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -274,22 +227,17 @@ export default function Home() {
               Everything Your Property Needs, One Reliable Partner
             </h2>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
-                key={index}
-                className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                data-testid={`card-service-${index}`}
-              >
+              <div key={index} className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1" data-testid={`card-service-${index}`}>
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={service.image}
-                    alt={`${service.title} for commercial properties in Montgomery County Maryland`}
+                    alt={`${service.title} work by ${COMPANY.shortName}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
-                    width="800"
-                    height="450"
+                    width="1200"
+                    height="675"
                     data-testid={`img-service-${index}`}
                   />
                 </div>
@@ -300,15 +248,8 @@ export default function Home() {
                   <p className="text-gray-600 mb-4 leading-relaxed" data-testid={`text-service-description-${index}`}>
                     {service.description}
                   </p>
-                  <Link 
-                    href={service.link}
-                    onClick={() => trackNavigationClick('service_card_read_more', service.link)}
-                  >
-                    <span
-                      className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors cursor-pointer"
-                      data-testid={`link-service-${index}`}
-                      aria-label={`Learn more about ${service.title}`}
-                    >
+                  <Link href={service.link} onClick={() => trackNavigationClick("service_card_read_more", service.link)}>
+                    <span className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors cursor-pointer" data-testid={`link-service-${index}`} aria-label={`Learn more about ${service.title}`}>
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </span>
@@ -322,81 +263,28 @@ export default function Home() {
 
       <TestimonialsSection />
 
-      {/* Hidden - Latest Insights & News section - can be re-enabled in the future */}
-      {/* <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4" data-testid="text-blog-heading">
-              Latest Insights & News
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Expert tips, industry news, and best practices for commercial property management
-            </p>
+      {COMPANY.projects.length > 0 && (
+        <section className="py-20 md:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Recent Work</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {COMPANY.projects.slice(0, 3).map((p) => (
+                <ProjectCard
+                  key={p.slug}
+                  slug={p.slug}
+                  title={p.name}
+                  category={p.category || "Commercial"}
+                  location={p.city}
+                  imageUrl={p.photo}
+                  description={p.scope}
+                />
+              ))}
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <Link href="/blog">
-              <div className="bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer hover:-translate-y-1" data-testid="card-blog-safety">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Award className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">
-                  Safety & Compliance
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Stay updated on safety standards, certifications, and best practices for commercial properties
-                </p>
-                <span className="text-primary font-semibold">
-                  Read Articles →
-                </span>
-              </div>
-            </Link>
-
-            <Link href="/blog">
-              <div className="bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer hover:-translate-y-1" data-testid="card-blog-maintenance">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Building2 className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">
-                  Maintenance Tips
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Expert advice on preventive maintenance and property care to protect your investment
-                </p>
-                <span className="text-primary font-semibold">
-                  Read Articles →
-                </span>
-              </div>
-            </Link>
-
-            <Link href="/blog">
-              <div className="bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer hover:-translate-y-1" data-testid="card-blog-case-studies">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-heading font-semibold text-gray-900 mb-3">
-                  Case Studies
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Real-world examples of our commercial property services and success stories
-                </p>
-                <span className="text-primary font-semibold">
-                  Read Articles →
-                </span>
-              </div>
-            </Link>
-          </div>
-
-          <div className="text-center">
-            <Link href="/blog">
-              <Button size="lg" className="px-8" data-testid="button-view-all-articles" aria-label="View all blog articles">
-                View All Articles
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section> */}
+        </section>
+      )}
 
       <section className="py-20 md:py-24 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -404,26 +292,15 @@ export default function Home() {
             Ready to Work With a Contractor You Can Trust?
           </h2>
           <p className="text-lg md:text-xl mb-8 text-white/90">
-            Call for a consultation or submit a work order request today. We respond to all inquiries within 24 hours.
+            Call for a consultation or submit a work order request today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="tel:3019336277"
-              className="text-2xl md:text-3xl font-heading font-bold hover:text-white/90 transition-colors"
-              data-testid="link-cta-phone"
-              aria-label="Call Shall's Construction at (301) 933-6277"
-            >
-              (301) 933-6277
+            <a href={telHref()} className="text-2xl md:text-3xl font-heading font-bold hover:text-white/90 transition-colors" data-testid="link-cta-phone" aria-label={`Call ${COMPANY.shortName} at ${COMPANY.phone.display}`}>
+              {COMPANY.phone.display}
             </a>
             <span className="hidden sm:block text-white/50">|</span>
             <Link href="/contact">
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-white text-primary border-white hover:bg-white/90"
-                data-testid="button-cta-contact"
-                aria-label="Contact Shall's Construction"
-              >
+              <Button size="lg" variant="outline" className="bg-white text-primary border-white hover:bg-white/90" data-testid="button-cta-contact" aria-label={`Contact ${COMPANY.shortName}`}>
                 Get Your Free Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

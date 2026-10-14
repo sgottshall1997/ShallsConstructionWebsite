@@ -31,6 +31,7 @@ import { Phone, Printer, Mail, MapPin, AlertCircle, Clock, FileText } from "luci
 import { insertContactSubmissionSchema, type InsertContactSubmission } from "@shared/schema";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { trackContactFormSubmit, trackCTAClick, trackPhoneClick } from "@/lib/analytics";
+import { COMPANY, mailto, telHref, stateNamesList } from "@shared/company";
 
 type InquiryType = "emergency" | "quote" | "general";
 
@@ -75,7 +76,7 @@ export default function Contact() {
       toast({
         title: "Message Sent!",
         description: inquiryType === "quote" 
-          ? "Thank you for requesting a quote. We'll respond within 2 hours."
+          ? "Thank you for requesting a quote. We'll get back to you soon."
           : "Thank you for contacting us. We'll get back to you soon.",
       });
       form.reset({
@@ -115,32 +116,14 @@ export default function Contact() {
     trackCTAClick(`inquiry_type_${type}`, 'contact_page_selector');
   };
 
-  const serviceAreas = [
-    "Baltimore",
-    "Bethesda",
-    "Bowie",
-    "Chevy Chase",
-    "Clarksburg",
-    "Columbia",
-    "Frederick",
-    "Gaithersburg",
-    "Germantown",
-    "Laurel",
-    "Rockville",
-    "Silver Spring",
-    "Arlington",
-    "Fairfax",
-    "Annapolis",
-    "Washington D.C.",
-    "DC Metro",
-  ];
+  const serviceAreas = COMPANY.serviceStates.map((s) => s.name);
 
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Contact Shall's Construction | Get Quote MD VA DC"
-        description="Request a free quote or 24/7 emergency service for commercial construction and maintenance in MD, VA, DC, DE. Call (301) 933-6277 for fast response."
-        canonical="https://shallsconstruction.replit.app/contact"
+        title={`Contact ${COMPANY.shortName}`}
+        description={`Request a free quote or emergency service for commercial construction and maintenance in ${stateNamesList()}. Call ${COMPANY.phone.display}.`}
+        canonical="/contact"
         schemas={schemas}
       />
       <Navigation />
@@ -175,11 +158,11 @@ export default function Contact() {
             <div className="flex items-center justify-center gap-3 mb-2">
               <Clock className="h-6 w-6 text-primary" />
               <h2 className="text-2xl font-heading font-bold text-gray-900">
-                We Respond Within 2 Hours
+                {COMPANY.responsePromise.replace(/^./, (c) => c.toUpperCase())}
               </h2>
             </div>
             <p className="text-gray-700">
-              Your time matters. We guarantee a response to all inquiries within 2 business hours.
+              Call the emergency line anytime, or send a work order or quote request below.
             </p>
           </div>
 
@@ -263,14 +246,14 @@ export default function Contact() {
                           For 24/7 emergency service, call us directly for the fastest response.
                         </p>
                         <a
-                          href="tel:3019336277"
+                          href={telHref()}
                           className="inline-block bg-red-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-600 transition-colors"
                           data-testid="button-emergency-call-direct"
                           onClick={() => trackPhoneClick('contact_page_emergency_alert')}
-                          aria-label="Call Shall's Construction now for emergency service at (301) 933-6277"
+                          aria-label={`Call Shall's Construction now for emergency service at ${COMPANY.phone.display}`}
                         >
                           <Phone className="inline-block h-5 w-5 mr-2" />
-                          Call Now: (301) 933-6277
+                          Call Now: {COMPANY.phone.display}
                         </a>
                         <p className="text-sm text-red-700 mt-3">
                           Or fill out the form below and we'll call you immediately.
@@ -529,7 +512,7 @@ export default function Contact() {
                     </Button>
 
                     <p className="text-sm text-gray-600 italic">
-                      We guarantee 100% privacy. Your information will never be shared.
+                      Your information is only used to respond to your inquiry.
                     </p>
                   </form>
                 </Form>
@@ -547,12 +530,12 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-gray-900">Phone</p>
                       <a
-                        href="tel:3019336277"
+                        href={telHref()}
                         className="text-primary hover:text-primary/80"
                         data-testid="link-contact-phone"
-                        aria-label="Call Shall's Construction at (301) 933-6277"
+                        aria-label={`Call Shall's Construction at ${COMPANY.phone.display}`}
                       >
-                        (301) 933-6277
+                        {COMPANY.phone.display}
                       </a>
                     </div>
                   </div>
@@ -561,7 +544,7 @@ export default function Contact() {
                     <Printer className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-gray-900">Fax</p>
-                      <p className="text-gray-600" data-testid="text-contact-fax">(301) 933-3386</p>
+                      <p className="text-gray-600" data-testid="text-contact-fax">{COMPANY.fax}</p>
                     </div>
                   </div>
 
@@ -570,12 +553,12 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-gray-900">Email</p>
                       <a
-                        href="mailto:shallsconstructionllc@aol.com"
+                        href={mailto()}
                         className="text-primary hover:text-primary/80 break-all"
                         data-testid="link-contact-email"
                         aria-label="Email Shall's Construction"
                       >
-                        shallsconstructionllc@aol.com
+                        {COMPANY.email}
                       </a>
                     </div>
                   </div>
@@ -604,11 +587,11 @@ export default function Contact() {
                   We provide round-the-clock emergency response for urgent construction and maintenance needs.
                 </p>
                 <a
-                  href="tel:3019336277"
+                  href={telHref()}
                   className="inline-block bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors"
                   data-testid="button-emergency-call"
                 >
-                  Call Now: (301) 933-6277
+                  Call Now: {COMPANY.phone.display}
                 </a>
               </div>
             </div>

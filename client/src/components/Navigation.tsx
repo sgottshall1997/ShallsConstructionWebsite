@@ -3,6 +3,7 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import shallsLogo from "@assets/shalls-construction-logo.png";
+import { COMPANY, telHref } from "@shared/company";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -122,13 +123,13 @@ export default function Navigation() {
               );
             })}
             <a
-              href="tel:3019336277"
+              href={telHref()}
               className="flex items-center gap-2 text-primary font-semibold"
               data-testid="link-phone"
-              aria-label="Call Shall's Construction at (301) 933-6277"
+              aria-label={`Call ${COMPANY.shortName} at ${COMPANY.phone.display}`}
             >
               <Phone className="h-4 w-4" />
-              <span>(301) 933-6277</span>
+              <span>{COMPANY.phone.display}</span>
             </a>
           </div>
 
@@ -195,13 +196,13 @@ export default function Navigation() {
               );
             })}
             <a
-              href="tel:3019336277"
+              href={telHref()}
               className="flex items-center gap-2 py-3 text-primary font-semibold"
               data-testid="link-mobile-phone"
-              aria-label="Call Shall's Construction at (301) 933-6277"
+              aria-label={`Call ${COMPANY.shortName} at ${COMPANY.phone.display}`}
             >
               <Phone className="h-5 w-5" />
-              <span>(301) 933-6277</span>
+              <span>{COMPANY.phone.display}</span>
             </a>
           </div>
         </div>
