@@ -76,7 +76,7 @@ export default function Home() {
             Commercial Construction &amp; Property Maintenance for Property Managers in {COMPANY.regionShort}
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-3xl">
-            Property managers across {COMPANY.regionShort} rely on Shall's because we show up, deliver, and finish the job right.{COMPANY.emergencyService && <> {emergencyLine()}</>} {COMPANY.tagline}.
+            Property managers across {COMPANY.regionShort} rely on Shall's because we show up, deliver, and finish the job right — one call does it all.{COMPANY.emergencyService && <> {emergencyLine()}</>}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact">
@@ -161,7 +161,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {COMPANY.testimonials.slice(0, 3).map((t, i) => (
-                <TestimonialCard key={i} quote={t.quote} author={t.author} company={t.company || ""} role={t.role || ""} rating={5} service="" location="" featured />
+                <TestimonialCard key={i} quote={t.quote} author={t.author} company={t.company || ""} role={t.role || ""} {...("rating" in t && typeof (t as any).rating === "number" ? { rating: (t as any).rating } : {})} service="" location="" featured />
               ))}
             </div>
           </div>

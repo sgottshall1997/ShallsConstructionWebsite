@@ -225,7 +225,7 @@ export default function Contact() {
                     >
                       <Mail className={`h-8 w-8 mb-3 ${inquiryType === "general" ? "text-primary" : "text-gray-400"}`} />
                       <h3 className="font-heading font-bold text-lg mb-2">General Inquiry</h3>
-                      <p className="text-sm text-gray-600">Questions or information</p>
+                      <p className="text-sm text-gray-600">Ask a question</p>
                     </button>
                   </div>
                 </div>
@@ -317,7 +317,7 @@ export default function Contact() {
                               <Input
                                 {...field}
                                 type="tel"
-                                placeholder="(301) 000-0000"
+                                placeholder="Your phone number"
                                 data-testid="input-phone"
                               />
                             </FormControl>
@@ -420,7 +420,7 @@ export default function Contact() {
                               >
                                 <FormControl>
                                   <SelectTrigger>
-                                    <SelectValue placeholder="When do you need this completed?" />
+                                    <SelectValue placeholder="Preferred start date" />
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent>

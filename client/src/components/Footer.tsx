@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="mb-6">
               <img src={shallsLogo} alt={`${COMPANY.name} logo`} className="h-12" loading="lazy" width="180" height="48" data-testid="img-footer-logo" />
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">We make your life easier while enhancing your tenants' experience.</p>
+            <p className="text-gray-400 text-sm leading-relaxed">{COMPANY.tagline}</p>
             <p className="text-gray-400 text-sm mt-4" data-testid="text-footer-years">{COMPANY.yearsInBusiness}+ years serving property managers</p>
           </div>
 

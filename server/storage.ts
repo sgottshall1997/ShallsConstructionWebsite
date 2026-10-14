@@ -101,7 +101,7 @@ export class MemStorage implements IStorage {
         seoDescription: `Comprehensive commercial construction and remodeling across ${COMPANY.regionShort}. From tenant build-outs to full office renovations, Shall's Construction delivers precision and reliability.`
       },
       "handyman-services": {
-        title: "Commercial Handyman Services",
+        title: SERVICE_NAMES["handyman-services"],
         category: "Maintenance",
         imageUrl: "/og-image.png",
         icon: "Wrench",
@@ -131,7 +131,7 @@ export class MemStorage implements IStorage {
         seoDescription: `Professional parking lot paving, sealcoating, and striping services across ${COMPANY.regionShort}. Expert asphalt repair and maintenance for commercial properties.`
       },
       "painting-services": {
-        title: "Commercial Painting Services",
+        title: SERVICE_NAMES["painting-services"],
         category: "Specialty",
         imageUrl: "/og-image.png",
         icon: "Paintbrush",
@@ -141,7 +141,7 @@ export class MemStorage implements IStorage {
         seoDescription: `Professional commercial painting services in ${COMPANY.regionShort}. Expert interior and exterior painting with precision application and quality materials.`
       },
       "snow-removal": {
-        title: "Snow Removal & Ice Management",
+        title: SERVICE_NAMES["snow-removal"],
         category: "Seasonal",
         imageUrl: "/og-image.png",
         icon: "Snowflake",

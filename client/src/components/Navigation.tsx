@@ -13,8 +13,8 @@ export default function Navigation() {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
 
   const aboutDropdown = [
-    { href: "/about", label: "About Us" },
-    ...(hasSafety() ? [{ href: "/safety", label: "Safety & Certifications" }] : []),
+    { href: "/about", label: "About" },
+    ...(hasSafety() ? [{ href: "/safety", label: "Safety" }] : []),
   ];
   const navLinks = [
     { href: "/", label: "Home" },
@@ -25,7 +25,7 @@ export default function Navigation() {
     },
     { href: "/who-we-serve", label: "Who We Serve" },
     ...(hasProjects() ? [{ href: "/projects", label: "Projects" }] : []),
-    { href: "/contact", label: "Contact Us" },
+    { href: "/contact", label: "Contact" },
   ];
 
   const isActive = (href: string) => location === href;

@@ -5,7 +5,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ServiceCTA from "@/components/ServiceCTA";
-import { COMPANY, yearsText } from "@shared/company";
+import { COMPANY, yearsText, hasProjects } from "@shared/company";
+import { SERVICE_NAMES } from "@shared/routes";
 import RelatedLinks from "@/components/RelatedLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
@@ -146,7 +147,7 @@ export default function ServiceDetail() {
         <div className="absolute inset-0 bg-gray-900/70"></div>
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight" data-testid="text-service-title">
-            {service.title}
+            {SERVICE_NAMES[service.slug as keyof typeof SERVICE_NAMES] ?? service.title}
           </h1>
         </div>
       </section>
@@ -198,13 +199,13 @@ export default function ServiceDetail() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-heading font-bold text-gray-900 mb-8" data-testid="text-services-include-heading">
-            {service.title} Services Include:
+            What's Included
           </h2>
           <ul className="space-y-6" data-testid="list-services-include">
             {servicesInclude?.map((item, idx) => (
               <li key={idx} className="flex items-start gap-4" data-testid={`service-include-${idx}`}>
                 <span className="text-primary font-bold text-2xl flex-shrink-0 mt-1" aria-hidden="true">•</span>
-                <h3 className="text-xl font-semibold text-gray-800">{item}</h3>
+                <span className="text-xl font-semibold text-gray-800">{item}</span>
               </li>
             ))}
           </ul>
@@ -241,7 +242,7 @@ export default function ServiceDetail() {
             links={[
               { label: "View All Services", href: "/#services" },
               { label: "Who We Serve", href: "/who-we-serve" },
-              { label: "Our Projects", href: "/projects" },
+              ...(hasProjects() ? [{ label: "Our Projects", href: "/projects" }] : []),
               { label: "Contact Us", href: "/contact" },
             ]}
           />

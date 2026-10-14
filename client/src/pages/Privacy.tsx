@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { COMPANY, currentYear, mailto } from "@shared/company";
+import { COMPANY, mailto } from "@shared/company";
 
 export default function Privacy() {
   return (
@@ -16,9 +16,9 @@ export default function Privacy() {
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <h1 className="text-4xl font-heading font-bold text-gray-900 mb-8" data-testid="text-page-title">Privacy Policy</h1>
         <div className="prose prose-lg text-gray-600 space-y-6">
-          <p>Last updated: {currentYear()}.</p>
+          <p>Last updated: October 2026.</p>
           <p>
-            {COMPANY.legalName} ("we", "us") operates {COMPANY.url}. This page describes how we handle information submitted through our website contact form.
+            {COMPANY.legalName} (“we”, “us”) operates <a href={COMPANY.url} className="text-primary hover:underline">{COMPANY.url}</a>. This page describes how we handle information submitted through our website contact form.
           </p>
           <h2 className="text-2xl font-heading font-semibold text-gray-900">Information we collect</h2>
           <p>

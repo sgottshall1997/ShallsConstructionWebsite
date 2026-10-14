@@ -16,9 +16,7 @@
       "Conference room and meeting space buildouts",
       "HVAC coordination and mechanical system integration"
     ],
-    "relatedServices": [],
-    "seoTitle": "Commercial Construction & Remodeling | {{region}} | Shall's Construction",
-    "seoDescription": "Commercial construction, tenant build-outs, and office remodeling services for {{region}}. Reliable, on-time crews."
+    "relatedServices": []
   },
   "handyman-services": {
     "slug": "handyman-services",
@@ -38,9 +36,7 @@
       "Signage installation and mounting",
       "Routine maintenance and preventive repairs"
     ],
-    "relatedServices": [],
-    "seoTitle": "Commercial Handyman Services | {{region}} | Shall's Construction",
-    "seoDescription": "Fast, self-performed commercial handyman repairs and maintenance for property managers across {{region}}."
+    "relatedServices": []
   },
   "exterior-building-services": {
     "slug": "exterior-building-services",
@@ -62,9 +58,7 @@
       "Water repellents/sealers",
       "Window/glass restoration"
     ],
-    "relatedServices": [],
-    "seoTitle": "Waterproofing & Exterior Building Services | {{region}} | Shall's Construction",
-    "seoDescription": "Waterproofing, masonry, and facade restoration for commercial properties in {{region}}. Protect your building with Shall's Construction expertise."
+    "relatedServices": []
   },
   "parking-lot-services": {
     "slug": "parking-lot-services",
@@ -98,9 +92,7 @@
     "relatedServices": [
       "exterior-building-services",
       "snow-removal"
-    ],
-    "seoTitle": "Parking Lot Services | Asphalt, Concrete, Sealcoating | {{region}}",
-    "seoDescription": "Asphalt, concrete, sealcoating, and ADA compliance services for commercial properties in {{region}}."
+    ]
   },
   "painting-services": {
     "slug": "painting-services",
@@ -123,9 +115,7 @@
     "relatedServices": [
       "construction-remodeling",
       "exterior-building-services"
-    ],
-    "seoTitle": "Commercial Painting Services | Interior & Exterior | {{region}} | Shall's Construction",
-    "seoDescription": "Interior and exterior commercial painting, epoxy coatings, and wall finishes for properties in {{region}}. Trusted by property managers for {{years}}."
+    ]
   },
   "snow-removal": {
     "slug": "snow-removal",
@@ -145,8 +135,6 @@
     ],
     "relatedServices": [
       "parking-lot-services"
-    ],
-    "seoTitle": "Commercial Snow Removal & Ice Management | {{region}}",
-    "seoDescription": "Snow and ice management for commercial properties in {{region}}. Pre-storm planning, de-icing."
+    ]
   }
 }
