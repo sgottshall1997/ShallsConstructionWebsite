@@ -274,6 +274,11 @@ export default function Contact() {
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <input type="hidden" {...form.register("inquiryType")} value={inquiryType} />
+                    {/* Honeypot: hidden from people, bots fill it. Server drops filled submissions. */}
+                    <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", top: "auto", width: 1, height: 1, overflow: "hidden" }}>
+                      <label htmlFor="website">Website</label>
+                      <input id="website" type="text" tabIndex={-1} autoComplete="off" {...form.register("website")} />
+                    </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <FormField

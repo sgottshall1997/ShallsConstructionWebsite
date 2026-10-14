@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+import { sendContactNotification } from "./email";
 import path from "path";
 import fs from "fs";
 
@@ -209,14 +210,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
     try {
       const result = insertContactSubmissionSchema.safeParse(req.body);
-      
+
       if (!result.success) {
         const validationError = fromZodError(result.error);
         return res.status(400).json({ error: validationError.message });
       }
 
+      // Honeypot: accept and return 200 without storing or emailing
+      if (result.data.website && result.data.website.trim().length > 0) {
+        return res.status(200).json({ ok: true });
+      }
+
       const submission = await storage.createContactSubmission(result.data);
-      res.status(201).json(submission);
+      try {
+        await sendContactNotification(result.data);
+      } catch (mailErr) {
+        console.error("Contact email failed (submission still stored):", mailErr);
+        // Still return success to the user — lead is in memory; don't leak mail config
+      }
+      res.status(201).json({ ok: true, id: submission.id });
     } catch (error) {
       console.error("Error creating contact submission:", error);
       res.status(500).json({ error: "Failed to submit contact form" });
